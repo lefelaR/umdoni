@@ -1,0 +1,25 @@
+{
+  "name": "bootstrap",
+  "version": "4.3.0",
+  "description": "best known version",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lefelaR/portfoliio.git"
+  },
+  "author": "lefela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lefelaR/portfoliio/issues"
+  },
+  "homepage": "https://github.com/lefelaR/portfoliio#readme",
+  "dependencies": {
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
