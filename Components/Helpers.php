@@ -19,7 +19,7 @@
     function redirect($url)
     {
         if (isset($url)) {
-            ob_clean();
+            ob_get_clean();
             Header('Location: ' . buildurl($url));
             die();
         }

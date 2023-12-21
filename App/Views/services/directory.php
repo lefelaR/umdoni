@@ -66,75 +66,52 @@
         </p> 
         </div>
 
-        <div class="col">
+        <div class="col-md-4 my-2">
             <div class="card">
                 <div class="card-body">
-                    <p class="h5"> Political Leadership</p>
+                    <p class="h5"> Office of the Municipal Manager</p>
                     <p class="fw-normal">Umdoni Political Leadership – Service Delivery is our Key Mandate</p>
                 </div>
             </div>
         </div>
-        <div class="col">
+        <div class="col-md-4 my-2">
             <div class="card">
                 <div class="card-body">
-                    <p class="h5">  Administrative Leadership</p>
-                    <p class="fw-normal">uMdoni Local Municipality has five departments, each headed by a General Manager reporting directly to the Municipal Manager.</p>
+                    <p class="h5">FINANCE SERVICES</p>
+                    <p class="fw-normal">Umdoni Political Leadership – Service Delivery is our Key Mandate</p>
                 </div>
             </div>
         </div>
-       
+        <div class="col-md-4 my-2">
+            <div class="card">
+                <div class="card-body">
+                    <p class="h5">Corporate Services Department</p>
+                    <p class="fw-normal">Umdoni Political Leadership – Service Delivery is our Key Mandate</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-2">
+            <div class="card">
+                <div class="card-body">
+                    <p class="h5">Technical Services Department</p>
+                    <p class="fw-normal">Umdoni Political Leadership – Service Delivery is our Key Mandate</p>
+                </div>
+            </div>
+        </div> <div class="col-md-4 my-2">
+            <div class="card">
+                <div class="card-body">
+                    <p class="h5">Community Services Department</p>
+                    <p class="fw-normal">Umdoni Political Leadership – Service Delivery is our Key Mandate</p>
+                </div>
+            </div>
+        </div> <div class="col-md-4 my-2">
+            <div class="card">
+                <div class="card-body">
+                    <p class="h5">Planning and Development</p>
+                    <p class="fw-normal">Umdoni Political Leadership – Service Delivery is our Key Mandate</p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<!-- <div class="container-fluid bg-offwhite my-5 pb-5">
-    <div class="row">
-        <div class="col-md-2">
-        <div class="card">
-                <div class="card-body">
-                    <p class="h5">  Administrative Leadership</p>
-                    <p class="fw-normal">uMdoni Local Municipality has five departments, each headed by a General Manager reporting directly to the Municipal Manager.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-        <div class="card">
-                <div class="card-body">
-                    <p class="h5">  Administrative Leadership</p>
-                    <p class="fw-normal">uMdoni Local Municipality has five departments, each headed by a General Manager reporting directly to the Municipal Manager.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-        <div class="card">
-                <div class="card-body">
-                    <p class="h5">  Administrative Leadership</p>
-                    <p class="fw-normal">uMdoni Local Municipality has five departments, each headed by a General Manager reporting directly to the Municipal Manager.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-        <div class="card">
-                <div class="card-body">
-                    <p class="h5">  Administrative Leadership</p>
-                    <p class="fw-normal">uMdoni Local Municipality has five departments, each headed by a General Manager reporting directly to the Municipal Manager.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-        <div class="card">
-                <div class="card-body">
-                    <p class="h5">  Administrative Leadership</p>
-                    <p class="fw-normal">uMdoni Local Municipality has five departments, each headed by a General Manager reporting directly to the Municipal Manager.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-        <div class="card">
-                <div class="card-body">
-                    <p class="h5">  Administrative Leadership</p>
-                    <p class="fw-normal">uMdoni Local Municipality has five departments, each headed by a General Manager reporting directly to the Municipal Manager.</p>
-                </div>
-            </div>
-        </div>
-       
-    </div>
-</div> -->
+

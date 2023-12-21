@@ -63,7 +63,7 @@ $data = $context->data;
     <div class="row">
 
         <div class="col-md-12 col-lg-12">
-            <p class="h1 text-uppercase fw-bold">
+            <p class="h1 text-uppercase fw-bold text-secondary">
                 Umdoni leadership undergoes COVID-19 testing and screening
             </p>
             <p class="fw-lighter fs-3 my-5">
@@ -76,14 +76,9 @@ $data = $context->data;
 
             <ul class="">
                 <li class="list-group-item">
-                    <p class="fw-normal">#Fightingcovid19 </p>
+                    <a href="https://www.nicd.ac.za/wp-content/uploads/2020/04/COVID-28-April-2020-3.jpg" class="fw-normal">COVID 19 NUMBERS IN SOUTH AFRICA </a>
                 </li>
-                <li class="list-group-item">
-                    <p class="fw-normal">#Workingtogether</p>
-                </li>
-                <li class="list-group-item">
-                    <p class="fw-normal">#Workingtogether</p>
-                </li>
+              
             </ul>
         </div>
         <div class="col-md-4 col-sm-12 col-lg-4 ">

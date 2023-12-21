@@ -202,41 +202,35 @@ $data = $context->data;
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="col-3">
 
+                                        <?php
 
-                                                $profile = $_SESSION;
+                                        if (isset($data['events']) && count($data['events']) > 0) {
+                                            $events = $data['events'];
 
+                                            foreach ($events as $key => $event) {
 
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar avatar-md">
-                                                        <img src="assets/images/faces/5.jpg">
+                                                echo '
+                                                <tr>
+                                                <td class="col-3">
+                                                   
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar avatar-md">
+                                                            <img src="'.$event['location'].'">
+                                                        </div>
+                                                        <p class="font-bold ms-3 mb-0">'.$event['title'].'</p>
                                                     </div>
-                                                    <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                                                </div>
+                                                </td>
+                                                <td class="col-auto">
+                                                    <p class=" mb-0">'.$data['subtitle'].'</p>
+                                                </td>
+                                                </tr>
+                                                ';
+                                            }
+                                        }
 
+                                        ?>
 
-
-                                            </td>
-                                            <td class="col-auto">
-                                                <p class=" mb-0">Congratulations on your graduation!</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar avatar-md">
-                                                        <img src="assets/images/faces/2.jpg">
-                                                    </div>
-                                                    <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                                                </div>
-                                            </td>
-                                            <td class="col-auto">
-                                                <p class=" mb-0">Wow amazing design! Can you make another tutorial for
-                                                    this design?</p>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

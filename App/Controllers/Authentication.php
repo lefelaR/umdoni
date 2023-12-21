@@ -65,9 +65,9 @@ class Authentication extends \Core\Controller
     
     if (isset($_POST)) $data = $_POST;
     $isLoggedin = $context->isLoggedIn;
-    $clientId = $_ENV('AWS_COGNITO_CLIENT_ID');
-    $userPoolId = $_ENV('AWS_COGNITO_USER_POOL_ID');
-    $region = $_ENV('AWS_REGION');
+    $clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
+    $userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
+    $region = $_ENV['AWS_REGION'];
 
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
@@ -161,17 +161,17 @@ class Authentication extends \Core\Controller
     if (isset($_POST)) $data = $_POST;
     $isLoggedin = $context->isLoggedIn;
 
-    $clientId = '68jf7vhidstpf7fj9h0ic3fo19';
-    $userPoolId = 'eu-central-1_Y7oAKlw6X';
-    $region = 'eu-central-1';
-    $clientSecret = '/yXhJ3sHfpl0Ykp/ZCv59VdHAXxiXoc2gAAP3XZa';
+    $clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
+    $userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
+    $region = $_ENV['AWS_REGION'];
+   
 
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => 'AKIA3FVMIL3UXGIEI3WH',
-        'secret' => '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',
+        'key'    => $_ENV['AWS_ACCESS_KEY_ID'],
+        'secret' => $_ENV['AWS_SECRET_ACCESS_KEY'],
     ],
     ]);
 

@@ -66,7 +66,7 @@ switch ($data['category']) {
                 '.$data['subtitle'].'
             </p> 
             <span class="py-3 mb-3">
-                <iframe src="'.$data['location'].'" width="100%" height="100%" style="border: none;"></iframe>
+            <img src="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" />
             </span>
             <p class="my-5 fs-4 lh-lg  ">
                 '.$data['body'].'
