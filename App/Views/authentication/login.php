@@ -26,7 +26,7 @@ if (isset($context->errors['message'])) {
     <div class="row h-100" id="auth-right">
         <div class="col-lg-12 col-md-16 col-sm-12 col">
             <div class="row align-items-center justify-content-center ">
-            <?php include ('Includes/parts/alerts.php') ?>
+        
                 <div class="col-lg-4 col-md-6 col-sm-12 ">
                     <div class="card shadow p-5 sm-5 my-5 bg-white rounded ">
 
@@ -40,6 +40,7 @@ if (isset($context->errors['message'])) {
                         <p class="auth-subtitle mb-5 mx-auto">If you already have an account, login.</p>
 
                        
+                        <?php include ('Includes/parts/alerts.php') ?>
 
                         <form id="login-form" action="authenticate" method="POST">
                             <div class="form-group position-relative has-icon-left mb-4">

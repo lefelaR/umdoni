@@ -38,6 +38,8 @@ if (isset($context->errors['message'])) {
                         <p class="auth-title h2 mx-auto">Verify Email</p>
                         <p class="auth-subtitle mb-5 mx-auto">The verification code will be provided to you via email.</p>
 
+                        <?php include ('Includes/parts/alerts.php') ?>
+
                         <form id="login-form" action="verify" method="POST">
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text" class="form-control form-control-xl" name="username" placeholder="Email">
