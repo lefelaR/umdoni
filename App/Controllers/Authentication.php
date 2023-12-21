@@ -34,6 +34,7 @@ class Authentication extends \Core\Controller
   public function loginAction()
   {
     global $context;
+      
     if (isset($context->isLoggedIn) &&  $context->isLoggedIn == true) {
       redirect('dashboard/index/index');
     }
@@ -61,12 +62,12 @@ class Authentication extends \Core\Controller
   public function request()
   {
     global $context;
+    
     if (isset($_POST)) $data = $_POST;
     $isLoggedin = $context->isLoggedIn;
-
-    $clientId = '68jf7vhidstpf7fj9h0ic3fo19';
-    $userPoolId = 'eu-central-1_Y7oAKlw6X';
-    $region = 'eu-central-1';
+    $clientId = $_ENV('AWS_COGNITO_CLIENT_ID');
+    $userPoolId = $_ENV('AWS_COGNITO_USER_POOL_ID');
+    $region = $_ENV('AWS_REGION');
 
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',

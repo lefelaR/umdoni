@@ -40,7 +40,7 @@ class Request extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM umdoni.services 
+            $stmt = $db->query("SELECT * FROM services 
                                 WHERE id = '$id'");                                  
             $results = $stmt->fetch(PDO::FETCH_ASSOC);
             return $results;
@@ -53,7 +53,7 @@ class Request extends \Core\Model
     public static function update($data)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE umdoni.services SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
+        $sql = "UPDATE services SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
                WHERE `id`= $data[id]"; 
         $stmt = $db->exec($sql);
 
@@ -68,7 +68,7 @@ class Request extends \Core\Model
     {
         global $context;
         $db = static::getDB(); 
-        $sql = "INSERT into umdoni.requests (name, email, telephone, servicetype, comments, createdAt, status)
+        $sql = "INSERT into requests (name, email, telephone, servicetype, comments, createdAt, status)
                 VALUES ('$data[name]','$data[email]','$data[telephone]', '$data[service]', '$data[comments]', '$data[createdAt]', '$data[status]')"; 
         $stmt = $db->exec($sql);
         
@@ -79,7 +79,7 @@ class Request extends \Core\Model
     public static function Delete($id)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE  umdoni.requests SET `status` = 0 WHERE `id` = $id"; 
+        $sql = "UPDATE  requests SET `status` = 0 WHERE `id` = $id"; 
         $stmt = $db->exec($sql);
        return $stmt;
     }
@@ -87,7 +87,7 @@ class Request extends \Core\Model
     public static function Restore($id)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE  umdoni.services SET `isActive` = 1 WHERE `id` = $id"; 
+        $sql = "UPDATE  services SET `isActive` = 1 WHERE `id` = $id"; 
         $stmt = $db->exec($sql);
        return $stmt;
     }

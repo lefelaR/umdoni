@@ -51,7 +51,7 @@ class Notice extends \Core\Model
     {
         $db = static::getDB();
 
-        $sql = "UPDATE umdoni.notices SET 
+        $sql = "UPDATE notices SET 
         `title` =  :title, 
         `subtitle` = :subtitle, 
         `body`= :body, 
@@ -79,7 +79,7 @@ class Notice extends \Core\Model
         $db = static::getDB();
         if (!isset($data['id'])) $data['id'] = 0;
 
-        $sql = "INSERT into umdoni.notices (title, subtitle, body, isActive, img_file, location, createdAt)
+        $sql = "INSERT into notices (title, subtitle, body, isActive, img_file, location, createdAt)
                 VALUES ('$data[title]','$data[subtitle]','$data[body]','1', '$data[img_file]', '$data[location]', '$data[createdAt]' )";
         $stmt = $db->exec($sql);
 
@@ -90,7 +90,7 @@ class Notice extends \Core\Model
     public static function Delete($id)
     {
         $db = static::getDB();
-        $sql = "UPDATE  umdoni.notices SET `isActive` = 0 WHERE `id` = $id";
+        $sql = "UPDATE  notices SET `isActive` = 0 WHERE `id` = $id";
         $stmt = $db->exec($sql);
         return $stmt;
     }
@@ -98,7 +98,7 @@ class Notice extends \Core\Model
     public static function Restore($id)
     {
         $db = static::getDB();
-        $sql = "UPDATE  umdoni.notices SET `isActive` = 1 WHERE `id` = $id";
+        $sql = "UPDATE  notices SET `isActive` = 1 WHERE `id` = $id";
         $stmt = $db->exec($sql);
         return $stmt;
     }

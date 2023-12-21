@@ -44,7 +44,7 @@ class Emails extends \Core\Model
  
          $db = static::getDB(); 
          
-         $sql = "INSERT into umdoni.emails ( name, email, subject, message, createdAt)
+         $sql = "INSERT into emails ( name, email, subject, message, createdAt)
                  VALUES ('$data[name]','$data[email]','$data[subject]', '$data[message]' , '$data[createdAt]')"; 
          $stmt = $db->exec($sql);
          
@@ -55,7 +55,7 @@ class Emails extends \Core\Model
     public static function Delete($id)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE  umdoni.requests SET `isActive` = 0 WHERE `id` = $id"; 
+        $sql = "UPDATE  requests SET `isActive` = 0 WHERE `id` = $id"; 
         $stmt = $db->exec($sql);
        return $stmt;
     }
@@ -63,7 +63,7 @@ class Emails extends \Core\Model
     public static function Restore($id)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE  umdoni.services SET `isActive` = 1 WHERE `id` = $id"; 
+        $sql = "UPDATE  services SET `isActive` = 1 WHERE `id` = $id"; 
         $stmt = $db->exec($sql);
        return $stmt;
     }

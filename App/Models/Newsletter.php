@@ -36,7 +36,7 @@ class Newsletter extends \Core\Model
     {  
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM umdoni.newsletters 
+            $stmt = $db->query("SELECT * FROM newsletters 
                                 WHERE newsletters.id = $id;
                                 ORDER BY newsletters.createdAt DESC");                                  
             $results = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -49,7 +49,7 @@ class Newsletter extends \Core\Model
     public static function UpdateNewsletter($data)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE umdoni.profile SET `first_name` =  '$data[first_name]', `last_name` = '$data[last_name]', `mobile_number`= '$data[mobile_number]', `address_1`= '$data[address_1]',
+        $sql = "UPDATE profile SET `first_name` =  '$data[first_name]', `last_name` = '$data[last_name]', `mobile_number`= '$data[mobile_number]', `address_1`= '$data[address_1]',
          `address_2`= '$data[address_2]', `province_id`= '$data[province]' , `postal_code`= '$data[postal_code]', `region_id`= '$data[city]'  WHERE `user_id`= $data[user_id]"; 
         $user_id = $db->exec($sql);
         if(isset($user_id) && (is_numeric($user_id)))
@@ -65,7 +65,7 @@ class Newsletter extends \Core\Model
         global $context;
         $db = static::getDB(); 
         
-        $sql = "INSERT into umdoni.newsletters (`title`, `subtitle`,`publisher`,`img_file`,`location`,`createdAt`, `isActive`)
+        $sql = "INSERT into newsletters (`title`, `subtitle`,`publisher`,`img_file`,`location`,`createdAt`, `isActive`)
                 VALUES ('$data[title]' ,'$data[subtitle]', '$data[publisher]', '$data[img_file]','$data[location]','$data[createdAt]', '$data[isActive]')"; 
         $stmt = $db->exec($sql);
 
@@ -76,7 +76,7 @@ class Newsletter extends \Core\Model
     {
         $db = static::getDB(); 
 
-        $sql = "DELETE FROM umdoni.newsletters WHERE `id` = $id"; 
+        $sql = "DELETE FROM newsletters WHERE `id` = $id"; 
         $db->exec($sql);
         
        return $db;

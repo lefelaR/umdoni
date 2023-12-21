@@ -21,7 +21,7 @@ class Councillor extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM umdoni.councillors WHERE `isActive` = 1');
+            $stmt = $db->query('SELECT * FROM councillors WHERE `isActive` = 1');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
@@ -33,7 +33,7 @@ class Councillor extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM umdoni.seniors WHERE `isActive` = 1');
+            $stmt = $db->query('SELECT * FROM seniors WHERE `isActive` = 1');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
@@ -45,7 +45,7 @@ class Councillor extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM umdoni.councillors WHERE id = $id");
+            $stmt = $db->query("SELECT * FROM councillors WHERE id = $id");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
@@ -58,7 +58,7 @@ class Councillor extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM umdoni.seniors WHERE id = $id");
+            $stmt = $db->query("SELECT * FROM seniors WHERE id = $id");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
@@ -73,7 +73,7 @@ class Councillor extends \Core\Model
         $db = static::getDB();
         if (!isset($data['id'])) $data['id'] = 0;
 
-        $sql = "INSERT into umdoni.councillors ( `name`,`middlename`,`surname`, `email`, `telephone`, `title`,`category`, `ward`, `img_file`, `location`,`isActive`)
+        $sql = "INSERT into councillors ( `name`,`middlename`,`surname`, `email`, `telephone`, `title`,`category`, `ward`, `img_file`, `location`,`isActive`)
                 VALUES ('$data[name]','$data[middlename]','$data[surname]','$data[email]','$data[telephone]','$data[title]','$data[category]','$data[ward]','$data[img_file]','$data[location]','$data[isActive]')";
         $stmt = $db->exec($sql);
 
@@ -87,7 +87,7 @@ class Councillor extends \Core\Model
         $db = static::getDB();
         if (!isset($data['id'])) $data['id'] = 0;
 
-        $sql = "INSERT into umdoni.seniors (`initials`, `name`, `middlename`, `surname`, `email`, `telephone`, `title`, `category`, `ward`, `img_file`, `location`, `isActive`)
+        $sql = "INSERT into seniors (`initials`, `name`, `middlename`, `surname`, `email`, `telephone`, `title`, `category`, `ward`, `img_file`, `location`, `isActive`)
         VALUES (:initials, :name, :middlename, :surname, :email, :telephone, :title, :category, :ward, :img_file, :location, :isActive)";
 
         $stmt = $db->prepare($sql);
@@ -119,7 +119,7 @@ class Councillor extends \Core\Model
     {
         $db = static::getDB();
 
-        $sql = "UPDATE umdoni.councillors SET 
+        $sql = "UPDATE councillors SET 
         `name` = :name, 
         `surname` = :surname,
         `middlename` = :middlename,
@@ -162,7 +162,7 @@ class Councillor extends \Core\Model
     {
         $db = static::getDB();
 
-        $sql = "UPDATE umdoni.seniors SET 
+        $sql = "UPDATE seniors SET 
         `initials` = :initials,
         `name` = :name, 
         `surname` = :surname,
@@ -208,7 +208,7 @@ class Councillor extends \Core\Model
     public static function Delete($id)
     {
         $db = static::getDB();
-        $sql = "UPDATE  umdoni.councillors SET `isActive` = 0 WHERE `id` = $id";
+        $sql = "UPDATE  councillors SET `isActive` = 0 WHERE `id` = $id";
         $stmt = $db->exec($sql);
         return $stmt;
     }
@@ -216,7 +216,7 @@ class Councillor extends \Core\Model
     public static function DeleteMan($id)
     {
         $db = static::getDB();
-        $sql = "UPDATE   umdoni.seniors SET `isActive` = 0 WHERE `id` = $id";
+        $sql = "UPDATE   seniors SET `isActive` = 0 WHERE `id` = $id";
         $stmt = $db->exec($sql);
         return $stmt;
     }
@@ -226,7 +226,7 @@ class Councillor extends \Core\Model
 
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM loki.education");
+            $stmt = $db->query("SELECT * FROM education");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {

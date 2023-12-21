@@ -9,7 +9,9 @@
  * Composer
  */
 
- use Components\Context;
+use Components\Context;
+use Dotenv\Dotenv;
+
 require '../vendor/autoload.php';
 require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../vendor/phpmailer/phpmailer/src/Exception.php';
@@ -36,13 +38,17 @@ set_exception_handler('Core\Error::exceptionHandler');
 /**
  * get helper function
  */
-
+try {
+    $dotenv = Dotenv::createImmutable('../');
+    $dotenv->load();
+} catch (\Throwable $th) {
+    throw $th;
+}
 
 /**
  * Routing
  */
 $router = new Core\Router();
-
 // Add the routes
 $router->add('', ['controller' => 'Index', 'action' => 'index']);
 $router->add('{controller}/{action}');
@@ -52,15 +58,11 @@ $router->add('dashboard/{controller}/{action}', ['namespace' => 'Dashboard']);
 $router->add('dashboard/{controller}/{action}/{id:\d+}', ['namespace' => 'Dashboard']);
 
 $url = $_SERVER['QUERY_STRING'];
-
 global $context;
-
-if(!isset($context) && empty($context))
-{    // call the class
-    $context = new Context('','','','');
+if (!isset($context) && empty($context)) {    // call the class
+    $context = new Context('', '', '', '');
 }
 
 
+
 $router->dispatch($url);
-
-

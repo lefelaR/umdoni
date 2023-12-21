@@ -37,7 +37,7 @@ class Log extends \Core\Model
         
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM umdoni.logs 
+            $stmt = $db->query("SELECT * FROM logs 
                                 WHERE logs.id = $id;
                                 ORDER BY newsletters.createdAt DESC");                                  
             $results = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -54,7 +54,7 @@ class Log extends \Core\Model
         global $context;
         $db = static::getDB(); 
         
-        $sql = "INSERT into umdoni.newsletters (`title`, `subtitle`,`publisher`,`img_file`,`location`,`createdAt`, `isActive`)
+        $sql = "INSERT into newsletters (`title`, `subtitle`,`publisher`,`img_file`,`location`,`createdAt`, `isActive`)
                 VALUES ('$data[title]' ,'$data[subtitle]', '$data[publisher]', '$data[img_file]','$data[location]','$data[createdAt]', `$data[isActive]`)"; 
         $stmt = $db->exec($sql);
 
@@ -65,7 +65,7 @@ class Log extends \Core\Model
     {
         $db = static::getDB(); 
 
-        $sql = "DELETE FROM umdoni.newsletters WHERE `id` = $id"; 
+        $sql = "DELETE FROM newsletters WHERE `id` = $id"; 
         $db->exec($sql);
         
        return $db;

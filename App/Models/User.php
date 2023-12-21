@@ -24,9 +24,7 @@ class User extends \Core\Model
             $db = static::getDB();
             $stmt = $db->query('SELECT * FROM users ORDER BY createdAt');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            
             return $results;
-            
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -53,13 +51,13 @@ class User extends \Core\Model
     {
         $db = static::getDB(); 
         
-        $sql = "UPDATE loki.profile SET `first_name` =  '$data[first_name]', `last_name` = '$data[last_name]', `mobile_number`= '$data[mobile_number]', `address_1`= '$data[address_1]',
+        $sql = "UPDATE profile SET `first_name` =  '$data[first_name]', `last_name` = '$data[last_name]', `mobile_number`= '$data[mobile_number]', `address_1`= '$data[address_1]',
          `address_2`= '$data[address_2]', `province_id`= '$data[province]' , `postal_code`= '$data[postal_code]', `region_id`= '$data[city]'  WHERE `user_id`= $data[user_id]"; 
         $user_id = $db->exec($sql);
 
         if(isset($user_id) && (is_numeric($user_id)))
         {
-            $sql = "UPDATE loki.users SET `email` = '$data[email]'  WHERE `user_id`= $data[user_id]"; 
+            $sql = "UPDATE users SET `email` = '$data[email]'  WHERE `user_id`= $data[user_id]"; 
              $stmt = $db->exec($sql);
         }
 
@@ -69,7 +67,7 @@ class User extends \Core\Model
     public static function VerifyeUser($data)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE umdoni.users SET `verified` = 1 WHERE `email` = '$data[username]'"; 
+        $sql = "UPDATE users SET `verified` = 1 WHERE `email` = '$data[username]'"; 
        $user_id = $db->exec($sql);
 
        return $user_id;
@@ -81,7 +79,7 @@ class User extends \Core\Model
         global $context;
         $db = static::getDB(); 
         
-        $sql = "INSERT into umdoni.users ( username,surname,email,password,status, createdAt)
+        $sql = "INSERT into users ( username,surname,email,password,status, createdAt)
                 VALUES ( '$data[username]','$data[surname]' ,'$data[email]','$data[password]', '$data[status]','$data[createdAt]')"; 
         $user_id  =   $db->exec($sql);
         
@@ -90,7 +88,7 @@ class User extends \Core\Model
         if(isset($user_id) && (is_numeric($user_id)))
         {
             
-            $sql = "INSERT into umdoni.profile  ( user_id ,first_name , last_name)
+            $sql = "INSERT into profile  ( user_id ,first_name , last_name)
                     VALUES ( $user_id,'$data[username]', '$data[surname]')"; 
        
              $stmt = $db->exec($sql);

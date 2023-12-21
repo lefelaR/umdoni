@@ -21,7 +21,7 @@ class Document extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM umdoni.documents WHERE `isActive` = 1');
+            $stmt = $db->query('SELECT * FROM documents WHERE `isActive` = 1');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
@@ -35,7 +35,7 @@ class Document extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM umdoni.documents WHERE id = '$id' AND category = '$category'");
+            $stmt = $db->query("SELECT * FROM documents WHERE id = '$id' AND category = '$category'");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
@@ -51,7 +51,7 @@ class Document extends \Core\Model
         if (!isset($data['id'])) $data['id'] = 0;
 
 
-        $sql = "INSERT into umdoni.documents ( `title`,`subtitle`, `body`, `category`, `img_file`, `location`,`isActive`, `createdAt`, `updatedBy`)
+        $sql = "INSERT into documents ( `title`,`subtitle`, `body`, `category`, `img_file`, `location`,`isActive`, `createdAt`, `updatedBy`)
         VALUES ( :title, :subtitle, :body, :category,:img_file, :location, :isActive, :createdAt, :updatedBy)";
 
         $stmt = $db->prepare($sql);
@@ -80,7 +80,7 @@ class Document extends \Core\Model
     {
         $db = static::getDB();
 
-        $sql = "UPDATE umdoni.documents SET 
+        $sql = "UPDATE documents SET 
         `title`  = :title,
         `subtitle` = :subtitle,
         `body` = :body, 
@@ -119,7 +119,7 @@ class Document extends \Core\Model
     public static function Delete($id)
     {
         $db = static::getDB();
-        $sql = "UPDATE  umdoni.documents SET `isActive` = 0 WHERE `id` = $id";
+        $sql = "UPDATE  documents SET `isActive` = 0 WHERE `id` = $id";
         $stmt = $db->exec($sql);
         return $stmt;
     }

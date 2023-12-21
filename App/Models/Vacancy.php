@@ -51,7 +51,7 @@ class Vacancy extends \Core\Model
         $db = static::getDB(); 
         if(!isset($data['id'])) $data['id'] = 0;
 
-        $sql = "INSERT into umdoni.vacancies ( `name`,`surname`, `email`, `telephone`, `title`,`category`, `ward`, `img_file`, `location`,`isActive`)
+        $sql = "INSERT into vacancies ( `name`,`surname`, `email`, `telephone`, `title`,`category`, `ward`, `img_file`, `location`,`isActive`)
                 VALUES ('$data[name]','$data[surname]','$data[email]','$data[telephone]','$data[title]','$data[category]','$data[ward]','$data[img_file]','$data[location]','$data[isActive]')"; 
         $stmt = $db->exec($sql);
         
@@ -62,7 +62,7 @@ class Vacancy extends \Core\Model
     {
         $db = static::getDB(); 
         
-        $sql = "UPDATE umdoni.vacancies SET `name` =  '$data[name]', `surname`='$data[surname]', `email`='$data[email]', `telephone`='$data[telephone]', `title`='$data[title]', `img_file` = '$data[img_file]', `location` = '$data[location]',  `ward` = '$data[ward]', `updatedAt`= '$data[updatedAt]'
+        $sql = "UPDATE vacancies SET `name` =  '$data[name]', `surname`='$data[surname]', `email`='$data[email]', `telephone`='$data[telephone]', `title`='$data[title]', `img_file` = '$data[img_file]', `location` = '$data[location]',  `ward` = '$data[ward]', `updatedAt`= '$data[updatedAt]'
           WHERE `id`= $data[id]"; 
       
         $asset_id = $db->exec($sql);
@@ -74,7 +74,7 @@ class Vacancy extends \Core\Model
     public static function Delete($id)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE  umdoni.vacancies SET `isActive` = 0 WHERE `id` = $id"; 
+        $sql = "UPDATE  vacancies SET `isActive` = 0 WHERE `id` = $id"; 
         $stmt = $db->exec($sql);
        return $stmt;
     }

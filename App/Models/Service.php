@@ -53,7 +53,7 @@ class Service extends \Core\Model
     public static function updateService($data)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE umdoni.services SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
+        $sql = "UPDATE services SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
                WHERE `id`= $data[id]"; 
         $stmt = $db->exec($sql);
 
@@ -67,7 +67,7 @@ class Service extends \Core\Model
 
         $db = static::getDB(); 
         
-        $sql = "INSERT into umdoni.services (title, subtitle, body, isActive, createdAt, updatedAt, updatedBy)
+        $sql = "INSERT into services (title, subtitle, body, isActive, createdAt, updatedAt, updatedBy)
                 VALUES ('$data[title]','$data[subtitle]','$data[body]','1', 'today' , 0,'rakheoana')"; 
         $stmt = $db->exec($sql);
         
@@ -78,7 +78,7 @@ class Service extends \Core\Model
     public static function Delete($id)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE  umdoni.services SET `isActive` = 0 WHERE `id` = $id"; 
+        $sql = "UPDATE  services SET `isActive` = 0 WHERE `id` = $id"; 
         $stmt = $db->exec($sql);
        return $stmt;
     }
@@ -86,7 +86,7 @@ class Service extends \Core\Model
     public static function Restore($id)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE  umdoni.services SET `isActive` = 1 WHERE `id` = $id"; 
+        $sql = "UPDATE  services SET `isActive` = 1 WHERE `id` = $id"; 
         $stmt = $db->exec($sql);
        return $stmt;
     }

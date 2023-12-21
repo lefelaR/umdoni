@@ -53,7 +53,7 @@ class Project extends \Core\Model
     public static function Update($data)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE umdoni.projects SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
+        $sql = "UPDATE projects SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
                WHERE `id`= $data[id]"; 
         $stmt = $db->exec($sql);
 
@@ -67,7 +67,7 @@ class Project extends \Core\Model
 
         $db = static::getDB(); 
         
-        $sql = "INSERT into umdoni.projects (title, subtitle, body, isActive, createdAt, location , updatedAt, updatedBy)
+        $sql = "INSERT into projects (title, subtitle, body, isActive, createdAt, location , updatedAt, updatedBy)
                 VALUES ('$data[title]','$data[subtitle]','$data[body]','1', '$data[createdAt]', '$data[location]' , 0,'rakheoana')"; 
         $stmt = $db->exec($sql);
         
@@ -78,7 +78,7 @@ class Project extends \Core\Model
     public static function Delete($id)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE  umdoni.projects SET `isActive` = 0 WHERE `id` = $id"; 
+        $sql = "UPDATE  projects SET `isActive` = 0 WHERE `id` = $id"; 
         $stmt = $db->exec($sql);
        return $stmt;
     }
@@ -86,7 +86,7 @@ class Project extends \Core\Model
     public static function Restore($id)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE  umdoni.projects SET `isActive` = 1 WHERE `id` = $id"; 
+        $sql = "UPDATE  projects SET `isActive` = 1 WHERE `id` = $id"; 
         $stmt = $db->exec($sql);
        return $stmt;
     }

@@ -47,7 +47,7 @@ class Event extends \Core\Model
     public static function Save($data)
     {
         $db = static::getDB();
-        $sql = "INSERT into umdoni.events ( title, subtitle, body, createdAt, isActive, location, img_file, updatedBy) 
+        $sql = "INSERT into events ( title, subtitle, body, createdAt, isActive, location, img_file, updatedBy) 
                 VALUES ( '$data[title]', '$data[subtitle]','$data[body]' , now() , 1 , '$data[location]', '$data[img_file]', '$data[updatedBy]')";
         $stmt = $db->exec($sql);
         return $stmt;
@@ -83,7 +83,7 @@ class Event extends \Core\Model
     public static function Delete($id)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE  umdoni.events SET `isActive` = 0 WHERE `id` = $id"; 
+        $sql = "UPDATE  events SET `isActive` = 0 WHERE `id` = $id"; 
         $stmt = $db->exec($sql);
        return $stmt;
     }

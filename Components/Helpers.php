@@ -29,7 +29,6 @@
     {
         $ret = false;
         global $context;
-    
         if (isset($context->isLoggedIn))
             {
             if($context->isLoggedIn == false){
@@ -41,7 +40,6 @@
         {
             return;
         }
-     
     }
     
 
