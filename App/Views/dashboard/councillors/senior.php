@@ -79,7 +79,8 @@ $crumbs = getCrumbs();
                                         'PDD' => 'PLANNING AND DEVELOMENT DEPARTMENT',
                                         'TSD' => 'TECHNICAL SERVICES DEPARTMENT',
                                         'OTMM' => 'OFFICE OF THE MUNICIPAL MANAGER',
-                                        'FM' => 'FINANCE DEPARTMENT',  
+                                        'FM' => 'FINANCE DEPARTMENT', 
+                                        'CD' => 'COMMUNICATIONS DEPARTMENT', 
                                     ];
 
                                     echo '

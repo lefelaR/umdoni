@@ -17,21 +17,37 @@ use Aws\S3\S3Client;
 
 class Councillors extends \Core\Controller
 {
+    private $bucketName;
+    private $awsAccessKeyId;
+    private $clientId;
+    private $userPoolId;
+    private $region;
+    private $awsSecretAccessKey;
+
+
+
+    public function __construct()
+    {
+        $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
+        $this->clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
+        $this->userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
+        $this->region = $_ENV['AWS_REGION'];
+        $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
+        $this->bucketName = $_ENV['BUCKET_NAME'];
+    }
+
 
     public function indexAction()
     {
         $councillors = Councillor::GET();
         view::render('dashboard/councillors/index.php', $councillors, 'dashboard');
     }
-
-
     public function seniorAction()
     {
         $managers = Councillor::getSeniors();
 
         view::render('dashboard/councillors/senior.php', $managers, 'dashboard');
     }
-
     public function saddAction()
     {
         $data = getPostData();
@@ -43,8 +59,6 @@ class Councillors extends \Core\Controller
         }
         view::render('dashboard/councillors/sadd.php', $seniorMan, 'dashboard');
     }
-
-
     public function addAction()
     {
         $data = getPostData();
@@ -61,18 +75,13 @@ class Councillors extends \Core\Controller
         global $context;
         // check file and send to aws s3;
         if (isset($_FILES)) {
-            $bucketName = 'umdoni-document-bucket';
-            $awsAccessKeyId = 'AKIA3FVMIL3UXGIEI3WH';
-            $awsSecretAccessKey = '/yXhJ3sHfpl0Ykp/ZCv59VdHAXxiXoc2gAAP3XZa';
-            $region = 'eu-central-1'; // Change to your desired region
-
 
             $s3 = new S3Client([
                 'version' => 'latest',
-                'region' => $region,
+                'region' => $this->region,
                 'credentials' => [
-                    'key' => $awsAccessKeyId,
-                    'secret' => $awsSecretAccessKey,
+                    'key' => $this->awsAccessKeyId,
+                    'secret' => $this->awsSecretAccessKey,
                 ],
             ]);
             $file = $_FILES;
@@ -83,7 +92,7 @@ class Councillors extends \Core\Controller
             try {
                 // Upload the file to S3
                 $result = $s3->putObject([
-                    'Bucket' => $bucketName,
+                    'Bucket' => $this->bucketName,
                     'Key' => $objectKey,
                     'SourceFile' => $filePath,
                 ]);
@@ -114,18 +123,13 @@ class Councillors extends \Core\Controller
         global $context;
         // check file and send to aws s3;
         if (isset($_FILES)) {
-            $bucketName = 'umdoni-document-bucket';
-            $awsAccessKeyId = 'AKIA3FVMIL3UXGIEI3WH';
-            $awsSecretAccessKey = '/yXhJ3sHfpl0Ykp/ZCv59VdHAXxiXoc2gAAP3XZa';
-            $region = 'eu-central-1'; // Change to your desired region
-
 
             $s3 = new S3Client([
                 'version' => 'latest',
-                'region' => $region,
+                'region' => $this->region,
                 'credentials' => [
-                    'key' => $awsAccessKeyId,
-                    'secret' => $awsSecretAccessKey,
+                    'key' => $this->awsAccessKeyId,
+                    'secret' => $this->awsSecretAccessKey,
                 ],
             ]);
             $file = $_FILES;
@@ -136,7 +140,7 @@ class Councillors extends \Core\Controller
             try {
                 // Upload the file to S3
                 $result = $s3->putObject([
-                    'Bucket' => $bucketName,
+                    'Bucket' => $this->bucketName,
                     'Key' => $objectKey,
                     'SourceFile' => $filePath,
                 ]);

@@ -73,8 +73,8 @@ class Authentication extends \Core\Controller
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => 'AKIA3FVMIL3UXGIEI3WH',
-        'secret' => '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',
+        'key'    => $_ENV['AWS_ACCESS_KEY_ID'],
+        'secret' => $_ENV['AWS_SECRET_ACCESS_KEY'],
     ],
     ]);
 
@@ -114,8 +114,8 @@ class Authentication extends \Core\Controller
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => 'AKIA3FVMIL3UXGIEI3WH',
-        'secret' => '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',
+        'key'    => $_ENV['AWS_ACCESS_KEY_ID'],
+        'secret' => $_ENV['AWS_SECRET_ACCESS_KEY'],
     ],
     ]);
 

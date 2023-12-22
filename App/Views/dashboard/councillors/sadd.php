@@ -126,6 +126,7 @@ echo '
                         <option value="PDD">PLANNING AND DEVELOMENT DEPARTMENT</option>
                         <option value="TSD">TECHNICAL SERVICES DEPARTMENT</option>
                         <option value="OTMM">OFFICE OF THE MUNICIPAL MANAGER</option>
+                        <option value="CD">COMMUNICATIONS DEPARTMENT</option>
                         <option value="FM">FINANCE DEPARTMENT</option>
                     </select>
                 </fieldset>

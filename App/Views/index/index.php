@@ -18,34 +18,7 @@ $data = $context->data;
         </div>
     </div>
 </div>
-<!-- <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 col-sx-12 col-lg-12">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="..." class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="..." class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="<?php echo ("assets/img/Umdoni-Beach_Site2.jpg") ?>" class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
 
-    </div>
-</div> -->
 
 <div class="container" id="Services">
     <div class="row content-section">
@@ -65,7 +38,7 @@ $data = $context->data;
         </div>
 
         <div class="col-lg-3 col-md-3 col-sm-12">
-            <a href="<?php echo buildurl("services/directory") ?>">
+            <a href="<?php echo buildurl("departments/index") ?>">
                 <div class="card card-hover mb-3 card-border">
                     <div class="card-body">
                         <div class="text-center m-2">

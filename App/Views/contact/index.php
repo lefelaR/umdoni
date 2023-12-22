@@ -57,11 +57,8 @@
         <div class="col-md-12 col-lg-12">
         <p class="fw-lighter fs-3 my-5">
             We value your feedback and inquiries. Reach out to us using the contact form below, and we'll respond promptly.
-               
             </p>
-
         </div>
-       
     </div>
     <div class="row">
         <div class="col-md-8">
