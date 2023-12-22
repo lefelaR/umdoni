@@ -21,9 +21,6 @@ use App\Models\User;
 class Authentication extends \Core\Controller
 {
 
-
-
-
   public function indexAction()
   {
 

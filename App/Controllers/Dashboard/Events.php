@@ -16,6 +16,26 @@ use Aws\S3\S3Client;
 class Events extends \Core\Controller
 {
 
+
+    private $bucketName;
+    private $awsAccessKeyId;
+    private $clientId;
+    private $userPoolId;
+    private $region;
+    private $awsSecretAccessKey; 
+
+
+
+    public function __construct()
+    {
+        $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
+        $this->clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
+        $this->userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
+        $this->region = $_ENV['AWS_REGION'];
+        $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
+        $this->bucketName = $_ENV['BUCKET_NAME'];
+    }
+
     public function indexAction()
     {
         // get information from the model and inject it into the viewport
@@ -25,9 +45,6 @@ class Events extends \Core\Controller
 
         view::render('dashboard/events/index.php', $events, 'dashboard');
     }
-
-
-
     public function addAction()
     {
         $data = getPostData();
@@ -38,17 +55,15 @@ class Events extends \Core\Controller
         view::render('dashboard/events/add.php',  $event, 'dashboard');
     }
 
-
-
     public function saveAction()
     {
         global $context;
 
         if (isset($_FILES)) {
-            $bucketName = 'umdoni-document-bucket';
-            $awsAccessKeyId = 'AKIA3FVMIL3UXGIEI3WH';
-            $awsSecretAccessKey = '/yXhJ3sHfpl0Ykp/ZCv59VdHAXxiXoc2gAAP3XZa';
-            $region = 'eu-central-1'; // Change to your desired region
+            $bucketName = $this->bucketName;
+            $awsAccessKeyId =   $this->awsAccessKeyId;
+            $awsSecretAccessKey =  $this->awsSecretAccessKey;
+            $region =  $this->region; // Change to your desired region
 
             $s3 = new S3Client([
                 'version' => 'latest',
@@ -89,7 +104,7 @@ class Events extends \Core\Controller
             $id =  Event::Save($data);
             $_SESSION['success'] = ['message' => "Success!"];
         } catch (\Throwable $th) {
-            $_SESSION['errors'] = ['message' => $th->getMessage()];
+            $_SESSION['error'] = ['message' => $th->getMessage()];
         }
         redirect('dashboard/events/index');
     }

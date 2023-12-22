@@ -209,23 +209,23 @@ $data = $context->data;
                                             $events = $data['events'];
 
                                             foreach ($events as $key => $event) {
-
+                                                    if($key < 3){
                                                 echo '
                                                 <tr>
                                                 <td class="col-3">
-                                                   
                                                     <div class="d-flex align-items-center">
                                                         <div class="avatar avatar-md">
-                                                            <img src="'.$event['location'].'">
+                                                            <img src="' . $event['location'] . '">
                                                         </div>
-                                                        <p class="font-bold ms-3 mb-0">'.$event['title'].'</p>
+                                                        <p class="font-bold ms-3 mb-0">' . $event['title'] . '</p>
                                                     </div>
                                                 </td>
                                                 <td class="col-auto">
-                                                    <p class=" mb-0">'.$data['subtitle'].'</p>
+                                                    <p class=" mb-0">' . $event['body'] . '</p>
                                                 </td>
                                                 </tr>
                                                 ';
+                                                    }
                                             }
                                         }
 
@@ -237,11 +237,7 @@ $data = $context->data;
                         </div>
                     </div>
                 </div>
-
-
                 <!-- upcoming event s -->
-
-
             </div>
         </div>
 
