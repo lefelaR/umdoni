@@ -195,7 +195,7 @@ class Authentication extends \Core\Controller
         }
       }
     } catch (\Throwable $th) {
-      $_SESSION['error'] = ['message' => $th->getMessage()];
+      $_SESSION['error'] = ['message' => 'Incorrect username or password'];
       redirect('authentication/login');
     }
   }
