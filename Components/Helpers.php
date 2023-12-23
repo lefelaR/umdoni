@@ -24,7 +24,7 @@
             die();
         }
     }
-
+    
     function enable_authorize($role = null)
     {
         $ret = false;

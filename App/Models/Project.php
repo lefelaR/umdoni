@@ -53,11 +53,32 @@ class Project extends \Core\Model
     public static function Update($data)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE projects SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
-               WHERE `id`= $data[id]"; 
-        $stmt = $db->exec($sql);
 
-       return $stmt;
+        $sql = "UPDATE projects SET 
+        `title` =  :title,
+        `subtitle` = :subtitle, 
+        `body`= :body, 
+        ".(isset($data['location']) ? "`location` = :location" : "")."
+        `updatedAt`= :updatedAt
+        WHERE `id`= :id"; 
+        
+        $stmt = $db->prepare($sql);
+        
+        $stmt->bindParam(':title', $data['title']);
+        $stmt->bindParam(':subtitle', $data['subtitle']);
+        $stmt->bindParam(':body', $data['body']);
+        if (isset($data['location'])) {
+            $stmt->bindParam(':location', $data['location']);
+        }
+        $stmt->bindParam(':updatedAt', $data['updatedAt']);
+        $stmt->bindParam(':id', $data['id']);
+
+        if ($stmt->execute()) {
+            return true; // or any meaningful success indicator
+        } else {
+            // Handle the error, log it, or return false
+            return false;
+        }
     }
 
 

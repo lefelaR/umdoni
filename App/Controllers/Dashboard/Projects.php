@@ -18,6 +18,26 @@ use Aws\S3\S3Client;
 class Projects extends \Core\Controller
 {
 
+
+
+    private $bucketName;
+    private $awsAccessKeyId;
+    private $clientId;
+    private $userPoolId;
+    private $region;
+    private $awsSecretAccessKey;
+
+
+    public function __construct()
+    {
+        $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
+        $this->clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
+        $this->userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
+        $this->region = $_ENV['AWS_REGION'];
+        $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
+        $this->bucketName = $_ENV['BUCKET_NAME'];
+    }
+
     public function indexAction()
     {
 
@@ -50,13 +70,13 @@ class Projects extends \Core\Controller
     {
         global $context;
 
-
         if (isset($_FILES)) {
-            $bucketName = 'umdoni-document-bucket';
-            $awsAccessKeyId = 'AKIA3FVMIL3UXGIEI3WH';
-            $awsSecretAccessKey = '/yXhJ3sHfpl0Ykp/ZCv59VdHAXxiXoc2gAAP3XZa';
-            $region = 'eu-central-1'; // Change to your desired region
+            $bucketName = $this->bucketName;
+            $awsAccessKeyId =   $this->awsAccessKeyId;
+            $awsSecretAccessKey =  $this->awsSecretAccessKey;
+            $region =  $this->region;
             $loc = '';
+
             $s3 = new S3Client([
                 'version' => 'latest',
                 'region' => $region,
@@ -99,15 +119,52 @@ class Projects extends \Core\Controller
 
     public function updateAction()
     {
+
         $data = $_POST;
 
-        $data['updatedAt'] = date("Y-m-d H:i:s");
+        if (isset($_FILES) && $_FILES['image']['size'] > 0) {
+            $bucketName = $this->bucketName;
+            $awsAccessKeyId =   $this->awsAccessKeyId;
+            $awsSecretAccessKey =  $this->awsSecretAccessKey;
+            $region =  $this->region;
+            $loc = '';
 
+            $s3 = new S3Client([
+                'version' => 'latest',
+                'region' => $region,
+                'credentials' => [
+                    'key' => $awsAccessKeyId,
+                    'secret' => $awsSecretAccessKey,
+                ],
+            ]);
+
+            $file = $_FILES;
+            if (count($file) > 0) {
+            $filePath = $file['image']['tmp_name'];
+            $objectKey = $file['image']['name'];
+
+            if ($objectKey !== "") {
+                try {
+                    $result = $s3->putObject([
+                        'Bucket' => $bucketName,
+                        'Key' => $objectKey,
+                        'SourceFile' => $filePath,
+                    ]);
+                } catch (\Throwable $th) {
+                    echo "Error uploading file: " .  $th->getMessage();
+                }
+            }
+        }
+            $data['img_file'] =  isset($result) ? $objectKey : "";
+            $data['location'] = isset($result) ? $result['ObjectURL'] : "";
+        }
+       
+        $data['updatedAt'] = date("Y-m-d H:i:s");
         try {
             $id =  Project::update($data);
-            if($id) $_SESSION['success'] = ['message' => "Updated"];
+            if ($id) $_SESSION['success'] = ['message' => "Updated"];
         } catch (\Throwable $th) {
-            $_SESSION['success'] = ['message' => $th->getMessage()];
+            $_SESSION['error'] = ['message' => $th->getMessage()];
         }
         redirect('dashboard/projects/index');
     }

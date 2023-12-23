@@ -33,16 +33,15 @@ nav ul li a{
  
 }
 .hero {
-  background-image : linear-gradient(rgba(15, 7, 50, 0.079),rgba(12, 3, 51, 0.084)),
-  url('../img/Umdoni-Beach_Site2.jpg');
+  background-image: linear-gradient(rgba(15, 7, 50, 0.079),rgba(12, 3, 51, 0.084)), url(../img/Umdoni-Beach_Site2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 0 0 -100px 0 !important;
-  top: -120px;
+  margin: 0 0 -200px 0 !important;
+  top: -209px;
   position: relative;
-	min-height: 67vh;
-	width: 100%;
+  min-height: 82vh;
+  width: 100%;
   justify-items: center;
   transform: scale(1);
 } 

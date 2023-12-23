@@ -60,7 +60,7 @@
             <p class="h1 text-uppercase fw-bold">
                 List of Municipal Departments
             </p>
-            <p class="fw-lighter fs-3 my-5">
+            <p class="fw-lighter fs-5 my-5">
                 Discover the core departments of Umdoni Municipality, each dedicated to serving our community's diverse needs. Our departments include:<br/>
                 * The Office of the Municipal Manager: Overseeing municipal operations and strategic leadership.<br/>
                 * Corporate Services: Handling administrative functions and human resources.<br/>

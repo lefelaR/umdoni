@@ -297,9 +297,7 @@ class Authentication extends \Core\Controller
     session_destroy();
     $logout = new Context();
     $logout->setLoggedIn(false);
-   
     setcookie("auth", "", time() - 3600, '/');
-   
     redirect('/');
   }
 }
