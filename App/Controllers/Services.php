@@ -54,9 +54,9 @@ class Services extends \Core\Controller
             $data['createdAt'] = date("Y-m-d H:i:s");
             $data['status'] = 1;
           $id = Request::Save($data);
-        
+        $_SESSION['success'] = ['message' => "Thank you for your service request"];
         }
-        redirect("services/index");
+        redirect("services/request");
     }
     
 

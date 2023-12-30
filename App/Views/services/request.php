@@ -80,8 +80,11 @@ echo '
 
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="mb-3 col-md-8">
-                    <form class="form" action="save" method="post">
+                <div class="mb-3 col-md-8">';
+
+                 include ('Includes/parts/alerts.php');
+
+echo '<form class="form" action="save" method="post">
                         <div class="row">
                             <div class="col-md-6">
                     
