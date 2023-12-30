@@ -13,6 +13,7 @@ use  App\Models\Roles;
 use  PHPMailer\PHPMailer\PHPMailer;
 use  PHPMailer\PHPMailer\Exception;
 use App\Models\Service; 
+use App\Models\Meeting;
 use App\Models\Request;
 
 class Services extends \Core\Controller
@@ -82,8 +83,10 @@ class Services extends \Core\Controller
 
     public function meetingsAction()
     {
-        view::render('services/meetings.php', 
-        $context =[], 'default');
+
+        $meetings = Meeting::getAll();
+
+        view::render('services/meetings.php', $meetings, 'default');
     }
 
 

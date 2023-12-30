@@ -1,3 +1,13 @@
+<?php
+
+global $context;
+
+$data = $context->data;
+
+
+
+?>
+
 
 <style>
     #service-page {
@@ -59,6 +69,52 @@ nav ul li i {
             Stay Informed on Civic Affairs: to keep you up-to-date with scheduled municipal council gatherings and their agendas. Access key details on discussions, decisions, and participate in shaping your community's future.
             </p>  
         </div>
+
+        div class="row mt-5">
+        <div class=" col-md-12 col-lg-12 col-sm-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Date/Time</th>
+                        <th scope="col">Documents</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+      <tbody>
+                <?php
+                
+                
+                foreach ($data as $key => $calendar) {
+                  
+                    $key ++;
+
+                    echo'
+                    <tr>
+                    <th scope="row">'.$key.'</th>
+                    <td>'.$calendar["title"].'</td>
+                    <td>3 mins ago</td>
+                    <td> <i class="bi bi-file-earmark-text"></i>
+                    '.$calendar["location"].'</td>
+                    <td>
+                       <a href="details?id='.$calendar["id"].'">More...</a>
+                    </td>
+                </tr>
+                    ';
+
+                }
+                
+                ?>
+          
+                
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+
+
 
     </div>
 </div>
