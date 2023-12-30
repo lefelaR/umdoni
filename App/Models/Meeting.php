@@ -20,7 +20,7 @@ class Meeting extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM events WHERE `isActive` = 1');
+            $stmt = $db->query('SELECT * FROM meetings WHERE `isActive` = 1');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
@@ -34,7 +34,7 @@ class Meeting extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM events 
+            $stmt = $db->query("SELECT * FROM meetings 
                                 WHERE id = '$id' ");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;

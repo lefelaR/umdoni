@@ -8,6 +8,7 @@
 namespace App\Controllers\Dashboard;
 use \Core\View;
 use App\Models\User;
+use App\Models\Meeting;
 
 
 class Meetings extends \Core\Controller
@@ -19,7 +20,8 @@ class Meetings extends \Core\Controller
         // get information from the model and inject it into the viewport
         //    name an object that will carry all dashboard items
 
-        view::render('dashboard/meetings/index.php', $context=array() , 'dashboard');
+        $meetings = Meeting::getAll();
+        view::render('dashboard/meetings/index.php', $meetings , 'dashboard');
     }
   
     protected function before()
