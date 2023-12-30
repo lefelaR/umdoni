@@ -87,8 +87,8 @@ class Projects extends \Core\Controller
             ]);
 
             $file = $_FILES;
-            $filePath = $file['name']['tmp_name'];
-            $objectKey = $file['name']['name'];
+            $filePath = $file['image']['tmp_name'];
+            $objectKey = $file['image']['name'];
 
             if ($objectKey !== "") {
                 try {

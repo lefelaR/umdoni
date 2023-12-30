@@ -5,7 +5,7 @@ $data = $context->data;
 
 ?>
 <style>
-      #service-page {
+    #service-page {
         background-image: linear-gradient(rgba(15, 7, 50, 0.079), rgba(12, 3, 51, 0.084)),
             url('<?php echo url("assets/img/strips/Umdoni-Building_strip.jpg") ?>');
         min-height: 40vh;
@@ -82,7 +82,7 @@ echo '
                 <div class="col-md-2"></div>
                 <div class="mb-3 col-md-8">';
 
-                 include ('Includes/parts/alerts.php');
+include('Includes/parts/alerts.php');
 
 echo '<form class="form" action="save" method="post">
                         <div class="row">
