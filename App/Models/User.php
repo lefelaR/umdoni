@@ -69,32 +69,26 @@ class User extends \Core\Model
         $db = static::getDB(); 
         $sql = "UPDATE users SET `verified` = 1 WHERE `email` = '$data[username]'"; 
        $user_id = $db->exec($sql);
-
        return $user_id;
-
     }
 
     public static function Save($data)
     {
         global $context;
         $db = static::getDB(); 
-        
         $sql = "INSERT into users ( username,surname,email,password,status, createdAt)
                 VALUES ( '$data[username]','$data[surname]' ,'$data[email]','$data[password]', '$data[status]','$data[createdAt]')"; 
         $user_id  =   $db->exec($sql);
         
-     
-
         if(isset($user_id) && (is_numeric($user_id)))
         {
             
             $sql = "INSERT into profile  ( user_id ,first_name , last_name)
                     VALUES ( $user_id,'$data[username]', '$data[surname]')"; 
-       
              $stmt = $db->exec($sql);
             if(!is_null($stmt))
             {
-                $context->errors = ['message' => 'Record was successfully saved'];
+                $$_SESSION['error'] = ['message' => 'Record was successfully saved'];
             }
         }
 

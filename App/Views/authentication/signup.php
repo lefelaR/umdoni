@@ -99,5 +99,3 @@ if (isset($context->errors['message'])) {
 
 
 
-
-    ?>

@@ -48,7 +48,7 @@ class Profile extends \Core\Model
     public static function Save($data)
     {
         $db = static::getDB(); 
-        $sql = "INSERT into umdoni.profile ( name, email, message, created_date, status) 
+        $sql = "INSERT into profile ( name, email, message, created_date, status) 
                 VALUES ( '$data[name]', '$data[email]','$data[message]' , now() , 1)";
         $stmt = $db->exec($sql);
         return $stmt;

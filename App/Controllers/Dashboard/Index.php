@@ -1,11 +1,14 @@
 <?php
+
 /**
  * @author : rakheoana lefela
  * @date : 16th dec 2021
  * 
  * Front Controller/ hadles all the incoming requests to site
  */
+
 namespace App\Controllers\Dashboard;
+
 use \Core\View;
 use App\Models\User;
 use App\Models\Profile;
@@ -19,7 +22,10 @@ class Index extends \Core\Controller
 
     public function indexAction()
     {
-       
+
+        print_r('here');
+        die;
+
         // get logged in user information
         $AuthenticatedUser  = $_SESSION['profile'];
         $dashboard = array();
@@ -34,19 +40,17 @@ class Index extends \Core\Controller
         $dashboard['projects'] = $projects;
         $dashboard['events'] = $events;
         $dashboard['notices'] = $notices;
-        
-        $profile['profile'] = $AuthenticatedUser; 
-        view::render('dashboard/index.php', $dashboard , 'dashboard');
+
+        $profile['profile'] = $AuthenticatedUser;
+        view::render('dashboard/index.php', $dashboard, 'dashboard');
     }
-  
+
     protected function before()
     {
-       enable_authorize();
+        enable_authorize();
     }
 
     protected function after()
     {
-       
     }
-
 }
