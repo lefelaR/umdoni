@@ -209,8 +209,8 @@ $data = $context->data;
                                             $events = $data['events'];
 
                                             foreach ($events as $key => $event) {
-                                                    if($key < 3){
-                                                echo '
+                                                if ($key < 3) {
+                                                    echo '
                                                 <tr>
                                                 <td class="col-3">
                                                     <div class="d-flex align-items-center">
@@ -225,7 +225,7 @@ $data = $context->data;
                                                 </td>
                                                 </tr>
                                                 ';
-                                                    }
+                                                }
                                             }
                                         }
 
@@ -245,15 +245,10 @@ $data = $context->data;
         <div class="col-12 col-lg-3">
             <div class="card">
                 <div class="card-body py-4 px-5">
-                     <div class="d-flex align-items-center"> 
+                    <div class="d-flex align-items-center">
                         <?php
-
-
                         $profile = isset($_SESSION['profile']) ?  $_SESSION['profile'] : array();
-
                         $avatar = isset($profile['location']) ? $profile['location'] : url('assets/img/profile/pro.png');
-
-
                         echo '
                          <div class="avatar avatar-xl">
                         <img src="' . $avatar . '" alt="Face 1">
@@ -264,10 +259,8 @@ $data = $context->data;
                     </div>
                         ';
 
-                                        
-
                         ?>
-                    </div> 
+                    </div>
                 </div>
             </div>
             <div class="card">
