@@ -23,9 +23,6 @@ class Index extends \Core\Controller
     public function indexAction()
     {
 
-        print_r('here');
-        die;
-
         // get logged in user information
         $AuthenticatedUser  = $_SESSION['profile'];
         $dashboard = array();
