@@ -104,26 +104,51 @@ $data = $context->data;
                     </ul>
                     <p>The municipality has 4 cemeteries in; Park Rynie, Scottburgh, Kelso & Shayamoya. Umdoni Parks & Gardens Section is also responsible for Cutting Grass, cleaning of surface drains, Trimming of Trees, removal of trees, cutting back Alien Plants and Bushes. Areas that the municipality extends this service to are namely;
 
-</p>
+                    </p>
+                    
+                    <ol>
+
+                        <li> Mtwalume</li>
+
+                        <li> Ifafa</li>
+
+                        <li> Ifafa Glebe</li>
+
+                        <li> Elysium</li>
+
+                        <li> Bazley</li>
+
+                        <li> Sezela</li>
+
+                        <li> Pennington</li>
+
+                        <li> Scottburgh</li>
+
+                        <li> Freeland Park</li>
+
+                        <li> Scottburgh South</li>
+
+                        <li> Park Rynie North</li>
+
+                        <li> Park Rynie South</li>
+
+                        <li> Umzinto</li>
+
+                        <li> Gandhinagar</li>
+
+                        <li> Riverside Park</li>
+
+                        <li> Hazelwood</li>
+
+                        <li> Asoka Heights</li>
+                        <li> Roseville</li>
+                        <li> Coastal Farmers</li>
+                        <li> Shayamoya</li>
+                        <li> Esparanza</li>
+                    </ol>
+                
                 </a>
 
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <p class="my-3 h4">CREDIT CONTROL, DEBT COLLECTION, AND INDIGENT SUPPORT</p>
-                    </div>
-                    <ul>
-                        <li>Handling of Arrears Accounts</li>
-                        <li>Performing the following Credit Control actions in respect of customers with arrear accounts</li>
-                        <li>Sending SMS & final request messages</li>
-                        <li>Performing Electricity Disconnections & Water Restrictions</li>
-                        <li>Raising Credit Control Charges on Debtor accounts</li>
-                        <li>Performing Debt Collection actions including sending final Demand Notices</li>
-                        <li>Raising Debt Collection Charges on Debtor accounts</li>
-                        <li>Liaising with all types of customers regarding payment of their accounts</li>
-                        <li>Managing the Indigent Register & Performing Investigations to confirm the Indigency status of customers</li>
-                        <li>Reporting to Council & National Treasury</li>
-                    </ul>
-                </a>
             </div>
         </div>
     </div>
