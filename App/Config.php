@@ -25,13 +25,13 @@ class Config
      * Database user
      * @var string
      */
-    const DB_USER = 'admin';
+    const DB_USER = 'root';
 
     /**
      * Database password
      * @var string
      */
-    const DB_PASSWORD = 'ytmxlz2&';
+    const DB_PASSWORD = '';
 
     /**
      * Show or hide error messages on screen
