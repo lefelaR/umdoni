@@ -12,7 +12,7 @@ use App\Models\Meeting;
 use Aws\S3\S3Client;
 
 
-class Meetings extends \Core\Controller
+class Agendas extends \Core\Controller
 {
 
 
@@ -42,7 +42,7 @@ class Meetings extends \Core\Controller
         //    name an object that will carry all dashboard items
 
         $meetings = Meeting::getAll();
-        view::render('dashboard/meetings/index.php', $meetings , 'dashboard');
+        view::render('dashboard/agendas/index.php', $meetings , 'dashboard');
     }
 
     public function addAction()
@@ -52,7 +52,7 @@ class Meetings extends \Core\Controller
             $id = $data['id'];
             $meeting = Meeting::getMeeting($id);
         } else $meeting = array();
-        view::render('dashboard/meetings/add.php',  $meeting, 'dashboard');
+        view::render('dashboard/agendas/add.php',  $meeting, 'dashboard');
     }
   
 
@@ -107,7 +107,7 @@ class Meetings extends \Core\Controller
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
         }
-        redirect('dashboard/meetings/index');
+        redirect('dashboard/agendas/index');
     }
 
 

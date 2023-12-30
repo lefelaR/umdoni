@@ -43,4 +43,13 @@ class Meeting extends \Core\Model
         }
     }
 
+    public static function Save($data)
+    {
+        $db = static::getDB();
+        $sql = "INSERT into meetings ( title, subtitle, body, createdAt, isActive, location, img_file, updatedBy) 
+                VALUES ( '$data[title]', '$data[subtitle]','$data[body]' , now() , 1 , '$data[location]', '$data[img_file]', '$data[updatedBy]')";
+        $stmt = $db->exec($sql);
+        return $stmt;
+    }
+
 }
