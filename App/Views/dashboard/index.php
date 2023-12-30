@@ -245,7 +245,7 @@ $data = $context->data;
         <div class="col-12 col-lg-3">
             <div class="card">
                 <div class="card-body py-4 px-5">
-                    <!-- <div class="d-flex align-items-center">
+                     <div class="d-flex align-items-center"> 
                         <?php
 
 
@@ -267,7 +267,7 @@ $data = $context->data;
 
 
                         ?>
-                    </div> -->
+                    </div> 
                 </div>
             </div>
             <div class="card">
