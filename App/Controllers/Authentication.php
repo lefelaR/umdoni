@@ -148,7 +148,7 @@ class Authentication extends \Core\Controller
     if (isset($_POST)) $data = $_POST;
 
     $isLoggedin = $context->isLoggedIn;
-    
+
     $clientId = '7d5rnt2fko5ngrkbabc7279jd3';
     $userPoolId = 'eu-central-1_s1AB2IwMW';
     $region = 'eu-central-1';
@@ -173,19 +173,20 @@ class Authentication extends \Core\Controller
           'PASSWORD' => $data['password'],
         ],
       ]);
-      
+
       $accessToken = $result->get('AuthenticationResult')['AccessToken'];
 
       if ($accessToken) {
         $_SESSION['token'] = $accessToken;
         $isLoggedin  = Profile::Login($data);
         if ($isLoggedin == true) {
-        
-          redirect('dashboard/index/index');
 
+          redirect('dashboard/index/index');
         } else {
           $context->errors['message'] = 'Login & Password error!!!';
-          echo "<pre>"; print_r("false"); die;
+          echo "<pre>";
+          print_r("false");
+          die;
           redirect('authentication/login');
         }
       }
@@ -277,7 +278,7 @@ class Authentication extends \Core\Controller
       redirect('authentication/login');
     } catch (\Throwable $th) {
       $_SESSION['error'] = ['message' => $th->getMessage()];
-      throw $th;
+      redirect('authentication/code');
     }
   }
 

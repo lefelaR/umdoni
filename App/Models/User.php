@@ -88,7 +88,7 @@ class User extends \Core\Model
              $stmt = $db->exec($sql);
             if(!is_null($stmt))
             {
-                $$_SESSION['error'] = ['message' => 'Record was successfully saved'];
+                $_SESSION['success'] = ['message' => 'Record was successfully saved'];
             }
         }
 
