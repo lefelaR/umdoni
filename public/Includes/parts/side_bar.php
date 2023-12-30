@@ -45,6 +45,12 @@ global $context;
             <li class="submenu-item">
               <a href="<?php echo buildurl("dashboard/notices/index") ?>">Notices</a>
             </li>
+            <li class="submenu-item">
+              <a href="<?php echo buildurl("dashboard/meetings/index") ?>">Meetings</a>
+            </li>
+            <li class="submenu-item">
+              <a href="<?php echo buildurl("dashboard/agendas/index") ?>">Agendas</a>
+            </li>
           </ul>
         </li>
 
