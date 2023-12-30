@@ -31,7 +31,7 @@ class Authentication extends \Core\Controller
   public function loginAction()
   {
     global $context;
-      
+
     if (isset($context->isLoggedIn) &&  $context->isLoggedIn == true) {
       redirect('dashboard/index/index');
     }
@@ -51,7 +51,7 @@ class Authentication extends \Core\Controller
 
   public function forgotpasswordAction()
   {
- 
+
     view::render('authentication/forgotpassword.php', array(), 'authentication');
   }
 
@@ -59,20 +59,20 @@ class Authentication extends \Core\Controller
   public function request()
   {
     global $context;
-    
+
     if (isset($_POST)) $data = $_POST;
     $isLoggedin = $context->isLoggedIn;
-    $clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
-    $userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
-    $region = $_ENV['AWS_REGION'];
+    $clientId = '7d5rnt2fko5ngrkbabc7279jd3';
+    $userPoolId = 'eu-central-1_s1AB2IwMW';
+    $region = 'eu-central-1';
 
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => $_ENV['AWS_ACCESS_KEY_ID'],
-        'secret' => $_ENV['AWS_SECRET_ACCESS_KEY'],
-    ],
+        'key'    => 'AKIA4Y2PS6FVQSB7BW6X',
+        'secret' => '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',
+      ],
     ]);
 
     try {
@@ -80,22 +80,18 @@ class Authentication extends \Core\Controller
         'ClientId' =>  $clientId,
         'Username' => $data['username']
       ]);
-      
+
       if ($result) {
-          redirect('authentication/resetpassword');
-        } else {
-          $context->errors['message'] = 'Login & Password error!!!';
-          redirect('authentication/login');
-        }
-      
+        redirect('authentication/resetpassword');
+      } else {
+        $context->errors['message'] = 'Login & Password error!!!';
+        redirect('authentication/login');
+      }
     } catch (\Throwable $th) {
       $_SESSION['error'] = ['message' => $th->getMessage()];
       redirect('authentication/login');
     }
-
   }
-
-
 
   public function reset()
   {
@@ -111,36 +107,30 @@ class Authentication extends \Core\Controller
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => $_ENV['AWS_ACCESS_KEY_ID'],
-        'secret' => $_ENV['AWS_SECRET_ACCESS_KEY'],
-    ],
+        'key'    => 'AKIA4Y2PS6FVQSB7BW6X',
+        'secret' => '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',
+      ],
     ]);
 
     try {
-      $result =$client->confirmForgotPassword([
+      $result = $client->confirmForgotPassword([
         'ClientId' => $clientId,
         'ConfirmationCode' => $data['code'],
         'Password' => $data['password'],
         'Username' => $data['username']
       ]);
-      
+
       if ($result) {
-          redirect('authentication/login');
-        } else {
-          $context->errors['message'] = 'Login & Password error!!!';
-          redirect('authentication/login');
-        }
-      
+        redirect('authentication/login');
+      } else {
+        $context->errors['message'] = 'Login & Password error!!!';
+        redirect('authentication/login');
+      }
     } catch (\Throwable $th) {
       $_SESSION['error'] = ['message' => $th->getMessage()];
       redirect('authentication/login');
     }
-
   }
-
-
-
-
 
   public function resetpasswordAction()
   {
@@ -156,20 +146,21 @@ class Authentication extends \Core\Controller
   {
     global $context;
     if (isset($_POST)) $data = $_POST;
-    $isLoggedin = $context->isLoggedIn;
 
-    $clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
-    $userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
-    $region = $_ENV['AWS_REGION'];
-   
+    $isLoggedin = $context->isLoggedIn;
+    
+    $clientId = '7d5rnt2fko5ngrkbabc7279jd3';
+    $userPoolId = 'eu-central-1_s1AB2IwMW';
+    $region = 'eu-central-1';
+
 
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => $_ENV['AWS_ACCESS_KEY_ID'],
-        'secret' => $_ENV['AWS_SECRET_ACCESS_KEY'],
-    ],
+        'key'    => 'AKIA4Y2PS6FVQSB7BW6X',
+        'secret' => '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',
+      ],
     ]);
 
     try {
@@ -182,20 +173,28 @@ class Authentication extends \Core\Controller
           'PASSWORD' => $data['password'],
         ],
       ]);
-      $accessToken = $result->get('AuthenticationResult')['AccessToken'];
       
+      $accessToken = $result->get('AuthenticationResult')['AccessToken'];
+
       if ($accessToken) {
         $_SESSION['token'] = $accessToken;
         $isLoggedin  = Profile::Login($data);
         if ($isLoggedin == true) {
+        
           redirect('dashboard/index/index');
+
         } else {
           $context->errors['message'] = 'Login & Password error!!!';
+          echo "<pre>"; print_r("false"); die;
           redirect('authentication/login');
         }
       }
     } catch (\Throwable $th) {
-      $_SESSION['error'] = ['message' => 'Incorrect username or password'];
+      echo 'pre';
+      print_r($th);
+      die;
+      throw $th;
+      // $_SESSION['error'] = ['message' => 'Incorrect username or password'];
       redirect('authentication/login');
     }
   }
@@ -203,21 +202,20 @@ class Authentication extends \Core\Controller
 
   public function register()
   {
-      global $context;
-      if (isset($_POST)) $data = $_POST;
+    global $context;
+    if (isset($_POST)) $data = $_POST;
+    $clientId = '7d5rnt2fko5ngrkbabc7279jd3';
+    $userPoolId = 'eu-central-1_s1AB2IwMW';
+    $region = 'eu-central-1';
 
-      $clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
-      $userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
-      $region = $_ENV['AWS_REGION'];
-
-      $client = new CognitoIdentityProviderClient([
-        'version' => 'latest',
-        'region'  => $region,
-        'credentials' => [
-          'key'    => $_ENV['AWS_ACCESS_KEY_ID'],
-          'secret' => $_ENV['AWS_SECRET_ACCESS_KEY'],
+    $client = new CognitoIdentityProviderClient([
+      'version' => 'latest',
+      'region'  => $region,
+      'credentials' => [
+        'key'    => 'AKIA4Y2PS6FVQSB7BW6X',
+        'secret' => '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',
       ],
-      ]);
+    ]);
 
     try {
       $result  =  $client->signUp([
@@ -240,9 +238,10 @@ class Authentication extends \Core\Controller
         $user = User::Save($data);
         $_SESSION['success'] = ['message' => 'Registration Successfull, please find your authentication code in your email inbox'];
       }
-    
+
       redirect('authentication/code');
     } catch (\Throwable $th) {
+
       $_SESSION['error'] = ['message' => $th->getMessage()];
       redirect('authentication/signup');
     }
@@ -251,43 +250,35 @@ class Authentication extends \Core\Controller
 
   public function verifyAction()
   {
-
     global $context;
     if (isset($_POST)) $data = $_POST;
-
-    $clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
-    $userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
-    $region = $_ENV['AWS_REGION'];
-
+    $clientId = '7d5rnt2fko5ngrkbabc7279jd3';
+    $userPoolId = 'eu-central-1_s1AB2IwMW';
+    $region = 'eu-central-1';
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => $_ENV['AWS_ACCESS_KEY_ID'],
-        'secret' => $_ENV['AWS_SECRET_ACCESS_KEY'],
-    ],
+        'key'    => 'AKIA4Y2PS6FVQSB7BW6X',
+        'secret' => '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',
+      ],
     ]);
     try {
-      
       $result = $client->confirmSignUp([
         'ClientId' => $clientId,
         'Username' => $data['username'],
         'ConfirmationCode' => $data['code'],
       ]);
-
-      if(count($result)){
+      if (count($result)) {
         $data['status'] = true;
         $confirm = User::VerifyeUser($data);
       }
-
       $_SESSION['success'] = ['message' => 'You have been verified'];
-
       redirect('authentication/login');
     } catch (\Throwable $th) {
       $_SESSION['error'] = ['message' => $th->getMessage()];
       throw $th;
     }
-
   }
 
 
@@ -301,5 +292,3 @@ class Authentication extends \Core\Controller
     redirect('/');
   }
 }
-
-

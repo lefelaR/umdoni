@@ -245,29 +245,29 @@ $data = $context->data;
         <div class="col-12 col-lg-3">
             <div class="card">
                 <div class="card-body py-4 px-5">
-                    <div class="d-flex align-items-center">
+                    <!-- <div class="d-flex align-items-center">
                         <?php
 
 
-                        $profile = isset($_SESSION['profile']) ?  $_SESSION['profile'] : array();
+                    //     $profile = isset($_SESSION['profile']) ?  $_SESSION['profile'] : array();
 
-                        $avatar = isset($profile['location']) ? $profile['location'] : url('assets/img/profile/pro.png');
+                    //     $avatar = isset($profile['location']) ? $profile['location'] : url('assets/img/profile/pro.png');
 
 
-                        echo '
-                        <div class="avatar avatar-xl">
-                        <img src="' . $avatar . '" alt="Face 1">
-                    </div>
-                    <div class="ms-3 name">
-                        <h5 class="font-bold">' . $profile['username'] . '</h5>
-                        <h6 class="text-muted mb-0">' . $profile['email'] . '</h6>
-                    </div>
-                        ';
+                    //     echo '
+                    //     <div class="avatar avatar-xl">
+                    //     <img src="' . $avatar . '" alt="Face 1">
+                    // </div>
+                    // <div class="ms-3 name">
+                    //     <h5 class="font-bold">' . $profile['username'] . '</h5>
+                    //     <h6 class="text-muted mb-0">' . $profile['email'] . '</h6>
+                    // </div>
+                    //     ';
 
 
 
                         ?>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="card">
