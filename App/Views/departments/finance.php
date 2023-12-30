@@ -57,8 +57,8 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
 
-        <p class="h1 text-uppercase fw-bold text-secondary">
-        CFO : Ms T Mhlongo
+            <p class="h1 text-uppercase fw-bold text-secondary">
+                CFO : Ms T Mhlongo
             </p>
 
             <p class="fw-lighter fs-3 my-5">
@@ -68,7 +68,6 @@
     </div>
     <div class="row">
         <div class="col-md-12 col-lg-12 mx-auto">
-           
 
             <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true">

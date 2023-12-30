@@ -5,7 +5,7 @@ $data = $context->data;
 ?>
 
 <style>
-      #service-page {
+    #service-page {
         background-image: linear-gradient(rgba(15, 7, 50, 0.079), rgba(12, 3, 51, 0.084)),
             url('<?php echo url("assets/img/strips/Umdoni-community-strip.jpg") ?>');
         min-height: 40vh;
@@ -50,7 +50,7 @@ $data = $context->data;
         <div class="tag-header">
             <div class="col">
                 <p class="h1 m-5 fs-1 text-white">
-                Neighborhood Info
+                    Neighborhood Info
                 </p>
             </div>
         </div>
@@ -62,29 +62,72 @@ $data = $context->data;
 
         <div class="col-md-12 col-lg-12">
             <p class="h1 text-uppercase fw-bold">
-                <!-- Umdoni municipality services -->
+
             </p>
             <p class="fw-lighter fs-3 my-5">
                 Explore our vibrant neighborhood through our Neighborhood Info page. Discover local attractions, amenities, upcoming events, and news. Immerse yourself in our community a wonderful place to live, work, and play!
             </p>
         </div>
-        <?php
-
-        foreach ($data as $key => $value) {
-            echo '
-        <div class="col-md-4 my-1">
-        <a href="' . buildurl("services/serviceinfo?service=" . $value['id']) . '">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5">' . $value['title'] . '</p>
-                    <p class="fw-normal"> ' . $value['subtitle'] . '</p>
-                </div>
-            </div>
-            </a>
-        </div>';
-        }
-        ?>
 
     </div>
+
+    <div class="row">
+        <div class="col-md-12 col-lg-12 mx-auto">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                    <div class="d-flex w-100 justify-content-between">
+                        <p class="my-3 h4">Beaches</p>
+                    </div>
+                    <p>
+
+                        UMDONI Beaches are the hubs of activity throughout the year. With shark nets in place and lifeguards on duty all year round, it is a safe bathing beach with a host of fun things to do for the whole family.
+
+                        Activities on the beach include a super tube waterslide, mini-golf, canoe hire (fabulous for leisurely trips up the lagoon), fishing, body board, and surfboard hire. During peak season orbing and abseiling is also on offer.
+
+                        Umdoni Beaches are close to numerous restaurants, bars, curio shops, surf shops and takeaway outlets
+                    </p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <p class="my-3 h4">Parks & Gardens</p>
+                    </div>
+                    <ul>
+                        <li>The Development & Maintenance of Parks</li>
+                        <li> Road Verges</li>
+                        <li>Traffic Islands</li>
+                        <li>Recreational Areas</li>
+                        <li>Other Public Open Spaces</li>
+                        <li>Cashiers & Super-vending</li>
+                        <li>Provision & Maintenance of Cemetery Space </li>
+
+                    </ul>
+                    <p>The municipality has 4 cemeteries in; Park Rynie, Scottburgh, Kelso & Shayamoya. Umdoni Parks & Gardens Section is also responsible for Cutting Grass, cleaning of surface drains, Trimming of Trees, removal of trees, cutting back Alien Plants and Bushes. Areas that the municipality extends this service to are namely;
+
+</p>
+                </a>
+
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <p class="my-3 h4">CREDIT CONTROL, DEBT COLLECTION, AND INDIGENT SUPPORT</p>
+                    </div>
+                    <ul>
+                        <li>Handling of Arrears Accounts</li>
+                        <li>Performing the following Credit Control actions in respect of customers with arrear accounts</li>
+                        <li>Sending SMS & final request messages</li>
+                        <li>Performing Electricity Disconnections & Water Restrictions</li>
+                        <li>Raising Credit Control Charges on Debtor accounts</li>
+                        <li>Performing Debt Collection actions including sending final Demand Notices</li>
+                        <li>Raising Debt Collection Charges on Debtor accounts</li>
+                        <li>Liaising with all types of customers regarding payment of their accounts</li>
+                        <li>Managing the Indigent Register & Performing Investigations to confirm the Indigency status of customers</li>
+                        <li>Reporting to Council & National Treasury</li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 </div>
