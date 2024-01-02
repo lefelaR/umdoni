@@ -213,6 +213,7 @@ CREATE TABLE `notices` (
 --
 -- Indexes for dumped tables
 --
+DROP TABLE IF EXISTS `meetings`;
 CREATE TABLE `meetings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) DEFAULT NULL,
@@ -225,8 +226,9 @@ CREATE TABLE `meetings` (
   `isActive` int(11) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
+  `updatedBy` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Indexes for table `categories`
 --

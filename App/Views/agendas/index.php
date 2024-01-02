@@ -6,7 +6,7 @@ $data = $context->data;
 <style>
     #service-page {
         background-image: linear-gradient(rgba(15, 7, 50, 0.079), rgba(12, 3, 51, 0.084)),
-            url('<?php echo url("assets/img/strips/Umdoni-news_strip1.jpg") ?>');
+        url('<?php echo url("assets/img/strips/Umdoni-docs-strip.jpg") ?>');
         min-height: 40vh;
         position: relative;
         background-repeat: no-repeat;
