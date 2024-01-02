@@ -22,7 +22,7 @@ class NewsModel extends \Core\Model
 
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM news WHERE `isActive` = 1');
+            $stmt = $db->query('SELECT * FROM agendas WHERE `isActive` = 1');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
             

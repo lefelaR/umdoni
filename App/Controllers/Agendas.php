@@ -28,9 +28,9 @@ class Agendas extends \Core\Controller
     public function indexAction()
     {
 
-        $newsletter = NewsModel::getAll();
+        $agendas = Agenda::getAll();
 
-        view::render('agendas/index.php', $newsletter, 'default');
+        view::render('agendas/index.php', $agendas, 'default');
     }
 
     public function detailsAction()
@@ -38,12 +38,12 @@ class Agendas extends \Core\Controller
         $data = getPostData();
         if(isset($data['id'])){
             $id = $data['id'];
-            $news = NewsModel::getNewsById($id);
+            $agendas = Agenda::getAgenda($id);
         }else{
-            $news = array();
+            $agendas = array();
         }
 
-        view::render('agendas/details.php', $news, 'default');
+        view::render('agendas/details.php', $agendas, 'default');
     }
     /**
      * After filter

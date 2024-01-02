@@ -75,7 +75,7 @@ $data = $context->data;
 
         echo '
         <div class=" col-md-4 col-lg-4 col-sm-12">
-        <a href="'.buildurl("news/details?id=".$value['id']).'">
+        <a href="'.buildurl("agendas/details?id=".$value['id']).'">
             <div class="card mb-3 card-hover" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
