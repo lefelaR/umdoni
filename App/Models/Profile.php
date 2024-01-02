@@ -85,7 +85,9 @@ class Profile extends \Core\Model
     {
         global $context;
         $exists = self::getUser($data['username']);
-        $context->profile = $exists;
+        
+        $context = (object) array_merge( (array)$context, array( 'profile' => $exists ) );
+        // $context->profile = $exists;
 
         if(!empty($exists)) 
         {

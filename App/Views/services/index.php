@@ -50,7 +50,7 @@ $data = $context->data;
     <div class="row">
         <div class="tag-header">
             <div class="col">
-                <p class="h1 m-5 fs-1 text-white">
+                <p class="h1 m-5 fs-1 text-white shadow">
                  Services
                 </p>
             </div>
