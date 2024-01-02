@@ -64,8 +64,7 @@ $data = $context->data;
                 <!-- meetings & agendas -->
             </p>
             <p class="fw-lighter fs-3 my-5">
-                Stay Informed on Civic Affairs: to keep you up-to-date with scheduled municipal council gatherings and their agendas. Access key details on discussions, decisions, and participate in shaping your community's future.
-            </p>
+            Stay informed and up-to-date with the latest municipal notices and important announcements from Umdoni Municipality. This dedicated page serves as your central resource for all official communications, including upcoming events, public service updates, policy changes, and essential community advisories. Whether it's information about local developments, service disruptions, or community initiatives, our Notices page ensures you have access to timely and relevant information directly from the Municipality. Bookmark this page and check back regularly to stay connected and informed about what's happening in your community.   </p>
         </div>
 
         <?php
