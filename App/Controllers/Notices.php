@@ -6,6 +6,8 @@
  * Front Controller/ hadles all the incoming requests to site
  */
 namespace App\Controllers;
+
+use App\Models\Notice;
 use \Core\View;
 
  
@@ -22,9 +24,24 @@ class Notices extends \Core\Controller
 
     public function indexAction()
     {
-        view::render('notices/index.php', $context =array(), 'default');
+
+        $notices = Notice::getAll();
+        view::render('notices/index.php', $notices, 'default');
     }
   
+
+    public function detailsAction()
+    {
+        $data = getPostData();
+        if(isset($data['id'])){
+            $id = $data['id'];
+            $notice = Notice::getById($id);
+        }else{
+            $notice = array();
+        }
+
+        view::render('notices/details.php', $notice, 'default');
+    }
     /**
      * After filter
      *

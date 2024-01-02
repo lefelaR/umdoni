@@ -81,7 +81,6 @@ class Events extends \Core\Controller
 
                 if ($objectKey !== "") {
                     try {
-
                         $result = $s3->putObject([
                             'Bucket' => $bucketName,
                             'Key' => $objectKey,

@@ -13,8 +13,8 @@ $data = $context->data;
         background-size: cover;
     }
 
-        
-    #service-page p{
+
+    #service-page p {
         bottom: 0px;
         position: absolute;
         font-size: 8em !important;
@@ -45,4 +45,56 @@ $data = $context->data;
 
 
 
+<div class="container-fluid" id="service-page">
+    <div class="row">
+        <div class="tag-header">
+            <div class="col">
+                <p class="h1 m-5 fs-1 text-white">
+                    Notices
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="container content-section">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <p class="h1 text-uppercase fw-bold">
+                <!-- meetings & agendas -->
+            </p>
+            <p class="fw-lighter fs-3 my-5">
+                Stay Informed on Civic Affairs: to keep you up-to-date with scheduled municipal council gatherings and their agendas. Access key details on discussions, decisions, and participate in shaping your community's future.
+            </p>
+        </div>
+
+        <?php
+        foreach ($data as $key => $value) {
+
+            echo '
+            <div class="col-md-4 col-lg-4 col-sm-12">
+            <a href="' . buildurl('notices/details?id=' . $value['id']) . '">
+            <div class="card mb-3 card-hover" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="' . $value["location"] . '" class="img-fluid rounded-start" style="    object-fit: cover;
+                height: 130px;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">' . $value["title"] . '</h5>
+                        <p class=" text-truncate">' . $value["body"] . '</p>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+            </a>
+        </div>
+            ';
+        }
+
+        ?>
+    </div>
+</div>
+</div>
