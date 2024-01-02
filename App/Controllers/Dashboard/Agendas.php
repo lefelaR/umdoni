@@ -9,6 +9,7 @@ namespace App\Controllers\Dashboard;
 use \Core\View;
 use App\Models\User;
 use App\Models\Meeting;
+use App\Models\Agenda;
 use Aws\S3\S3Client;
 
 
@@ -41,8 +42,8 @@ class Agendas extends \Core\Controller
         // get information from the model and inject it into the viewport
         //    name an object that will carry all dashboard items
 
-        $meetings = Meeting::getAll();
-        view::render('dashboard/agendas/index.php', $meetings , 'dashboard');
+        $agendas = Agenda::getAll();
+        view::render('dashboard/agendas/index.php', $agendas , 'dashboard');
     }
 
     public function addAction()
@@ -50,9 +51,9 @@ class Agendas extends \Core\Controller
         $data = getPostData();
         if (isset($data['id'])) {
             $id = $data['id'];
-            $meeting = Meeting::getMeeting($id);
-        } else $meeting = array();
-        view::render('dashboard/agendas/add.php',  $meeting, 'dashboard');
+            $agenda = Agenda::getAgenda($id);
+        } else $agenda = array();
+        view::render('dashboard/agendas/add.php',  $agenda, 'dashboard');
     }
   
 
