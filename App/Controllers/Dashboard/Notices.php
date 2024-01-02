@@ -1,11 +1,14 @@
 <?php
+
 /**
  * @author : rakheoana lefela
  * @date : 16th dec 2021
  * 
  * Front Controller/ hadles all the incoming requests to site
  */
+
 namespace App\Controllers\Dashboard;
+
 use \Core\View;
 use Aws\S3\S3Client;
 use App\Models\User;
@@ -20,7 +23,7 @@ class Notices extends \Core\Controller
     private $clientId;
     private $userPoolId;
     private $region;
-    private $awsSecretAccessKey; 
+    private $awsSecretAccessKey;
 
     public function __construct()
     {
@@ -34,11 +37,11 @@ class Notices extends \Core\Controller
 
     public function indexAction()
     {
-     
+
         $notices = Notice::getAll();
-        view::render('dashboard/notices/index.php', $notices , 'dashboard');
+        view::render('dashboard/notices/index.php', $notices, 'dashboard');
     }
-  
+
     public function addAction()
     {
         $data = getPostData();
@@ -48,7 +51,7 @@ class Notices extends \Core\Controller
         } else
             $notices = array();
 
-        view::render('dashboard/notices/add.php',  $notices , 'dashboard');
+        view::render('dashboard/notices/add.php',  $notices, 'dashboard');
     }
 
 
@@ -73,30 +76,25 @@ class Notices extends \Core\Controller
             ]);
 
             $file = $_FILES;
+            if (count($file) > 0) {
 
+                $filePath = $file['name']['tmp_name'];
+                $objectKey = $file['name']['name'];
+                if ($objectKey !== "") {
 
-            $filePath = $file['name']['tmp_name'];
-            $objectKey = $file['name']['name'];
-            $loc = "";
-
-
-     
-
-            try {
-                // Upload the file to S3
-                $result = $s3->putObject([
-                    'Bucket' => $bucketName,
-                    'Key' => $objectKey,
-                    'Body'   => $filePath,
-                    'ACL'    => 'public-read',
-                ]);
-
-              
-                
-            } catch (Exception $e) {
-                echo "Error uploading file: " . $e->getMessage();
+                    try {
+                        // Upload the file to S3
+                        $result = $s3->putObject([
+                            'Bucket' => $bucketName,
+                            'Key' => $objectKey,
+                            'Body'   => $filePath,
+                            'ACL'    => 'public-read',
+                        ]);
+                    } catch (\Throwable $e) {
+                        echo "Error uploading file: " . $e->getMessage();
+                    }
+                }
             }
-            
         }
 
         if (isset($_POST)) $data = $_POST;
@@ -110,7 +108,6 @@ class Notices extends \Core\Controller
             $_SESSION['success'] = ['message' => 'Success'];
         } catch (\Throwable $th) {
             $_SESSION['errors'] = ['message' => $th->getMessage()];
-           
         }
         redirect('dashboard/notices/index');
     }
@@ -139,33 +136,31 @@ class Notices extends \Core\Controller
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
-        redirect('dashboard/news/index');
+        redirect('dashboard/notices/index');
     }
 
     public function eventsAction()
     {
-    
-        view::render('dashboard/notices/events.php',  $context=[] , 'dashboard');
+
+        view::render('dashboard/notices/events.php',  $context = [], 'dashboard');
     }
-   
+
     public function projectsAction()
     {
-        view::render('dashboard/notices/projects.php',  $context=[] , 'dashboard');
+        view::render('dashboard/notices/projects.php',  $context = [], 'dashboard');
     }
 
     public function noticesAction()
     {
-        view::render('dashboard/notices/notices.php',  $context=[] , 'dashboard');
+        view::render('dashboard/notices/notices.php',  $context = [], 'dashboard');
     }
 
     protected function before()
     {
-       enable_authorize();
+        enable_authorize();
     }
 
     protected function after()
     {
-       
     }
-
 }
