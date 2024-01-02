@@ -10,17 +10,17 @@ $crumbs = getCrumbs();
     <div class="col-12 col-md-12 order-md-2 order-first">
         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
             <ol class="breadcrumb">
-     <?php       foreach ($crumbs as $key => $crumb) {
-    if ($key == (count($crumbs) - 1)) {
-        $active = 'active';
-        echo ' <li class="breadcrumb-item" ' . $active . ' aria-current="page">' . $crumb . '</li>  ';
-    } else {
-        $active = '';
-        echo '<li class="breadcrumb-item ' . $active . '" aria-current="page">'.$crumb.'</li>';
-    }
-}
-?>
-            
+                <?php foreach ($crumbs as $key => $crumb) {
+                    if ($key == (count($crumbs) - 1)) {
+                        $active = 'active';
+                        echo ' <li class="breadcrumb-item" ' . $active . ' aria-current="page">' . $crumb . '</li>  ';
+                    } else {
+                        $active = '';
+                        echo '<li class="breadcrumb-item ' . $active . '" aria-current="page">' . $crumb . '</li>';
+                    }
+                }
+                ?>
+
             </ol>
         </nav>
     </div>
@@ -30,7 +30,7 @@ $crumbs = getCrumbs();
     <div class="col-md">
         <div class="card">
             <div class="card-header">
-            <p class="card-title fw-light">Notice List</p>
+                <p class="card-title fw-light">Notice List</p>
                 <div class="float-start float-lg-end">
                     <a class="btn btn-sm" href="<?php echo buildurl("dashboard/notices/add") ?>" role="button">
                         <i class="bi bi-plus"></i> Add
@@ -40,21 +40,21 @@ $crumbs = getCrumbs();
                     </button>
                 </div>
             </div>
-            <?php include('Includes/parts/alerts.php') ?>
             <div class="card-content">
+                <?php include('Includes/parts/alerts.php') ?>
                 <div class="card-body">
                     <div class="table-responsive">
 
                         <table class="table table-striped" id="table1">
                             <thead>
-                            <tr>
-                                  
-                                  <th>TITLE</th>
-                                  <th>SUMMARY</th>
-                                  <th>BODY</th>
-                                  <th>CREATED DATE</th>
-                                  <th>ACTIONS</th>
-                              </tr>
+                                <tr>
+
+                                    <th>TITLE</th>
+                                    <th>SUMMARY</th>
+                                    <th>BODY</th>
+                                    <th>CREATED DATE</th>
+                                    <th>ACTIONS</th>
+                                </tr>
                             </thead>
                             <tbody>
 
