@@ -37,7 +37,6 @@ class Notices extends \Core\Controller
 
     public function indexAction()
     {
-
         $notices = Notice::getAll();
         view::render('dashboard/notices/index.php', $notices, 'dashboard');
     }
@@ -50,7 +49,6 @@ class Notices extends \Core\Controller
             $notices = Notice::getById($id);
         } else
             $notices = array();
-
         view::render('dashboard/notices/add.php',  $notices, 'dashboard');
     }
 
@@ -82,12 +80,22 @@ class Notices extends \Core\Controller
                 $objectKey = $file['name']['name'];
                 if ($objectKey !== "") {
 
+                    // resize the file
+                    $image = Image::make($filePath);
+                    // $image->crop(636, 358, 25, 25);
+                    $resizedImageBinary =   $image->resize(null, 358, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+
+                    // Convert image to binary
+                    $resizedImageBinary = $image->encode('jpg')->getEncoded();
+
                     try {
                         // Upload the file to S3
                         $result = $s3->putObject([
                             'Bucket' => $bucketName,
                             'Key' => $objectKey,
-                            'Body'   => $filePath,
+                            'Body'   => $resizedImageBinary,
                             'ACL'    => 'public-read',
                         ]);
                     } catch (\Throwable $e) {
