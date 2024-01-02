@@ -213,7 +213,22 @@ CREATE TABLE `notices` (
 --
 -- Indexes for dumped tables
 --
-
+DROP TABLE IF EXISTS `meetings`;
+CREATE TABLE `meetings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `subtitle` varchar(255) DEFAULT NULL,
+  `body` varchar(1500) DEFAULT NULL,
+  `createdAt` varchar(45) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `img_file` varchar(255) DEFAULT NULL,
+  `isActive` int(11) DEFAULT NULL,
+  `updatedAt` varchar(45) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `updatedBy` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Indexes for table `categories`
 --

@@ -70,51 +70,34 @@ nav ul li i {
             </p>  
         </div>
 
-        div class="row mt-5">
-        <div class=" col-md-12 col-lg-12 col-sm-12">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Date/Time</th>
-                        <th scope="col">Documents</th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-      <tbody>
-                <?php
-                
-                
-                foreach ($data as $key => $calendar) {
-                  
-                    $key ++;
-
-                    echo'
-                    <tr>
-                    <th scope="row">'.$key.'</th>
-                    <td>'.$calendar["title"].'</td>
-                    <td>3 mins ago</td>
-                    <td> <i class="bi bi-file-earmark-text"></i>
-                    '.$calendar["location"].'</td>
-                    <td>
-                       <a href="details?id='.$calendar["id"].'">More...</a>
-                    </td>
-                </tr>
-                    ';
-
-                }
-                
-                ?>
-          
-                
-                </tbody>
-            </table>
-            
+        <div class="col-md-6 my-2">
+         
+        <a href="<?php echo buildurl('meetings/index') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex inline">
+                            <i class="bi bi-calendar-event fs-1 text-yellow"></i>
+                            <p class="h5 m-3"> Meetings</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
         </div>
+        <div class="col-md-6 my-2">
+        <a href="<?php echo buildurl('agendas/index') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex inline">
+                      
+                            <i class="bi bi-book fs-1 text-yellow"></i>
+                            <p class="h5 m-3"> Agendas</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+         </div>
     </div>
-
-
 
     </div>
 </div>

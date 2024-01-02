@@ -26,7 +26,7 @@ $data = $context->data;
             <div class="card-header">
                 <p class="card-title fw-light">Agenda List</p>
                 <div class="float-start float-lg-end">
-                    <a class="btn btn-sm" href="<?php echo buildurl("dashboard/meetings/add") ?>" role="button">
+                    <a class="btn btn-sm" href="<?php echo buildurl("dashboard/agendas/add") ?>" role="button">
                         <i class="bi bi-plus"></i> Add
                     </a>
                     <button class="btn  btn-sm">
