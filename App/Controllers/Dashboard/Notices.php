@@ -37,7 +37,6 @@ class Notices extends \Core\Controller
 
     public function indexAction()
     {
-
         $notices = Notice::getAll();
         view::render('dashboard/notices/index.php', $notices, 'dashboard');
     }
@@ -50,7 +49,6 @@ class Notices extends \Core\Controller
             $notices = Notice::getById($id);
         } else
             $notices = array();
-
         view::render('dashboard/notices/add.php',  $notices, 'dashboard');
     }
 
