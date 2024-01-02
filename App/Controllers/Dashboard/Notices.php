@@ -115,7 +115,7 @@ class Notices extends \Core\Controller
             $id =  Notice::Save($data);
             $_SESSION['success'] = ['message' => 'Success'];
         } catch (\Throwable $th) {
-            $_SESSION['errors'] = ['message' => $th->getMessage()];
+            $_SESSION['error'] = ['message' => $th->getMessage()];
         }
         redirect('dashboard/notices/index');
     }
