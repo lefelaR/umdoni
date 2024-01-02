@@ -1,6 +1,6 @@
 <?php
 global $context;
-$data = $context->data;
+$data = $context->data[0];
 // array_column
 ?>
 
@@ -50,7 +50,7 @@ $data = $context->data;
         <div class="tag-header">
             <div class="col">
                 <p class="h1 m-5 fs-1 text-white">
-                    News
+                    Meeting
                 </p>
             </div>
         </div>
