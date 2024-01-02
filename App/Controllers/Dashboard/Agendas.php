@@ -103,7 +103,7 @@ class Agendas extends \Core\Controller
         $data['updatedBy'] = $_SESSION['profile']['username'];
 
         try {
-            $id =  Meeting::Save($data);
+            $id =  Agenda::Save($data);
             $_SESSION['success'] = ['message' => "Success!"];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
