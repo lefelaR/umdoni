@@ -28,7 +28,7 @@ class Agendas extends \Core\Controller
     public function indexAction()
     {
 
-        $agendas = Agenda::getAll();
+        $agendas = Agenda::Get();
 
         view::render('agendas/index.php', $agendas, 'default');
     }
@@ -38,7 +38,7 @@ class Agendas extends \Core\Controller
         $data = getPostData();
         if(isset($data['id'])){
             $id = $data['id'];
-            $agendas = Agenda::getAgenda($id);
+            $agendas = Agenda::GetById($id);
         }else{
             $agendas = array();
         }
