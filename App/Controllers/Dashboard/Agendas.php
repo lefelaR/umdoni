@@ -51,7 +51,7 @@ class Agendas extends \Core\Controller
         $data = getPostData();
         if (isset($data['id'])) {
             $id = $data['id'];
-            $agenda = Agenda::GetAgenda($id);
+            $agenda = Agenda::GetById($id);
         } else $agenda = array();
         view::render('dashboard/agendas/add.php',  $agenda, 'dashboard');
     }

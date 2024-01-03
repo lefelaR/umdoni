@@ -30,7 +30,7 @@ class Agenda extends \Core\Model
 
 
 
-    public static function GetAgenda($id)
+    public static function GetById($id)
     {
         try {
             $db = static::getDB();
