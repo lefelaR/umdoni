@@ -78,11 +78,9 @@ class Notice extends \Core\Model
         global $context;
         $db = static::getDB();
         if (!isset($data['id'])) $data['id'] = 0;
-
         $sql = "INSERT into notices (title, subtitle, body, isActive, img_file, location, createdAt)
                 VALUES ('$data[title]','$data[subtitle]','$data[body]','1', '$data[img_file]', '$data[location]', '$data[createdAt]' )";
         $stmt = $db->exec($sql);
-
         return $stmt;
     }
 
