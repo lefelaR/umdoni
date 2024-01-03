@@ -111,6 +111,31 @@ class Meetings extends \Core\Controller
     }
 
 
+    public function updateAction()
+    {
+        $data = $_POST;
+        $data['updatedAt'] = date("Y-m-d H:i:s");
+        try {
+            $id =  Meeting::Update($data);
+
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+        redirect('dashboard/councillors/index');
+    }
+
+
+    public function deleteAction()
+    {
+        $id = $_GET['id'];
+        try {
+            Meeting::Delete($id);
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+        redirect('dashboard/news/index');
+    }
+
 
     protected function before()
     {

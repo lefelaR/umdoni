@@ -52,4 +52,46 @@ class Meeting extends \Core\Model
         return $stmt;
     }
 
+    public static function Update($data)
+    {
+        $db = static::getDB();
+
+        $sql = "UPDATE meetings SET 
+        `title` =  :title, 
+        `subtitle` = :subtitle, 
+        `body`= :body, 
+        `updatedAt`= :updatedAt
+        WHERE `id`= $data[id]";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':title', $data['title']);
+        $stmt->bindParam(':subtitle', $data['subtitle']);
+        $stmt->bindParam(':body', $data['body']);
+        $stmt->bindParam(':updatedAt', $data['updatedAt']);
+
+        if ($stmt->execute()) {
+            return true; 
+        } else {
+            return false;
+        }
+    }
+
+
+    public static function Delete($id)
+    {
+        $db = static::getDB();
+        $sql = "UPDATE  meetings SET `isActive` = 0 WHERE `id` = $id";
+        $stmt = $db->exec($sql);
+        return $stmt;
+    }
+
+    public static function Restore($id)
+    {
+        $db = static::getDB();
+        $sql = "UPDATE  meetings SET `isActive` = 1 WHERE `id` = $id";
+        $stmt = $db->exec($sql);
+        return $stmt;
+    }
+
+
 }

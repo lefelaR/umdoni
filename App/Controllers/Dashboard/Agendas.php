@@ -42,7 +42,7 @@ class Agendas extends \Core\Controller
         // get information from the model and inject it into the viewport
         //    name an object that will carry all dashboard items
 
-        $agendas = Agenda::getAll();
+        $agendas = Agenda::Get();
         view::render('dashboard/agendas/index.php', $agendas , 'dashboard');
     }
 
@@ -51,7 +51,7 @@ class Agendas extends \Core\Controller
         $data = getPostData();
         if (isset($data['id'])) {
             $id = $data['id'];
-            $agenda = Agenda::getAgenda($id);
+            $agenda = Agenda::GetAgenda($id);
         } else $agenda = array();
         view::render('dashboard/agendas/add.php',  $agenda, 'dashboard');
     }
@@ -109,6 +109,31 @@ class Agendas extends \Core\Controller
             $_SESSION['error'] = ['message' => $th->getMessage()];
         }
         redirect('dashboard/agendas/index');
+    }
+
+
+    public function updateAction()
+    {
+        $data = $_POST;
+        $data['updatedAt'] = date("Y-m-d H:i:s");
+        try {
+            $id =  Agenda::Update($data);
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+        redirect('dashboard/councillors/index');
+    }
+
+
+    public function deleteAction()
+    {
+        $id = $_GET['id'];
+        try {
+            Agenda::Delete($id);
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+        redirect('dashboard/news/index');
     }
 
 
