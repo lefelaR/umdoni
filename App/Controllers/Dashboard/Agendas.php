@@ -121,7 +121,7 @@ class Agendas extends \Core\Controller
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
-        redirect('dashboard/councillors/index');
+        redirect('dashboard/agendas/index');
     }
 
 
@@ -130,10 +130,11 @@ class Agendas extends \Core\Controller
         $id = $_GET['id'];
         try {
             Agenda::Delete($id);
+            $_SESSION['success'] = ['message' => "Success!"];
         } catch (\Throwable $th) {
-            echo $th->getMessage();
+            $_SESSION['error'] = ['message' => $th->getMessage()];
         }
-        redirect('dashboard/news/index');
+        redirect('dashboard/agendas/index');
     }
 
 
