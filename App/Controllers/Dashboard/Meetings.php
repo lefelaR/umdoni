@@ -121,7 +121,7 @@ class Meetings extends \Core\Controller
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
-        redirect('dashboard/councillors/index');
+        redirect('dashboard/meetings/index');
     }
 
 
@@ -133,7 +133,7 @@ class Meetings extends \Core\Controller
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
-        redirect('dashboard/news/index');
+        redirect('dashboard/meetings/index');
     }
 
 
