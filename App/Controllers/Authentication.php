@@ -8,7 +8,6 @@
  */
 
 namespace App\Controllers;
-
 use \Core\View;
 use \Components\Cognito;
 use App\Models\Profile;
@@ -16,11 +15,8 @@ use Components\Context;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
 use App\Models\User;
 
-
-
 class Authentication extends \Core\Controller
 {
-
   private $bucketName;
   private $awsAccessKeyId;
   private $clientId;
@@ -41,7 +37,6 @@ public function __construct()
 
   public function indexAction()
   {
-
     echo "hello from the login controller";
     //    view::render('authentication/login.php', array() ,'authentication');
   }
@@ -49,11 +44,9 @@ public function __construct()
   public function loginAction()
   {
     global $context;
-
     if (isset($context->isLoggedIn) &&  $context->isLoggedIn == true) {
       redirect('dashboard/index/index');
     }
-
     view::render('authentication/login.php', array(), 'authentication');
   }
 
@@ -69,7 +62,6 @@ public function __construct()
 
   public function forgotpasswordAction()
   {
-
     view::render('authentication/forgotpassword.php', array(), 'authentication');
   }
 
@@ -164,13 +156,10 @@ public function __construct()
   {
     global $context;
     if (isset($_POST)) $data = $_POST;
-
     $isLoggedin = $context->isLoggedIn;
-
     $clientId = $this->clientId;
     $userPoolId = $this->userPoolId;
     $region = $this->region;
-
 
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
@@ -191,29 +180,20 @@ public function __construct()
           'PASSWORD' => $data['password'],
         ],
       ]);
-
       $accessToken = $result->get('AuthenticationResult')['AccessToken'];
-
       if ($accessToken) {
         $_SESSION['token'] = $accessToken;
         $isLoggedin  = Profile::Login($data);
         if ($isLoggedin == true) {
-
           redirect('dashboard/index/index');
         } else {
           $context->errors['message'] = 'Login & Password error!!!';
-          echo "<pre>";
-          print_r("false");
-          die;
           redirect('authentication/login');
         }
       }
     } catch (\Throwable $th) {
-      echo 'pre';
-      print_r($th);
-      die;
       throw $th;
-      // $_SESSION['error'] = ['message' => 'Incorrect username or password'];
+      $_SESSION['error'] = ['message' => 'Incorrect username or password'];
       redirect('authentication/login');
     }
   }
