@@ -8,7 +8,6 @@
  */
 
 namespace App\Controllers;
-
 use \Core\View;
 use \Components\Cognito;
 use App\Models\Profile;
@@ -16,14 +15,28 @@ use Components\Context;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
 use App\Models\User;
 
-
-
 class Authentication extends \Core\Controller
 {
+  private $bucketName;
+  private $awsAccessKeyId;
+  private $clientId;
+  private $userPoolId;
+  private $region;
+  private $awsSecretAccessKey; 
+
+
+public function __construct()
+  {
+      $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
+      $this->clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
+      $this->userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
+      $this->region = $_ENV['AWS_REGION'];
+      $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
+      $this->bucketName = $_ENV['BUCKET_NAME'];
+  }
 
   public function indexAction()
   {
-
     echo "hello from the login controller";
     //    view::render('authentication/login.php', array() ,'authentication');
   }
@@ -31,11 +44,9 @@ class Authentication extends \Core\Controller
   public function loginAction()
   {
     global $context;
-
     if (isset($context->isLoggedIn) &&  $context->isLoggedIn == true) {
       redirect('dashboard/index/index');
     }
-
     view::render('authentication/login.php', array(), 'authentication');
   }
 
@@ -51,7 +62,6 @@ class Authentication extends \Core\Controller
 
   public function forgotpasswordAction()
   {
-
     view::render('authentication/forgotpassword.php', array(), 'authentication');
   }
 
@@ -146,20 +156,17 @@ class Authentication extends \Core\Controller
   {
     global $context;
     if (isset($_POST)) $data = $_POST;
-
     $isLoggedin = $context->isLoggedIn;
-
-    $clientId = '7d5rnt2fko5ngrkbabc7279jd3';
-    $userPoolId = 'eu-central-1_s1AB2IwMW';
-    $region = 'eu-central-1';
-
+    $clientId = $this->clientId;
+    $userPoolId = $this->userPoolId;
+    $region = $this->region;
 
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => 'AKIA4Y2PS6FVQSB7BW6X',
-        'secret' => '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',
+        'key'    => $this->awsAccessKeyId,
+        'secret' => $this->awsSecretAccessKey,
       ],
     ]);
 
@@ -173,29 +180,20 @@ class Authentication extends \Core\Controller
           'PASSWORD' => $data['password'],
         ],
       ]);
-
       $accessToken = $result->get('AuthenticationResult')['AccessToken'];
-
       if ($accessToken) {
         $_SESSION['token'] = $accessToken;
         $isLoggedin  = Profile::Login($data);
         if ($isLoggedin == true) {
-
           redirect('dashboard/index/index');
         } else {
           $context->errors['message'] = 'Login & Password error!!!';
-          echo "<pre>";
-          print_r("false");
-          die;
           redirect('authentication/login');
         }
       }
     } catch (\Throwable $th) {
-      echo 'pre';
-      print_r($th);
-      die;
       throw $th;
-      // $_SESSION['error'] = ['message' => 'Incorrect username or password'];
+      $_SESSION['error'] = ['message' => 'Incorrect username or password'];
       redirect('authentication/login');
     }
   }
