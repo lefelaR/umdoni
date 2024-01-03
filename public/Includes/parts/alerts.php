@@ -4,9 +4,9 @@ if (isset($_SESSION['error'])) {
     $text = 'danger';
 ?>
 
-        <div class="col-md-4">
+        <div class="col-md-8">
             <div class="alert alert-light-danger alert-danger color-danger text-center" role="alert">
-                <p class="text-<?php echo $text ?> fw-bold">
+                <p class="text-<?php echo $text ?> fw-normal">
                 <?php echo  $_SESSION['error']['message']; ?>
                 </p>
             </div>
@@ -15,10 +15,10 @@ if (isset($_SESSION['error'])) {
 } else if (isset($_SESSION['success'])) {
     $text = 'success';
     ?>
-        <div class="col-md-4">
+        <div class="col-md-8">
             <div class="alert alert-light-success alert-success color-success" role="alert">
               
-                <p class="text-<?php echo $text ?> fw-bold">
+                <p class="text-<?php echo $text ?> fw-normal">
                 <?php echo $_SESSION['success']['message']; ?>
 </p>
             </div>

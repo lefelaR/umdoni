@@ -192,7 +192,6 @@ public function __construct()
         }
       }
     } catch (\Throwable $th) {
-      throw $th;
       $_SESSION['error'] = ['message' => 'Incorrect username or password'];
       redirect('authentication/login');
     }

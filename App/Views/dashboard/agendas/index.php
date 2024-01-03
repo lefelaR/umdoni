@@ -43,7 +43,6 @@ $data = $context->data;
                         <table class="table table-striped" id="table1">
                             <thead>
                                 <tr>
-
                                     <th>TITLE</th>
                                     <th>SUBTITLE</th>
                                     <th>BODY</th>
@@ -58,7 +57,6 @@ $data = $context->data;
                                     $key++;
                                     echo '
                                 <tr>
-                                 
                                     <td>' . $meeting['title'] . '</td>
                                     <td>' . $meeting['subtitle'] . '</td>
                                     <td>' . $meeting['body'] . '</td>
