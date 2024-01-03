@@ -21,6 +21,24 @@ use App\Models\User;
 class Authentication extends \Core\Controller
 {
 
+  private $bucketName;
+  private $awsAccessKeyId;
+  private $clientId;
+  private $userPoolId;
+  private $region;
+  private $awsSecretAccessKey; 
+
+
+public function __construct()
+  {
+      $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
+      $this->clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
+      $this->userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
+      $this->region = $_ENV['AWS_REGION'];
+      $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
+      $this->bucketName = $_ENV['BUCKET_NAME'];
+  }
+
   public function indexAction()
   {
 
@@ -149,17 +167,17 @@ class Authentication extends \Core\Controller
 
     $isLoggedin = $context->isLoggedIn;
 
-    $clientId = '7d5rnt2fko5ngrkbabc7279jd3';
-    $userPoolId = 'eu-central-1_s1AB2IwMW';
-    $region = 'eu-central-1';
+    $clientId = $this->clientId;
+    $userPoolId = $this->userPoolId;
+    $region = $this->region;
 
 
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => 'AKIA4Y2PS6FVQSB7BW6X',
-        'secret' => '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',
+        'key'    => $this->awsAccessKeyId,
+        'secret' => $this->awsSecretAccessKey,
       ],
     ]);
 
