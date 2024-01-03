@@ -27,9 +27,6 @@ class Agenda extends \Core\Model
             echo $e->getMessage();
         }
     }
-
-
-
     public static function GetById($id)
     {
         try {
