@@ -75,7 +75,7 @@ echo '
                     </div>
 
                     <div id="editor"></div>
-                <button class="btn btn-primary btn-lg">
+                <button class="btn btn-primary btn-lg shadow">
                     submit
                 </button>
                 </div>

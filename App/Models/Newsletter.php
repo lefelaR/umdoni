@@ -16,7 +16,7 @@ class Newsletter extends \Core\Model
      *
      * @return array
      */
-    public static function getAll()
+    public static function Get()
     {
   
         try {
@@ -32,7 +32,7 @@ class Newsletter extends \Core\Model
 
 
     
-    public static function getNewsletter($id)
+    public static function GetById($id)
     {  
         try {
             $db = static::getDB();
@@ -46,7 +46,7 @@ class Newsletter extends \Core\Model
         }
     }
 
-    public static function UpdateNewsletter($data)
+    public static function Update($data)
     {
         $db = static::getDB(); 
         $sql = "UPDATE profile SET `first_name` =  '$data[first_name]', `last_name` = '$data[last_name]', `mobile_number`= '$data[mobile_number]', `address_1`= '$data[address_1]',

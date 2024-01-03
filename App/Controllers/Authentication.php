@@ -9,7 +9,6 @@
 
 namespace App\Controllers;
 use \Core\View;
-use \Components\Cognito;
 use App\Models\Profile;
 use Components\Context;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
