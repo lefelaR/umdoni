@@ -24,7 +24,7 @@ $data = $context->data;
     <div class="col-md">
         <div class="card">
             <div class="card-header">
-            <p class="card-title fw-light">Newsletters</p>
+            <p class="card-title fw-light">Newsletter List</p>
                 <div class="float-start float-lg-end">
                     <a class="btn btn-sm" href="<?php echo buildurl("dashboard/publications/add")?>" role="button">
                         <i class="bi bi-plus"></i> Add

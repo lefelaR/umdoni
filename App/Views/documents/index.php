@@ -48,7 +48,7 @@ $data = $context->data;
     <div class="row">
         <div class="tag-header">
             <div class="col ">
-            <p class="h1 m-5 fs-1 text-white">
+                <p class="h1 m-5 fs-1 text-white">
                     Documents
                 </p>
             </div>
@@ -72,58 +72,66 @@ $data = $context->data;
     <div class="row align-items-center">
 
         <div class="col-md-4 my-1">
-            <a href="<?php echo buildurl('documents/newsletters')?>">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5"> Newsletters</p>
-                    <p class="fw-normal"> service description</p>
+            <a href="<?php echo buildurl('documents/newsletters') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> Newsletters</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
                 </div>
-            </div>
             </a>
         </div>
         <div class="col-md-4 my-1">
-        <a href="<?php echo buildurl('documents/annualreports')?>">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5"> Annual Reports</p>
-                    <p class="fw-normal"> service description</p>
+            <a href="<?php echo buildurl('documents/annualreports') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> Annual Reports</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
         </div>
 
         <div class="col-md-4 my-1">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5"> Ward Profile</p>
-                    <p class="fw-normal"> service description</p>
+            <a href="<?php echo buildurl('documents/wardprofile') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> Ward Profile</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="col-md-4 my-1">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5"> IDP</p>
-                    <p class="fw-normal"> service description</p>
+            <a href="<?php echo buildurl('documents/idp') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> IDP</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-4 my-1">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5"> Policies & Bylaws</p>
-                    <p class="fw-normal"> service description</p>
+            <a href="<?php echo buildurl('documents/policies') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> Policies & Bylaws</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-4 my-1">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5"> Budget & Reporting</p>
-                    <p class="fw-normal"> service description</p>
+            <a href="<?php echo buildurl('documents/budget') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> Budget & Reporting</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-4 my-1">
             <div class="card">
