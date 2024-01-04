@@ -53,35 +53,66 @@ class Documents extends \Core\Controller
 
     public function annualreportsAction()
     {
-        $newsletters = Document::GET();
-        view::render('documents/annualreports.php', $newsletters, 'default');
+        $annualreports = Document::GET();
+        view::render('documents/annualreports.php', $annualreports, 'default');
     }
 
     public function wardprofileAction()
     {
-        $newsletters = Document::GET();
-        view::render('documents/wardprofile.php', $newsletters, 'default');
+        $wardprofile = Document::GET();
+        view::render('documents/wardprofile.php', $wardprofile, 'default');
     }
 
     public function idpAction()
     {
-        $newsletters = Document::GET();
-        view::render('documents/idp.php', $newsletters, 'default');
+        $idp = Document::GET();
+        view::render('documents/idp.php', $idp, 'default');
     }
 
 
     public function policiesAction()
     {
-        $newsletters = Document::GET();
-        view::render('documents/policies.php', $newsletters, 'default');
+        $policies = Document::GET();
+        view::render('documents/policies.php', $policies, 'default');
     }
 
     public function budgetAction()
     {
-        $newsletters = Document::GET();
-        view::render('documents/budget.php', $newsletters, 'default');
+        $budget = Document::GET();
+        view::render('documents/budget.php', $budget, 'default');
     }
 
+    public function valuationrollAction()
+    {
+        $valuationroll = Document::GET();
+        view::render('documents/valuationroll.php', $valuationroll, 'default');
+    }
+
+    public function internalauditAction()
+    {
+        $internalaudit = Document::GET();
+        view::render('documents/internalaudit.php', $internalaudit, 'default');
+    }
+
+
+    public function councilminutesAction()
+    {
+        $councilminutes = Document::GET();
+        view::render('documents/councilminutes.php', $councilminutes, 'default');
+    }
+    
+    public function servicedeliveryAction()
+    {
+        $servicedelivery = Document::GET();
+        view::render('documents/servicedelivery.php', $servicedelivery, 'default');
+    }
+
+
+    public function ledAction()
+    {
+        $led = Document::GET();
+        view::render('documents/led.php', $led, 'default');
+    }
     /**
      * After filter
      *
