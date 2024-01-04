@@ -134,46 +134,56 @@ $data = $context->data;
             </a>
         </div>
         <div class="col-md-4 my-1">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5"> Valuation Roll</p>
-                    <p class="fw-normal"> service description</p>
+            <a href="<?php echo buildurl('documents/valuationroll') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> Valuation Roll</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="col-md-4 my-1">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5"> Internal Audit</p>
-                    <p class="fw-normal"> service description</p>
+            <a href="<?php echo buildurl('documents/internalaudit') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> Internal Audit</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="col-md-4 my-1">
+        <a href="<?php echo buildurl('documents/councilminutes') ?>">
             <div class="card">
                 <div class="card-body">
                     <p class="h5"> Council Minuts</p>
                     <p class="fw-normal"> service description</p>
                 </div>
             </div>
+        </a>
         </div>
 
         <div class="col-md-4 my-1">
+        <a href="<?php echo buildurl('documents/servicedelivery') ?>">
             <div class="card">
                 <div class="card-body">
                     <p class="h5"> Service Delivery Agreements</p>
                     <p class="fw-normal"> service description</p>
                 </div>
             </div>
+        </a>
         </div>
         <div class="col-md-4 my-1">
+        <a href="<?php echo buildurl('documents/led') ?>">
             <div class="card">
                 <div class="card-body">
                     <p class="h5"> LED</p>
                     <p class="fw-normal"> service description</p>
                 </div>
             </div>
+        </a>
         </div>
 
     </div>
