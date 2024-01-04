@@ -153,14 +153,15 @@ CREATE TABLE `projects` (
 
 DROP TABLE IF EXISTS `requests`;
 CREATE TABLE `requests` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(45) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
   `telephone` varchar(45) DEFAULT NULL,
   `servicetype` varchar(45) DEFAULT NULL,
   `comments` varchar(45) DEFAULT NULL,
   `createdAt` varchar(45) DEFAULT NULL,
-  `status` varchar(45) DEFAULT NULL
+  `status` varchar(45) DEFAULT NULL,
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
