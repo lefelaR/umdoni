@@ -28,9 +28,9 @@ class Newsletters extends \Core\Controller
         if(isset($data['id'])) 
         {
             $id = $data['id'];
-            $user = Newsletter::getUser($id);
+            $newsletter = Newsletter::GetById($id);
         }else
-            $user = array();
+            $newsletter = array();
         view::render('dashboard/newsletters/add.php',  $newsletter, 'dashboard');
     }
 
@@ -39,7 +39,7 @@ class Newsletters extends \Core\Controller
         $data = $_POST;
         try 
         {
-          $id =  Newsletter::UpdateUser($data);
+          $id =  Newsletter::Update($data);
         } catch (\Throwable $th) 
         {
             echo $th->getMessage();

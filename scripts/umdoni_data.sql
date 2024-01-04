@@ -6,10 +6,6 @@ CREATE TABLE `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
-
-
-
-
 DROP TABLE IF EXISTS `seniors`;
 CREATE TABLE `seniors` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -26,8 +22,26 @@ CREATE TABLE `seniors` (
   `affiliation` varchar(255) DEFAULT NULL,
   `isActive` int(11) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,
+  `initials` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+DROP TABLE IF EXISTS `documents`;
+CREATE TABLE `documents` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `subtitle` varchar(552) DEFAULT NULL,
+  `body` varchar(552) DEFAULT NULL,
+  `createdAt` varchar(45) DEFAULT NULL,
+  `category` varchar(45) DEFAULT NULL,
+  `img_file` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `createdBy` varchar(45) DEFAULT NULL,
+  `isActive` varchar(45) DEFAULT NULL,
+  `updatedBy` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 DROP TABLE IF EXISTS `events`;

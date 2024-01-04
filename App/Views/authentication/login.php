@@ -61,7 +61,7 @@ if (isset($context->errors['message'])) {
                                     Keep me logged in
                                 </label>
                             </div>
-                            <input class="btn main-btn btn-primary btn-sm btn-block shadow-lg mt-5" type="submit" name="submit" value="Log in">
+                            <input class="btn main-btn btn-primary btn-sm btn-block mt-5 shadow" type="submit" name="submit" value="Log in">
 
                         </form>
                         <div class="text-center mt-5 font-weight-smaller">

@@ -39,7 +39,7 @@ class Documents extends \Core\Controller
             $id = $data['id'];
             $category = $data['category'];
 
-            $document = Document::getDocumentById($id,$category);
+            $document = Document::GetById($id,$category);
         }else $document = array();
 
         view::render('documents/details.php', $document, 'default');
@@ -47,19 +47,40 @@ class Documents extends \Core\Controller
 
     public function newslettersAction()
     {
-
         $newsletters = Document::GET();
         view::render('documents/newsletters.php', $newsletters, 'default');
     }
 
     public function annualreportsAction()
     {
-
         $newsletters = Document::GET();
         view::render('documents/annualreports.php', $newsletters, 'default');
     }
 
+    public function wardprofileAction()
+    {
+        $newsletters = Document::GET();
+        view::render('documents/wardprofile.php', $newsletters, 'default');
+    }
 
+    public function idpAction()
+    {
+        $newsletters = Document::GET();
+        view::render('documents/idp.php', $newsletters, 'default');
+    }
+
+
+    public function policiesAction()
+    {
+        $newsletters = Document::GET();
+        view::render('documents/policies.php', $newsletters, 'default');
+    }
+
+    public function budgetAction()
+    {
+        $newsletters = Document::GET();
+        view::render('documents/budget.php', $newsletters, 'default');
+    }
 
     /**
      * After filter

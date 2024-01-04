@@ -160,7 +160,7 @@ class Councillors extends \Core\Controller
                 $_SESSION['success'] =  ['message' => "Record created successfully"];
             }
         } catch (\Throwable $th) {
-            $_SESSION['error'] = ['message' => "Unable to save record!"];
+            $_SESSION['error'] = ['message' => $th->getMessage()];
         }
         redirect('dashboard/councillors/senior');
     }

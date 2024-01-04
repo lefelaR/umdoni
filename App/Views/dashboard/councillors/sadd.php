@@ -145,7 +145,7 @@ echo '
                     </div>
                 </div>
                 <div class="col-md-6">
-                <button class="btn btn-primary btn-lg">
+                <button class="btn btn-primary btn-lg shadow">
                     submit
                 </button>
                 </div>
