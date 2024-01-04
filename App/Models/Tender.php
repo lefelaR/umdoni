@@ -50,7 +50,7 @@ class Tender extends \Core\Model
     }
 
 
-    public static function updateService($data)
+    public static function Update($data)
     {
         $db = static::getDB(); 
         $sql = "UPDATE tenders SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
