@@ -49,9 +49,10 @@ $data = $context->data;
     </div>
     <div class="row align-items-center">
         <?php
+        
         $annualreports = $data;
         foreach ($annualreports as $key => $report) {
-                if($report['category'] === "AR"){
+                if($report['category'] === "PB"){
             echo '
                 <div class="col-md-4 my-1">
                     <a href="details?id='.$report['id'].'&category='.$report['category'].'">
