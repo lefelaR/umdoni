@@ -35,7 +35,7 @@ echo '
             <div class="card-header">
                 <p class="card-title fw-light">Posted Vacancies</p>
                 <div class="float-start float-lg-end">
-                    <a class="btn btn-sm" href="<?php echo buildurl("dashboard/news/add") ?>" role="button">
+                    <a class="btn btn-sm" href="<?php echo buildurl("dashboard/vacancies/add") ?>" role="button">
                         <i class="bi bi-plus"></i> Add
                     </a>
                     <button class="btn  btn-sm">
@@ -48,7 +48,7 @@ echo '
             <div class="card-content">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-lg">
+                    <table class="table table-striped" id="table1">
                             <thead>
                                 <tr>
                                   

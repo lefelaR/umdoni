@@ -43,6 +43,20 @@ CREATE TABLE `documents` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `vacancies`;
+CREATE TABLE `vacancies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(45) DEFAULT NULL,
+  `level` varchar(45) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  `duties` varchar(500) DEFAULT NULL,
+  `experience` varchar(45) DEFAULT NULL,
+  `createdAt` varchar(45) DEFAULT NULL,
+  `createdBy` varchar(45) DEFAULT NULL, 
+  `isActive` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 DROP TABLE IF EXISTS `events`;
 CREATE TABLE `events` (
