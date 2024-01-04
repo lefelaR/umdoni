@@ -80,23 +80,13 @@ class Notices extends \Core\Controller
                 $objectKey = $file['name']['name'];
                 if ($objectKey !== "") {
 
-                    // resize the file
-                    $image = Image::make($filePath);
-                    // $image->crop(636, 358, 25, 25);
-                    $resizedImageBinary =   $image->resize(null, 358, function ($constraint) {
-                        $constraint->aspectRatio();
-                    });
-
-                    // Convert image to binary
-                    $resizedImageBinary = $image->encode('jpg')->getEncoded();
-
                     try {
                         // Upload the file to S3
                         $result = $s3->putObject([
                             'Bucket' => $bucketName,
                             'Key' => $objectKey,
-                            'Body'   => $resizedImageBinary,
-                            'ACL'    => 'public-read',
+                            'Body'   => $filePath,
+                           
                         ]);
                     } catch (\Throwable $e) {
                         echo "Error uploading file: " . $e->getMessage();
