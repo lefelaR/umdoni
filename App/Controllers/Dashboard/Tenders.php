@@ -14,6 +14,7 @@ use \Core\View;
 use App\Models\User;
 use App\Models\Service;
 use App\Models\Request;
+use App\Models\Tender;
 use DateTime;
 
 class Tenders extends \Core\Controller
@@ -30,11 +31,10 @@ class Tenders extends \Core\Controller
     {
         $data = getPostData();
 
-        if(isset($data['id']))
-        {
+        if (isset($data['id'])) {
             $id = $data['id'];
             $service = Service::getServiceById($id);
-        }else
+        } else
             $service = array();
         view::render('dashboard/tenders/add.php', $service, 'dashboard');
     }
@@ -44,15 +44,16 @@ class Tenders extends \Core\Controller
     {
         global $context;
 
-        if(isset($_POST)) $data = $_POST;
-        $date['createdAt'] = date("Y-m-d H:i:s");
-        try 
-        {
-          $id =  Service::Save($data);   
-        } catch (\Throwable $th) 
-        {
+        if (isset($_POST)) $data = $_POST;
+        $data['createdAt'] = date("Y-m-d H:i:s");
+        $data['isActive'] = 1;
+        $data['updatedBy'] =  $_SESSION['profile']['username'];
+        try {
+            $id =  Tender::Save($data);
+        } catch (\Throwable $th) {
             $_SESSION['errors'] = ['message' => $th->getMessage()];
-           print_r($th->getMessage()); die;
+            print_r($th->getMessage());
+            die;
         }
         redirect('dashboard/tenders/index');
     }
@@ -62,13 +63,11 @@ class Tenders extends \Core\Controller
         $data = $_POST;
 
         $data['updatedAt'] = date("Y-m-d H:i:s");
-       
 
-        try 
-        {
-          $id =  Service::updateService($data);
-        } catch (\Throwable $th) 
-        {
+
+        try {
+            $id =  Service::updateService($data);
+        } catch (\Throwable $th) {
             echo $th->getMessage();
         }
         redirect('dashboard/tenders/index');
@@ -77,11 +76,9 @@ class Tenders extends \Core\Controller
     public function deleteAction()
     {
         $id = $_GET['id'];
-        try 
-        {
-          Service::Delete($id);
-        } catch (\Throwable $th) 
-        {
+        try {
+            Service::Delete($id);
+        } catch (\Throwable $th) {
             echo $th->getMessage();
         }
         redirect('dashboard/tenders/index');

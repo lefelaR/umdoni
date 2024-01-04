@@ -17,7 +17,7 @@ class Tender extends \Core\Model
      *
      * @return array
      */
-    public static function getAll()
+    public static function Get()
     {
 
         try {
@@ -67,8 +67,8 @@ class Tender extends \Core\Model
 
         $db = static::getDB(); 
         
-        $sql = "INSERT into tenders (title, subtitle, body, isActive, createdAt, updatedAt, updatedBy)
-                VALUES ('$data[title]','$data[subtitle]','$data[body]','1', 'today' , 0,'rakheoana')"; 
+        $sql = "INSERT into tenders (title, subtitle, body, isActive, createdAt, updatedBy)
+                VALUES ('$data[title]','$data[subtitle]','$data[body]','$data[isActive]', '$data[createdAt]', '$data[updatedBy]')"; 
         $stmt = $db->exec($sql);
         
        return $stmt;
