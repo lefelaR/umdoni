@@ -35,7 +35,7 @@ class Index extends \Core\Controller
     {
 
 
-        $data['news'] =  NewsModel::getAll();
+        $data['news'] =  NewsModel::Get();
 
             view::render('index/index.php', $data, 'default');
     }

@@ -17,12 +17,12 @@ class NewsModel extends \Core\Model
      *
      * @return array
      */
-    public static function getAll()
+    public static function Get()
     {
 
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM agendas WHERE `isActive` = 1');
+            $stmt = $db->query('SELECT * FROM news WHERE `isActive` = 1');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
             
@@ -36,7 +36,7 @@ class NewsModel extends \Core\Model
     /**
      * @return object
      */
-    public static function getNewsById($id)
+    public static function GetById($id)
     {
         try {
             $db = static::getDB();
@@ -50,10 +50,10 @@ class NewsModel extends \Core\Model
     }
 
 
-    public static function updateService($data)
+    public static function Update($data)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE services SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
+        $sql = "UPDATE news SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
                WHERE `id`= $data[id]"; 
         $stmt = $db->exec($sql);
 
@@ -67,10 +67,9 @@ class NewsModel extends \Core\Model
         $db = static::getDB(); 
         if(!isset($data['id'])) $data['id'] = 0;
 
-        $sql = "INSERT into notices (title, subtitle, body, isActive, img_file, location, createdAt)
+        $sql = "INSERT into news (title, subtitle, body, isActive, img_file, location, createdAt)
                 VALUES ('$data[title]','$data[subtitle]','$data[body]','1', '$data[img_file]', '$data[location]', '$data[createdAt]' )"; 
         $stmt = $db->exec($sql);
-        
        return $stmt;
     }
 
