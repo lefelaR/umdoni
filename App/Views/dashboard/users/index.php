@@ -28,17 +28,20 @@ $crumbs = getCrumbs();
     </ol>
   </div>
 
-
-  <div class="col-xl-8 col-lg-7 mb-4">
-    <div class="card">
-      <div
-        class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
-      >
-        <h6 class="m-0 font-weight-bold text-primary">Users</h6>
-        <a class="m-0 float-right btn btn-default btn-md" title="Add" href="add"
-          ><i class="far fa-plus-square"></i>  </a>
-      </div>
-      <div class="table-responsive">
+  <div class="row">
+    <div class="col-md">
+        <div class="card">
+            <div class="card-header">
+                <p class="card-title fw-light">User List</p>
+                <div class="float-start float-lg-end">
+                <div class="card-content">
+                <?php include('Includes/parts/alerts.php') ?>
+                </div>
+                </div>
+            </div>
+            
+                <div class="card-body">
+                    <div class="table-responsive">
         <table class="table align-items-center table-flush">
           <thead class="thead-light">
             <tr>
@@ -50,8 +53,8 @@ $crumbs = getCrumbs();
             </tr>
           </thead>
           <tbody>
-        <?php 
-
+       
+       <?php 
            $img ='';
         
            foreach ($data as $key => $user) 
@@ -63,6 +66,8 @@ $crumbs = getCrumbs();
             else{
                 $img = '<img src='.url("assets/img/pro.jpg").' style="width:30px">';
             }
+             
+            $key++;
             echo '<tr>
                     <td><a href="#">'.$img.'</a></td>
                     <td>'.$user['username'].'</td>
@@ -71,7 +76,8 @@ $crumbs = getCrumbs();
                     <td><a href="add?id='.$user['user_id'].'" class="btn btn-sm btn-primary">Detail</a></td>
                 </tr>';
             }
-        ?>
+          
+          ?>
           </tbody>
         </table>
       </div>

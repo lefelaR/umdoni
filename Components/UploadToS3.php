@@ -71,7 +71,7 @@ class UploadToS3
             'Body'   => $resizedImageBinary,
             'ACL'    => 'public-read',
         ]);
-
+    }
 
 
 
