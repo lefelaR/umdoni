@@ -55,7 +55,7 @@ $data = $context->data;
         <?php
         $newsletters = $data;
         foreach ($newsletters as $key => $newsletter) {
-                if($newsletter['category'] === "NL"){
+                if($newsletter['category'] === "AI"){
             echo '
                 <div class="col-md-4 my-1">
                     <a href="details?id='.$newsletter['id'].'&category='.$newsletter['category'].'">

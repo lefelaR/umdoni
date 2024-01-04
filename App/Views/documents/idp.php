@@ -55,7 +55,7 @@ $data = $context->data;
         <?php
         $annualreports = $data;
         foreach ($annualreports as $key => $report) {
-                if($report['category'] === "AR"){
+                if($report['category'] === "IDP"){
             echo '
                 <div class="col-md-4 my-1">
                     <a href="details?id='.$report['id'].'&category='.$report['category'].'">
