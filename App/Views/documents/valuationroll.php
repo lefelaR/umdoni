@@ -40,7 +40,7 @@ $data = $context->data;
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <p class="h1 text-uppercase fw-bold">
-                Ward Profile
+                valuation roll
             </p>
         </div>
     </div>

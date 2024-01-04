@@ -158,7 +158,7 @@ $data = $context->data;
         <a href="<?php echo buildurl('documents/councilminutes') ?>">
             <div class="card">
                 <div class="card-body">
-                    <p class="h5"> Council Minuts</p>
+                    <p class="h5"> Council Minutes</p>
                     <p class="fw-normal"> service description</p>
                 </div>
             </div>
