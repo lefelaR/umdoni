@@ -1,12 +1,7 @@
 <?php
-
 global $context;
-
-
-
+$crumbs = getCrumbs();
 ?>
-
-
 <div id="sidebar" class="active">
   <div class="sidebar-wrapper active">
     <div class="sidebar-header">
@@ -219,4 +214,34 @@ global $context;
 </div>
 
 
+<script type="text/javascript">
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Get all elements with the class "sidebar-link"
+    var links = document.querySelectorAll('.sidebar-link');
+
+    // Add click event listener to each link
+    links.forEach(function(link) {
+        link.addEventListener('click', function() {
+            // Remove the "active" class from all links and their submenu items
+            links.forEach(function(innerLink) {
+                innerLink.classList.remove('active');
+                var submenuItems = innerLink.parentNode.querySelector('.submenu');
+                if (submenuItems) {
+                    submenuItems.querySelectorAll('.submenu-item').forEach(function(submenuItem) {
+                        submenuItem.classList.remove('active');
+                    });
+                }
+            });
+
+            // Add the "active" class to the clicked link and its parent submenu item
+            link.classList.add('active');
+            var submenu = link.parentNode.querySelector('.submenu');
+            if (submenu) {
+                submenu.querySelector('.submenu-item').classList.add('active');
+            }
+        });
+    });
+});
+
+</script>
