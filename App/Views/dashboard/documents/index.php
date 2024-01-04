@@ -49,7 +49,7 @@ echo '
             <div class="card-content">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-lg">
+                    <table class="table table-striped" id="table1">
                             <thead>
                                 <tr>
                                   
