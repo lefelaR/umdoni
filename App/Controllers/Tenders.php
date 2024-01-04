@@ -9,6 +9,7 @@ namespace App\Controllers;
 use \Core\View;
 use  App\Models\Post;
 use  App\Models\Roles;
+use App\Models\Tender;
 use  PHPMailer\PHPMailer\PHPMailer;
 use  PHPMailer\PHPMailer\Exception;
  
@@ -26,6 +27,8 @@ class Tenders extends \Core\Controller
 
     public function indexAction()
     {
+
+        $tenders = Tender::Get();
         view::render('tenders/index.php', $context =array(), 'default');
     }
 

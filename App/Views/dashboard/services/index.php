@@ -37,8 +37,8 @@ $data = $context->data;
                     </button>
                 </div>
             </div>
-            <?php include ('Includes/parts/alerts.php') ?>
             <div class="card-content">
+            <?php include ('Includes/parts/alerts.php') ?>
                 <div class="card-body">
                     <div class="table-responsive">
                     <table class="table table-striped" id="table1">
