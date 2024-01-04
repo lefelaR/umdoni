@@ -38,8 +38,8 @@ $crumbs = getCrumbs();
         </div>
 
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table align-items-center table-flush">
+          <div class="table-responsive" >
+            <table class="table align-items-center table-flush" id="table1">
               <thead class="thead-light">
                 <tr>
                   <th>ID</th>
