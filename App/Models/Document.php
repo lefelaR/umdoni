@@ -17,7 +17,7 @@ class Document extends \Core\Model
      *
      * @return array
      */
-    public static function GET()
+    public static function Get()
     {
         try {
             $db = static::getDB();
@@ -31,7 +31,7 @@ class Document extends \Core\Model
 
 
 
-    public static function getDocumentById($id, $category)
+    public static function GetById($id, $category)
     {
         try {
             $db = static::getDB();

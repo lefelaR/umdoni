@@ -19,6 +19,26 @@ use Aws\S3\S3Client;
 
 class Documents extends \Core\Controller
 {
+
+
+    private $bucketName;
+    private $awsAccessKeyId;
+    private $clientId;
+    private $userPoolId;
+    private $region;
+    private $awsSecretAccessKey; 
+
+
+    public function __construct()
+    {
+        $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
+        $this->clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
+        $this->userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
+        $this->region = $_ENV['AWS_REGION'];
+        $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
+        $this->bucketName = $_ENV['BUCKET_NAME'];
+    }
+
     public function indexAction()
     {
         $documents = Document::GET();
@@ -42,10 +62,10 @@ class Documents extends \Core\Controller
         $loggedinUser = $_SESSION['profile'];
 
         if (isset($_FILES)) {
-            $bucketName = 'umdoni-document-bucket';
-            $awsAccessKeyId = 'AKIA3FVMIL3UXGIEI3WH';
-            $awsSecretAccessKey = '/yXhJ3sHfpl0Ykp/ZCv59VdHAXxiXoc2gAAP3XZa';
-            $region = 'eu-central-1'; // Change to your desired region
+            $bucketName = $this->bucketName;
+            $awsAccessKeyId =  $this->awsAccessKeyId;
+            $awsSecretAccessKey =  $this->awsSecretAccessKey;
+            $region = $this->region;
 
             $s3 = new S3Client([
                 'version' => 'latest',
@@ -62,9 +82,7 @@ class Documents extends \Core\Controller
             $objectKey = $file['name']['name'];
             $loc = "";
 
-
             try {
-
                 $result = $s3->putObject([
                     'Bucket' => $bucketName,
                     'Key' => $key.$objectKey,
@@ -78,8 +96,8 @@ class Documents extends \Core\Controller
         if (isset($_POST)) $data = $_POST;
         $data['isActive'] = 1;
         $data['createdAt'] = date("Y-m-d H:i:s");
-        $data['img_file'] = $objectKey;
-        $data['location'] = $result['ObjectURL'];
+        $data['img_file'] = isset($result) ? $objectKey : "";
+        $data['location'] = isset($result) ? $result['ObjectURL'] : "";
         $data['updatedBy'] = $loggedinUser['username'];
 
         try {
@@ -88,7 +106,6 @@ class Documents extends \Core\Controller
         } catch (\Throwable $th) {
             $_SESSION['errors'] = ['message' => $th->getMessage()];
         }
-        
         redirect('dashboard/documents/index');
     }
 
@@ -131,7 +148,6 @@ class Documents extends \Core\Controller
 
     public function Action()
     {
-
         view::render('dashboard/documents/reports.php', $context = [], 'dashboard');
     }
 

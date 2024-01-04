@@ -26,7 +26,7 @@ class News extends \Core\Controller
     public function indexAction()
     {
 
-        $newsletter = NewsModel::getAll();
+        $newsletter = NewsModel::Get();
 
         view::render('news/index.php', $newsletter, 'default');
     }
@@ -36,7 +36,7 @@ class News extends \Core\Controller
         $data = getPostData();
         if(isset($data['id'])){
             $id = $data['id'];
-            $news = NewsModel::getNewsById($id);
+            $news = NewsModel::GetById($id);
         }else{
             $news = array();
         }

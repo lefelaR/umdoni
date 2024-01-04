@@ -11,18 +11,16 @@ echo '
     <div class="col-12 col-md-12 order-md-2 order-first">
         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
             <ol class="breadcrumb">';
-            foreach ($crumbs as $key => $crumb) 
-            {
-                if($key == (count($crumbs)-1))
-                {
-                    $active = 'active';
-           echo ' <li class="breadcrumb-item '.$active.'" aria-current="page">'.$crumb.'</li>  ';
-                }else{   
-                    $active = '';
-              echo '<li class="breadcrumb-item '.$active.'" aria-current="page">'.$crumb.'</li>';
-                }
-            }
-            echo'
+foreach ($crumbs as $key => $crumb) {
+    if ($key == (count($crumbs) - 1)) {
+        $active = 'active';
+        echo ' <li class="breadcrumb-item ' . $active . '" aria-current="page">' . $crumb . '</li>  ';
+    } else {
+        $active = '';
+        echo '<li class="breadcrumb-item ' . $active . '" aria-current="page">' . $crumb . '</li>';
+    }
+}
+echo '
             </ol>
         </nav>
     </div>
@@ -43,15 +41,15 @@ echo '
                     </button>
                 </div>
             </div>
-            <?php
-            echo '
+
             <div class="card-content">
+                <?php include('Includes/parts/alerts.php') ?>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-lg">
                             <thead>
                                 <tr>
-                                  
+
                                     <th>TITLE</th>
                                     <th>SUMMARY</th>
                                     <th>BODY</th>
@@ -59,12 +57,12 @@ echo '
                                     <th>ACTIONS</th>
                                 </tr>
                             </thead>
-                            <tbody>';
+                            <tbody>
+                                <?php
+                                foreach ($data as $key => $service) {
+                                    $key++;
 
-            foreach ($data as $key => $service) {
-                $key++;
-
-                echo '
+                                    echo '
                                 <tr>
                                  
                                     <td>' . $service['title'] . '</td>
@@ -80,9 +78,9 @@ echo '
                                     </a>
                                     </td>
                                 </tr>';
-            }
+                                }
+                                ?>
 
-            echo '
                             </tbody>
                         </table>
                     </div>
@@ -91,4 +89,3 @@ echo '
         </div>
     </div>
 </div>
-';

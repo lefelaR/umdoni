@@ -37,10 +37,6 @@ class Meetings extends \Core\Controller
 
     public function indexAction()
     {
-       
-        // get information from the model and inject it into the viewport
-        //    name an object that will carry all dashboard items
-
         $meetings = Meeting::getAll();
         view::render('dashboard/meetings/index.php', $meetings , 'dashboard');
     }
@@ -82,7 +78,6 @@ class Meetings extends \Core\Controller
 
                 if ($objectKey !== "") {
                     try {
-
                         $result = $s3->putObject([
                             'Bucket' => $bucketName,
                             'Key' => $objectKey,
@@ -117,9 +112,9 @@ class Meetings extends \Core\Controller
         $data['updatedAt'] = date("Y-m-d H:i:s");
         try {
             $id =  Meeting::Update($data);
-
+            $_SESSION['success'] = ['message' => "Updated!"];
         } catch (\Throwable $th) {
-            echo $th->getMessage();
+            $_SESSION['error'] = ['message' => $th->getMessage()];
         }
         redirect('dashboard/meetings/index');
     }
@@ -130,8 +125,9 @@ class Meetings extends \Core\Controller
         $id = $_GET['id'];
         try {
             Meeting::Delete($id);
+            $_SESSION['success'] = ['message' => "Deleted!"];
         } catch (\Throwable $th) {
-            echo $th->getMessage();
+            $_SESSION['error'] = ['message' => $th->getMessage()];
         }
         redirect('dashboard/meetings/index');
     }
