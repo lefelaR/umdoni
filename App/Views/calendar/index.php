@@ -114,6 +114,3 @@ $data = $context->data;
     </div>
 
 </div>
-
-
-<section

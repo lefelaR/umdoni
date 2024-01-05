@@ -59,23 +59,19 @@ echo '
                         <label for="basicInput">Title</label>
                         <input type="text" class="form-control" id="title" name="title" value="' . $title . '">
                     </div>
-
                     <div class="form-group">
                         <label for="helperText">Subtitle</label>
                         <input type="text" id="subtitle" name="subtitle" class="form-control" value="' . $subtitle . '">
                     </div>
-
                     <div class="form-group">
                         <input type="file" class="form-control" id="image" name="image" aria-describedby="' . $file_name . '" aria-label="Upload" value="' . $location . '">
                     </div>
-
                     <div class="form-group">
                         <label for="body">Body</label>
                         <textarea type="text" name="body" class="form-control text-black" value="' . $body . '" rows="3">
                         ' . $body . '
                         </textarea>
                     </div>
-
                     <div id="editor"></div>
                 <button class="btn btn-primary btn-lg">
                     submit

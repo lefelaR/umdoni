@@ -1,7 +1,4 @@
-<?php
-global $context;
-$crumbs = getCrumbs();
-?>
+
 <div id="sidebar" class="active">
   <div class="sidebar-wrapper active">
     <div class="sidebar-header">
@@ -213,35 +210,28 @@ $crumbs = getCrumbs();
   </div>
 </div>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function handleSidebarLinkClick(event) {
+      // Remove "active" class from all sidebar links
+      var sidebarLinks = document.querySelectorAll('.sidebar-link');
+      sidebarLinks.forEach(function(link) {
+        link.classList.remove('active');
+      });
 
-<script type="text/javascript">
+      // Add "active" class to the clicked sidebar link
+      var clickedLink = event.currentTarget;
+      clickedLink.classList.add('active');
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Get all elements with the class "sidebar-link"
-    var links = document.querySelectorAll('.sidebar-link');
+      // Save the state to local storage
+      localStorage.setItem('activeSidebarLink', clickedLink.id);
+    }
 
-    // Add click event listener to each link
-    links.forEach(function(link) {
-        link.addEventListener('click', function() {
-            // Remove the "active" class from all links and their submenu items
-            links.forEach(function(innerLink) {
-                innerLink.classList.remove('active');
-                var submenuItems = innerLink.parentNode.querySelector('.submenu');
-                if (submenuItems) {
-                    submenuItems.querySelectorAll('.submenu-item').forEach(function(submenuItem) {
-                        submenuItem.classList.remove('active');
-                    });
-                }
-            });
-
-            // Add the "active" class to the clicked link and its parent submenu item
-            link.classList.add('active');
-            var submenu = link.parentNode.querySelector('.submenu');
-            if (submenu) {
-                submenu.querySelector('.submenu-item').classList.add('active');
-            }
-        });
+    // Add click event listeners to all sidebar links
+    var sidebarLinks = document.querySelectorAll('.sidebar-link');
+    debugger
+    sidebarLinks.forEach(function(link) {
+      link.addEventListener('click', handleSidebarLinkClick);
     });
-});
-
+  });
 </script>
