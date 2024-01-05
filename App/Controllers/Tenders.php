@@ -29,7 +29,7 @@ class Tenders extends \Core\Controller
     {
 
         $tenders = Tender::Get();
-        view::render('tenders/index.php', $context =array(), 'default');
+        view::render('tenders/index.php', $tenders, 'default');
     }
 
   

@@ -12,9 +12,7 @@ namespace App\Controllers\Dashboard;
 
 use \Core\View;
 use App\Models\NewsModel;
-use Aws\S3\S3Client;
 use App\Models\Councillor;
-
 use Intervention\Image\ImageManagerStatic as Image;
 
 class News extends \Core\Controller
