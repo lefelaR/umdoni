@@ -42,98 +42,14 @@ public function __construct()
 
   public function loginAction()
   {
-      global $context;
-  
-      // If the user is already logged in, redirect to the dashboard
-      if (isset($context->isLoggedIn) && $context->isLoggedIn == true) {
-          redirect('dashboard/index/index');
-      }
-  
-      // Render the login view
-      view::render('authentication/login.php', array(), 'authentication');
-  
-      // If the login form is submitted
-      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          // Authenticate the user using AWS Cognito
-          $username = $_POST['username'];
-          $password = $_POST['password'];
-  
-          // Example AWS Cognito authentication
-          $cognitoClient = new CognitoIdentityProviderClient([
-              'version' => 'latest',
-              'region'  => 'your_region', // Replace with your AWS region
-              'credentials' => [
-                  'key'    => 'your_aws_access_key_id',
-                  'secret' => 'your_aws_secret_access_key',
-              ],
-          ]);
-  
-          try {
-              $result = $cognitoClient->adminInitiateAuth([
-                  'AuthFlow' => 'ADMIN_NO_SRP_AUTH',
-                  'ClientId' => 'your_cognito_client_id',
-                  'UserPoolId' => 'your_user_pool_id',
-                  'AuthParameters' => [
-                      'USERNAME' => $username,
-                      'PASSWORD' => $password,
-                  ],
-              ]);
-  
-              $accessToken = $result->get('AuthenticationResult')['AccessToken'];
-  
-              if ($accessToken) {
-                  // Successfully authenticated, retrieve user details
-                  $userAttributes = $cognitoClient->adminGetUser([
-                      'UserPoolId' => 'your_user_pool_id',
-                      'Username' => $username,
-                  ])->get('UserAttributes');
-  
-                  // Extract user ID and username from user attributes
-                  $user_id = null;
-                  $username = null;
-  
-                  foreach ($userAttributes as $attribute) {
-                      if ($attribute['Name'] === 'sub') {
-                          $user_id = $attribute['Value'];
-                      } elseif ($attribute['Name'] === 'preferred_username') {
-                          $username = $attribute['Value'];
-                      }
-                  }
-  
-                  // Store login activity in the database
-                  // Replace these variables with your actual phpMyAdmin database credentials
-$databaseHost = 'localhost';
-$databaseName = 'umdoni';
-$databaseUser = 'root';
-$databasePassword = ''; // This is often empty for local servers
-
-try {
-    // Create a new PDO instance for a MySQL database
-    $pdo = new PDO("mysql:host={$databaseHost};dbname={$databaseName}", $databaseUser, $databasePassword);
-
-    // Set the PDO error mode to exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-} catch (PDOException $e) {
-    // Handle database connection error
-    die("Connection failed: " . $e->getMessage());
-}
-                  $login_time = date("Y-m-d H:i:s");
-  
-                  $stmt = $pdo->prepare("INSERT INTO activity_logs (user_id, username, login_time) VALUES (?, ?, ?)");
-                  $stmt->execute([$user_id, $username, $login_time]);
-  
-                  // Redirect to the dashboard
-                  redirect('dashboard/index/index');
-              }
-          } catch (\Throwable $th) {
-              // Handle authentication error
-              $_SESSION['error'] = ['message' => 'Incorrect username or password'];
-              redirect('authentication/login');
-          }
-      }
+    global $context;
+    if (isset($context->isLoggedIn) &&  $context->isLoggedIn == true) {
+      redirect('dashboard/index/index');
+    }
+    view::render('authentication/login.php', array(), 'authentication');
   }
-  
+
+
 
   public function signupAction()
   {
@@ -363,8 +279,6 @@ try {
       redirect('authentication/code');
     }
   }
-
-
 
   public function logoutAction()
   {

@@ -55,7 +55,7 @@ $crumbs = getCrumbs();
             <?php include ('Includes/parts/alerts.php') ?>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-lg">
+                        <table class="table table-lg" id="table1">
                             <thead>
                                 <tr>
                                     <th>NO#</th>

@@ -194,7 +194,7 @@ $data = $context->data;
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-hover table-lg">
+                                <table class="table table-hover table-lg" id="table1">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
