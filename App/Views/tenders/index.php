@@ -60,9 +60,13 @@ $data = $context->data;
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
+    
             <p class="fw-lighter fs-3 my-5">
                 Discover lucrative business prospects through our Tender Opportunities page. Explore curated tender opportunities from various industries. Stay informed about upcoming projects, contracts, and procurement opportunities. Unlock new avenues for growth and success.
             </p>
+            <p class="h1 text-uppercase fw-normal">
+        Tenders         
+    </p>
         </div>
     </div>
 

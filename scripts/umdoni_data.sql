@@ -60,7 +60,7 @@ CREATE TABLE `vacancies` (
 
 DROP TABLE IF EXISTS `events`;
 CREATE TABLE `events` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
   `subtitle` varchar(225) DEFAULT NULL,
   `body` varchar(1000) DEFAULT NULL,
@@ -69,7 +69,8 @@ CREATE TABLE `events` (
   `location` varchar(45) DEFAULT NULL,
   `img_file` varchar(45) DEFAULT NULL,
   `updatedBy` varchar(45) DEFAULT NULL,
-  `updatedAt` varchar(45) DEFAULT NULL
+  `updatedAt` varchar(45) DEFAULT NULL,
+     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -94,7 +95,7 @@ CREATE TABLE `news` (
 
 DROP TABLE IF EXISTS `newsletters`;
 CREATE TABLE `newsletters` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
   `subtitle` varchar(255) DEFAULT NULL,
   `publisher` varchar(45) DEFAULT NULL,
@@ -104,14 +105,15 @@ CREATE TABLE `newsletters` (
   `isActive` int(11) DEFAULT NULL,
   `summary` varchar(1000) DEFAULT NULL,
   `youtube` varchar(45) DEFAULT NULL,
-  `rating` varchar(45) DEFAULT NULL
+  `rating` varchar(45) DEFAULT NULL,
+     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 DROP TABLE IF EXISTS `profile`;
 CREATE TABLE `profile` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `users_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   `createdAt` varchar(45) DEFAULT NULL,
@@ -120,7 +122,8 @@ CREATE TABLE `profile` (
   `address_2` varchar(45) DEFAULT NULL,
   `town` varchar(45) DEFAULT NULL,
   `postal_code` varchar(45) DEFAULT NULL,
-  `city` varchar(45) DEFAULT NULL
+  `city` varchar(45) DEFAULT NULL,
+     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -131,7 +134,7 @@ CREATE TABLE `profile` (
 
 DROP TABLE IF EXISTS `projects`;
 CREATE TABLE `projects` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
   `subtitle` varchar(255) DEFAULT NULL,
   `body` varchar(1000) DEFAULT NULL,
@@ -140,7 +143,8 @@ CREATE TABLE `projects` (
   `location` varchar(255) DEFAULT NULL,
   `img_file` varchar(45) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,
-  `updatedBy` varchar(45) DEFAULT NULL
+  `updatedBy` varchar(45) DEFAULT NULL,
+     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -187,14 +191,15 @@ CREATE TABLE `tenders` (
 
 DROP TABLE IF EXISTS `services`;
 CREATE TABLE `services` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
   `subtitle` varchar(255) DEFAULT NULL,
   `body` varchar(522) DEFAULT NULL,
   `isActive` varchar(45) DEFAULT NULL,
   `createdAt` varchar(45) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,
-  `updatedBy` varchar(45) DEFAULT NULL
+  `updatedBy` varchar(45) DEFAULT NULL,
+     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
