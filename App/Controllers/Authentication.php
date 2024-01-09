@@ -13,6 +13,8 @@ use App\Models\Profile;
 use Components\Context;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
 use App\Models\User;
+use Aws\Exception\AwsException;
+use Exception;
 
 class Authentication extends \Core\Controller
 {
@@ -73,16 +75,17 @@ public function __construct()
 
     if (isset($_POST)) $data = $_POST;
     $isLoggedin = $context->isLoggedIn;
-    $clientId = '7d5rnt2fko5ngrkbabc7279jd3';
-    $userPoolId = 'eu-central-1_s1AB2IwMW';
-    $region = 'eu-central-1';
+    $clientId = $this->clientId;
+    $userPoolId = $this->userPoolId;
+    $region = $this->region;
+
 
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => 'AKIA4Y2PS6FVQSB7BW6X',
-        'secret' => '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',
+        'key'    => $this->awsAccessKeyId,
+        'secret' => $this->awsSecretAccessKey,
       ],
     ]);
 
@@ -110,16 +113,16 @@ public function __construct()
     if (isset($_POST)) $data = $_POST;
     $isLoggedin = $context->isLoggedIn;
 
-    $clientId = '68jf7vhidstpf7fj9h0ic3fo19';
-    $userPoolId = 'eu-central-1_Y7oAKlw6X';
-    $region = 'eu-central-1';
+    $clientId = $this->clientId;
+    $userPoolId = $this->userPoolId;
+    $region = $this->region;
 
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => 'AKIA4Y2PS6FVQSB7BW6X',
-        'secret' => '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',
+        'key'    => $this->awsAccessKeyId,
+        'secret' => $this->awsSecretAccessKey,
       ],
     ]);
 
@@ -192,8 +195,12 @@ public function __construct()
           redirect('authentication/login');
         }
       }
-    } catch (\Throwable $th) {
-      $_SESSION['error'] = ['message' => 'Incorrect username or password'];
+    } catch (AwsException $aw) {
+      $errMsg = $aw->getMessage();
+      $code = $aw->getCode();
+      
+        $_SESSION['error'] = ['message'=>$errMsg];
+
       redirect('authentication/login');
     }
   }
@@ -203,9 +210,9 @@ public function __construct()
   {
     global $context;
     if (isset($_POST)) $data = $_POST;
-    $clientId = '7d5rnt2fko5ngrkbabc7279jd3';
-    $userPoolId = 'eu-central-1_s1AB2IwMW';
-    $region = 'eu-central-1';
+    $clientId = $this->clientId;
+    $userPoolId = $this->userPoolId;
+    $region = $this->region;
 
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
@@ -251,15 +258,15 @@ public function __construct()
   {
     global $context;
     if (isset($_POST)) $data = $_POST;
-    $clientId = '7d5rnt2fko5ngrkbabc7279jd3';
-    $userPoolId = 'eu-central-1_s1AB2IwMW';
-    $region = 'eu-central-1';
+    $clientId = $this->clientId;
+    $userPoolId = $this->userPoolId;
+    $region = $this->region;
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
       'region'  => $region,
       'credentials' => [
-        'key'    => 'AKIA4Y2PS6FVQSB7BW6X',
-        'secret' => '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',
+        'key'    => $this->awsAccessKeyId,
+        'secret' => $this->awsSecretAccessKey,
       ],
     ]);
     try {
