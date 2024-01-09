@@ -13,6 +13,8 @@ use App\Models\Profile;
 use Components\Context;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
 use App\Models\User;
+use Aws\Exception\AwsException;
+use Exception;
 
 class Authentication extends \Core\Controller
 {
@@ -276,8 +278,12 @@ try {
           redirect('authentication/login');
         }
       }
-    } catch (\Throwable $th) {
-      $_SESSION['error'] = ['message' => 'Incorrect username or password'];
+    } catch (AwsException $aw) {
+      $errMsg = $aw->getMessage();
+      $code = $aw->getCode();
+      
+        $_SESSION['error'] = ['message'=>$errMsg];
+
       redirect('authentication/login');
     }
   }
