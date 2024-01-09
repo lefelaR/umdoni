@@ -7,22 +7,25 @@
  */
 namespace App\Controllers\Admin;
 use \Core\View;
-
-
-
+use App\Models\Profile;
+use Aws\S3\S3Client;
 
 class User extends \Core\Controller
 {
 
-    public function indexAction()
-    {
-        view::render('admin/user/index.php', array(), 'dashboard');
-    }
-  
     protected function before()
     {
-  
+            enable_authorize();
     }
+
+
+    public function indexAction()
+    {
+        global $context;
+        $profile =  $_SESSION['profile'];
+        view::render('admin/user/index.php', $profile, 'dashboard');
+    }
+  
 
     protected function after()
     {

@@ -14,6 +14,7 @@ use \Core\View;
 use App\Models\NewsModel;
 use App\Models\Councillor;
 use Intervention\Image\ImageManagerStatic as Image;
+use Aws\S3\S3Client;
 
 class News extends \Core\Controller
 {

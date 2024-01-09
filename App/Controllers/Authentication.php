@@ -14,7 +14,7 @@ use Components\Context;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
 use App\Models\User;
 use Aws\Exception\AwsException;
-use Exception;
+
 
 class Authentication extends \Core\Controller
 {

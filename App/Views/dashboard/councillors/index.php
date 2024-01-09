@@ -3,9 +3,6 @@ global $context;
 $data = $context->data;
 ?>
 
-
-
-
 <div class="row">
     <h1>
         Councillors

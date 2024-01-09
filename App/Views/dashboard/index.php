@@ -245,11 +245,12 @@ $data = $context->data;
         <div class="col-12 col-lg-3">
             <div class="card">
                 <div class="card-body py-4 px-5">
-                    <div class="d-flex align-items-center">
-                        <?php
-                        $profile = isset($_SESSION['profile']) ?  $_SESSION['profile'] : array();
-                        $avatar = isset($profile['location']) ? $profile['location'] : url('assets/img/profile/pro.png');
-                        echo '
+                    <a href="<?php echo buildurl('admin/user/index') ?>">
+                        <div class="d-flex align-items-center">
+                            <?php
+                            $profile = isset($_SESSION['profile']) ?  $_SESSION['profile'] : array();
+                            $avatar = isset($profile['location']) ? $profile['location'] : url('assets/img/profile/pro.png');
+                            echo '
                          <div class="avatar avatar-xl">
                         <img src="' . $avatar . '" alt="Face 1">
                     </div>
@@ -259,8 +260,9 @@ $data = $context->data;
                     </div>
                         ';
 
-                        ?>
-                    </div>
+                            ?>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="card">
