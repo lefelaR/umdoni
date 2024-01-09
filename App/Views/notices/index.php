@@ -88,7 +88,7 @@ $data = $context->data;
             <div class="card mb-3 card-hover" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                <img src="'.$value["location"].'" class="img-fluid rounded-start" style="    object-fit: cover;
+                <img src="'.$value["location"].'" class="img-fluid rounded-start" style="object-fit: cover;
                 height: 130px;">
                 </div>
                 <div class="col-md-8">

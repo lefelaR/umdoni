@@ -57,7 +57,6 @@ class Service extends \Core\Model
         $sql = "UPDATE services SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
                WHERE `id`= $data[id]"; 
         $stmt = $db->exec($sql);
-
        return $stmt;
     }
 
@@ -70,7 +69,6 @@ class Service extends \Core\Model
         
         $sql = "INSERT into services (title, subtitle, body, isActive, createdAt, img_file, location, createdBy)
                 VALUES (:title,:subtitle,:body,:isActive,:createdAt, :img_file, :location, :createdBy)";
-                  
         $stmt = $db->prepare($sql);
 
         $stmt->bindParam(':title', $data['title']);
@@ -82,7 +80,6 @@ class Service extends \Core\Model
         $stmt->bindParam(':location', $data['location']);
         $stmt->bindParam(':createdBy', $data['createdBy']);
                     
-        
       if($stmt->execute()){
         return true;
       }else{

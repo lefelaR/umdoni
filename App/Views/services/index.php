@@ -98,7 +98,6 @@ $data = $context->data;
                         <div class="card-body">
                             <h5 class="card-title">'.$value["title"].'</h5>
                             <p class=" text-truncate">'.$value["body"].'</p>
-                        
                         </div>
                     </div>
                 </div>
