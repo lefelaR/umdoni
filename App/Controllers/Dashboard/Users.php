@@ -11,6 +11,8 @@ use \Core\View;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\Countries;
+use Aws\S3\S3Client;
+
 
 class Users extends \Core\Controller
 {
@@ -75,24 +77,6 @@ class Users extends \Core\Controller
         }
         redirect('dashboard/users/list');
     }
-
-
-    // public function regions()
-    // {
-    //     $regions = array();
-    //     $id = $_GET['ProvinceID'];
-    //     try 
-    //     {
-    //         $regions = countries::getRegion($id);
-    //         $regions = array_column($regions, 'RegionName', 'RegionID');
-    //     } catch (\Throwable $th) 
-    //     {
-    //         echo $th->getMessage();
-    //     }
-    //   return $regions;
-
-    // }
-
 
     protected function before()
     {

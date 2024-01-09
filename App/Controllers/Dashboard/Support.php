@@ -9,6 +9,7 @@ namespace App\Controllers\Dashboard;
 
 use \Core\View;
 use App\Models\User;
+use Aws\S3\S3Client;
 
 
 class Support extends \Core\Controller
