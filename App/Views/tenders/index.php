@@ -42,6 +42,13 @@ $data = $context->data;
     nav ul li i {
         color: #000;
     }
+
+    .table th p,.table td p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
 </style>
 
 

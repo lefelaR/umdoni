@@ -40,6 +40,17 @@ nav ul li a{
 nav ul li i {
     color: #000;
 }
+.card-body h5 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .card-body p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 </style>
 
 
