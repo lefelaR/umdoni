@@ -226,10 +226,10 @@ class Councillors extends \Core\Controller
 
         if (isset($_FILES) && $_FILES['name']['size'] > 0) {
             // upload
-            $bucketName = 'umdoni-document-bucket';
-            $awsAccessKeyId = 'AKIA3FVMIL3UXGIEI3WH';
-            $awsSecretAccessKey = '/yXhJ3sHfpl0Ykp/ZCv59VdHAXxiXoc2gAAP3XZa';
-            $region = 'eu-central-1'; // Change to your desired region
+            $bucketName = $this-> bucketName;
+            $awsAccessKeyId = $this-> awsAccessKeyId;
+            $awsSecretAccessKey = $this->awsSecretAccessKey;
+            $region = $this->region; // Change to your desired region
 
             $s3 = new S3Client([
                 'version' => 'latest',

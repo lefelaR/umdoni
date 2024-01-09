@@ -42,7 +42,7 @@ $crumbs = getCrumbs();
             
                 <div class="card-body">
                     <div class="table-responsive">
-        <table class="table align-items-center table-flush">
+        <table class="table align-items-center table-flush" id="table1">
           <thead class="thead-light">
             <tr>
               <th>Avator</th>
