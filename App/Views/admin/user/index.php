@@ -2,7 +2,7 @@
 // commented out code
 
 ?>
-<style></s6y 
+
 <div class="row">
             <div class="col-lg-6 mx-auto">
               <!-- Form Basic -->
