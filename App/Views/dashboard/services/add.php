@@ -66,7 +66,13 @@ echo'
 
                     <div class="form-group">
                         <label for="helperText">Subtitle</label>
-                        <input type="text" id="subtitle" name="subtitle" class="form-control" value="'.$subtitle.'">
+                        <input type="text" id="subtitle" name="subtitle" class="form-control" value="'.$subtitle. '">
+                    </div>
+
+                    <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="file" class="form-control text-black" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value="">
+                    </div>
                     </div>
 
                     <div class="form-group">

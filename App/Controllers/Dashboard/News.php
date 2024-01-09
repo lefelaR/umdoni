@@ -101,7 +101,8 @@ class News extends \Core\Controller
             $data['img_file'] = $objectKey;
             $data['location'] = $result['ObjectURL'];
             $data['createdAt'] = date("Y-m-d H:i:s");
-            // $data['updatedBy'] = 
+            // $data['createdBy'] = $_SESSION['profile']['username'];
+            
             try {
                 $id =  NewsModel::Save($data);
                 $_SESSION['success'] = ['message' => 'success!'];
