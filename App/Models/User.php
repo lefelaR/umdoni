@@ -75,11 +75,23 @@ class User extends \Core\Model
     public static function Save($data)
     {
         global $context;
-        $db = static::getDB(); 
-        $sql = "INSERT into users ( username,surname,email,password,status, createdAt)
-                VALUES ( '$data[username]','$data[surname]' ,'$data[email]','$data[password]', '$data[status]','$data[createdAt]')"; 
-        $user_id  =   $db->exec($sql);
+        $db = static::getDB();
+
+        $sql = "INSERT into users (username,surname,email,password,status, createdAt)
+                VALUES (:username,:surname,:email,:password,:status,:createdAt)";
+               
+        $stmt = $db->prepare($sql);
         
+        $stmt->bindParam(':username', $data['username']);
+        $stmt->bindParam(':surname', $data['surname']);
+        $stmt->bindParam(':email', $data['email']);
+        $stmt->bindParam(':password', $data['password']);
+        $stmt->bindParam(':status', $data['status']);
+        $stmt->bindParam(':createdAt', $data['createdAt']);
+    
+        $stmt->execute();
+        $user_id = $db->lastInsertId();
+
         if(isset($user_id) && (is_numeric($user_id)))
         {
             
@@ -94,6 +106,9 @@ class User extends \Core\Model
 
        return $stmt;
     }
+
+
+
 
     public static function Delete($id)
     {

@@ -40,10 +40,10 @@ if (isset($context->errors['message'])) {
                         <p class="auth-subtitle mb-5 mx-auto">Please provide your information to signup</p>
 
 
-                        <?php include ('Includes/parts/alerts.php') ?>
+                        <?php include('Includes/parts/alerts.php') ?>
 
 
-                        <form id="signup-form" action="register"  method="POST">
+                        <form id="signup-form" action="register" method="POST">
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text" class="form-control form-control-xl" name="username" placeholder="Name">
                                 <div class="form-control-icon">
@@ -65,13 +65,22 @@ if (isset($context->errors['message'])) {
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="password" class="form-control form-control-xl" name="password" placeholder="Password">
                                 <div class="form-control-icon">
-                                    <i class="bi bi-shield-lock"></i>
+                                    <i class="bi bi-eye"></i>
                                 </div>
                             </div>
+
+
+                            <!-- <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <span class="input-group-text" id="basic-addon2">
+                              X
+                                </span>
+                            </div>
+                             -->
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="password" class="form-control form-control-xl" name="confirm_password" placeholder="Retype Password">
                                 <div class="form-control-icon">
-                                    <i class="bi bi-shield-lock"></i>
+                                    <i class="bi bi-eye"></i>
                                 </div>
                             </div>
                             <div class="form-check form-check-lg d-flex align-items-end">
@@ -86,7 +95,7 @@ if (isset($context->errors['message'])) {
                         <div class="text-center mt-5 font-weight-smaller">
                             <p class="text-gray-600">Already registered? <a href="login" class="font-bold">Login</a>.</p>
                             <p>
-                               <a class="font-bold" href="<?php echo buildurl('') ?>">home</a>.
+                                <a class="font-bold" href="<?php echo buildurl('') ?>">home</a>.
                             </p>
                         </div>
                     </div>
@@ -96,6 +105,3 @@ if (isset($context->errors['message'])) {
 
         </div>
     </div>
-
-
-
