@@ -74,12 +74,21 @@ $data = $context->data;
 
         foreach ($data as $key => $value) {
             echo '
-        <div class="col-md-4 my-1">
+        <div class="col-md-4 col-lg-4 col-sm-12 my-1">
         <a href="'.buildurl("services/serviceinfo?service=".$value['id']).'">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5">' . $value['title'] . '</p>
-                    <p class="fw-normal"> ' . $value['subtitle'] . '</p>
+        <div class="card mb-3 card-hover" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    <img src="'.$value["location"].'" class="img-fluid rounded-start" style="    object-fit: cover;
+                    height: 130px;">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">'.$value["title"].'</h5>
+                            <p class=" text-truncate">'.$value["body"].'</p>
+                        
+                        </div>
+                    </div>
                 </div>
             </div>
             </a>
