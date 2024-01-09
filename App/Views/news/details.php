@@ -44,18 +44,6 @@ $data = $context->data;
     }
 </style>
 
-<!-- 
-<div class="container-fluid" id="service-page">
-    <div class="row">
-        <div class="tag-header">
-            <div class="col">
-                <p class="h1 m-5 fs-1 text-white">
-                    News
-                </p>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 
 <div class="container content-section">
@@ -82,8 +70,4 @@ $data = $context->data;
         </div>
     </div>
 </div>
-
 </div>
-
-
-<section

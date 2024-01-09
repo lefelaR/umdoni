@@ -56,6 +56,7 @@ echo '
         </div>
     </div>
 </div>
+
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
@@ -63,6 +64,9 @@ echo '
                 '.$data['title'].'
             </p>
             <p class="fw-bold fs-5 ">'.$data['subtitle'].'</p>
+            <span class="py-3 mb-3">
+            <img src="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'">
+        </span>
             <p class="fw-lighter fs-3 my-5">
             '.$data['body'].'   
             </p>
