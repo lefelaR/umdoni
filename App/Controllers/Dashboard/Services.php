@@ -78,7 +78,7 @@ class Services extends \Core\Controller
             $awsSecretAccessKey = $this->awsSecretAccessKey;
             $region =  $this->region;
 
-    $s3 = new S3Client([
+            $s3 = new S3Client([
                 'version' => 'latest',
                 'region' => $region,
                 'credentials' => [
@@ -105,16 +105,13 @@ class Services extends \Core\Controller
                 }
             }
 
-
-      
-
         if (isset($_POST)) $data = $_POST;
         $data['isActive'] = 1;
         $data['createdAt'] = date("Y-m-d H:i:s");
         $data['img_file'] = $objectKey;
         $data['location'] = $result['ObjectURL'];
         $data['createdBy'] = $_SESSION['profile']['username'];
-        
+
         try {
             $id =  Service::Save($data);
             if ($id) {
