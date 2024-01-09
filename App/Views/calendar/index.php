@@ -95,7 +95,7 @@ $data = $context->data;
                     <td>'.$calendar["title"].'</td>
                     <td>3 mins ago</td>
                     <td> <i class="bi bi-file-earmark-text"></i>
-                    '.$calendar["location"].'</td>
+                    '.$calendar["img_file"].'</td>
                     <td>
                        <a href="details?id='.$calendar["id"].'">More...</a>
                     </td>
