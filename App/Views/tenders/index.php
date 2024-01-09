@@ -43,7 +43,7 @@ $data = $context->data;
         color: #000;
     }
 
-    .table th p,.table td p {
+  .table td p {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
