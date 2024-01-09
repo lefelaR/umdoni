@@ -194,12 +194,15 @@ CREATE TABLE `services` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
   `subtitle` varchar(255) DEFAULT NULL,
-  `body` varchar(2500) DEFAULT NULL,
+  `body` varchar(1000) DEFAULT NULL,
   `isActive` varchar(45) DEFAULT NULL,
   `createdAt` varchar(45) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,
   `updatedBy` varchar(45) DEFAULT NULL,
-     PRIMARY KEY (`id`)
+  `img_file` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+   `createdBy` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

@@ -16,6 +16,7 @@ use App\Models\Request;
 use App\Models\Project;
 use App\Models\Event;
 use App\Models\Notice;
+use Aws\S3\S3Client;
 
 class Index extends \Core\Controller
 {

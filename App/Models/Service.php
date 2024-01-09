@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use PDO;
+use PhpParser\Node\Stmt;
 
 /**
  * Post model
@@ -67,11 +68,26 @@ class Service extends \Core\Model
 
         $db = static::getDB(); 
         
-        $sql = "INSERT into services (title, subtitle, body, isActive, createdAt, updatedAt, updatedBy)
-                VALUES ('$data[title]','$data[subtitle]','$data[body]','1', 'today' , 0,'rakheoana')"; 
-        $stmt = $db->exec($sql);
+        $sql = "INSERT into services (title, subtitle, body, isActive, createdAt, img_file, location, createdBy)
+                VALUES (:title,:subtitle,:body,:isActive,:createdAt, :img_file, :location, :createdBy)";
+                  
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(':title', $data['title']);
+        $stmt->bindParam(':subtitle', $data['subtitle']);
+        $stmt->bindParam(':body', $data['body']);
+        $stmt->bindParam(':isActive', $data['isActive']);
+        $stmt->bindParam(':createdAt', $data['createdAt']);
+        $stmt->bindParam(':img_file', $data['img_file']);
+        $stmt->bindParam(':location', $data['location']);
+        $stmt->bindParam(':createdBy', $data['createdBy']);
+                    
         
-       return $stmt;
+      if($stmt->execute()){
+        return true;
+      }else{
+        return false;
+      }
     }
 
 
