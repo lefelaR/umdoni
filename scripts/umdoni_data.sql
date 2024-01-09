@@ -194,7 +194,7 @@ CREATE TABLE `services` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
   `subtitle` varchar(255) DEFAULT NULL,
-  `body` varchar(1000) DEFAULT NULL,
+  `body` varchar(2500) DEFAULT NULL,
   `isActive` varchar(45) DEFAULT NULL,
   `createdAt` varchar(45) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,

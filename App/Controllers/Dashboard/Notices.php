@@ -75,7 +75,6 @@ class Notices extends \Core\Controller
 
             $file = $_FILES;
             if (count($file) > 0) {
-
                 $filePath = $file['name']['tmp_name'];
                 $objectKey = $file['name']['name'];
                 if ($objectKey !== "") {
@@ -85,7 +84,7 @@ class Notices extends \Core\Controller
                         $result = $s3->putObject([
                             'Bucket' => $bucketName,
                             'Key' => $objectKey,
-                            'Body'   => $filePath,
+                            'SourceFile'  => $filePath,
                            
                         ]);
                     } catch (\Throwable $e) {
@@ -100,7 +99,7 @@ class Notices extends \Core\Controller
         $data['img_file'] = $objectKey;
         $data['location'] = $result['ObjectURL'];
         $data['createdAt'] = date("Y-m-d H:i:s");
-        // $data['updatedBy'] = 
+  
         try {
             $id =  Notice::Save($data);
             $_SESSION['success'] = ['message' => 'Success'];
