@@ -40,6 +40,14 @@ $data = $context->data;
     nav ul li i {
         color: #000;
     }
+
+
+
+    .card-body p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 </style>
 
 
