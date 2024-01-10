@@ -65,7 +65,7 @@ if (isset($context->errors['message'])) {
 
                         </form>
                         <div class="text-center mt-5 font-weight-smaller">
-                            <p class="text-gray-600">Don't have an account? <a href="signup" class="font-bold">Sign up</a>.</p>
+                            <p class="text-gray-600">Don't have an account? <a href="signup" class="font-bold">Register</a>.</p>
                             <p>
                                 <a class="font-bold" href="<?php echo buildurl('authentication/forgotpassword') ?>">Forgot password?</a>. |
                                 <a class="font-bold" href="<?php echo buildurl('') ?>">home</a>.

@@ -36,8 +36,8 @@ if (isset($context->errors['message'])) {
                         position: relative;" />
                         </div>
 
-                        <p class="auth-title h2 mx-auto">Sign up.</p>
-                        <p class="auth-subtitle mb-5 mx-auto">Please provide your information to signup</p>
+                        <p class="auth-title h2 mx-auto">Register</p>
+                        <p class="auth-subtitle mb-5 mx-auto">Please provide your information to register</p>
 
 
                         <?php include('Includes/parts/alerts.php') ?>
@@ -83,12 +83,7 @@ if (isset($context->errors['message'])) {
                                     <i class="bi bi-eye"></i>
                                 </div>
                             </div>
-                            <div class="form-check form-check-lg d-flex align-items-end">
-                                <input class="form-check-input me-2" name="flexcheck" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label text-gray-600" for="flexCheckDefault">
-                                    Keep me logged in
-                                </label>
-                            </div>
+                          
                             <input class="btn main-btn btn-primary btn-sm btn-block shadow-lg mt-5" type="submit" name="submit" value="Submit">
 
                         </form>
