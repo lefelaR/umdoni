@@ -155,7 +155,9 @@ nav ul li a{
   .jumbotron-content{
     /* display:none; */
     font-size: 9px;
+    top: 50%;
   }
+
   .jumbotron-content .subtitle{
     display: none;
   }
@@ -163,6 +165,11 @@ nav ul li a{
     text-decoration: none;
     color: #fff !important;
     font-size: 25px;
+}
+
+
+.bg-picture {
+height: auto !important;
 }
 
 #service-page{
@@ -202,7 +209,7 @@ margin-top: 3px;
   background-repeat: no-repeat;
   margin: 0 0 -100 0 !important;
   position: relative;
-	min-height: 40vh;
+	/* min-height: 40vh; */
 	width: 100%;
   align-items: center;
   justify-items: center;
