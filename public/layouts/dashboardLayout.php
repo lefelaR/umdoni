@@ -14,11 +14,9 @@ include_once '../Components/Helpers.php';
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
-
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/css/app.css") ?>">
     <link rel="stylesheet" href="<?php echo url('themes/mazor/assets/vendors/iconly/bold.css') ?>">
     <!-- from the theme -->
-
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/bootstrap-icons/bootstrap-icons.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/simple-datatables/style.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/quill/quill.bubble.css") ?>">

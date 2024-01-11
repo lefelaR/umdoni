@@ -81,67 +81,161 @@ $data = $context->data;
 
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Current Tenders</button>
-                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Open Tenders</button>
-                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Awarded Tenders</button>
-
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <p class="fw-bold text-secondary">Current Tenders</p>
+                    </button>
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        <p class="fw-bold text-secondary">Open Tenders</p>
+                    </button>
+                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+                        <p class="fw-bold text-secondary">
+                            Awarded Tenders</p>
+                        </button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col">
-                                    <p class="text-uppercase ">
-                                        Title
-                                    </p>
-                                </th>
-                                <th scope="col">
-                                    <p class="text-uppercase ">
-                                        Reference
-                                    </p>
-                                </th>
-                                <th scope="col">
-                                    <p class="text-uppercase ">
-                                        Closing Date
-                                    </p>
-                                </th>
+                    <div class="mt-5">
+                        <table class="table" id="table1">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Title
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Reference
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Closing Date
+                                        </p>
+                                    </th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
+                                </tr>
+                            </thead>
+                            <tbody>
+                             <?php
+                                foreach ($data as $key => $tender) {
+                                    $key++;
+                                    echo '
+                                <tr>
+                                    <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
+                                    </th>
+                                    <td>
+                                        <a class="text-secondary fw-bold" href="' . $tender['location'] . '" target="_blank">' . $tender["title"] . '</a>
+                                    </td>
+                                    <td>' . $tender['reference'] . '</td>
+                                    <td> ' . $tender['dueDate'] . '</td>
+                                </tr>
+                                  ';
+                                }
 
-
-                            foreach ($data as $key => $tender) {
-                                $key++;
-
-                                echo '
-                    <tr>
-                    <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
-                    </th>
-                    <td><a class="text-secondary fw-bold" href="' . $tender['location'] . '" target="_blank">' . $tender["title"] . '</a></td>
-                    <td>' . $tender['reference'] . '</td>
-                    <td>' . $tender['dueDate'] . '</td>
-                   
-                </tr>
-                    ';
-                            }
-
-                            ?>
-                        </tbody>
-                    </table>
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                    Open
+                <div class="mt-5">
+                        <table class="table" id="table1">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Title
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Reference
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Closing Date
+                                        </p>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                             <?php
+                                foreach ($data as $key => $tender) {
+                                    $key++;
+                                    echo '
+                                <tr>
+                                    <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
+                                    </th>
+                                    <td>
+                                        <a class="text-secondary fw-bold" href="' . $tender['location'] . '" target="_blank">' . $tender["title"] . '</a>
+                                    </td>
+                                    <td>' . $tender['reference'] . '</td>
+                                    <td> ' . $tender['dueDate'] . '</td>
+                                </tr>
+                                  ';
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+                
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
-                    Awarded
+                <div class="mt-5">
+                        <table class="table" id="table1">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Title
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Reference
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Closing Date
+                                        </p>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                             <?php
+                                foreach ($data as $key => $tender) {
+                                    $key++;
+                                    echo '
+                                <tr>
+                                    <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
+                                    </th>
+                                    <td>
+                                        <a class="text-secondary fw-bold" href="' . $tender['location'] . '" target="_blank">' . $tender["title"] . '</a>
+                                    </td>
+                                    <td>' . $tender['reference'] . '</td>
+                                    <td> ' . $tender['dueDate'] . '</td>
+                                </tr>
+                                  ';
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
-            </div>
+                
+                 </div>
 
 
 
