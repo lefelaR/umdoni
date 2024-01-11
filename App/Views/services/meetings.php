@@ -67,11 +67,11 @@ $data = $context->data;
         <div class="col-md-6 my-2">
 
             <a href="<?php echo buildurl('meetings/index') ?>">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-body">
                         <div class="d-flex inline">
                             <i class="bi bi-calendar-event fs-1 text-yellow"></i>
-                            <p class="h5 m-3"> Meetings</p>
+                            <p class="h5 m-3 mx-auto"> Meetings</p>
                         </div>
                     </div>
                 </div>
@@ -79,12 +79,11 @@ $data = $context->data;
         </div>
         <div class="col-md-6 my-2">
             <a href="<?php echo buildurl('agendas/index') ?>">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-body">
                         <div class="d-flex inline">
-
                             <i class="bi bi-book fs-1 text-yellow"></i>
-                            <p class="h5 m-3"> Agendas</p>
+                            <p class="h5 m-3 mx-auto"> Agendas</p>
                         </div>
                     </div>
                 </div>
