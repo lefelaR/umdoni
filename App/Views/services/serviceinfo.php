@@ -41,10 +41,7 @@ $data = $context->data;
         color: #000;
     }
 </style>
-
-<?php
-
-echo '
+<!-- 
 <div class="container-fluid" id="service-page">
     <div class="row">
         <div class="tag-header">
@@ -55,7 +52,13 @@ echo '
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<?php
+
+echo '
+
 
 <div class="container content-section">
     <div class="row">
@@ -63,7 +66,7 @@ echo '
             <p class="h1 text-uppercase fw-bold">
                 '.$data['title'].'
             </p>
-            <p class="fw-bold fs-5 ">'.$data['subtitle'].'</p>
+            <p class="fw-bold fs-5 text-yellow">'.$data['subtitle'].'</p>
             <span class="py-3 mb-3">
             <img src="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'">
         </span>

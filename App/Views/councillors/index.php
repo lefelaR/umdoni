@@ -59,7 +59,7 @@ $managers = $data['managers'];
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <p class="h1 text-uppercase fw-normal">
+            <p class="h1 text-uppercase fw-normal text-yellow">
                 <!-- Councillors -->
                 Meet Your Local City Representatives introducing you to the dedicated honourable members working for your community. Learn about their roles, achievements, and how they're shaping the future of your municipality.
             </p>

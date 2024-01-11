@@ -43,26 +43,13 @@ $data = $context->data;
 </style>
 
 
-<div class="container-fluid" id="service-page">
-    <div class="row">
-        <div class="tag-header">
-            <div class="col">
-                <p class="h1 m-5 fs-1 text-white">
-                Project
-            </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <p class="h1 text-uppercase fw-bold my-5 text-secondary ">
+        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
                 <?php echo $data['title'] ?>
             </p>
-            <p class="fs-3 my-5">
+            <p class="fs-3 my-2 text-yellow">
                 <?php
                 echo $data['subtitle'];
                 ?>
@@ -73,10 +60,10 @@ $data = $context->data;
 
             <span>
                 <img src=" <?php echo $data['location'] ?>" class="img-fluid" style="width: 50%;" alt=" <?php echo $data['title'] ?>">
- 
+            </span>
 
 
-            <p class="fw-normal my-1 lh-lg  ">
+            <p class="my-5 fs-5 lh-lg  ">
                 <?php echo $data['body'] ?>
             </p>
         </div>

@@ -63,7 +63,7 @@ echo '
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <p class="h1 text-uppercase fw-bold">
+            <p class="h1 text-uppercase fw-bold text-secondary">
                 Request municipality services form
             </p>
             <p class="fw-lighter fs-3 my-5">
@@ -72,9 +72,9 @@ echo '
               </p>
         </div>
 
-        <div class="card shadow">
+        <div class="card shadow ">
             <div class="card-body text-center m-3">
-                <p class="h3 text-blue"> Municipal Services</p>
+                <p class="h1 text-secondary"> Municipal Services</p>
                 <p class="fw-normal fs-5 text-secondary"> select municipal service type</p>
             </div>
 

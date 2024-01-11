@@ -57,7 +57,7 @@
     <div class="row">
 
         <div class="col-md-12 col-lg-12">
-            <p class="h1 text-uppercase fw-bold">
+            <p class="h1 text-uppercase fw-bold text-secondary">
                 List of Municipal Departments
             </p>
             <p class="fw-lighter fs-5 my-5">
@@ -74,10 +74,10 @@
 
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/manager') ?>">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-body">
                         <div class="d-flex inline">
-                            <i class="bi bi-globe fs-1 text-yellow"></i>
+                            <i class="bi bi-globe fs-1 text-yellow m-3"></i>
                             <p class="h5 m-3"> Office of the Municipal Manager</p>
                         </div>
                     </div>
@@ -86,10 +86,10 @@
         </div>
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/finance') ?>">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-body">
                         <div class="d-flex inline">
-                            <i class="bi bi-cash fs-1 text-yellow"></i>
+                            <i class="bi bi-cash fs-1 text-yellow m-3"></i>
                             <p class="h5 m-3">Finance Department</p>
                         </div>
                     </div>
@@ -98,10 +98,10 @@
         </div>
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/corporate') ?>">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-body">
                         <div class="d-flex inline">
-                            <i class="bi bi-building fs-1 text-yellow"></i>
+                            <i class="bi bi-building fs-1 text-yellow m-3"></i>
                             <p class="h5 m-3">Corporate Services Department</p>
                         </div>
                     </div>
@@ -110,10 +110,10 @@
         </div>
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/technical') ?>">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-body">
                         <div class="d-flex inline">
-                            <i class="bi bi-tools fs-1 text-yellow"></i>
+                            <i class="bi bi-tools fs-1 text-yellow m-3"></i>
                             <p class="h5 m-3">Technical Services Department</p>
                         </div>
                     </div>
@@ -122,10 +122,10 @@
         </div>
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/community') ?>">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-body">
                         <div class="d-flex inline">
-                            <i class="bi bi-flag fs-1 text-yellow"></i>
+                            <i class="bi bi-flag fs-1 text-yellow m-3"></i>
                             <p class="h5 m-3">Community Services Department</p>
                         </div>
                     </div>
@@ -134,10 +134,10 @@
         </div>
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/planning') ?>">
-                <div class="card">
+                <div class="card shadow">
                     <div class="card-body">
                         <div class="d-flex inline">
-                            <i class="bi bi-pentagon fs-1 text-yellow"></i>
+                            <i class="bi bi-pentagon fs-1 text-yellow m-3"></i>
                             <p class="h5 m-3">Planning and Development</p>
                         </div>
                     </div>

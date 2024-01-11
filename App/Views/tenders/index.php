@@ -43,12 +43,11 @@ $data = $context->data;
         color: #000;
     }
 
-  .table td p {
+    .table td p {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-    
 </style>
 
 
@@ -67,48 +66,59 @@ $data = $context->data;
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-    
+
             <p class="fw-lighter fs-3 my-5">
                 Discover lucrative business prospects through our Tender Opportunities page. Explore curated tender opportunities from various industries. Stay informed about upcoming projects, contracts, and procurement opportunities. Unlock new avenues for growth and success.
             </p>
             <p class="h1 text-uppercase fw-normal">
-        Tenders         
-    </p>
+                Tenders
+            </p>
         </div>
     </div>
 
     <div class="row mt-5">
         <div class=" col-md-12 col-lg-12 col-sm-12">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">
-                            <p class="text-uppercase text-primary">
-                                Title
-                            </p>
-                        </th>
-                        <th scope="col">
-                            <p class="text-uppercase text-primary">
-                                Reference
-                            </p>
-                        </th>
-                        <th scope="col">
-                            <p class="text-uppercase text-primary">
-                                Closing Date
-                            </p>
-                        </th>
-                       
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Current Tenders</button>
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Open Tenders</button>
+                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Awarded Tenders</button>
+
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">
+                                    <p class="text-uppercase ">
+                                        Title
+                                    </p>
+                                </th>
+                                <th scope="col">
+                                    <p class="text-uppercase ">
+                                        Reference
+                                    </p>
+                                </th>
+                                <th scope="col">
+                                    <p class="text-uppercase ">
+                                        Closing Date
+                                    </p>
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
 
 
-                    foreach ($data as $key => $tender) {
-                        $key++;
+                            foreach ($data as $key => $tender) {
+                                $key++;
 
-                        echo '
+                                echo '
                     <tr>
                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                     </th>
@@ -118,13 +128,24 @@ $data = $context->data;
                    
                 </tr>
                     ';
-                    }
+                            }
 
-                    ?>
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                    Open
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                    Awarded
+                </div>
+                <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
+            </div>
 
 
-                </tbody>
-            </table>
+
+
 
         </div>
     </div>
