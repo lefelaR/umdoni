@@ -64,7 +64,7 @@ $data = $context->data;
             <span class="py-3 mb-3">
                 <img src=" <?php echo $data['location'] ?>" class="img-fluid" style="width: 50%;" alt=" <?php echo $data['title'] ?>">
             </span>
-            <p class="my-5 fs-4 lh-lg  ">
+            <p class="my-5 fs-5 lh-lg  ">
                 <?php echo $data['body'] ?>
             </p>
         </div>

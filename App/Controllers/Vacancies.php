@@ -14,9 +14,9 @@ use  App\Models\Post;
 use  App\Models\Roles;
 use  PHPMailer\PHPMailer\PHPMailer;
 use  PHPMailer\PHPMailer\Exception;
+use App\Models\Vacancy;
 
-
-class Careers extends \Core\Controller
+class Vacancies extends \Core\Controller
 {
 
     protected function before()
@@ -27,7 +27,9 @@ class Careers extends \Core\Controller
 
     public function indexAction()
     {
-        view::render('careers/index.php', $events= array(), 'default');
+
+
+        view::render('vacancies/index.php', $events= array(), 'default');
     }
 
  

@@ -59,7 +59,7 @@
           <a href="<?php echo buildurl("tenders/index") ?>" class="fs-6 fw-lighter text-white">Tenders</a>
         </li>
         <li>
-          <a href="<?php echo buildurl("careers/index") ?>" class="fs-6 fw-lighter text-white">Careers</a>
+          <a href="<?php echo buildurl("vacancies/index") ?>" class="fs-6 fw-lighter text-white">Vacancies</a>
         </li>
       </ul>
     </div>

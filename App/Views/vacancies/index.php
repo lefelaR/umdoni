@@ -52,7 +52,7 @@ $data = $context->data;
         <div class="tag-header">
             <div class="col">
                 <p class="h1 m-5 fs-1 text-white">
-                    Careers
+                    Vacancies
                 </p>
             </div>
         </div>
