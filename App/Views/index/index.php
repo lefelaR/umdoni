@@ -55,7 +55,7 @@ $data = $context->data;
             <a href="<?php echo buildurl("services/info") ?>">
                 <div class="card card-hover mb-3 card-border">
                     <div class="card-body">
-                        <div class="text-center mx-2">
+                        <div class="text-center m-2">
                             <i class="bi bi-house fs-1 text-yellow"></i>
                         </div>
                         <p class="h5 my-3 fw-bold text-blue text-center ">Neighborhood Info</p>
@@ -69,7 +69,7 @@ $data = $context->data;
             <a href="<?php echo buildurl("services/meetings") ?>">
                 <div class="card card-hover mb-3 card-border">
                     <div class="card-body">
-                        <div class="text-center m-2">
+                        <div class="text-center mx-2">
                             <i class="bi bi-calendar2-date fs-1 text-yellow"></i>
                         </div>
                         <p class="h5 my-3 fw-bold text-blue text-center ">Meetings and Agendas</p>
