@@ -17,6 +17,7 @@ include_once '../Components/Helpers.php';
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/css/app.css") ?>">
     <link rel="stylesheet" href="<?php echo url('themes/mazor/assets/vendors/iconly/bold.css') ?>">
     <!-- from the theme -->
+    <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/sweetalert2/sweetalert2.min.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/bootstrap-icons/bootstrap-icons.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/simple-datatables/style.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/quill/quill.bubble.css") ?>">
@@ -28,8 +29,9 @@ include_once '../Components/Helpers.php';
 </head>
 
 <body>
-
     <div id="app">
+        <!-- loader -->
+        <?php include '../public/Includes/loader.php'; ?>
         <!-- Sidebar -->
         <?php include '../public/Includes/parts/side_bar.php'; ?>
         <!-- Sidebar -->
@@ -43,18 +45,23 @@ include_once '../Components/Helpers.php';
         </div>
     </div>
     <?php include '../public/Includes/backendfooter.php'; ?>
-
-
+    <script src="<?php echo url("assets/js/all.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/js/bootstrap.bundle.min.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/js/mazer.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/vendors/apexcharts/apexcharts.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/js/pages/dashboard.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/vendors/simple-datatables/simple-datatables.js") ?>"></script>
+    <script src="<?php echo url("themes/mazor/assets/js/extensions/sweetalert2.js") ?>"></script>
+    <script src="<?php echo url("themes/mazor/assets/vendors/sweetalert2/sweetalert2.all.min.js") ?>"></script>
+    <script src="<?php echo url("themes/mazor/assets/vendors/toastify/toastify.js") ?>"></script>
+    <script src="<?php echo url("themes/mazor/assets/js/extensions/toastify.js") ?>"></script>
+    
     <script>
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
+
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="<?php echo url("themes/mazor/assets/js/pages/form-editor.js") ?>"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

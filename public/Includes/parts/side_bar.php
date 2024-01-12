@@ -229,7 +229,7 @@
 
     // Add click event listeners to all sidebar links
     var sidebarLinks = document.querySelectorAll('.sidebar-link');
-    debugger
+    
     sidebarLinks.forEach(function(link) {
       link.addEventListener('click', handleSidebarLinkClick);
     });

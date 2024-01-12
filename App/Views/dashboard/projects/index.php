@@ -80,7 +80,7 @@ $crumbs = getCrumbs();
                                         <a class="btn  btn-sm" href="add?id=' .  $project['id'] . '">
                                         <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a class="btn btn-sm" href="delete?id='.  $project['id'] .'">
+                                        <a class="btn btn-sm" href="delete?id='.  $project['id'] .'" onclick="handleDelete()">
                                          <i class="bi bi-trash"></i>
                                     </a>
                                     </td>
@@ -96,3 +96,5 @@ $crumbs = getCrumbs();
         </div>
     </div>
 </div>
+
+
