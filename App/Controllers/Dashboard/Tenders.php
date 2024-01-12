@@ -101,17 +101,24 @@ class Tenders extends \Core\Controller
         }
 
         if (isset($_POST)) $data = $_POST;
+
+        $data['status'] = 1;
         $data['createdAt'] = date("Y-m-d H:i:s");
         $data['isActive'] = 1;
         $data['img_file'] = $objectKey;
         $data['location'] = $result['ObjectURL'];
         $data['updatedBy'] =  $_SESSION['profile']['username'];
 
+
+        // generate a refernce
+
+
+
         try {
             $id =  Tender::Save($data);
             $_SESSION['success'] = ['message' => 'successfully added record!'];
         } catch (\Throwable $th) {
-            $_SESSION['errors'] = ['message' => $th->getMessage()];          
+            $_SESSION['error'] = ['message' => $th->getMessage()];          
         }
         redirect('dashboard/tenders/index');
     }
