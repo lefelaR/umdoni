@@ -68,7 +68,7 @@ $data = $context->data;
                                         <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">
                                         <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a class="btn btn-sm" href="delete?id='.  $service['id'] .'">
+                                        <a class="btn btn-sm" href="delete?id='.  $service['id'] .'"onclick="handleDelete()">
                                          <i class="bi bi-trash"></i>
                                     </a>
                                     </td>

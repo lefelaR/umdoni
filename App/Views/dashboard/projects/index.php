@@ -74,13 +74,13 @@ $crumbs = getCrumbs();
                                     <td>' . $project['title'] . '</td>
                                     <td>' . $project['subtitle'] . '</td>
                                     <td>' . $project['body'] . '</td>
-                                    <td class="text-bold-500">' . $project['updatedBy'] . '</td>
+                                    <td class="text-bold-500">' . $project['createdAt'] . '</td>
                                     <td>
                                        
                                         <a class="btn  btn-sm" href="add?id=' .  $project['id'] . '">
                                         <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a class="btn btn-sm" href="delete?id='.  $project['id'] .'" onclick="handleDelete()">
+                                        <a class="btn btn-sm" href="delete?id='.  $project['id'] .'" onclick="handleDelete(event)">
                                          <i class="bi bi-trash"></i>
                                     </a>
                                     </td>

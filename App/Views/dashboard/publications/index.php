@@ -81,7 +81,7 @@ $crumbs = getCrumbs();
                                         <a class="btn  btn-sm" href="add?id='.$newsletter['id'].'">
                                             <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a class="btn  btn-sm" href="delete?id='.$newsletter['id'].'">
+                                        <a class="btn  btn-sm" href="delete?id='.$newsletter['id'].'"onclick="handleDelete()">
                                             <i class="bi bi-trash"></i>
                                         </a>
                                     </td>
