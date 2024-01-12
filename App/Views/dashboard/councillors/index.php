@@ -72,7 +72,7 @@ $data = $context->data;
                                     <a class="btn  btn-sm" href="add?id=' .  $councillor['id'] . '">
                                     <i class="bi bi-pencil"></i>
                                     </a>
-                                    <a class="btn btn-sm" id="delete"  [id=' . $councillor['id'] . ']  href="delete?id=' .  $councillor['id'] . '">
+                                    <a class="btn btn-sm" id="delete"  [id=' . $councillor['id'] . ']  href="delete?id=' .  $councillor['id'] . '"onclick="handleDelete()">
                                      <i class="bi bi-trash"></i>
                                 </a>
                                     </td>
