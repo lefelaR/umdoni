@@ -2,6 +2,30 @@
 global $context;
 $data = $context->data;
 // array_column
+$current = array();
+$open = array();
+$awarded = array();
+
+foreach ($data as $key => $value) {
+    
+    switch ($value['status']) {
+        case '1':
+        array_push($current, $value);
+            break;
+        
+            case '2':
+                array_push($open, $value);
+                break;
+        default:
+            array_push($awarded, $value);
+            break;
+    }
+
+
+}
+
+
+
 
 ?>
 
@@ -90,7 +114,7 @@ $data = $context->data;
                     <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
                         <p class="fw-bold text-secondary">
                             Awarded Tenders</p>
-                        </button>
+                    </button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
@@ -119,8 +143,8 @@ $data = $context->data;
                                 </tr>
                             </thead>
                             <tbody>
-                             <?php
-                                foreach ($data as $key => $tender) {
+                                <?php
+                                foreach ($current as $key => $tender) {
                                     $key++;
                                     echo '
                                 <tr>
@@ -142,7 +166,7 @@ $data = $context->data;
                 </div>
 
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                <div class="mt-5">
+                    <div class="mt-5">
                         <table class="table" id="table1">
                             <thead class="table-dark">
                                 <tr>
@@ -166,18 +190,18 @@ $data = $context->data;
                                 </tr>
                             </thead>
                             <tbody>
-                             <?php
-                                foreach ($data as $key => $tender) {
+                                <?php
+                                foreach ($open as $key => $open_tender) {
                                     $key++;
                                     echo '
                                 <tr>
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $tender['location'] . '" target="_blank">' . $tender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $open_tender['location'] . '" target="_blank">' . $open_tender["title"] . '</a>
                                     </td>
-                                    <td>' . $tender['reference'] . '</td>
-                                    <td> ' . $tender['dueDate'] . '</td>
+                                    <td>' . $open_tender['reference'] . '</td>
+                                    <td> ' . $open_tender['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }
@@ -187,9 +211,9 @@ $data = $context->data;
                         </table>
                     </div>
                 </div>
-                
+
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
-                <div class="mt-5">
+                    <div class="mt-5">
                         <table class="table" id="table1">
                             <thead class="table-dark">
                                 <tr>
@@ -213,18 +237,18 @@ $data = $context->data;
                                 </tr>
                             </thead>
                             <tbody>
-                             <?php
-                                foreach ($data as $key => $tender) {
-                                    $key++;
+                                <?php
+                                foreach ($awarded as $key2 => $awarded_tender) {
+                                    $key2++;
                                     echo '
                                 <tr>
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $tender['location'] . '" target="_blank">' . $tender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $awarded_tender['location'] . '" target="_blank">' . $awarded_tender["title"] . '</a>
                                     </td>
-                                    <td>' . $tender['reference'] . '</td>
-                                    <td> ' . $tender['dueDate'] . '</td>
+                                    <td>' . $awarded_tender['reference'] . '</td>
+                                    <td> ' . $awarded_tender['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }
@@ -234,13 +258,7 @@ $data = $context->data;
                         </table>
                     </div>
                 </div>
-                
-                 </div>
-
-
-
-
-
+            </div>
         </div>
     </div>
 </div>

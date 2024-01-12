@@ -66,8 +66,8 @@ class Tender extends \Core\Model
         global $context;
 
         $db = static::getDB(); 
-        $sql = "INSERT into tenders (title, subtitle, body, isActive, createdAt, updatedBy, reference, location, dueDate)
-                VALUES ('$data[title]','$data[subtitle]','$data[body]','$data[isActive]', '$data[createdAt]', '$data[updatedBy]','$data[reference]', '$data[location]','$data[duedate]')"; 
+        $sql = "INSERT into tenders (title, subtitle, body, isActive, createdAt, updatedBy, reference, location, dueDate, status)
+                VALUES ('$data[title]','$data[subtitle]','$data[body]','$data[isActive]', '$data[createdAt]', '$data[updatedBy]','$data[reference]', '$data[location]','$data[duedate]','$data[status]')"; 
         $stmt = $db->exec($sql);
         
        return $stmt;

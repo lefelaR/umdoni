@@ -87,8 +87,35 @@ class Councillor extends \Core\Model
         $db = static::getDB();
         if (!isset($data['id'])) $data['id'] = 0;
 
-        $sql = "INSERT into seniors (`initials`, `name`, `middlename`, `surname`, `email`, `telephone`, `title`, `category`, `ward`, `img_file`, `location`, `isActive`)
-        VALUES (:initials, :name, :middlename, :surname, :email, :telephone, :title, :category, :ward, :img_file, :location, :isActive)";
+        $sql = "INSERT into seniors (
+            `initials`,
+            `name`,
+            `middlename`,
+            `surname`,
+            `email`,
+            `telephone`,
+            `title`,
+            `category`,
+            `ward`,
+            `img_file`,
+            `location`,
+            `isActive`
+
+            )VALUES (
+            
+            :initials, 
+            :name, 
+            :middlename, 
+            :surname, 
+            :email, 
+            :telephone, 
+            :title, 
+            :category, 
+            :ward, 
+            :img_file, 
+            :location, 
+            :isActive
+            )";
 
         $stmt = $db->prepare($sql);
 
