@@ -72,10 +72,8 @@ echo '
                         ' . $body . '
                         </textarea>
                     </div>
-                    <div id="editor"></div>
-                <button class="btn btn-primary btn-lg">
-                    submit
-                </button>
+                 
+                    <button class="btn btn-primary btn-lg"> submit </button>
                 </div>
             </div>
         </div>
