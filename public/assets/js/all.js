@@ -132,7 +132,12 @@ document.getElementById('avatarModalAccept').addEventListener('click', ()=>{
     const formData = new FormData();
     formData.append('name', file);
     formData.append('user_id',user_id);
-    fetch('http://localhost/umdoni/admin/user/updateImage', {
+
+    const currentURL = window.location.href;
+    const stripped =  currentURL.substring(0, currentURL.lastIndexOf("/"));
+    
+
+    fetch(stripped +'/updateImage', {
         method: 'POST',
         body: formData,
     })
@@ -156,12 +161,24 @@ document.getElementById('avatarModalAccept').addEventListener('click', ()=>{
 
 const updatePassword = () => {
 debugger
+
+const password= document.getElementById('updatepassword').value;
+const confirm= document.getElementById('confirmupdatepassword').value;
+
+const currentURL = window.location.href;
+const stripped =  currentURL.substring(0, currentURL.lastIndexOf("/"));
+const url = stripped + '/updatePassword';
+
+fetch(url, {
+    method: 'POST',
+    body: formData,
+})
+.then(()=>{
+    debugger
+
+})
 // var isValid = validatePassword();
+
 
 }
 
-
-// const validatePassword(){
-
-//     return true;
-// }

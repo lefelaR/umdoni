@@ -286,6 +286,40 @@ public function __construct()
     }
   }
 
+
+  public function updatePassword()
+  {
+    global $context;
+    if (isset($_POST)) $data = $_POST;
+    $clientId = $this->clientId;
+    $userPoolId = $this->userPoolId;
+    $region = $this->region;
+    $client = new CognitoIdentityProviderClient([
+      'version' => 'latest',
+      'region'  => $region,
+      'credentials' => [
+        'key'    => $this->awsAccessKeyId,
+        'secret' => $this->awsSecretAccessKey,
+      ],
+    ]);
+    try {
+      $result = $client->confirmSignUp([
+        'ClientId' => $clientId,
+        'Username' => $data['username'],
+        'ConfirmationCode' => $data['code'],
+      ]);
+      if (count($result)) {
+        $data['status'] = true;
+        $confirm = UserModel::VerifyeUser($data);
+      }
+      $_SESSION['success'] = ['message' => 'You have been verified'];
+      redirect('authentication/login');
+    } catch (\Throwable $th) {
+      $_SESSION['error'] = ['message' => $th->getMessage()];
+      redirect('authentication/code');
+    }
+  }
+
   public function logoutAction()
   {
     session_destroy();
