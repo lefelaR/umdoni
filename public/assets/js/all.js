@@ -1,39 +1,48 @@
 window.addEventListener('load', function(event) {
     setTimeout(function() {
+        debugger
         hidePreloader()
     }, 500);
 
 });
 
-function handleDelete(e)
+function handleDelete(e, id)
 {
 
-    var alert = confirm("Are you sure you want to delete?");
+    confirm("are you sure you want to delete?");
     showPreloader();
 
-    // e.preventDefault();
-    // var status = false;
-    // showDeleteModal();
-    // var accept = document.getElementById("deleteModalAccept");
-    // var cancel =  document.getElementById("deleteModalCancel");
-    // accept.addEventListener('click', ()=>{
-    //     status = true;
-    //     showPreloader();
-    // })
-
-    // cancel.addEventListener('click',()=>{
-    //    hideDeleteModal();
-    // })    
-    // return e;
+    //   e.preventDefault();
+//   showDeleteModal();
+//   var status = false;
+//   var accept = document.getElementById("deleteModalAccept");
+//   var cancel = document.getElementById("deleteModalCancel");
+//   const url = window.location.origin;
+//   accept.addEventListener("click", () => {
+//     status = true;
+//     showPreloader();
+//     var currentUrl = url+'/dashboard/projects/delete?id='+id;
+//     fetch(currentUrl,{
+//         method:'DELETE',
+//         headers:{
+//             'Content-Type': 'application/json'
+//         }
+//     }).then(response => {
+//         debugger
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+//         return response.json();
+//     })
+//  });
+// });
 }
 
 
 
 function handleSave()
 {
-    debugger
     showPreloader();
-
 }
 
 function showDeleteModal() {

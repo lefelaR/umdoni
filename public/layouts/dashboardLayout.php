@@ -49,7 +49,8 @@ include_once '../Components/Helpers.php';
 
         <!-- include the toasts -->
 <!-- inclide delete modal -->
-<?php include '../public/Includes/parts/modal.php'; ?>
+<?php include '../public/Includes/parts/deletemodal.php'; ?>
+<?php include '../public/Includes/parts/avatarmodal.php'; ?>
     </div>
 
 

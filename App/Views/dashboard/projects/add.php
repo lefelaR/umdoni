@@ -72,7 +72,6 @@ echo '
                         ' . $body . '
                         </textarea>
                     </div>
-                 
                     <button class="btn btn-primary btn-lg" onclick="handleSave()"> submit </button>
                 </div>
             </div>

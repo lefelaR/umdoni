@@ -70,9 +70,9 @@ echo '
          
                     <div class="form-group">
                         <label for="body">Body</label>
-                        <div  id="full">
+                        <textarea  id="full" name="body" id="body" cols="3">
                         '.$body.'
-                        </div>
+                        </textarea>
                     </div>
 
                 <button class="btn btn-primary btn-lg shadow">
