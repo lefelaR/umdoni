@@ -88,10 +88,8 @@ $crumbs = getCrumbs();
 </div>
 
 <script>
-
 const cam = document.getElementById("camera");
 cam.addEventListener('click',()=>{
   showAvatarModal();
 });
-
 </script>
