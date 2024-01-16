@@ -146,4 +146,4 @@ echo'
   cam.addEventListener('click', () => {
     showAvatarModal();
   });
-</script>
+</script> 

@@ -51,14 +51,49 @@ class UserModel extends \Core\Model
     {
         $db = static::getDB(); 
         
-        $sql = "UPDATE profile SET `first_name` =  '$data[first_name]', `last_name` = '$data[last_name]', `mobile_number`= '$data[mobile_number]', `address_1`= '$data[address_1]',
-         `address_2`= '$data[address_2]', `postal_code`= '$data[postal_code]', `town`='$data[town]', `city`= '$data[city]'  WHERE `user_id`= $data[user_id]"; 
-        $user_id = $db->exec($sql);
+        $sql = "UPDATE profile SET 
+        `first_name`    =   :first_name, 
+        `last_name`     =   :last_name, 
+        `mobile_number` =   :mobile_number,
+        `address_1`     =   :address_1, 
+        `address_2`     =   :address_2,
+        `postal_code`   =   :postal_code, 
+        `town`          =   :town, 
+        `city`          =   :city,  
+        `img_file`      =   :img_file,
+        `location`      =   :location
+        WHERE `user_id` =   $data[user_id]";
+        
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(':first_name', $data['first_name']);
+        $stmt->bindParam(':last_name', $data['last_name']);
+        $stmt->bindParam(':mobile_number', $data['mobile_number']);
+        $stmt->bindParam(':address_1', $data['address_1']);
+        $stmt->bindParam(':address_2', $data['address_2']);
+        $stmt->bindParam(':postal_code', $data['postal_code']);
+        $stmt->bindParam(':town', $data['town']);
+        $stmt->bindParam(':city', $data['city']);
+        $stmt->bindParam(':img_file', $data['img_file']);
+        $stmt->bindParam(':location', $data['location']);
+
+        $stmt->execute();
+
+        $user_id = $db->lastInsertId();
 
         if(isset($user_id) && (is_numeric($user_id)))
         {
-            $sql = "UPDATE users SET `email` = '$data[email]'  WHERE `user_id`= $data[user_id]"; 
-             $stmt = $db->exec($sql);
+            $sql = "UPDATE users SET 
+            `username`      =   :username, 
+            `surname`       =   :surname,
+            `email`         =   :email  
+            WHERE `user_id` =   $data[user_id]";
+
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(':username', $data['first_name']);
+            $stmt->bindParam(':surname', $data['last_name']);
+            $stmt->bindParam(':email', $data['email']);
+            
+            $stmt->execute();
         }
 
        return $stmt;
