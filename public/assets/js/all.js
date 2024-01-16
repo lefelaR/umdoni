@@ -1,5 +1,4 @@
 window.addEventListener('load', function(event) {
-    ddebugger
     setTimeout(function() {
         hidePreloader()
     }, 500);
@@ -29,7 +28,26 @@ function showAvatarModal() {
     modal.classList.add("show");
   }
   
-  
+  function hideAvatarModal() {
+    var modal = document.getElementById("avatarModal");
+    modal.style.display = "none";
+    modal.classList.remove("show");
+  }
+
+  function showPasswordModal() {
+    debugger
+    var modal = document.getElementById("passwordModal");
+    modal.style.display = "block";
+    modal.classList.add("show");
+  }
+
+  function hidePasswordModal() {
+    var modal = document.getElementById("passwordModal");
+    modal.style.display = "none";
+    modal.classList.remove("show");
+  }
+
+
 
 function hideDeleteModal()
 {
@@ -110,7 +128,8 @@ document.getElementById('avatarModalAccept').addEventListener('click', ()=>{
         alert('Please select an image file');
         return;
     }
-
+    debugger
+    showPreloader();
     const formData = new FormData();
     formData.append('name', file);
     formData.append('user_id',user_id);
@@ -119,13 +138,17 @@ document.getElementById('avatarModalAccept').addEventListener('click', ()=>{
         body: formData,
     })
     .then((response) => {
-        debugger
-        console.log("");
+        Toastify({
+            text: "Profile image has been Saved",
+            duration: 3000,
+            gravity:"bottom",
+            position: "left",
+            backgroundColor: "#4fbe87",
+        }).showToast();
+        hidePreloader();
+        hideAvatarModal();
+        
         })
-    .then(data => {
-        debugger
-         alert('File uploaded successfully!');
-    })
     .catch(error => {
         console.log("");
     });

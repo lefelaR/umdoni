@@ -107,7 +107,7 @@ class User extends \Core\Controller
         $data['img_file'] = $objectKey;
         $data['location'] = $result['ObjectURL'];
         try {
-            $id =  UserModel::UpdateUser($data);
+            $id =  UserModel::UpdateImage($data);
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
