@@ -39,8 +39,7 @@ public function __construct()
   public function indexAction()
   {
     echo "hello from the login controller";
-    //    view::render('authentication/login.php', array() ,'authentication');
-  }
+    }
 
   public function loginAction()
   {
