@@ -18,7 +18,7 @@
                     <i class="bx bx-x d-block d-sm-none"></i>
                     <span class="d-none d-sm-block">Cancel</span>
                 </button>
-                <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal" id="passwordModalAccept" onclick="updatePassword()>
+                <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal" id="passwordModalAccept" onclick="updatePassword()">
                     <i class="bx bx-check d-block d-sm-none"></i>
                     <span class="d-none d-sm-block">Accept</span>
                 </button>
@@ -26,3 +26,4 @@
         </div>
     </div>
 </div>
+

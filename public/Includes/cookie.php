@@ -2,7 +2,7 @@
 	section#eucookie {
 		background: #444;
 		color: #aaa;
-		padding: 2em;
+		padding: 1em;
 		position: fixed;
 		right: 0;
 		bottom: -200px;
@@ -26,7 +26,6 @@
 </style>
 <?php
 
-
 if (isset($cookiedata)) {
 	$type = get_class($cookiedata);
 	if ($type != 'CookieContext') {
@@ -41,9 +40,9 @@ if (isset($cookiedata)) {
 		<p>[ This is Just a demonstration of how i implement cookies for POPI ACT compliance on any project ] <br/> 
 		Hi, i use cookies to improve user experience. Choose what cookies you allow us to use. You can read more about our Cookie Policy in our 
 		<a href="home/privacypolicy">Privacy Policy</a>. </p>
-		<a href="#" onclick="handle_eucookie()" class="main-btn float-right smaller">got it</a>
+		<a href="#" onclick="handle_eucookie()" class="btn btn-sm btn-primary float-right smaller">got it</a>
 		<br>
-		<a href="home/privacypolicy">php_versioin</a>
+	
 	</div>
 </section>
 

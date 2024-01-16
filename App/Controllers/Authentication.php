@@ -12,7 +12,7 @@ use \Core\View;
 use App\Models\Profile;
 use Components\Context;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
-use App\Models\User;
+use App\Models\UserModel;
 use Aws\Exception\AwsException;
 
 
@@ -240,7 +240,7 @@ public function __construct()
         $data['createdAt'] = date("Y-m-d H:i:s");
         $data['status'] = 0;
         $data['UserSub'] = $result['UserSub'];
-        $user = User::Save($data);
+        $user = UserModel::Save($data);
         $_SESSION['success'] = ['message' => 'Registration Successfull, please find your authentication code in your email inbox'];
       }
 
@@ -276,7 +276,7 @@ public function __construct()
       ]);
       if (count($result)) {
         $data['status'] = true;
-        $confirm = User::VerifyeUser($data);
+        $confirm = UserModel::VerifyeUser($data);
       }
       $_SESSION['success'] = ['message' => 'You have been verified'];
       redirect('authentication/login');

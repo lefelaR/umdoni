@@ -154,7 +154,7 @@ document.getElementById('avatarModalAccept').addEventListener('click', ()=>{
 
 })
 
-const updatePassword =()=>{
+const updatePassword = () => {
 debugger
 // var isValid = validatePassword();
 
