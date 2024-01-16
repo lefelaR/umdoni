@@ -71,9 +71,8 @@ $crumbs = getCrumbs();
                                 <?php
                                 foreach ($data as $key => $event) {
                                     $key++;
-                                    echo '
+                                    echo'
                                 <tr>
-                                 
                                     <td>' . $event['title'] . '</td>
                                     <td>' . $event['subtitle'] . '</td>
                                     <td>' . $event['body'] . '</td>
