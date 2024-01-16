@@ -68,15 +68,6 @@ if (isset($context->errors['message'])) {
                                     <i class="bi bi-eye"></i>
                                 </div>
                             </div>
-
-
-                            <!-- <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                <span class="input-group-text" id="basic-addon2">
-                              X
-                                </span>
-                            </div>
-                             -->
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="password" class="form-control form-control-xl" name="confirm_password" placeholder="Retype Password">
                                 <div class="form-control-icon">

@@ -35,7 +35,6 @@ function showAvatarModal() {
   }
 
   function showPasswordModal() {
-    debugger
     var modal = document.getElementById("passwordModal");
     modal.style.display = "block";
     modal.classList.add("show");
@@ -155,3 +154,14 @@ document.getElementById('avatarModalAccept').addEventListener('click', ()=>{
 
 })
 
+const updatePassword =()=>{
+debugger
+// var isValid = validatePassword();
+
+}
+
+
+// const validatePassword(){
+
+//     return true;
+// }
