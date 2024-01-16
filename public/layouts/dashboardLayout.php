@@ -24,7 +24,6 @@ include_once '../Components/Helpers.php';
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/quill/quill.snow.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/toastify/toastify.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/images/favicon.svg") ?>">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="<?php echo url('assets/vendors/simple-datatables/style.css') ?>">
 </head>
 
@@ -44,19 +43,13 @@ include_once '../Components/Helpers.php';
             {{content}}
         </div>
 
-        <!-- include alerts -->
-
-
-        <!-- include the toasts -->
-<!-- inclide delete modal -->
-<?php include '../public/Includes/parts/deletemodal.php'; ?>
-<?php include '../public/Includes/parts/avatarmodal.php'; ?>
+        <?php include '../public/Includes/parts/deletemodal.php'; ?>
+        <?php  include '../public/Includes/parts/avatarmodal.php'; ?>
+        <?php  include '../public/Includes/parts/passwordmodal.php'; ?>
     </div>
-
-
-
-
     <?php include '../public/Includes/backendfooter.php'; ?>
+
+
     <script src="<?php echo url("assets/js/all.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/js/bootstrap.bundle.min.js") ?>"></script>
@@ -68,17 +61,13 @@ include_once '../Components/Helpers.php';
     <script src="<?php echo url("themes/mazor/assets/vendors/sweetalert2/sweetalert2.all.min.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/vendors/toastify/toastify.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/js/extensions/toastify.js") ?>"></script>
-    
     <script>
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
-
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="<?php echo url("themes/mazor/assets/js/pages/form-editor.js") ?>"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
-
 </body>
 
 </html>

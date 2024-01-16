@@ -1,40 +1,4 @@
-<?php
-
-global $context;
-
-$data = $context->data;
-
-?>
-<style>
-    #dropArea {
-            /* width: 300px; */
-            height: 100px;
-            border: 2px dashed #ccc;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            overflow: hidden;
-        }
-        #dropArea.dragover {
-            background-color: #e0f7fa;
-        }
-        #imageContainer {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .previewImage {
-            max-width: 100px;
-            max-height: 100px;
-            border-radius: 50%;
-            margin-left: auto!important;
-    margin-right: auto!important;
-        }
-</style>
-
-<div class="modal fade text-left modal-borderless" id="avatarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+<div class="modal fade text-left modal-borderless" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-body text-center">
@@ -62,4 +26,3 @@ $data = $context->data;
         </div>
     </div>
 </div>
-

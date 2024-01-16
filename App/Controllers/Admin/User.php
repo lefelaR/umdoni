@@ -73,14 +73,45 @@ class User extends \Core\Controller
 
     public function updateImage()
     {
-        $data = $_POST;
-        $data['updatedAt'] = date("Y-m-d H:i:s");
+
+        if (isset($_FILES)) {
+
+            $s3 = new S3Client([
+                'version' => 'latest',
+                'region' => $this->region,
+                'credentials' => [
+                    'key' => $this->awsAccessKeyId,
+                    'secret' => $this->awsSecretAccessKey,
+                ],
+            ]);
+            $file = $_FILES;
+
+            $filePath = $file['name']['tmp_name'];
+            $objectKey = $file['name']['name'];
+            $loc = "";
+
+            try {
+                // Upload the file to S3
+                $result = $s3->putObject([
+                    'Bucket' => $this->bucketName,
+                    'Key' => $objectKey,
+                    'SourceFile' => $filePath,
+                ]);
+            } catch (Exception $e) {
+                echo "Error uploading file: " . $e->getMessage();
+            }
+        }
+
+        if(isset($_POST)) $data = $_POST;
+
+        $data['img_file'] = $objectKey;
+        $data['location'] = $result['ObjectURL'];
         try {
-            $id =  Agenda::Update($data);
+            $id =  UserModel::UpdateImage($data);
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
-        redirect('dashboard/agendas/index');
+        redirect('admin/user/index');
     }
 
 

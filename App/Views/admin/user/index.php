@@ -6,12 +6,6 @@ $crumbs = getCrumbs();
 ?>
 
 <style>
-  #camera {
-    position: absolute;
-    display: flex;
-    top: 15em;
-    left: 20em;
-  }
 
   .avatar {
     width: 12em !important;
@@ -45,11 +39,11 @@ $crumbs = getCrumbs();
 <?php
 
 $profile = isset($_SESSION['profile']) ?  $_SESSION['profile'] : array();
-$avatar = isset($profile['location']) ? $profile['location'] : url('assets/img/profile/pro.png');
+$avatar = isset($user['location']) ? $user['location'] : url('assets/img/profile/pro.png');
 
 
 // profile objects
-$user_id         = isset($user['user_id'])  ? $user['user_id'] : "";
+$user_id         = isset($user['user_id'])  ? $user['user_id'] : $profile['user_id'];
 $name       = isset($user['first_name']) ? $user['first_name'] : ""; 
 $surname    = isset($user['last_name']) ? $user['last_name'] : "";
 $email      = isset($user['email']) ? $user['email'] : "";
@@ -74,20 +68,24 @@ echo'
     <form class="form" action="update" method="post" enctype="multipart/form-data">
       <div class="card-body">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-lg-6 col-md-10 col-sm-12">
             <div class="form-group">
               <div class="text-center">
                 <div class=" avatar-xl">
-                  <img src="' . $avatar . '" alt="Face 1">
-                  <i class="bi bi-camera text-yellow" id="camera"></i>
+                  <img src="' . $avatar . '" alt="Face 1" class="rounded-circle" style="max-width:200px">
+                 
+                  <div class="mt-2 mx-auto">
+                  <button class="btn btn-sm btn-primary" id="camera"> Change Avator</button>
+                  <button class="btn btn-sm btn-primary " id="key" "> Change Password</button>
+                </div>
                 </div>
               </div>
             </div>
 
-            <input type="hidden" id="user_id" name="user_id" value="'.$user_id.'">
+            
             <div class="row">
               <div class="col-md-6">
-
+              <input type="hidden" id="user_id" name="user_id" value="'.$user_id.'">
                 <div class="form-group">
                   <label for="basicInput">Name</label>
                   <input type="text" class="form-control" id="first_name" name="first_name" value="'.$name.'">
@@ -104,7 +102,7 @@ echo'
                 </div>
                 <div class="form-group">
                   <label for="helperText">Town</label>
-                  <input type="text" id="town" name="town" class="form-control" value="'.$address2.'">
+                  <input type="text" id="town" name="town" class="form-control" value="'.$town.'">
                 </div>
                 <div class="form-group">
                   <label for="helperText">Postal Code</label>
@@ -142,8 +140,14 @@ echo'
 ?>
 
 <script>
-  const cam = document.getElementById("camera");
-  cam.addEventListener('click', () => {
+  const camera = document.getElementById("camera");
+  const key = document.getElementById("key");
+  camera.addEventListener('click', () => {
     showAvatarModal();
   });
-</script>
+
+  key.addEventListener('click', ()=>{
+    showPasswordModal();
+  })
+
+</script> 

@@ -64,6 +64,17 @@ class UserModel extends \Core\Model
        return $stmt;
     }
 
+
+    public static function UpdateImage($data)
+    {
+        $db = static::getDB(); 
+        
+        $sql = "UPDATE profile SET `img_file` = '$data[img_file]', `location` = '$data[location]'  WHERE `user_id`= $data[user_id]"; 
+        $user_id = $db->exec($sql);
+
+       return $user_id;
+    }
+
     public static function VerifyeUser($data)
     {
         $db = static::getDB(); 
