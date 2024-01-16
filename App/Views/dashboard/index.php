@@ -248,14 +248,15 @@ $data = $context->data;
                     <a href="<?php echo buildurl('admin/user/index') ?>">
                         <div class="d-flex align-items-center">
                             <?php
-                            $profile = isset($_SESSION['profile']) ?  $_SESSION['profile'] : array();
-                            $avatar = isset($profile['location']) ? $profile['location'] : url('assets/img/profile/pro.png');
-                            echo '
+                            $profile = $data['profile'];
+                            $avatar = isset($profile['location'])  ? $profile['location'] : url('assets/img/profile/pro.png');  
+                            
+                    echo '
                          <div class="avatar avatar-xl">
                         <img src="' . $avatar . '" alt="Face 1">
                     </div>
                     <div class="ms-3 name">
-                        <h5 class="font-bold">' . $profile['username'] . '</h5>
+                        <h5 class="font-bold">' . $profile['first_name'] . '</h5>
                         <h6 class="text-muted mb-0">' . $profile['email'] . '</h6>
                     </div>
                         ';

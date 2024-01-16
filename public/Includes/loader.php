@@ -67,7 +67,7 @@
         /* Spinner Color */
         border-color: #25396f #435ebe #cbced1;
         border-radius: 50%;
-        border-width: 4px; }
+        border-width: 8px; }
       .preloader .loader .ytp-spinner-left .ytp-spinner-circle {
         left: 0;
         right: -100%;
