@@ -127,7 +127,7 @@ document.getElementById('avatarModalAccept').addEventListener('click', ()=>{
         alert('Please select an image file');
         return;
     }
-    debugger
+   
     showPreloader();
     const formData = new FormData();
     formData.append('name', file);

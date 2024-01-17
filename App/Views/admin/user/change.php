@@ -1,10 +1,8 @@
 <?php
-// commented out code
 global $context;
 $user = $context->data;
 $crumbs = getCrumbs();
 ?>
-
 <style>
   .avatar {
     width: 12em !important;
@@ -36,8 +34,6 @@ $crumbs = getCrumbs();
 </div>
 
 <?php
-
-
 echo '
 <div class="row">
   <div class="card">
@@ -55,28 +51,23 @@ echo '
         <div class="row">
           <div class="col-lg-6 col-md-10 col-sm-12">
               <div class="col-md-6">
-              
                 <div class="form-group">
                   <label for="helperText">Password</label>
-                  <input type="password" id="last_name" name="last_name" class="form-control" value="">
+                  <input type="password" id="last_name" name="last_name" class="form-control disabled" disabled value="" >
                 </div>
                 <div class="form-group">
                   <label for="helperText">Code</label>
-                  <input type="number" id="mobile_number" name="mobile_number" class="form-control" value="">
+                  <input type="number" id="mobile_number" name="mobile_number" class="form-control " disabled value="">
                 </div>
-
               </div>
-           
             <button class="btn btn-primary btn-lg" onclick="handleSave()"> Update </button>
           </div>
-
         </div>
       </div>
     </form>
   </div>
 </div>';
 ?>
-
 <script>
   const handleAvatar = (event) => {
     event.preventDefault();
@@ -86,4 +77,22 @@ echo '
     event.preventDefault();
       showPasswordModal();
   }
+
+
+  const handleRequestCode = async (event) =>{
+
+    debugger
+
+    event.preventDefault();
+
+
+    await fetch(()=>{
+
+    }).then(()=>{})
+    .catch(()=>{
+
+    })
+
+  }
+
 </script>
