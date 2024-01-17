@@ -123,8 +123,10 @@ CREATE TABLE `profile` (
   `town` varchar(45) DEFAULT NULL,
   `postal_code` varchar(45) DEFAULT NULL,
   `city` varchar(45) DEFAULT NULL,
-     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `location` varchar(255) DEFAULT NULL,
+  `img_file` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -229,7 +231,7 @@ CREATE TABLE `councillors` (
 --
 -- Table structure for table `users`
 --
-
+6
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -244,7 +246,7 @@ CREATE TABLE `users` (
   `locked` int(11) DEFAULT NULL,
   `surname` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 DROP TABLE IF EXISTS `notices`;

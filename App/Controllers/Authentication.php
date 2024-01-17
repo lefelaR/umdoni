@@ -12,7 +12,7 @@ use \Core\View;
 use App\Models\Profile;
 use Components\Context;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
-use App\Models\User;
+use App\Models\UserModel;
 use Aws\Exception\AwsException;
 
 
@@ -240,7 +240,7 @@ public function __construct()
         $data['createdAt'] = date("Y-m-d H:i:s");
         $data['status'] = 0;
         $data['UserSub'] = $result['UserSub'];
-        $user = User::Save($data);
+        $user = UserModel::Save($data);
         $_SESSION['success'] = ['message' => 'Registration Successfull, please find your authentication code in your email inbox'];
       }
 
@@ -276,7 +276,41 @@ public function __construct()
       ]);
       if (count($result)) {
         $data['status'] = true;
-        $confirm = User::VerifyeUser($data);
+        $confirm = UserModel::VerifyeUser($data);
+      }
+      $_SESSION['success'] = ['message' => 'You have been verified'];
+      redirect('authentication/login');
+    } catch (\Throwable $th) {
+      $_SESSION['error'] = ['message' => $th->getMessage()];
+      redirect('authentication/code');
+    }
+  }
+
+
+  public function updatePassword()
+  {
+    global $context;
+    if (isset($_POST)) $data = $_POST;
+    $clientId = $this->clientId;
+    $userPoolId = $this->userPoolId;
+    $region = $this->region;
+    $client = new CognitoIdentityProviderClient([
+      'version' => 'latest',
+      'region'  => $region,
+      'credentials' => [
+        'key'    => $this->awsAccessKeyId,
+        'secret' => $this->awsSecretAccessKey,
+      ],
+    ]);
+    try {
+      $result = $client->confirmSignUp([
+        'ClientId' => $clientId,
+        'Username' => $data['username'],
+        'ConfirmationCode' => $data['code'],
+      ]);
+      if (count($result)) {
+        $data['status'] = true;
+        $confirm = UserModel::VerifyeUser($data);
       }
       $_SESSION['success'] = ['message' => 'You have been verified'];
       redirect('authentication/login');
