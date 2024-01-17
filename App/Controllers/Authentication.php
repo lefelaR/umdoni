@@ -95,6 +95,7 @@ public function __construct()
       ]);
 
       if ($result) {
+        $_SESSION['username'] = $data['username'];
         redirect('authentication/resetpassword');
       } else {
         $context->errors['message'] = 'Login & Password error!!!';
@@ -110,12 +111,11 @@ public function __construct()
   {
     global $context;
     if (isset($_POST)) $data = $_POST;
-    $isLoggedin = $context->isLoggedIn;
+
+    if(isset($_SESSION['username'])) $data['username'] = $_SESSION['username'];
 
     $clientId = $this->clientId;
-    $userPoolId = $this->userPoolId;
     $region = $this->region;
-
     $client = new CognitoIdentityProviderClient([
       'version' => 'latest',
       'region'  => $region,
@@ -147,6 +147,7 @@ public function __construct()
 
   public function resetpasswordAction()
   {
+
     view::render('authentication/resetpassword.php', array(), 'authentication');
   }
 
@@ -195,10 +196,8 @@ public function __construct()
         }
       }
     } catch (AwsException $aw) {
-      $errMsg = $aw->getMessage();
-      $code = $aw->getCode();
-      
-        $_SESSION['error'] = ['message'=>$errMsg];
+      $errMsg = $aw->getMessage();  
+        $_SESSION['error'] = ['message'=>'Incorrect username or password'];
 
       redirect('authentication/login');
     }

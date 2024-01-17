@@ -20,7 +20,7 @@
                 </button>
                 <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal" id="passwordModalAccept" onclick="updatePassword()">
                     <i class="bx bx-check d-block d-sm-none"></i>
-                    <span class="d-none d-sm-block">Accept</span>
+                    <span class="d-none d-sm-block">Change</span>
                 </button>
             </div>
         </div>
