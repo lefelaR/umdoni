@@ -57,6 +57,24 @@ class User extends \Core\Controller
     }
   
 
+    public function changeAction()
+    {
+        global $context;
+        $session_profile =  $_SESSION['profile'];
+        $profile_id = $session_profile['user_id'];
+        // get data from databae
+        if(count($session_profile) > 0){
+            $profile  = Profile::getUser($session_profile['email']);
+            foreach ($profile as $key => $value) {
+                if($value['user_id'] === $profile_id){
+                    $profile = $value;
+                }
+            }
+        }
+        view::render('admin/user/change.php', $profile, 'dashboard');
+    }
+  
+
     public function update()
     {
         $data = $_POST;

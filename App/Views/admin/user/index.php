@@ -75,7 +75,7 @@ echo '
                  
                   <div class="mt-2 mx-auto">
                   <button class="btn btn-sm btn-primary" id="camera" onclick="handleAvatar(event)"> Change Avator</button>
-                  <button class="btn btn-sm btn-primary " id="key" onclick="handlePassword(event)"> Change Password</button>
+                  <a class="btn btn-sm btn-primary" href="change"> Change Password</a>
                 </div>
                 </div>
               </div>
