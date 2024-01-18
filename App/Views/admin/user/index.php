@@ -125,7 +125,7 @@ echo '
                 </div>
               </div>
             </div>
-            <button class="btn btn-primary btn-lg" onclick="handleSave()"> submit </button>
+            <button class="btn btn-primary btn-sm" onclick="handleSave()"> submit </button>
           </div>
 
         </div>
