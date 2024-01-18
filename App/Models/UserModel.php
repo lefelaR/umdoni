@@ -137,4 +137,13 @@ class UserModel extends \Core\Model
        return $stmt;
     }
 
+
+    public static function ChangeStatus($data)
+    {
+        $db = static::getDB();
+        $sql = "UPDATE users SET `locked` = $data[locked] WHERE `user_id` = '$data[user_id]'"; 
+        $id = $db->exec($sql);
+       return $id;
+    }
+
 }

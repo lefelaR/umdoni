@@ -1,7 +1,6 @@
 <?php
 global $context;
 $data = $context->data;
-// array_column
 $crumbs = getCrumbs();
 ?>
 <!-- Container Fluid-->
@@ -56,7 +55,6 @@ $crumbs = getCrumbs();
        
        <?php 
            $img ='';
-        
            foreach ($data as $key => $user) 
            {    
             if(isset($user['location'])&& $user['location'] != null)
@@ -68,20 +66,47 @@ $crumbs = getCrumbs();
             }
              
             $key++;
-            echo '<tr>
-                    <td><a href="#">'.$img.'</a></td>
-                    <td>'.$user['username'].'</td>
-                    <td>'.$user['email'].'</td>
-                    <td><span class="badge bg-light-primary">active</span></td>
-                    <td><a href="details?id='.$user['user_id'].'" class="btn btn-sm btn-primary">Detail</a></td>
-                </tr>';
-            }
-          
-          ?>
+
+            ?>
+
+            <tr>
+                    <td><a href="#"><?php echo $img; ?></a></td>
+                    <td><?php echo $user['username']; ?></td>
+                    <td><?php echo$user['email']; ?></td>
+                    <td>
+                      <span class="badge bg-light-primary">
+                        <?php echo $user['verified'] === 1 ? "Confirmed" : "Unconfirmed" ;?>
+                      </span>
+                      <span class="badge bg-light-danger">
+                      <?php echo $user['locked'] === 1 ? "Active" : "Inactive" ?>
+                    </span>
+                    </td>
+                    <td>
+                      <a href="details?id=<?php echo $user['user_id'];?>" class="btn btn-sm">
+                      <i class="bi bi-clipboard"></i>
+                      </a>
+                    
+                      <button  class="btn btn-sm " onclick="handleOptions(event)" id="<?php echo $user['user_id'];?>">
+                      <i class="bi bi-three-dots-vertical"></i>
+                      </button>
+                      
+                      </td>
+                </tr>
+                <?php 
+           } 
+                ?>
+    
           </tbody>
         </table>
       </div>
-      <div class="card-footer"></div>
+  
     </div>
   </div>
 </div>
+
+<script>
+const handleOptions =  (event) =>{
+  const user_id = event.currentTarget.id;
+  showStatusModal(user_id);
+}
+  </script>

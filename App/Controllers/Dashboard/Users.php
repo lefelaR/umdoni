@@ -11,6 +11,7 @@ use \Core\View;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\Countries;
+use App\Models\UserModel;
 use Aws\S3\S3Client;
 
 
@@ -40,7 +41,7 @@ class Users extends \Core\Controller
         $data = $_POST;
         try 
         {
-          $id =  User::UpdateUser($data);
+            $id =  UserModel::UpdateUser($data);
         } catch (\Throwable $th) 
         {
             echo $th->getMessage();
@@ -78,30 +79,33 @@ class Users extends \Core\Controller
         redirect('dashboard/users/list');
     }
 
-    public function detailsAction()
+public function detailsAction()
 {
-       
-    
-    $users = Profile::getAll();
-    view::render('dashboard/users/details.php',  $users, 'dashboard');
+    $id = getPostData();
+    if (isset($data['id'])) {
+        $id = $data['id'];
+        $user = Profile::getById($id);
+        } else $user = array();
+    view::render('dashboard/users/details.php',  $user, 'dashboard');
 }
 
-    public function listAction()
+   
+public function manageuserAction()
+{
+    $data = $_POST;
+    try{
+       $id = UserModel::ChangeStatus($data);
+       redirect('dashboard/users/index');
+
+    }catch(\Throwable $th)
     {
-        try {
-            // Fetch all users
-            $users = User::getAllUsers();
-    
-            // Render the user list view with the users data
-            view::render('dashboard/users/details.php', $users, 'dashboard');
-        } catch (\Throwable $th) {
-            // Handle exceptions (e.g., log the error, show an error message)
-            $_SESSION['errors'] = ['message' => $th->getMessage()];
-            
-            
-            redirect('dashboard/users');
-        }
+        echo $th->getMessage();
     }
+
+}
+
+
+
     protected function before()
     {
         enable_authorize();

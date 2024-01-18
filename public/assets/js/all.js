@@ -175,3 +175,49 @@ const Toast = (type, message) =>{
       }).showToast();
 
 }
+
+
+
+const showStatusModal = (user_id = 0) =>{
+  var modal = document.getElementById("userStatusModal");
+  modal.style.display = "block";
+  modal.classList.add("show");
+
+
+  var userSwitch = document.getElementById('userStatusSwitch');
+  userSwitch.addEventListener("change", ()=>{
+    var locked = userSwitch.checked;
+    const formData = new FormData();
+    formData.append("locked", locked);
+    formData.append("user_id", user_id);
+
+    const currentURL = window.location.href;
+    const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
+    fetch( stripped+'/manageuser', {
+      method: "post",
+      body: formData,
+    })
+      .then((response) => {
+
+        debugger
+        console.log(response);
+      }
+      )
+      .catch((err) => console.log(err));
+
+  })
+
+}
+
+const hideStatusModal = () =>{
+  var modal = document.getElementById("userStatusModal");
+  modal.style.display = "";
+  modal.classList.remove("show");
+}
+
+
+document.getElementById("userStatusModalCancel").addEventListener("click", function () {
+  hideStatusModal();
+});
+
+

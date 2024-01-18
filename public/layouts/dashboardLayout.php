@@ -42,10 +42,9 @@ include_once '../Components/Helpers.php';
             </header>
             {{content}}
         </div>
-
-        <?php include '../public/Includes/parts/deletemodal.php'; ?>
-        <?php  include '../public/Includes/parts/avatarmodal.php'; ?>
-        <?php  include '../public/Includes/parts/passwordmodal.php'; ?>
+        
+        <?php include '../public/Includes/modals.php'; ?>
+     
     </div>
     <?php include '../public/Includes/backendfooter.php'; ?>
 
