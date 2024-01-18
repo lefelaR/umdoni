@@ -59,9 +59,9 @@ $crumbs = getCrumbs();
         
            foreach ($data as $key => $user) 
            {    
-            if(isset($user['profile_image_id'])&& $user['profile_image_id'] != null)
+            if(isset($user['location'])&& $user['location'] != null)
             {
-                $img = '<img src='.url("assets/img/".$user['user_id']."/pro.png").' style="width:30px">';
+                $img = '<img src='.$user['location'].' style="width:30px">';
             }
             else{
                 $img = '<img src='.url("assets/img/pro.jpg").' style="width:30px">';

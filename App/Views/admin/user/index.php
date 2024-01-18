@@ -52,9 +52,7 @@ $city       = isset($user['city']) ? $user['city'] : "";
 $postalCode = isset($user['postal_code']) ? $user['postal_code'] : "";
 
 
-?>
 
-<?php
 
 echo '
 <div class="row">

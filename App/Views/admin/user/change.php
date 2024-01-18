@@ -42,7 +42,7 @@ echo '
       <h4 class="card-title">
       Update your password
       </h4>
-      <p>A reset verification code will be sent your email inbox when you request.</p>
+      <p>A reset verification code will be sent to your email inbox when you request a code.</p>
     </div>
     <div class="m-3 ">
     <button class="btn btn-sm btn-primary" id="requestChange" onclick="handleRequestCode(event)"> 
@@ -59,13 +59,14 @@ echo '
                   <input type="username" id="username" name="username" class="form-control" hidden value="">
                 </div>
                 <div class="form-group">
-                  <label for="helperText">Password</label>
+                <label for="helperText">Code</label>
+                <input type="number" id="code" name="code"  class="form-control" disabled value="">
+              </div>
+                <div class="form-group">
+                  <label for="helperText">New Password</label>
                   <input type="password" id="password" name="password" autocomplete="current-password" class="form-control" disabled value="">
                 </div>
-                <div class="form-group">
-                  <label for="helperText">Code</label>
-                  <input type="number" id="code" name="code"  class="form-control" disabled value="">
-                </div>
+               
               </div>
             <button class="btn btn-primary btn-sm" onclick="handleSave()"> Update </button>
           </div>
