@@ -73,7 +73,7 @@ $crumbs = getCrumbs();
                     <td>'.$user['username'].'</td>
                     <td>'.$user['email'].'</td>
                     <td><span class="badge bg-light-primary">active</span></td>
-                    <td><a href="add?id='.$user['user_id'].'" class="btn btn-sm btn-primary">Detail</a></td>
+                    <td><a href="details?id='.$user['user_id'].'" class="btn btn-sm btn-primary">Detail</a></td>
                 </tr>';
             }
           

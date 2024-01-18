@@ -78,6 +78,30 @@ class Users extends \Core\Controller
         redirect('dashboard/users/list');
     }
 
+    public function detailsAction()
+{
+       
+    
+    $users = Profile::getAll();
+    view::render('dashboard/users/details.php',  $users, 'dashboard');
+}
+
+    public function listAction()
+    {
+        try {
+            // Fetch all users
+            $users = User::getAllUsers();
+    
+            // Render the user list view with the users data
+            view::render('dashboard/users/details.php', $users, 'dashboard');
+        } catch (\Throwable $th) {
+            // Handle exceptions (e.g., log the error, show an error message)
+            $_SESSION['errors'] = ['message' => $th->getMessage()];
+            
+            
+            redirect('dashboard/users');
+        }
+    }
     protected function before()
     {
         enable_authorize();
