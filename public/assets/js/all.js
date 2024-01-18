@@ -183,7 +183,6 @@ const showStatusModal = (user_id = 0) =>{
   modal.style.display = "block";
   modal.classList.add("show");
 
-
   var userSwitch = document.getElementById('userStatusSwitch');
   userSwitch.addEventListener("change", ()=>{
     var locked = userSwitch.checked;
@@ -198,9 +197,19 @@ const showStatusModal = (user_id = 0) =>{
       body: formData,
     })
       .then((response) => {
-
-        debugger
-        console.log(response);
+      //   Swal.fire({
+      //     icon: "success",
+      //     title: "Success"
+      // })
+    
+      Toastify({
+        text: "Status has been changed",
+        duration: 3000,
+        gravity: "bottom",
+        position: "left",
+        backgroundColor: "#4fbe87",
+      }).showToast();
+      location.reload();
       }
       )
       .catch((err) => console.log(err));

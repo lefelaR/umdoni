@@ -74,12 +74,12 @@ $crumbs = getCrumbs();
                     <td><?php echo $user['username']; ?></td>
                     <td><?php echo$user['email']; ?></td>
                     <td>
-                      <span class="badge bg-light-primary">
-                        <?php echo $user['verified'] === 1 ? "Confirmed" : "Unconfirmed" ;?>
-                      </span>
-                      <span class="badge bg-light-danger">
-                      <?php echo $user['locked'] === 1 ? "Active" : "Inactive" ?>
-                    </span>
+                      
+                        <?php echo $user['verified'] === "1" ? '<span class="badge bg-light-primary">Confirmed</span>' : '<span class="badge bg-light-warning">Unconfirmed</span>' ;?>
+                      
+                     
+                      <?php echo $user['locked'] === "1" ? '<span class="badge bg-light-success">Active</span>' : '<span class="badge bg-light-danger">Inactive</span>' ?>
+                    
                     </td>
                     <td>
                       <a href="details?id=<?php echo $user['user_id'];?>" class="btn btn-sm">
@@ -108,5 +108,15 @@ $crumbs = getCrumbs();
 const handleOptions =  (event) =>{
   const user_id = event.currentTarget.id;
   showStatusModal(user_id);
+  const formData = new FormData();
+  formData.append("user_id", user_id);
+  const currentURL = window.location.href;
+  fetch(currentURL ,{
+    method: "POST",
+    body: formData,
+  })
+
 }
-  </script>
+
+
+</script>

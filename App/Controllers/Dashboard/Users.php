@@ -19,7 +19,15 @@ class Users extends \Core\Controller
 {
     public function indexAction()
     {
+        
+        if(isset($_POST) && count($_POST) > 0){
+            $data = $_POST;
+            $id = $data['user_id'];
+            $users = Profile::getById($id);    
+        }
+        else{
         $users = Profile::getAll();
+        }
         view::render('dashboard/users/index.php',  $users, 'dashboard');
     }
 

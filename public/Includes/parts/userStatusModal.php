@@ -1,4 +1,13 @@
+<?php
 
+global $context;
+$data = $context->data;
+$locked = isset($data[0]['locked'])? $data[0]['locked'] : ''; 
+
+if($locked === "1") $status = "checked";
+else $status = "";
+
+?>
 <style>
     #dropArea {
         /* width: 300px; */
@@ -47,7 +56,7 @@
                     <label class="form-check-label" for="flexSwitchCheckChecked">
                         Locked    
                     </label>
-                    <input class="form-check-input" type="checkbox" name="switch" id="userStatusSwitch">
+                    <input class="form-check-input" type="checkbox" name="switch" id="userStatusSwitch" <?php echo $status; ?> >
                 </div>
             </div>
             
