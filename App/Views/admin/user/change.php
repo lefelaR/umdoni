@@ -67,7 +67,7 @@ echo '
                   <input type="number" id="code" name="code"  class="form-control" disabled value="">
                 </div>
               </div>
-            <button class="btn btn-primary btn-lg" onclick="handleSave()"> Update </button>
+            <button class="btn btn-primary btn-sm" onclick="handleSave()"> Update </button>
           </div>
         </div>
       </div>
