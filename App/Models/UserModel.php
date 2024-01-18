@@ -88,8 +88,8 @@ class UserModel extends \Core\Model
         global $context;
         $db = static::getDB();
 
-        $sql = "INSERT into users (username,surname,email,password,status, createdAt)
-                VALUES (:username,:surname,:email,:password,:status,:createdAt)";
+        $sql = "INSERT into users (username,surname,email,password,status,locked, createdAt)
+                VALUES (:username,:surname,:email,:password,:status,:locked,:createdAt)";
                
         $stmt = $db->prepare($sql);
         
@@ -98,6 +98,7 @@ class UserModel extends \Core\Model
         $stmt->bindParam(':email', $data['email']);
         $stmt->bindParam(':password', $data['password']);
         $stmt->bindParam(':status', $data['status']);
+        $stmt->bindParam(':locked', $data['locked']);
         $stmt->bindParam(':createdAt', $data['createdAt']);
     
         $stmt->execute();

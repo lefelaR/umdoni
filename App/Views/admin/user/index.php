@@ -39,8 +39,6 @@ $crumbs = getCrumbs();
 
 $profile = isset($_SESSION['profile']) ?  $_SESSION['profile'] : array();
 $avatar = isset($user['location']) ? $user['location'] : url('assets/img/profile/pro.png');
-
-
 // profile objects
 $user_id         = isset($user['user_id'])  ? $user['user_id'] : $profile['user_id'];
 $name       = isset($user['first_name']) ? $user['first_name'] : "";
@@ -54,9 +52,7 @@ $city       = isset($user['city']) ? $user['city'] : "";
 $postalCode = isset($user['postal_code']) ? $user['postal_code'] : "";
 
 
-?>
 
-<?php
 
 echo '
 <div class="row">
@@ -74,14 +70,13 @@ echo '
                   <img src="' . $avatar . '" alt="Face 1" class="rounded-circle" style="max-width:200px">
                  
                   <div class="mt-2 mx-auto">
-                  <button class="btn btn-sm btn-primary" id="camera" onclick="handleAvatar(event)"> Change Avator</button>
+                  <button class="btn btn-sm btn-primary" id="camera" onclick="handleAvatar(event)" > Change Avator</button>
                   <a class="btn btn-sm btn-primary" href="change"> Change Password</a>
                 </div>
                 </div>
               </div>
             </div>
 
-            
             <div class="row">
               <div class="col-md-6">
               <input type="hidden" id="user_id" name="user_id" value="' . $user_id . '">
@@ -128,7 +123,7 @@ echo '
                 </div>
               </div>
             </div>
-            <button class="btn btn-primary btn-lg" onclick="handleSave()"> submit </button>
+            <button class="btn btn-primary btn-sm" onclick="handleSave()"> submit </button>
           </div>
 
         </div>
