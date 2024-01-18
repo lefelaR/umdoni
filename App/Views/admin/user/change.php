@@ -3,6 +3,7 @@ global $context;
 $user = $context->data;
 $crumbs = getCrumbs();
 ?>
+
 <style>
   .avatar {
     width: 12em !important;
@@ -44,20 +45,26 @@ echo '
       <p>A reset verification code will be sent your email inbox when you request.</p>
     </div>
     <div class="m-3 ">
-    <button class="btn btn-sm btn-primary" id="camera" onclick="handleRequestCode(event)"> Request a code</button>
+    <button class="btn btn-sm btn-primary" id="requestChange" onclick="handleRequestCode(event)"> 
+        <span class="spinner-border spinner-border-sm" id="btn-spinner"  hidden  role="status" aria-hidden="true"></span>  
+        <span>Request a code</span>
+    </button>
     </div>
-    <form class="form" action="chnage" method="post">
+    <form class="form" action="reset" method="post">
       <div class="card-body">
         <div class="row">
           <div class="col-lg-6 col-md-10 col-sm-12">
               <div class="col-md-6">
+              <div class="form-group">
+                  <input type="username" id="username" name="username" class="form-control" hidden value="">
+                </div>
                 <div class="form-group">
                   <label for="helperText">Password</label>
-                  <input type="password" id="last_name" name="last_name" class="form-control disabled" disabled value="" >
+                  <input type="password" id="password" name="password" autocomplete="current-password" class="form-control" disabled value="">
                 </div>
                 <div class="form-group">
                   <label for="helperText">Code</label>
-                  <input type="number" id="mobile_number" name="mobile_number" class="form-control " disabled value="">
+                  <input type="number" id="code" name="code"  class="form-control" disabled value="">
                 </div>
               </div>
             <button class="btn btn-primary btn-lg" onclick="handleSave()"> Update </button>
@@ -71,28 +78,66 @@ echo '
 <script>
   const handleAvatar = (event) => {
     event.preventDefault();
-      showAvatarModal();
+    showAvatarModal();
   }
   const handlePassword = (event) => {
     event.preventDefault();
-      showPasswordModal();
+    showPasswordModal();
   }
 
 
-  const handleRequestCode = async (event) =>{
-
-    debugger
-
+  const handleRequestCode = async (event) => {
     event.preventDefault();
+    document.getElementById('btn-spinner').removeAttribute('hidden');
+    var request = document.getElementById('requestChange');
+    request.setAttribute('disabled', 'dissabled');
 
+    var username = "<?php echo $user['email']; ?>";
+    if (username == 'unidentified') {
+      Toastify({
+        text: "Unable to request the code right now :(",
+        duration: 3000,
+        gravity: "bottom",
+        position: "left",
+        backgroundColor: "#f3616d;",
+      }).showToast();
+      return;
+    } else {
+      const formData = new FormData();
+      formData.append('username', username);
+      const currentURL = window.location.href;
+      const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
+      var code = document.getElementById('code');
+      var password = document.getElementById('password');
 
-    await fetch(()=>{
-
-    }).then(()=>{})
-    .catch(()=>{
-
-    })
+      fetch(stripped + '/requestchange', {
+          method: 'POST',
+          body: formData,
+        }).then((response) => {
+          document.getElementById('btn-spinner').setAttribute('hidden', "hidden")
+          document.getElementById('username')
+          Toastify({
+            text: "a code has been sent to your email!",
+            duration: 3000,
+            gravity: "bottom",
+            position: "left",
+            backgroundColor: "#4fbe87",
+          }).showToast();
+          password.removeAttribute('disabled');
+          code.removeAttribute('disabled');
+      
+        })
+        .catch((error) => {
+          Toastify({
+            text: "Unable to send the code!",
+            duration: 3000,
+            gravity: "bottom",
+            position: "left",
+            backgroundColor: "#f3616d;",
+          }).showToast();
+          console.log(error);
+        })
+    }
 
   }
-
 </script>
