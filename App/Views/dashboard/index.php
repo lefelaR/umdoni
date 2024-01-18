@@ -287,10 +287,8 @@ $data = $context->data;
                             </h6>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </section>
 </div>

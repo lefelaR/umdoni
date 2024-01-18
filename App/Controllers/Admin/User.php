@@ -10,6 +10,8 @@ use \Core\View;
 use App\Models\Profile;
 use App\Models\UserModel;
 use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
 
 class User extends \Core\Controller
 {
@@ -38,6 +40,8 @@ class User extends \Core\Controller
     }
 
 
+ 
+
     public function indexAction()
     {
         global $context;
@@ -56,6 +60,101 @@ class User extends \Core\Controller
         view::render('admin/user/index.php', $profile, 'dashboard');
     }
   
+
+    public function changeAction()
+    {
+        global $context;
+        $session_profile =  $_SESSION['profile'];
+        $profile_id = $session_profile['user_id'];
+        // get data from databae
+        if(count($session_profile) > 0){
+            $profile  = Profile::getUser($session_profile['email']);
+            foreach ($profile as $key => $value) {
+                if($value['user_id'] === $profile_id){
+                    $profile = $value;
+                }
+            }
+        }
+        view::render('admin/user/change.php', $profile, 'dashboard');
+    }
+  
+    public function requestchange()
+    {
+
+        if(isset($_POST)){
+    
+        $data = $_POST;
+        $clientId = $this->clientId;
+        $bucketName = $this->bucketName;
+        $awsAccessKeyId =   $this->awsAccessKeyId;
+        $awsSecretAccessKey =  $this->awsSecretAccessKey;
+        $region =  $this->region; // Change to your desired region
+     
+        
+        $client = new CognitoIdentityProviderClient([
+            'version' => 'latest',
+            'region'  => $region,
+            'credentials' => [
+              'key'    => $this->awsAccessKeyId,
+              'secret' => $this->awsSecretAccessKey,
+            ],
+          ]);
+
+          try {
+            $result = $client->forgotPassword([
+              'ClientId' =>  $clientId,
+              'Username' => $data['username']
+             ]);
+            if ($result) {
+            return $result;
+            } else {
+                return $result;
+            }
+          } catch (\Throwable $th) {
+           return $th;
+          }
+        }
+
+    }
+
+
+    public function reset()
+    {
+      global $context;
+      if (isset($_POST)) $data = $_POST;
+  
+      if(isset($_SESSION['profile'])) $data['username'] = $_SESSION['profile']['email'];
+  
+      $clientId = $this->clientId;
+      $region = $this->region;
+      $client = new CognitoIdentityProviderClient([
+        'version' => 'latest',
+        'region'  => $region,
+        'credentials' => [
+          'key'    => $this->awsAccessKeyId,
+          'secret' => $this->awsSecretAccessKey,
+        ],
+      ]);
+  
+      try {
+        $result = $client->confirmForgotPassword([
+          'ClientId' => $clientId,
+          'ConfirmationCode' => $data['code'],
+          'Password' => $data['password'],
+          'Username' => $data['username']
+        ]);
+  
+        if ($result) {
+          redirect('admin/user/index');
+        } else {
+          $context->errors['message'] = 'Login & Password error!!!';
+          redirect('admin/user/change');
+        }
+      } catch (\Throwable $th) {
+        $_SESSION['error'] = ['message' => $th->getMessage()];
+        redirect('admin/user/index');
+      }
+    }
 
     public function update()
     {

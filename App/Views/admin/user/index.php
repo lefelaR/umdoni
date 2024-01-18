@@ -39,8 +39,6 @@ $crumbs = getCrumbs();
 
 $profile = isset($_SESSION['profile']) ?  $_SESSION['profile'] : array();
 $avatar = isset($user['location']) ? $user['location'] : url('assets/img/profile/pro.png');
-
-
 // profile objects
 $user_id         = isset($user['user_id'])  ? $user['user_id'] : $profile['user_id'];
 $name       = isset($user['first_name']) ? $user['first_name'] : "";
@@ -74,14 +72,13 @@ echo '
                   <img src="' . $avatar . '" alt="Face 1" class="rounded-circle" style="max-width:200px">
                  
                   <div class="mt-2 mx-auto">
-                  <button class="btn btn-sm btn-primary" id="camera" onclick="handleAvatar(event)"> Change Avator</button>
-                  <button class="btn btn-sm btn-primary " id="key" onclick="handlePassword(event)"> Change Password</button>
+                  <button class="btn btn-sm btn-primary" id="camera" onclick="handleAvatar(event)" > Change Avator</button>
+                  <a class="btn btn-sm btn-primary" href="change"> Change Password</a>
                 </div>
                 </div>
               </div>
             </div>
 
-            
             <div class="row">
               <div class="col-md-6">
               <input type="hidden" id="user_id" name="user_id" value="' . $user_id . '">
