@@ -1,5 +1,6 @@
 <?php
 //details.php
+
 global $context;
 $data = $context->data; //method to get user details
 $crumbs = getCrumbs();
@@ -40,7 +41,7 @@ echo '<div class="container">';
 //add code to display user details based on $userDetails
 echo'</div>';
 
-$profile = isset($_SESSION['profile']) ?  $_SESSION['profile'] : array();
+
 $avatar = isset($data['location']) ? $data['location'] : url('assets/img/profile/pro.png');
 
 
@@ -86,44 +87,44 @@ echo '
               <input type="hidden" id="user_id" name="user_id" value="' . $user_id . '">
                 <div class="form-group">
                   <label for="basicInput">Name</label>
-                  <input type="text" class="form-control" id="first_name" name="first_name" value="' . $name . '">
+                  <input type="text" class="form-control" id="first_name" name="first_name" value="' . $name . '" disabled>
                 </div>
 
                 <div class="form-group">
                   <label for="body">Email</label>
-                  <input type="text" id="email" name="email" class="form-control" value="' . $email . '">
+                  <input type="text" id="email" name="email" class="form-control" value="' . $email . '" disabled>
                 </div>
 
                 <div class="form-group">
                   <label for="body">Address</label>
-                  <input type="text" id="address_1" name="address_1" class="form-control" value="' . $address1 . '">
+                  <input type="text" id="address_1" name="address_1" class="form-control" value="' . $address1 . '" disabled>
                 </div>
                 <div class="form-group">
                   <label for="helperText">Town</label>
-                  <input type="text" id="town" name="town" class="form-control" value="' . $town . '">
+                  <input type="text" id="town" name="town" class="form-control" value="' . $town . '" disabled>
                 </div>
                 <div class="form-group">
                   <label for="helperText">Postal Code</label>
-                  <input type="text" id="postal_code" name="postal_code" class="form-control" value="' . $postalCode . '">
+                  <input type="text" id="postal_code" name="postal_code" class="form-control" value="' . $postalCode . '" disabled>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="helperText">Surname</label>
-                  <input type="text" id="last_name" name="last_name" class="form-control" value="' . $surname . '">
+                  <input type="text" id="last_name" name="last_name" class="form-control" value="' . $surname . '" disabled>
                 </div>
                 <div class="form-group">
                   <label for="helperText">Telephone</label>
-                  <input type="number" id="mobile_number" name="mobile_number" class="form-control" value="' . $telephone . '">
+                  <input type="number" id="mobile_number" name="mobile_number" class="form-control" value="' . $telephone . '" disabled>
                 </div>
 
                 <div class="form-group">
                   <label for="body">Adress 2</label>
-                  <input type="text" id="address_2" name="address_2" class="form-control" value="' . $address2 . '">
+                  <input type="text" id="address_2" name="address_2" class="form-control" value="' . $address2 . '" disabled>
                 </div>
                 <div class="form-group">
                   <label for="helperText">City</label>
-                  <input type="text" id="city" name="city" class="form-control" value="' . $city . '">
+                  <input type="text" id="city" name="city" class="form-control" value="' . $city . '" disabled>
                 </div>
               </div>
             </div>

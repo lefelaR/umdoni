@@ -89,9 +89,10 @@ class Users extends \Core\Controller
 
 public function detailsAction()
 {
+    
     $id = getPostData();
-
-    $user = array();
+if(isset($id)) $id = $id['id'];
+    $user = UserModel::getUser($id);
     view::render('dashboard/users/details.php',  $user, 'dashboard');
 }
 
