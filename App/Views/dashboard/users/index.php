@@ -70,20 +70,22 @@ $crumbs = getCrumbs();
                     <td><?php echo $user['email']; ?></td>
                     <td>
                       <?php echo $user['verified'] === "1" ? '<span class="badge bg-light-primary">Confirmed</span>' : '<span class="badge bg-light-warning">Unconfirmed</span>'; ?>
-                      <?php echo $user['locked'] === "1" ? '<span class="badge bg-light-success">Active</span>' : '<span class="badge bg-light-danger">Inactive</span>' ?>
+                      <?php echo $user['locked'] === "0" ? '<span class="badge bg-light-success">Active</span>' : '<span class="badge bg-light-danger">Inactive</span>' ?>
                     </td>
                     <td>
                       <a href="details?id=<?php echo $user['user_id']; ?>" class="btn btn-sm">
                         <i class="bi bi-clipboard"></i>
                       </a>
-                
+
                       <span class="form-switch">
-                        <input class="form-check-input" type="checkbox" name="switch" id="<?php echo $user['user_id']; ?>" >
+                        <?php
+                        $checked = $user['locked'] == 0 ? "checked" : "";
+                        echo ' <input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="' . $user['user_id'] . '" name="switch" id="' . $user['user_id'] . '" ' . $checked . '>';
+                        ?>
+
                       </span>
 
-                      <button class="btn btn-sm " onclick="handleOptions(event)" id="<?php echo $user['user_id']; ?>">
-                        <i class="bi bi-three-dots-vertical"></i>
-                      </button>
+                   
                     </td>
                   </tr>
                 <?php
@@ -109,6 +111,34 @@ $crumbs = getCrumbs();
           method: "POST",
           body: formData,
         })
+      }
+
+
+      const handleToggle = (event) => {
+        var userSwitch = event.target
+        var locked = userSwitch.checked;
+        var user_id = userSwitch.id;
+        const formData = new FormData();
+        formData.append("locked", locked);
+        formData.append("user_id", user_id);
+        const currentURL = window.location.href;
+        const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
+        fetch(stripped + '/manageuser', {
+            method: "post",
+            body: formData,
+          })
+          .then((response) => {
+            location.reload();
+            Toastify({
+              text: "Status has been changed",
+              duration: 3000,
+              gravity: "bottom",
+              position: "left",
+              backgroundColor: "#4fbe87",
+            }).showToast();
+          })
+          .catch((err) => console.log(err));
+
 
       }
     </script>

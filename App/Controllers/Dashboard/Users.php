@@ -91,15 +91,26 @@ public function detailsAction()
 {
     
     $id = getPostData();
-if(isset($id)) $id = $id['id'];
+    if(isset($id)) $id = $id['id'];
     $user = UserModel::getUser($id);
     view::render('dashboard/users/details.php',  $user, 'dashboard');
 }
 
-   
+
+
+
+
 public function manageuserAction()
 {
     $data = $_POST;
+    
+
+    $locked = [
+        'false' => '1',
+        'true' => '0' 
+    ];
+
+    $data['locked'] = $locked[$data['locked']];
     try{
        $id = UserModel::ChangeStatus($data);
        redirect('dashboard/users/index');
@@ -124,5 +135,7 @@ public function manageuserAction()
     }
 
 }
+
+
 
 ?>

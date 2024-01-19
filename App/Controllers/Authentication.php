@@ -191,7 +191,7 @@ public function __construct()
         if ($isLoggedin == true) {
           redirect('dashboard/index/index');
         } else {
-          $context->errors['message'] = 'Login & Password error!!!';
+          $context->error['message'] = 'Your account is locked, please contact your Administrator to gain accecss!';
           redirect('authentication/login');
         }
       }
