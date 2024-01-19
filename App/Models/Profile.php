@@ -44,6 +44,21 @@ class Profile extends \Core\Model
         }
     }
 
+
+    public static function getById($user_id)
+    {
+            try {
+                $db = static::getDB();
+                $stmt = $db->query("SELECT * FROM users
+                                    LEFT JOIN profile ON (users.user_id = profile.user_id)
+                                    WHERE users.user_id = $user_id");
+                   $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                   return $results;                   
+            } catch (PDOException $e) {
+                echo $e->getMessage();
+            } 
+    }
+
     
     public static function Save($data)
     {

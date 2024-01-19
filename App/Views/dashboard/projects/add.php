@@ -50,7 +50,7 @@ echo '
     <div class="card-header">
         <h4 class="card-title">Add a Project</h4>
     </div>
-    <form class="form" action="' . $action . '" method="post" enctype="multipart/form-data">
+    <form class="form" enctype="multipart/form-data">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
@@ -72,9 +72,19 @@ echo '
                         ' . $body . '
                         </textarea>
                     </div>
-                    <button class="btn btn-primary btn-lg" onclick="handleSave()"> submit </button>
+                    <button class="btn btn-primary btn-lg" onclick="handlePost()"> submit </button>
                 </div>
             </div>
         </div>
     </form>
 </div>';
+?>
+
+<script>
+    function handlePost()
+    {
+        debugger
+        var formData = new FormData(document.getElementById('myForm'));
+    
+    }
+</script>

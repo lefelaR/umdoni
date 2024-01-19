@@ -11,6 +11,7 @@ use \Core\View;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\Countries;
+use App\Models\UserModel;
 use Aws\S3\S3Client;
 
 
@@ -18,7 +19,15 @@ class Users extends \Core\Controller
 {
     public function indexAction()
     {
+        
+        if(isset($_POST) && count($_POST) > 0){
+            $data = $_POST;
+            $id = $data['user_id'];
+            $users = Profile::getById($id);    
+        }
+        else{
         $users = Profile::getAll();
+        }
         view::render('dashboard/users/index.php',  $users, 'dashboard');
     }
 
@@ -40,7 +49,7 @@ class Users extends \Core\Controller
         $data = $_POST;
         try 
         {
-          $id =  User::UpdateUser($data);
+            $id =  UserModel::UpdateUser($data);
         } catch (\Throwable $th) 
         {
             echo $th->getMessage();
@@ -77,6 +86,32 @@ class Users extends \Core\Controller
         }
         redirect('dashboard/users/list');
     }
+
+public function detailsAction()
+{
+    
+    $id = getPostData();
+if(isset($id)) $id = $id['id'];
+    $user = UserModel::getUser($id);
+    view::render('dashboard/users/details.php',  $user, 'dashboard');
+}
+
+   
+public function manageuserAction()
+{
+    $data = $_POST;
+    try{
+       $id = UserModel::ChangeStatus($data);
+       redirect('dashboard/users/index');
+
+    }catch(\Throwable $th)
+    {
+        echo $th->getMessage();
+    }
+
+}
+
+
 
     protected function before()
     {
