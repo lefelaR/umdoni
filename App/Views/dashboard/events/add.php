@@ -68,12 +68,11 @@ echo '
                     <input type="file" class="form-control" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value="">
                 </div>
          
-                    <div class="form-group">
-                        <label for="body">Body</label>
-                        <textarea  id="full" name="body" id="body" cols="3">
-                        '.$body.'
-                        </textarea>
-                    </div>
+                <div class="form-group">
+                <label for="body">Body</label>
+                <textarea type="text" name="body" class="form-control text-black" id="full" value="'.$body.'" rows="3">
+                </textarea>
+            </div>
 
                 <button class="btn btn-primary btn-lg shadow">
                     submit
