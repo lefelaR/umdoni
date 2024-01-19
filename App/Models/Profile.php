@@ -111,19 +111,7 @@ class Profile extends \Core\Model
             } catch (\Throwable $th) {
                 throw $th;
             }
-            /**we want to register the userProfile*/
-            if ($exists[0]["confirmation_token"] != "") 
-            {
-                throw new Exception("NotVerified");
-            }
-            if ($exists[0]["locked"] == 1) 
-            {
-                throw new Exception("AccountLocked");
-            }
-            if($context->isLoggedIn == null)
-            {
-                return false;
-            }
+       
             return true;
         }
         else
@@ -136,12 +124,21 @@ class Profile extends \Core\Model
      static function Authenticate($profile, $data)
     {
         global $context;
-        if($data !== null) $hashed = md5($data['password']);
+       
         try{
+            if ($profile[0]["locked"] == '1' ) 
+            {
+                
+                $context->isLoggedIn = false;
+                return false;
+            }
+            else
+            {
                 $_SESSION['profile'] = $profile[0];
-                $context->isLoggedIn = true;
                 setcookie("auth", $_SESSION['token'], time() + 3600 * 30, '/');
                 return true;
+            }
+
         }catch (PDOException $e) {
             throw new Exception($e->getMessage());
         }

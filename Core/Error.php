@@ -68,7 +68,6 @@ class Error
             View::renderTemplate("$code.html");
         }
 
-        
-
+    
     }
 }

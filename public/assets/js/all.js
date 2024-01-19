@@ -178,45 +178,42 @@ const Toast = (type, message) =>{
 
 
 
-const showStatusModal = (user_id = 0) =>{
-  var modal = document.getElementById("userStatusModal");
-  modal.style.display = "block";
-  modal.classList.add("show");
+  // var userSwitch = document.getElementById('userStatusSwitch');
+  // userSwitch.addEventListener("change", ()=>{
+  //   var locked = userSwitch.checked;
 
-  var userSwitch = document.getElementById('userStatusSwitch');
-  userSwitch.addEventListener("change", ()=>{
-    var locked = userSwitch.checked;
-    const formData = new FormData();
-    formData.append("locked", locked);
-    formData.append("user_id", user_id);
 
-    const currentURL = window.location.href;
-    const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
-    fetch( stripped+'/manageuser', {
-      method: "post",
-      body: formData,
-    })
-      .then((response) => {
-      //   Swal.fire({
-      //     icon: "success",
-      //     title: "Success"
-      // })
+  //   const formData = new FormData();
+  //   formData.append("locked", locked);
+  //   formData.append("user_id", user_id);
+
+  //   const currentURL = window.location.href;
+  //   const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
+  //   fetch( stripped+'/manageuser', {
+  //     method: "post",
+  //     body: formData,
+  //   })
+  //     .then((response) => {
+  //     //   Swal.fire({
+  //     //     icon: "success",
+  //     //     title: "Success"
+  //     // })
     
-      Toastify({
-        text: "Status has been changed",
-        duration: 3000,
-        gravity: "bottom",
-        position: "left",
-        backgroundColor: "#4fbe87",
-      }).showToast();
-      location.reload();
-      }
-      )
-      .catch((err) => console.log(err));
+  //     Toastify({
+  //       text: "Status has been changed",
+  //       duration: 3000,
+  //       gravity: "bottom",
+  //       position: "left",
+  //       backgroundColor: "#4fbe87",
+  //     }).showToast();
+  //     location.reload();
+  //     }
+  //     )
+  //     .catch((err) => console.log(err));
 
-  })
+  // })
 
-}
+
 
 const hideStatusModal = () =>{
   var modal = document.getElementById("userStatusModal");
