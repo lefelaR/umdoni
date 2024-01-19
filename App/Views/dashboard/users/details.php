@@ -36,7 +36,7 @@ $crumbs = getCrumbs();
 <?php
 //Display user details
 echo '<div class="container">';
-echo '<h1>User Details</h1>';
+
 //add code to display user details based on $userDetails
 echo'</div>';
 
@@ -57,15 +57,14 @@ $city       = isset($data['city']) ? $data['city'] : "";
 $postalCode = isset($data['postal_code']) ? $data['postal_code'] : "";
 
 
-?>
-
-<?php
 
 echo '
 <div class="row">
   <div class="card">
     <div class="card-header">
-      <h4 class="card-title"></h4>
+      <p class="card-title">
+      User Details
+      </p>
     </div>
     <form class="form" action="update" method="post" enctype="multipart/form-data">
       <div class="card-body">
@@ -76,10 +75,7 @@ echo '
                 <div class=" avatar-xl">
                   <img src="' . $avatar . '" alt="Face 1" class="rounded-circle" style="max-width:200px">
                  
-                  <div class="mt-2 mx-auto">
-                  <button class="btn btn-sm btn-primary" id="camera" onclick="handleAvatar(event)"> Change Avator</button>
-                  <a class="btn btn-sm btn-primary" href="change"> Change Password</a>
-                </div>
+                 
                 </div>
               </div>
             </div>
@@ -131,9 +127,8 @@ echo '
                 </div>
               </div>
             </div>
-            <button class="btn btn-primary btn-lg" onclick="handleSave()"> submit </button>
+         
           </div>
-
         </div>
       </div>
     </form>

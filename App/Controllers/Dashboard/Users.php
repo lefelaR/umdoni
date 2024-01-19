@@ -90,10 +90,8 @@ class Users extends \Core\Controller
 public function detailsAction()
 {
     $id = getPostData();
-    if (isset($data['id'])) {
-        $id = $data['id'];
-        $user = Profile::getById($id);
-        } else $user = array();
+
+    $user = array();
     view::render('dashboard/users/details.php',  $user, 'dashboard');
 }
 

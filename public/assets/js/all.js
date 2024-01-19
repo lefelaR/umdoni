@@ -9,9 +9,9 @@ function handleDelete() {
   showPreloader();
 }
 
-function handleSave() {
-  showPreloader();
-}
+// function handleSave() {
+//   showPreloader();
+// }
 
 function showDeleteModal() {
   var modal = document.getElementById("deleteModal");
