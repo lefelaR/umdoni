@@ -69,8 +69,8 @@ $crumbs = getCrumbs();
                     <td><?php echo $user['username']; ?></td>
                     <td><?php echo $user['email']; ?></td>
                     <td>
-                      <?php echo $user['verified'] === "1" ? '<span class="badge bg-light-primary">Confirmed</span>' : '<span class="badge bg-light-warning">Unconfirmed</span>'; ?>
-                      <?php echo $user['locked'] === "0" ? '<span class="badge bg-light-success">Active</span>' : '<span class="badge bg-light-danger">Inactive</span>' ?>
+                      <?php echo $user['verified'] === 1 ? '<span class="badge bg-light-primary">Confirmed</span>' : '<span class="badge bg-light-warning">Unconfirmed</span>'; ?>
+                      <?php echo $user['locked'] === 0 ? '<span class="badge bg-light-success">Active</span>' : '<span class="badge bg-light-danger">Inactive</span>' ?>
                     </td>
                     <td>
                       <a href="details?id=<?php echo $user['user_id']; ?>" class="btn btn-sm">
