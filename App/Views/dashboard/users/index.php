@@ -82,10 +82,7 @@ $crumbs = getCrumbs();
                         $checked = $user['locked'] == 0 ? "checked" : "";
                         echo ' <input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="' . $user['user_id'] . '" name="switch" id="' . $user['user_id'] . '" ' . $checked . '>';
                         ?>
-
-                      </span>
-
-                   
+                      </span>     
                     </td>
                   </tr>
                 <?php
