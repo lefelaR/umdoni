@@ -7,7 +7,7 @@
         <li>Our support Hotline is available 24 Hours</li>
         <li>+27 87 286 5329</li>
         <li>&nbsp;</li>
-        <li><span class="font-weight-bold pr-1">Monday-Friday</span>7:30am to 4:00pm</li>
+        <li><span class="font-weight-bold pr-1">Monday-Friday &nbsp;</span>7:30am to 4:00pm</li>
         <li>&nbsp;</li>
         <li>
           <p class="fs-6 fw-lighter">
@@ -19,7 +19,7 @@
         <li>
           <p class="font-weight-bold pr-1">
             <a href="<?php echo buildurl('index/terms') ?>" class="text-white" alt="terms of service">
-              Tearms of Service
+              Terms of Service
             </a>
           </p>
         </li>
@@ -56,7 +56,7 @@
           </p>
         </li>
         <li>
-          <a href="<?php echo buildurl("tenders/index") ?>" class="fs-6 fw-lighter text-white">Tenders</a>
+          <a href="<?php echo buildurl("tenders/index") ?>" class="fs-6 fw-lighter text-white">Tenders & Quotations</a>
         </li>
         <li>
           <!-- <a href="<?php echo buildurl("vacancies/index") ?>" class="fs-6 fw-lighter text-white">Vacancies</a> -->

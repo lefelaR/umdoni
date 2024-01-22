@@ -211,27 +211,40 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    function handleSidebarLinkClick(event) {
-      // Remove "active" class from all sidebar links
-      var sidebarLinks = document.querySelectorAll('.sidebar-link');
-      sidebarLinks.forEach(function(link) {
-        link.classList.remove('active');
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get all sidebar items
+    var sidebarItems = document.querySelectorAll('.sidebar-item');
+
+    // Add click event listener to each sidebar item
+    sidebarItems.forEach(function (item) {
+      item.addEventListener('click', function () {
+        // Remove "active" class from all sidebar items
+        sidebarItems.forEach(function (sidebarItem) {
+          sidebarItem.classList.remove('active');
+        });
+
+        // Add "active" class to the clicked sidebar item or its parent if it has a submenu
+        var parentItem = item.closest('.sidebar-item.has-sub') || item;
+        parentItem.classList.add('active');
       });
 
-      // Add "active" class to the clicked sidebar link
-      var clickedLink = event.currentTarget;
-      clickedLink.classList.add('active');
+      // Add click event listener to submenu items
+      var submenuItems = item.querySelectorAll('.submenu-item');
+      submenuItems.forEach(function (submenuItem) {
+        submenuItem.addEventListener('click', function (event) {
+          // Stop event propagation to prevent triggering the parent sidebar item click
+          event.stopPropagation();
 
-      // Save the state to local storage
-      localStorage.setItem('activeSidebarLink', clickedLink.id);
-    }
+          // Remove "active" class from all sidebar items
+          sidebarItems.forEach(function (sidebarItem) {
+            sidebarItem.classList.remove('active');
+          });
 
-    // Add click event listeners to all sidebar links
-    var sidebarLinks = document.querySelectorAll('.sidebar-link');
-    
-    sidebarLinks.forEach(function(link) {
-      link.addEventListener('click', handleSidebarLinkClick);
+          // Add "active" class to the parent sidebar item of the clicked submenu item
+          var parentItem = item.closest('.sidebar-item.has-sub') || item;
+          parentItem.classList.add('active');
+        });
+      });
     });
   });
 </script>
