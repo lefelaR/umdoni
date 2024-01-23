@@ -46,7 +46,7 @@ echo '
     <div class="card-header">
         <h4 class="card-title">Add a Tender</h4>
     </div>
-    <form class="form" action="' . $action . '" method="post" enctype="multipart/form-data">
+    <form class="form" action="' . $action . '" method="post" enctype="multipart/form-data" >
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
@@ -78,7 +78,7 @@ echo '
                 
                     <div class="form-group">
                         <label for="body">Body</label>
-                        <textarea type="text" name="body" class="form-control text-black" id="body" value="' . $body . '" rows="3">
+                        <textarea type="text" name="body" class="form-control text-black" id="body" onclick="handleSave()" value="' . $body . '" rows="3">
                         </textarea>
                     </div>
 
@@ -91,3 +91,4 @@ echo '
         </div>
     </form>
 </div>';
+?>
