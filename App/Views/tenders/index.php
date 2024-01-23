@@ -2,33 +2,27 @@
 global $context;
 $data = $context->data;
 // array_column
-$current = array();
-$open = array();
-$awarded = array();
-
- echo '<pre>'; print_r($data); die; 
+$currentTenders = array();
+$openTenders = array();
+$awardedTenders = array();
 
 
-foreach ($data['tenders'] as $key => $value) {
+
+foreach ($data['tenders'] as $tenderkey => $tenderValue) {
     
-    switch ($value['status']) {
+    switch ($tenderValue['status']) {
         case '1':
-        array_push($current, $value);
+        array_push($currentTenders, $tenderValue);
             break;
         
             case '2':
-                array_push($open, $value);
+                array_push($openTenders, $tenderValue);
                 break;
         default:
-            array_push($awarded, $value);
+            array_push($awardedTenders, $tenderValue);
             break;
     }
-
-
 }
-
-
-
 
 ?>
 
@@ -77,7 +71,6 @@ foreach ($data['tenders'] as $key => $value) {
     }
 </style>
 
-
 <div class="container-fluid" id="service-page">
     <div class="row">
         <div class="tag-header">
@@ -89,7 +82,6 @@ foreach ($data['tenders'] as $key => $value) {
         </div>
     </div>
 </div>
-
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
@@ -147,20 +139,20 @@ foreach ($data['tenders'] as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($current as $key => $tender) {
-                                    $key++;
+                                foreach ($currentTenders as $currentTenderkey => $currentTender) {
+                                    $currentTenderkey++;
                                     echo '
                                 <tr>
                                     <th scope="row">
-                                    <a class="text-secondary fw-bold" href="' . $tender['location'] . '" target="_blank">
+                                    <a class="text-secondary fw-bold" href="' . $currentTender['location'] . '" target="_blank">
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
                                     </a>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $tender['location'] . '" target="_blank">' . $tender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $currentTender['location'] . '" target="_blank">' . $currentTender["title"] . '</a>
                                     </td>
-                                    <td>' . $tender['reference'] . '</td>
-                                    <td> ' . $tender['dueDate'] . '</td>
+                                    <td>' . $currentTender['reference'] . '</td>
+                                    <td> ' . $currentTender['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }
@@ -197,17 +189,17 @@ foreach ($data['tenders'] as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($open as $key => $open_tender) {
-                                    $key++;
+                                foreach ($openTenders as $openTenderkey => $openTender) {
+                                    $openTenderkey++;
                                     echo '
                                 <tr>
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $open_tender['location'] . '" target="_blank">' . $open_tender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $openTender['location'] . '" target="_blank">' . $openTender["title"] . '</a>
                                     </td>
-                                    <td>' . $open_tender['reference'] . '</td>
-                                    <td> ' . $open_tender['dueDate'] . '</td>
+                                    <td>' . $openTender['reference'] . '</td>
+                                    <td> ' . $openTender['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }
@@ -244,17 +236,18 @@ foreach ($data['tenders'] as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($awarded as $key2 => $awarded_tender) {
-                                    $key2++;
+                                foreach ($awardedTenders as $awardedTenderKey => $awardedTender) 
+                                {
+                                    $awardedTenderKey++;
                                     echo '
                                 <tr>
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $awarded_tender['location'] . '" target="_blank">' . $awarded_tender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $awardedTender['location'] . '" target="_blank">' . $awardedTender["title"] . '</a>
                                     </td>
-                                    <td>' . $awarded_tender['reference'] . '</td>
-                                    <td> ' . $awarded_tender['dueDate'] . '</td>
+                                    <td>' . $awardedTender['reference'] . '</td>
+                                    <td> ' . $awardedTender['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }
@@ -268,9 +261,34 @@ foreach ($data['tenders'] as $key => $value) {
         </div>
     </div>
 </div>
-
-
 <hr class="hr hr-blurry" />
+<?php
+
+// array_column
+$currentQuotations = array();
+$openQuotations = array();
+$awardedQuotations = array();
+
+
+
+foreach ($data['quotations'] as $key => $quotaionValue) {
+    
+    switch ($quotaionValue['status']) {
+        case '1':
+        array_push($currentQuotations, $quotaionValue);
+            break;
+        
+            case '2':
+                array_push($openQuotations, $quotaionValue);
+                break;
+        default:
+            array_push($awardedQuotations, $quotaionValue);
+            break;
+    }
+
+}
+
+?>
 
 <div class="container content-section">
     <div class="row">
@@ -325,20 +343,20 @@ foreach ($data['tenders'] as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($current as $key => $quotaion) {
-                                    $key++;
+                                foreach ($currentQuotations as $currentQuotationkey => $currentQuotation) {
+                                    $currentQuotationkey++;
                                     echo '
                                 <tr>
                                     <th scope="row">
-                                    <a class="text-secondary fw-bold" href="' . $quotation['location'] . '" target="_blank">
+                                    <a class="text-secondary fw-bold" href="' . $currentQuotation['location'] . '" target="_blank">
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
                                     </a>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $quotation['location'] . '" target="_blank">' . $quotation["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $currentQuotation['location'] . '" target="_blank">' . $currentQuotation["title"] . '</a>
                                     </td>
-                                    <td>' . $quotation['reference'] . '</td>
-                                    <td> ' . $quotation['dueDate'] . '</td>
+                                    <td>' . $currentQuotation['reference'] . '</td>
+                                    <td> ' . $currentQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }
@@ -375,17 +393,17 @@ foreach ($data['tenders'] as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($open as $key => $open_quotation) {
-                                    $key++;
+                                foreach ($openQuotations as $openQuotationkey => $openQuotation) {
+                                    $openQuotationkey++;
                                     echo '
                                 <tr>
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $open_quotation['location'] . '" target="_blank">' . $open_quotation["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $openQuotation['location'] . '" target="_blank">' . $openQuotation["title"] . '</a>
                                     </td>
-                                    <td>' . $open_quotation['reference'] . '</td>
-                                    <td> ' . $open_quotation['dueDate'] . '</td>
+                                    <td>' . $openQuotation['reference'] . '</td>
+                                    <td> ' . $openQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }
@@ -422,17 +440,17 @@ foreach ($data['tenders'] as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($awarded as $key2 => $awarded_quotation) {
-                                    $key2++;
+                                foreach ($awardedQuotations as $awardedQuotationkey => $awardedQuotation) {
+                                    $awardedQuotationkey++;
                                     echo '
                                 <tr>
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $awarded_quotaion['location'] . '" target="_blank">' . $awarded_quotation["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $awardedQuotation['location'] . '" target="_blank">' . $awardedQuotation["title"] . '</a>
                                     </td>
-                                    <td>' . $awarded_quotation['reference'] . '</td>
-                                    <td> ' . $awarded_quotation['dueDate'] . '</td>
+                                    <td>' . $awardedQuotation['reference'] . '</td>
+                                    <td> ' . $awardedQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }

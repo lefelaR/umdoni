@@ -29,11 +29,13 @@ class Tenders extends \Core\Controller
     public function indexAction()
     {
 
+        $context = array();
+
         $tenders = Tender::Get();
         $quotations = Quotation::getAll();
         $context['tenders']= $tenders;
         $context['quotations']= $quotations;
-        view::render('dashboard/tenders/index.php', $context, 'dashboard');
+        view::render('tenders/index.php', $context, 'default');
     }
 
   
