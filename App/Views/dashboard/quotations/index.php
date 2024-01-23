@@ -52,6 +52,7 @@ $crumbs = getCrumbs();
                 </div>
             </div>
             <div class="card-content">
+            <?php include ('Includes/parts/alerts.php') ?>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-lg" id="table1">
@@ -76,6 +77,7 @@ $crumbs = getCrumbs();
                                     <td>' . $service['subtitle'] . '</td>
                                     <td>' . $service['body'] . '</td>
                                     <td class="text-bold-500">' . $service['updatedBy'] . '</td>
+                                    <td class="text-bold-500">' . $service['createdAt'] . '</td>
                                     <td>
                                        
                                         <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">

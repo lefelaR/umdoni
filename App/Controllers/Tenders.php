@@ -10,6 +10,7 @@ use \Core\View;
 use  App\Models\Post;
 use  App\Models\Roles;
 use App\Models\Tender;
+use App\Models\Quotation;
 use  PHPMailer\PHPMailer\PHPMailer;
 use  PHPMailer\PHPMailer\Exception;
  
@@ -29,7 +30,10 @@ class Tenders extends \Core\Controller
     {
 
         $tenders = Tender::Get();
-        view::render('tenders/index.php', $tenders, 'default');
+        $quotations = Quotation::getAll();
+        $context['tenders']= $tenders;
+        $context['quotations']= $quotations;
+        view::render('dashboard/tenders/index.php', $context, 'dashboard');
     }
 
   
