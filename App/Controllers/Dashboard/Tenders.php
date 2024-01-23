@@ -65,6 +65,7 @@ class Tenders extends \Core\Controller
     public function saveAction()
     {
         global $context;
+        $result = null;
 
         if (isset($_FILES)) {
             $bucketName = $this->bucketName;
@@ -106,7 +107,7 @@ class Tenders extends \Core\Controller
         $data['createdAt'] = date("Y-m-d H:i:s");
         $data['isActive'] = 1;
         $data['img_file'] = $objectKey;
-        $data['location'] = $result['ObjectURL'];
+        $data['location'] = $result && isset($result['ObjectURL']) ? $result['ObjectURL'] : "";
         $data['updatedBy'] =  $_SESSION['profile']['username'];
 
 

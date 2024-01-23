@@ -67,7 +67,7 @@ class Quotation extends \Core\Model
 
         $db = static::getDB(); 
         
-        $sql = "INSERT into tenders (title, subtitle, body, isActive, createdAt, updatedAt, updatedBy)
+        $sql = "INSERT into quotations (title, subtitle, body, isActive, createdAt, updatedAt, updatedBy)
                 VALUES ('$data[title]','$data[subtitle]','$data[body]','1', 'today' , 0,'rakheoana')"; 
         $stmt = $db->exec($sql);
         
