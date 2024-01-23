@@ -9,17 +9,12 @@
 
 namespace App\Controllers\Dashboard;
 
-use App\Models\Requests;
+
 use \Core\View;
-use App\Models\User;
 use App\Models\Service;
-use App\Models\Request;
 use App\Models\Quotation;
-use App\Models\Tender;
-use DateTime;
 use Aws\S3\S3Client;
 
-use Intervention\Image\ImageManagerStatic as Image;
 
 class Quotations extends \Core\Controller
 {
@@ -33,7 +28,6 @@ class Quotations extends \Core\Controller
     private $awsSecretAccessKey; 
 
 
-
     public function __construct()
     {
         $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
@@ -45,15 +39,14 @@ class Quotations extends \Core\Controller
     }
     public function indexAction()
     {
-        $services = Service::getAll();
-        view::render('dashboard/quotations/index.php', $services, 'dashboard');
+        $quotation = Quotation::getAll();
+        view::render('dashboard/quotations/index.php', $quotation, 'dashboard');
     }
 
 
     public function addAction()
     {
         $data = getPostData();
-
         if(isset($data['id']))
         {
             $id = $data['id'];

@@ -271,7 +271,7 @@ $awardedQuotations = array();
 
 
 
-foreach ($data['quotations'] as $key => $quotaionValue) {
+foreach ($data['quotations'] as $quotationkey => $quotaionValue) {
     
     switch ($quotaionValue['status']) {
         case '1':
@@ -285,7 +285,6 @@ foreach ($data['quotations'] as $key => $quotaionValue) {
             array_push($awardedQuotations, $quotaionValue);
             break;
     }
-
 }
 
 ?>
@@ -304,20 +303,20 @@ foreach ($data['quotations'] as $key => $quotaionValue) {
 
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-away" type="button" role="tab" aria-controls="nav-away" aria-selected="true">
                         <p class="fw-bold text-secondary">Current Tenders</p>
                     </button>
-                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-record" type="button" role="tab" aria-controls="nav-record" aria-selected="false">
                         <p class="fw-bold text-secondary">Open Tenders</p>
                     </button>
-                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-ignore" type="button" role="tab" aria-controls="nav-ignore" aria-selected="false">
                         <p class="fw-bold text-secondary">
                             Awarded Tenders</p>
                     </button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                <div class="tab-pane fade show active" id="nav-away" role="tabpanel" aria-labelledby="nav-away-tab" tabindex="0">
                     <div class="mt-5">
                         <table class="table" id="table1">
                             <thead class="table-dark">
@@ -367,7 +366,7 @@ foreach ($data['quotations'] as $key => $quotaionValue) {
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                <div class="tab-pane fade" id="nav-record" role="tabpanel" aria-labelledby="nav-record-tab" tabindex="0">
                     <div class="mt-5">
                         <table class="table" id="table1">
                             <thead class="table-dark">
@@ -414,19 +413,19 @@ foreach ($data['quotations'] as $key => $quotaionValue) {
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                <div class="tab-pane fade" id="nav-ignore" role="tabpanel" aria-labelledby="nav-ignore-tab" tabindex="0">
                     <div class="mt-5">
                         <table class="table" id="table1">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">
-                                        <p class="text-uppercase ">
+                                        <p class="text-uppercase">
                                             Title
                                         </p>
                                     </th>
                                     <th scope="col">
-                                        <p class="text-uppercase ">
+                                        <p class="text-uppercase">
                                             Reference
                                         </p>
                                     </th>
