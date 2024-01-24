@@ -185,6 +185,9 @@ CREATE TABLE `tenders` (
   `reference` varchar(45) DEFAULT NULL,
   `dueDate` varchar(45) DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `field_list` varchar(255) DEFAULT NULL,
+
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

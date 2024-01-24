@@ -13,6 +13,7 @@ namespace App\Controllers\Dashboard;
 use \Core\View;
 use App\Models\Service;
 use App\Models\Quotation;
+use App\Models\Tender;
 use Aws\S3\S3Client;
 
 
@@ -118,6 +119,43 @@ class Quotations extends \Core\Controller
         }
         redirect('dashboard/quotations/index');
     }
+
+    public function getByStatusAction()
+{
+    $status = $_GET['status']; // Get the status from the query parameter
+    $quotations = Quotation::getByStatus($status);
+    View::render('dashboard/quotations/index.php', $quotations, 'dashboard');
+}
+
+public function updateStatusAction()
+{
+    $data = getPostData();
+    $id = $data['id'];
+    $status = $data['status'];
+
+    try {
+        Quotation::updateStatus($id, $status);
+        $_SESSION['success'] = ['message' => 'Quotation status updated successfully!'];
+    } catch (\Throwable $th) {
+        $_SESSION['error'] = ['message' => $th->getMessage()];
+    }
+
+    redirect('dashboard/quotations/index');
+}
+
+public static function getStatusName($status)
+{
+    switch ($status) {
+        case 'current':
+            return 'Current';
+        case 'open':
+            return 'Open';
+        case 'awarded':
+            return 'Awarded';
+        default:
+            return 'Unknown';
+    }
+}
 
     public function updateAction()
     {
