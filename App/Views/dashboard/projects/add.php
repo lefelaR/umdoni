@@ -68,11 +68,11 @@ echo '
                     </div>
                     <div class="form-group">
                         <label for="body">Body</label>
-                        <textarea type="text" name="body" class="form-control text-black" value="' . $body . '" rows="3">
+                        <textarea type="text" name="body" id="body" class="form-control text-black" value="' . $body . '" rows="3">
                         ' . $body . '
                         </textarea>
                     </div>
-                    <button class="btn btn-primary btn-lg" onclick="handlePost()"> submit </button>
+                    <button class="btn btn-primary btn-lg" onclick="handlePost(event)"> submit </button>
                 </div>
             </div>
         </div>
@@ -81,10 +81,34 @@ echo '
 ?>
 
 <script>
-    function handlePost()
-    {
+    const handlePost = (event) => {
+
+        const id = document.getElementById('id').value;
+        const title = document.getElementById("title").value;
+        const subtitle = document.getElementById("subtitle").value;
+        const file = document.getElementById("file").value;
+        const body = document.getElementById("body").value;
+
         debugger
-        var formData = new FormData(document.getElementById('myForm'));
-    
+        const formData = new FormData();
+        formData.append("id", id);
+        formData.append("title", title);
+        formData.append("subtitle", subtitle);
+        formData.append("file", file);
+        formData.append("body", body);
+        const currentURL = window.location.href;
+        const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
+
+        fetch(stripped + "", {
+            method: "POST",
+            body:formData,
+        }).then((response)=>{
+
+        }).catch((err)=>{
+            alert(err);
+        })
+
+
+
     }
 </script>

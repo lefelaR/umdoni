@@ -137,7 +137,6 @@ echo '
 </div>';
 
 ?>
-
 <script>
   const handleAvatar = (event) => {
     event.preventDefault();

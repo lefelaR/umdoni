@@ -10,7 +10,6 @@ function handleDelete() {
 }
 
 function handleSave() {
-  debugger
   showPreloader();
 }
 
@@ -174,45 +173,9 @@ const Toast = (type, message) =>{
         gravity: "bottom",
         position: "left",
       }).showToast();
-
 }
 
 
-
-  // var userSwitch = document.getElementById('userStatusSwitch');
-  // userSwitch.addEventListener("change", ()=>{
-  //   var locked = userSwitch.checked;
-
-
-  //   const formData = new FormData();
-  //   formData.append("locked", locked);
-  //   formData.append("user_id", user_id);
-
-  //   const currentURL = window.location.href;
-  //   const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
-  //   fetch( stripped+'/manageuser', {
-  //     method: "post",
-  //     body: formData,
-  //   })
-  //     .then((response) => {
-  //     //   Swal.fire({
-  //     //     icon: "success",
-  //     //     title: "Success"
-  //     // })
-    
-  //     Toastify({
-  //       text: "Status has been changed",
-  //       duration: 3000,
-  //       gravity: "bottom",
-  //       position: "left",
-  //       backgroundColor: "#4fbe87",
-  //     }).showToast();
-  //     location.reload();
-  //     }
-  //     )
-  //     .catch((err) => console.log(err));
-
-  // })
 
 
 
@@ -223,8 +186,9 @@ const hideStatusModal = () =>{
 }
 
 
-document.getElementById("userStatusModalCancel").addEventListener("click", function () {
-  hideStatusModal();
+document.getElementById("userStatusModalCancel")
+        .addEventListener("click", function () {
+          hideStatusModal();
 });
 
 
