@@ -43,14 +43,6 @@ class Contact extends \Core\Controller
             $item = $_POST;
             $item['createdAt'] = date("Y-m-d H:i:s");
             $id =  Emails::Save($item);
-
-            // $mail = new PHPMailer(true);
-            // $mail->setFrom('elisha@isutech.co.za', 'Mailer');
-            // $mail->Subject = 'Umdoni';
-            // $mail->Body ="this is for reference use only";
-            // $mail->addAddress('rakgew@gmail.co.za', 'Joe User'); 
-            // $mail->send();
-
         }
         redirect('contact/index');
     }

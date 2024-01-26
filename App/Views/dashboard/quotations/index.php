@@ -72,7 +72,24 @@ $crumbs = getCrumbs();
                                 <?php
                                 foreach ($data as $key => $service) {
                                     $key++;
-                                    echo '
+
+                                    switch ($service['status']) {
+                                        case '1':
+                                     $status =  '<span class="badge bg-light-primary">Current</span>';
+                                            break;
+                                        case '2':
+                                            $status =  '<span class="badge bg-light-success">Open</span>';
+                                            break;
+                                        case '3':
+                                            $status = '<span class="badge bg-light-secondary">Awarded</span>';
+                                            break;
+
+                                        default:
+                                        $status =  '<span class="badge bg-light-secondary">Awarded</span>';
+                                            break;
+                                    }
+                                    
+                            echo '
                                 <tr>
                                     <td class="text-bold-500">' . $key . '</td>
                                     <td>' . $service['title'] . '</td>
@@ -80,7 +97,9 @@ $crumbs = getCrumbs();
                                     <td>' . $service['body'] . '</td>
                                     <td class="text-bold-500">' . $service['updatedBy'] . '</td>
                                     <td class="text-bold-500">' . $service['createdAt'] . '</td>
-                                    <td>' . Quotations::getStatusName($service['status']) . '</td>
+                                    <td> 
+                                        '.$status.'
+                                    </td>
                                     <td>
                                         <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">
                                             <i class="bi bi-pencil"></i>

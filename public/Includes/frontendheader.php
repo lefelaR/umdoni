@@ -20,11 +20,11 @@
           <li class="nav-item"><a href="<?php echo buildurl("news/index") ?>" class="fw-bold">News</a></li>
           <li class="nav-item"><a href="<?php echo buildurl("contact/index") ?>" class="fw-bold">Contact Us</a></li>
           <!-- <li class="nav-item"><i class="fa-solid fa-language fs-5"></i></li> -->
-          <!-- <li>
+          <li>
             <a href="<?php echo buildurl('dashboard/index/index') ?>" data-toggle="tooltip" title="login">
               <i class="bi bi-lock-fill"></i>
             </a>
-          </li> -->
+          </li>
       </div>
     </div>
   </div>

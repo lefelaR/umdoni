@@ -304,14 +304,14 @@ foreach ($data['quotations'] as $quotationkey => $quotaionValue) {
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-away" type="button" role="tab" aria-controls="nav-away" aria-selected="true">
-                        <p class="fw-bold text-secondary">Current Tenders</p>
+                        <p class="fw-bold text-secondary">Current Quotations</p>
                     </button>
                     <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-record" type="button" role="tab" aria-controls="nav-record" aria-selected="false">
-                        <p class="fw-bold text-secondary">Open Tenders</p>
+                        <p class="fw-bold text-secondary">Open Quotations</p>
                     </button>
                     <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-ignore" type="button" role="tab" aria-controls="nav-ignore" aria-selected="false">
                         <p class="fw-bold text-secondary">
-                            Awarded Tenders</p>
+                            Awarded Quotations</p>
                     </button>
                 </div>
             </nav>

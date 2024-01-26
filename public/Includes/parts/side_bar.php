@@ -197,6 +197,12 @@
         </li>
 
         <li class="sidebar-item">
+          <a href="<?php echo buildurl("/") ?>" class="sidebar-link">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
           <a href="<?php echo buildurl("Authentication/logout") ?>" class="sidebar-link">
             <i class="bi bi-box-arrow-left"></i>
             <span>Signout</span>

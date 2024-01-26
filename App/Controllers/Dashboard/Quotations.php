@@ -40,6 +40,7 @@ class Quotations extends \Core\Controller
     }
     public function indexAction()
     {
+      
         $quotation = Quotation::getAll();
         view::render('dashboard/quotations/index.php', $quotation, 'dashboard');
     }
@@ -51,7 +52,7 @@ class Quotations extends \Core\Controller
         if(isset($data['id']))
         {
             $id = $data['id'];
-            $service = Service::getServiceById($id);
+            $service = Quotation::getById($id);
         }else
             $service = array();
         view::render('dashboard/quotations/add.php', $service, 'dashboard');
@@ -179,7 +180,7 @@ public static function getStatusName($status)
         $id = $_GET['id'];
         try 
         {
-          Service::Delete($id);
+          Quotation::Delete($id);
         } catch (\Throwable $th) 
         {
             echo $th->getMessage();
