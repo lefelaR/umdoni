@@ -9,32 +9,50 @@
 
 namespace App\Controllers\Dashboard;
 
-use App\Models\Requests;
+
 use \Core\View;
-use App\Models\User;
 use App\Models\Service;
-use App\Models\Request;
-use DateTime;
+use App\Models\Quotation;
+use App\Models\Tender;
 use Aws\S3\S3Client;
+
 
 class Quotations extends \Core\Controller
 {
 
+    
+    private $bucketName;
+    private $awsAccessKeyId;
+    private $clientId;
+    private $userPoolId;
+    private $region;
+    private $awsSecretAccessKey; 
+
+
+    public function __construct()
+    {
+        $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
+        $this->clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
+        $this->userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
+        $this->region = $_ENV['AWS_REGION'];
+        $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
+        $this->bucketName = $_ENV['BUCKET_NAME'];
+    }
     public function indexAction()
     {
-        $services = Service::getAll();
-        view::render('dashboard/quotations/index.php', $services, 'dashboard');
+      
+        $quotation = Quotation::getAll();
+        view::render('dashboard/quotations/index.php', $quotation, 'dashboard');
     }
 
 
     public function addAction()
     {
         $data = getPostData();
-
         if(isset($data['id']))
         {
             $id = $data['id'];
-            $service = Service::getServiceById($id);
+            $service = Quotation::getById($id);
         }else
             $service = array();
         view::render('dashboard/quotations/add.php', $service, 'dashboard');
@@ -44,19 +62,101 @@ class Quotations extends \Core\Controller
     public function saveAction()
     {
         global $context;
+        $objectKey = ""; 
 
-        if(isset($_POST)) $data = $_POST;
-        $date['createdAt'] = date("Y-m-d H:i:s");
-        try 
-        {
-          $id =  Service::Save($data);   
-        } catch (\Throwable $th) 
-        {
-            $_SESSION['errors'] = ['message' => $th->getMessage()];
-           print_r($th->getMessage()); die;
+        if (isset($_FILES)) {
+            $bucketName = $this->bucketName;
+            $awsAccessKeyId =   $this->awsAccessKeyId;
+            $awsSecretAccessKey =  $this->awsSecretAccessKey;
+            $region =  $this->region; // Change to your desired region
+
+            $s3 = new S3Client([
+                'version' => 'latest',
+                'region' => $region,
+                'credentials' => [
+                    'key' => $awsAccessKeyId,
+                    'secret' => $awsSecretAccessKey,
+                ],
+            ]);
+            $file = $_FILES;
+
+            if (count($file) > 0) {
+                $filePath = $file['name']['tmp_name'];
+                $objectKey = $file['name']['name'];
+
+                if ($objectKey !== "") {
+                    try {
+                        $result = $s3->putObject([
+                            'Bucket' => $bucketName,
+                            'Key' => $objectKey,
+                            'SourceFile' => $filePath,
+                        ]);
+                    } catch (\Throwable $th) {
+                        echo "Error uploading file: " .  $th->getMessage();
+                    }
+                }
+            }
+        }
+
+        if (isset($_POST)) $data = $_POST;
+
+        $data['status'] = 1;
+        $data['createdAt'] = date("Y-m-d H:i:s");
+        $data['isActive'] = 1;
+        $data['img_file'] = $objectKey;
+        $data['location'] = isset($result['ObjectURL']) ? $result['ObjectURL'] : "";
+        $data['updatedBy'] =  $_SESSION['profile']['username'];
+
+
+        // generate a refernce
+
+
+
+        try {
+            $id =  Quotation::Save($data);
+            $_SESSION['success'] = ['message' => 'successfully added record!'];
+        } catch (\Throwable $th) {
+            $_SESSION['error'] = ['message' => $th->getMessage()];          
         }
         redirect('dashboard/quotations/index');
     }
+
+    public function getByStatusAction()
+{
+    $status = $_GET['status']; // Get the status from the query parameter
+    $quotations = Quotation::getByStatus($status);
+    View::render('dashboard/quotations/index.php', $quotations, 'dashboard');
+}
+
+public function updateStatusAction()
+{
+    $data = getPostData();
+    $id = $data['id'];
+    $status = $data['status'];
+
+    try {
+        Quotation::updateStatus($id, $status);
+        $_SESSION['success'] = ['message' => 'Quotation status updated successfully!'];
+    } catch (\Throwable $th) {
+        $_SESSION['error'] = ['message' => $th->getMessage()];
+    }
+
+    redirect('dashboard/quotations/index');
+}
+
+public static function getStatusName($status)
+{
+    switch ($status) {
+        case 'current':
+            return 'Current';
+        case 'open':
+            return 'Open';
+        case 'awarded':
+            return 'Awarded';
+        default:
+            return 'Unknown';
+    }
+}
 
     public function updateAction()
     {
@@ -80,7 +180,7 @@ class Quotations extends \Core\Controller
         $id = $_GET['id'];
         try 
         {
-          Service::Delete($id);
+          Quotation::Delete($id);
         } catch (\Throwable $th) 
         {
             echo $th->getMessage();

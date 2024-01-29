@@ -2,30 +2,27 @@
 global $context;
 $data = $context->data;
 // array_column
-$current = array();
-$open = array();
-$awarded = array();
+$currentTenders = array();
+$openTenders = array();
+$awardedTenders = array();
 
-foreach ($data as $key => $value) {
+
+
+foreach ($data['tenders'] as $tenderkey => $tenderValue) {
     
-    switch ($value['status']) {
+    switch ($tenderValue['status']) {
         case '1':
-        array_push($current, $value);
+        array_push($currentTenders, $tenderValue);
             break;
         
             case '2':
-                array_push($open, $value);
+                array_push($openTenders, $tenderValue);
                 break;
         default:
-            array_push($awarded, $value);
+            array_push($awardedTenders, $tenderValue);
             break;
     }
-
-
 }
-
-
-
 
 ?>
 
@@ -74,7 +71,6 @@ foreach ($data as $key => $value) {
     }
 </style>
 
-
 <div class="container-fluid" id="service-page">
     <div class="row">
         <div class="tag-header">
@@ -86,7 +82,6 @@ foreach ($data as $key => $value) {
         </div>
     </div>
 </div>
-
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
@@ -144,17 +139,20 @@ foreach ($data as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($current as $key => $tender) {
-                                    $key++;
+                                foreach ($currentTenders as $currentTenderkey => $currentTender) {
+                                    $currentTenderkey++;
                                     echo '
                                 <tr>
-                                    <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
+                                    <th scope="row">
+                                    <a class="text-secondary fw-bold" href="' . $currentTender['location'] . '" target="_blank">
+                                     <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
+                                    </a>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $tender['location'] . '" target="_blank">' . $tender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $currentTender['location'] . '" target="_blank">' . $currentTender["title"] . '</a>
                                     </td>
-                                    <td>' . $tender['reference'] . '</td>
-                                    <td> ' . $tender['dueDate'] . '</td>
+                                    <td>' . $currentTender['reference'] . '</td>
+                                    <td> ' . $currentTender['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }
@@ -191,17 +189,17 @@ foreach ($data as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($open as $key => $open_tender) {
-                                    $key++;
+                                foreach ($openTenders as $openTenderkey => $openTender) {
+                                    $openTenderkey++;
                                     echo '
                                 <tr>
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $open_tender['location'] . '" target="_blank">' . $open_tender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $openTender['location'] . '" target="_blank">' . $openTender["title"] . '</a>
                                     </td>
-                                    <td>' . $open_tender['reference'] . '</td>
-                                    <td> ' . $open_tender['dueDate'] . '</td>
+                                    <td>' . $openTender['reference'] . '</td>
+                                    <td> ' . $openTender['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }
@@ -238,17 +236,220 @@ foreach ($data as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($awarded as $key2 => $awarded_tender) {
-                                    $key2++;
+                                foreach ($awardedTenders as $awardedTenderKey => $awardedTender) 
+                                {
+                                    $awardedTenderKey++;
                                     echo '
                                 <tr>
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $awarded_tender['location'] . '" target="_blank">' . $awarded_tender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $awardedTender['location'] . '" target="_blank">' . $awardedTender["title"] . '</a>
                                     </td>
-                                    <td>' . $awarded_tender['reference'] . '</td>
-                                    <td> ' . $awarded_tender['dueDate'] . '</td>
+                                    <td>' . $awardedTender['reference'] . '</td>
+                                    <td> ' . $awardedTender['dueDate'] . '</td>
+                                </tr>
+                                  ';
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="hr hr-blurry" />
+<?php
+
+// array_column
+$currentQuotations = array();
+$openQuotations = array();
+$awardedQuotations = array();
+
+
+
+foreach ($data['quotations'] as $quotationkey => $quotaionValue) {
+    
+    switch ($quotaionValue['status']) {
+        case '1':
+        array_push($currentQuotations, $quotaionValue);
+            break;
+        
+            case '2':
+                array_push($openQuotations, $quotaionValue);
+                break;
+        default:
+            array_push($awardedQuotations, $quotaionValue);
+            break;
+    }
+}
+
+?>
+
+<div class="container content-section">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <p class="h1 text-uppercase fw-normal">
+                Quotations
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class=" col-md-12 col-lg-12 col-sm-12">
+
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-away" type="button" role="tab" aria-controls="nav-away" aria-selected="true">
+                        <p class="fw-bold text-secondary">Current Quotations</p>
+                    </button>
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-record" type="button" role="tab" aria-controls="nav-record" aria-selected="false">
+                        <p class="fw-bold text-secondary">Open Quotations</p>
+                    </button>
+                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-ignore" type="button" role="tab" aria-controls="nav-ignore" aria-selected="false">
+                        <p class="fw-bold text-secondary">
+                            Awarded Quotations</p>
+                    </button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-away" role="tabpanel" aria-labelledby="nav-away-tab" tabindex="0">
+                    <div class="mt-5">
+                        <table class="table" id="table1">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Title
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Reference
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Closing Date
+                                        </p>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                foreach ($currentQuotations as $currentQuotationkey => $currentQuotation) {
+                                    $currentQuotationkey++;
+                                    echo '
+                                <tr>
+                                    <th scope="row">
+                                    <a class="text-secondary fw-bold" href="' . $currentQuotation['location'] . '" target="_blank">
+                                     <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
+                                    </a>
+                                    </th>
+                                    <td>
+                                        <a class="text-secondary fw-bold" href="' . $currentQuotation['location'] . '" target="_blank">' . $currentQuotation["title"] . '</a>
+                                    </td>
+                                    <td>' . $currentQuotation['reference'] . '</td>
+                                    <td> ' . $currentQuotation['dueDate'] . '</td>
+                                </tr>
+                                  ';
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="nav-record" role="tabpanel" aria-labelledby="nav-record-tab" tabindex="0">
+                    <div class="mt-5">
+                        <table class="table" id="table1">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Title
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Reference
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Closing Date
+                                        </p>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                foreach ($openQuotations as $openQuotationkey => $openQuotation) {
+                                    $openQuotationkey++;
+                                    echo '
+                                <tr>
+                                    <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
+                                    </th>
+                                    <td>
+                                        <a class="text-secondary fw-bold" href="' . $openQuotation['location'] . '" target="_blank">' . $openQuotation["title"] . '</a>
+                                    </td>
+                                    <td>' . $openQuotation['reference'] . '</td>
+                                    <td> ' . $openQuotation['dueDate'] . '</td>
+                                </tr>
+                                  ';
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="nav-ignore" role="tabpanel" aria-labelledby="nav-ignore-tab" tabindex="0">
+                    <div class="mt-5">
+                        <table class="table" id="table1">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">
+                                        <p class="text-uppercase">
+                                            Title
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase">
+                                            Reference
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Closing Date
+                                        </p>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                foreach ($awardedQuotations as $awardedQuotationkey => $awardedQuotation) {
+                                    $awardedQuotationkey++;
+                                    echo '
+                                <tr>
+                                    <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
+                                    </th>
+                                    <td>
+                                        <a class="text-secondary fw-bold" href="' . $awardedQuotation['location'] . '" target="_blank">' . $awardedQuotation["title"] . '</a>
+                                    </td>
+                                    <td>' . $awardedQuotation['reference'] . '</td>
+                                    <td> ' . $awardedQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }

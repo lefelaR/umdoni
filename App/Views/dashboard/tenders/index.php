@@ -64,7 +64,7 @@ $crumbs = getCrumbs();
                                     <th>BODY</th>
                                     <th>POSTED BY</th>
                                     <th>CREATED DATE</th>
-                                   
+                                    <th>STATUS</th>
                                     <th>ACTIONS</th>
                                 </tr>
                             </thead>
@@ -72,6 +72,24 @@ $crumbs = getCrumbs();
                                 <?php
                                 foreach ($data as $key => $service) {
                                     $key++;
+
+                                    switch ($service['status']) {
+                                        case '1':
+                                     $status =  '<span class="badge bg-light-primary">Current</span>';
+                                            break;
+                                        case '2':
+                                            $status =  '<span class="badge bg-light-success">Open</span>';
+                                            break;
+                                        case '3':
+                                            $status = '<span class="badge bg-light-secondary">Awarded</span>';
+                                            break;
+
+                                        default:
+                                        $status =  '<span class="badge bg-light-secondary">Awarded</span>';
+                                            break;
+                                    }
+
+
                                     echo '
                                 <tr>
                                     <td class="text-bold-500">' . $key . '</td>
@@ -80,6 +98,9 @@ $crumbs = getCrumbs();
                                     <td>' . $service['body'] . '</td>
                                     <td class="text-bold-500">' . $service['updatedBy'] . '</td>
                                     <td class="text-bold-500">' . $service['createdAt'] . '</td>
+                                    <td> 
+                                        '.$status.'
+                                    </td>
                                     <td>
                                        
                                         <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">
