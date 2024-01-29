@@ -297,11 +297,12 @@ $managers = $data['managers'];
                         </div>
                         <?php
                         foreach ($managers as $key => $otmm) {
+
                             if (isset($otmm['name'])) {
                                 $otmmName =  substr($otmm['name'], 0, 1);
                             }
 
-                            if ($otmm['category'] === 'OTMM') {
+                            if ($otmm['category'] === 'OTMM' || $otmm['category'] === 'CD' )  {
                                 echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                             <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
                                 <div class="card-body ">
@@ -316,32 +317,7 @@ $managers = $data['managers'];
                         ?>
                     </div>
 
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Communications department
-                            </p>
-                        </div>
-                        <?php
-                        foreach ($managers as $key => $cd) {
-                            if (isset($cd['name'])) {
-                                $fdName =  substr($cd['name'], 0, 1);
-                            }
-                            if ($cd['category'] === 'CD') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                            <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
-                                <div class="card-body ">
-                                    <img src="' . $cd['location'] . '" class="card-img-top" alt="municipal councelor">
-                                </div>
-                                <p class="fw-bold text-uppercase fs-5 lh-1">' . $cd['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1">'.$cd['initials'].' ' . $cd['name']. " " . $cd['surname'] . '</p>  
-                            </div>
-                            </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
+                  
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-1 text-uppercase my-5">
