@@ -72,7 +72,7 @@ $managers = $data['managers'];
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
                     <p class="text-uppercase h5 my-3 fw-bold text-blue ">councillors</p>
                 </button>
             </h2>
@@ -95,40 +95,14 @@ $managers = $data['managers'];
                             // data-bs-toggle="modal" data-bs-target="#councillorModal"
                             if ($exco['category'] === 'EXCO') {
                                 echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;"  >
-                    <div class="card-body ">
-                        <img src="' . $exco['location'] . '" class="card-img-top" alt="municipal councelor">
-                    </div>
-                    <p class="fw-bold text-uppercase fs-5 lh-1">' . $exco['title'] . '</p>
-                    <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '</p>
-                </div>
-                </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Ward Councillors
-                            </p>
+                        <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;"  >
+                            <div class="card-body ">
+                                <img src="' . $exco['location'] . '" class="card-img-top" alt="municipal councelor">
+                            </div>
+                            <p class="fw-bold text-uppercase fs-5 lh-1">' . $exco['title'] . '</p>
+                            <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '</p>
                         </div>
-                        <?php
-                        foreach ($councillors as $key => $ward) {
-                            if (isset($ward['name']) && $ward['category'] == 'WARD') {
-
-                                $wardName = substr($ward['name'], 0, 1);
-                                echo '
-                            <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                <div class="card text-center m-1 shadow" style="width: 18rem; border: 4px solid #A5A3A3;">
-                                    <div class="card-body">
-                                        <img src="' . $ward['location'] . '" class="card-img-top" alt="municipal councelor">
-                                    </div>
-                                    <p class="fw-bold text-uppercase fs-5 lh-1">' . $ward['title'] . '</p>
-                                    <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '</p>
-                                </div>
-                            </div>';
+                        </div>';
                             }
                         }
                         ?>
@@ -162,12 +136,41 @@ $managers = $data['managers'];
                         }
                         ?>
                     </div>
+
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class="fs-1 text-uppercase my-5">
+                                Ward Councillors
+                            </p>
+                        </div>
+                        <?php
+                        foreach ($councillors as $key => $ward) {
+                            if (isset($ward['name']) && $ward['category'] == 'WARD') {
+
+                                $wardName = substr($ward['name'], 0, 1);
+                                echo '
+                            <div class="col-md-4 col-lg-3 col-sm-12 my-1">
+                                <div class="card text-center m-1 shadow" style="width: 18rem; border: 4px solid #A5A3A3;">
+                                    <div class="card-body">
+                                        <img src="' . $ward['location'] . '" class="card-img-top" alt="municipal councelor">
+                                    </div>
+                                    <p class="fw-bold text-uppercase fs-5 lh-1">' . $ward['title'] . '</p>
+                                    <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '</p>
+                                </div>
+                            </div>';
+                            }
+                        }
+                        ?>
+                    </div>
+
+                 
                 </div>
             </div>
         </div>
+        
         <div class="accordion-item">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="true" aria-controls="flush-collapseTwo">
                     <p class="text-uppercase h5 my-3 fw-bold text-blue "> Administrative Management</p>
                 </button>
             </h2>
@@ -368,4 +371,6 @@ $managers = $data['managers'];
             </div>
         </div>
     </div>
+
+
 </div>
