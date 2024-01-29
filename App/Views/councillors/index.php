@@ -321,7 +321,7 @@ $managers = $data['managers'];
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-1 text-uppercase my-5">
-                                Financial department
+                            Treasury department
                             </p>
                         </div>
                         <?php
