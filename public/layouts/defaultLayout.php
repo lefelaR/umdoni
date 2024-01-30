@@ -34,8 +34,8 @@ include_once '../Components/Helpers.php';
 <body>
   <?php include '../public/Includes/frontendheader.php'; ?>
   {{content}}
-  <?php include '../public/Includes/cookie.php' ?>
   <?php include '../public/Includes/frontendfooter.php' ?>
   <?php include '../public/Includes/include-js.php' ?>
 </body>
+<?php include '../public/Includes/cookie.php' ?>
 </html>

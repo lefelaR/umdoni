@@ -26,7 +26,7 @@ if (isset($context->errors['message'])) {
     <div class="row h-100" id="auth-right">
         <div class="col-lg-12 col-md-16 col-sm-12 col">
             <div class="row align-items-center justify-content-center ">
-        
+
                 <div class="col-lg-4 col-md-6 col-sm-12 ">
                     <div class="card shadow p-5 sm-5 my-5 bg-white rounded ">
 
@@ -39,22 +39,25 @@ if (isset($context->errors['message'])) {
                         <p class="auth-title h2 mx-auto">Log in.</p>
                         <p class="auth-subtitle mb-5 mx-auto">If you already have an account, login.</p>
 
-                       
-                        <?php include ('Includes/parts/alerts.php') ?>
+
+                        <?php include('Includes/parts/alerts.php') ?>
 
                         <form id="login-form" action="authenticate" method="POST">
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text" class="form-control form-control-xl" name="username" placeholder="Email">
                                 <div class="form-control-icon">
-                                    <i class="bi bi-person"></i>
+                                    <!-- <i class="bi bi-p  erson"></i> -->
                                 </div>
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4 input-group">
                                 <input type="password" class="form-control form-control-xl" name="password" placeholder="Password">
                                 <div class="form-control-icon">
-
+                                    <!-- <i class="fa fa-eye"></i> -->
                                 </div>
                             </div>
+
+
+
                             <div class="form-check form-check-lg d-flex align-items-end">
                                 <input class="form-check-input me-2" name="flexcheck" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label text-gray-600" for="flexCheckDefault">
