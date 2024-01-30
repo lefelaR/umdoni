@@ -31,8 +31,4 @@ class CalendarModel extends \Core\Model
     }
 
 
-
-
-
-
 }

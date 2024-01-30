@@ -92,7 +92,7 @@ $data = $context->data;
                     <th scope="row">' . $key . '</th>
                     <td>' . $calendar["title"] . '</td>
                     <td>'. timeAgo($calendar['createdAt']) .'</td>
-                    <td>'. formatDate($calendar['']) .'</td>
+                    <td>'. formatDate($calendar['dueDate']) .'</td>
                 </tr>
                     ';
                     }
