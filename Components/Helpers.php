@@ -80,9 +80,37 @@ function getFile()
 
 function formatDate($date)
 {
-    $formatedDate = date_format($date, 'Y-m-d');
-    return $date;
+    $dateTime = new DateTime($date);
+    $formatedDate = date_format($dateTime, 'Y-m-d');
+    return $formatedDate;
 }
+
+
+
+function timeAgo( $time): string {
+    $time = new DateTime($time);
+    $now = new DateTime();
+    $diff = $now->diff($time);
+
+    $timeUnits = [
+        "year" => $diff->y,
+        "month" => $diff->m,
+        "day" => $diff->d,
+        "hour" => $diff->h,
+        "minute" => $diff->i,
+        "second" => $diff->s,
+    ];
+
+    foreach ($timeUnits as $unit => $value) {
+        if ($value > 0) {
+            $pluralize = $value > 1 ? 's' : '';
+            return $value . ' ' . $unit . $pluralize . ' ago';
+        }
+    }
+
+    return 'Just now';
+}
+
 
 function logout()
 {
