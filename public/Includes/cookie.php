@@ -5,11 +5,10 @@
 		padding: 1em;
 		position: fixed;
 		right: 0;
-		bottom: -200px;
+		bottom: -300px;
 		z-index: 100;
 		width: 100%;
 		/* transition: 2s all ease-in-out; */
-
 	}
 
 	section#eucookie.active {
@@ -23,6 +22,9 @@
 	section#eucookie .smaller{
 		line-height: 38px !important;
 	}
+
+
+
 </style>
 <?php
 
