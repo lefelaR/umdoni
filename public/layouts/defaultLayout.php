@@ -21,7 +21,7 @@ include_once '../Components/Helpers.php';
   <link rel="canonical" href="https://www.umdoni.co.za/index">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="canonical" href="https://www.umdoni.co.za/index/index">
-  <link rel="stylesheet" href="<?php echo url('assets/vendors/simple-datatables/style.css') ?>">
+  <link rel="stylesheet" href="<?php echo url('themes/mazor/assets/vendors/simple-datatables/style.css') ?>">
   <!-- Bootstrap core CSS -->
   <link href="<?php echo url('assets/css/bootstrap/css/bootstrap.css'); ?>" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/bootstrap-icons/bootstrap-icons.css") ?>">
@@ -29,6 +29,7 @@ include_once '../Components/Helpers.php';
   <!-- Custom styles for this template -->
   <link href="<?php echo url('assets/css/site.css'); ?>" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  
 </head>
 
 <body>
@@ -36,6 +37,7 @@ include_once '../Components/Helpers.php';
   {{content}}
   <?php include '../public/Includes/frontendfooter.php' ?>
   <?php include '../public/Includes/include-js.php' ?>
+  
 </body>
 <?php include '../public/Includes/cookie.php' ?>
 </html>

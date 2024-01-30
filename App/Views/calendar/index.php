@@ -16,8 +16,8 @@ $data = $context->data;
     }
 
 
-    
-    #service-page p{
+
+    #service-page p {
         bottom: 0px;
         position: absolute;
         font-size: 8em !important;
@@ -52,9 +52,9 @@ $data = $context->data;
     <div class="row">
         <div class="tag-header">
             <div class="col">
-            <p class="h1 m-5 fs-1 text-white">
-                Calendar
-               </p>
+                <p class="h1 m-5 fs-1 text-white">
+                    Calendar
+                </p>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@ $data = $context->data;
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-        <p class="fw-lighter fs-3 my-5">
+            <p class="fw-lighter fs-3 my-5">
                 Discover what's happening in our town, Our 'CALENDAR' feature simplified scheduling and planning. Find information about planned events, appointments, and deadlines.
             </p>
         </div>
@@ -71,45 +71,38 @@ $data = $context->data;
 
     <div class="row mt-5">
         <div class=" col-md-12 col-lg-12 col-sm-12">
-            <table class="table">
+
+        <div class="table-responsive">
+            <table class="table table-striped" id="table1">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Date/Time</th>
-                        <th scope="col">Documents</th>
-                        <th scope="col"></th>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Created</th>
+                        <th>Date</th>  
                     </tr>
                 </thead>
-      <tbody>
-                <?php
-                
-                
-                foreach ($data as $key => $calendar) {
-                  
-                    $key ++;
+                <tbody>
+                    <?php
 
-                    echo'
+                    foreach ($data as $key => $calendar) {
+                        $key++;
+                        echo '
                     <tr>
-                    <th scope="row">'.$key.'</th>
-                    <td>'.$calendar["title"].'</td>
-                    <td>3 mins ago</td>
-                    <td> <i class="bi bi-file-earmark-text"></i>
-                    '.$calendar["img_file"].'</td>
-                    <td>
-                       <a href="details?id='.$calendar["id"].'">More...</a>
-                    </td>
+                    <th scope="row">' . $key . '</th>
+                    <td>' . $calendar["title"] . '</td>
+                    <td>'. timeAgo($calendar['createdAt']) .'</td>
+                    <td>'. formatDate($calendar['']) .'</td>
                 </tr>
                     ';
+                    }
 
-                }
-                
-                ?>
-          
-                
+                    ?>
+
+
                 </tbody>
             </table>
-            
+        </div>
         </div>
     </div>
 

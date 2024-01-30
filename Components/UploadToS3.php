@@ -73,8 +73,6 @@ class UploadToS3
         ]);
     }
 
-
-
 }
 
 

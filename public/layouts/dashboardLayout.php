@@ -48,7 +48,6 @@ include_once '../Components/Helpers.php';
     </div>
     <?php include '../public/Includes/backendfooter.php'; ?>
 
-
     <script src="<?php echo url("assets/js/all.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/js/bootstrap.bundle.min.js") ?>"></script>
