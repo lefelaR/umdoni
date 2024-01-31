@@ -2,7 +2,7 @@
 global $context;
 $data = $context->data;
 // array_column
-$councillors  = $data['councillors'];
+
 $managers = $data['managers'];
 ?>
 
@@ -77,7 +77,7 @@ $managers = $data['managers'];
                     <p class="text-uppercase h5 my-3 fw-bold text-blue "> Administrative Management</p>
                 </button>
             </h2>
-            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div id="flush-collapseTwo" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
 
                     <div class="row align-items-center justify-content-center">
