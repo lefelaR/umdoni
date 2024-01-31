@@ -84,22 +84,18 @@ $data = $context->data;
                 </thead>
                 <tbody>
                     <?php
-
-                    foreach ($data as $key => $calendar) {
+                    foreach ($data as $key => $calendar) 
+                    {
                         $key++;
                         echo '
-                    <tr>
-                    <th scope="row">' . $key . '</th>
-                    <td>' . $calendar["title"] . '</td>
-                    <td>'. timeAgo($calendar['createdAt']) .'</td>
-                    <td>'. formatDate($calendar['dueDate']) .'</td>
-                </tr>
-                    ';
+                            <tr>
+                            <th scope="row">' . $key . '</th>
+                            <td>' . $calendar["title"] . '</td>
+                            <td>'. timeAgo($calendar['createdAt']) .'</td>
+                            <td>'. formatDate($calendar['dueDate']) .'</td>
+                            </tr>';
                     }
-
                     ?>
-
-
                 </tbody>
             </table>
         </div>
