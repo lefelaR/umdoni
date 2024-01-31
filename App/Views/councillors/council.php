@@ -3,7 +3,7 @@ global $context;
 $data = $context->data;
 // array_column
 $councillors  = $data['councillors'];
-$managers = $data['managers'];
+
 ?>
 
 <style>

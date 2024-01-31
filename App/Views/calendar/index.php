@@ -73,7 +73,7 @@ $data = $context->data;
         <div class=" col-md-12 col-lg-12 col-sm-12">
 
         <div class="table-responsive">
-            <table class="table table-striped" id="table1">
+            <table class="table table-striped" id="example">
                 <thead>
                     <tr>
                         <th>#</th>
