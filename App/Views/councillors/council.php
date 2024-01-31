@@ -3,7 +3,7 @@ global $context;
 $data = $context->data;
 // array_column
 $councillors  = $data['councillors'];
-
+$managers = $data['managers'];
 ?>
 
 <style>
@@ -168,14 +168,40 @@ $councillors  = $data['councillors'];
                 </div>
             </div>
         </div>
-    
+        
+       
     </div>
 
+
+</div>
+
+
+
+
+
 </div>
 
 
 
-
-
-</div>
-
+<script>
+  var accordions = document.querySelectorAll('.accordion-button');
+  debugger
+  accordions.forEach(function (accordion) {
+    accordion.addEventListener('click', function () {
+      var collapse = this.getAttribute('data-bs-target');
+      var parent = this.getAttribute('data-bs-parent');
+      
+      if (collapse && parent) {
+        var parentElement = document.querySelector(parent);
+        var collapses = parentElement.querySelectorAll('.collapse');
+        
+        collapses.forEach(function (item) {
+          if (item.id !== collapse.substring(1)) {
+            var bsCollapse = new bootstrap.Collapse(item);
+            bsCollapse.hide();
+          }
+        });
+      }
+    });
+  });
+</script>
