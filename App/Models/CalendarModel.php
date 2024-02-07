@@ -20,8 +20,8 @@ class CalendarModel extends \Core\Model
             $db = static::getDB();
             $stmt = $db->query('SELECT * FROM events 
                                 UNION
-                                SELECT * FROM  projects' 
-
+                                SELECT * FROM  projects 
+                                ORDER BY `dueDate` ASC'
                             );                              
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;

@@ -45,9 +45,35 @@ $data = $context->data;
     nav ul li i {
         color: #000;
     }
+
+    .timeline {
+        border-left: 1px solid hsl(0, 0%, 90%);
+        position: relative;
+        list-style: none;
+    }
+
+    .timeline .timeline-item {
+        position: relative;
+    }
+
+    .timeline .timeline-item:after {
+        position: absolute;
+        display: block;
+        top: 0;
+    }
+
+    .timeline .timeline-item:after {
+        background-color: hsl(0, 0%, 90%);
+        left: -38px;
+        border-radius: 50%;
+        height: 11px;
+        width: 11px;
+        content: "";
+    }
 </style>
 
-
+<?php
+echo '
 <div class="container-fluid" id="service-page">
     <div class="row">
         <div class="tag-header">
@@ -59,47 +85,59 @@ $data = $context->data;
         </div>
     </div>
 </div>
-
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <p class="fw-lighter fs-3 my-5">
-                Discover what's happening in our town, Our 'CALENDAR' feature simplified scheduling and planning. Find information about planned events, appointments, and deadlines.
+                Discover what`s happening in our town, Our `CALENDAR` feature simplified scheduling and planning. Find information about planned events, appointments, and deadlines.
             </p>
         </div>
     </div>
-
     <div class="row mt-5">
         <div class=" col-md-12 col-lg-12 col-sm-12">
 
-        <div class="table-responsive">
-            <table class="table table-striped" id="example">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Title</th>
-                        <th>Created</th>
-                        <th>Date</th>  
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    foreach ($data as $key => $calendar) 
-                    {
-                        $key++;
-                        echo '
-                            <tr>
-                            <th scope="row">' . $key . '</th>
-                            <td>' . $calendar["title"] . '</td>
-                            <td>'. timeAgo($calendar['createdAt']) .'</td>
-                            <td>'. formatDate($calendar['dueDate']) .'</td>
-                            </tr>';
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
+            <!-- <div class="card">
+                <div class="card-body shadow-sm"> -->
+                    <!-- Section: Timeline -->
+                    <section class="py-5">
+
+                        <ul class="timeline">';
+
+if (count($data) > 0) {
+    foreach ($data as $key => $calendar) {
+        $today =  date("Y-m-d");
+        if ($today < $calendar['dueDate']) {
+            echo '
+                             <li class="timeline-item mb-5">
+                            <h5 class="fw-bold fs-3 text-secondary">' . $calendar['dueDate'] . '</h5>
+                            <p class="text-muted mb-2 fs-4 text-primary">' . $calendar['title'] . '</p>
+                            <div class="card">     
+                            <div class="row">
+                            <div class="col m-2">
+                            <img src="' . $calendar["location"] . '" class="img-fluid rounded-start" style="    object-fit: cover;
+                            height: 130px;">
+                            </div>
+                            <div class="col-md-10">
+                            <p class="text-muted">
+                                ' . $calendar['body'] . '
+
+                                </p>
+                                </div>
+                                </div>
+
+                                </div>
+                                </li>
+                        ';
+        }
+    }
+} else {
+    echo '
+                        <p class="fs-5">There are currently no calendar events</p>
+                        ';
+}
+echo '
+                        </ul>
+                    </section>
         </div>
     </div>
-
-</div>
+</div>';

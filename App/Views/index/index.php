@@ -59,7 +59,7 @@ $data = $context->data;
                             <i class="bi bi-gear fs-1 text-yellow"></i>
                         </div>
                         <p class="h5 my-3 fw-bold text-blue text-center ">Tenders</p>
-                        <p class="card-text text-secondary text-center">Find your local trash pick-up days, utilities and more.</p>
+                        <p class="card-text text-secondary text-center">Explore curated tender opportunities from various industries.</p>
                     </div>
                 </div>
             </a>
