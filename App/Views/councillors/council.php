@@ -72,11 +72,7 @@ $councillors  = $data['councillors'];
 
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
-                    <p class="text-uppercase h5 my-3 fw-bold text-blue ">councillors</p>
-                </button>
-            </h2>
+       
             <div id="flush-collapseOne" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
 

@@ -63,15 +63,41 @@ $data = $context->data;
                
               </p> -->
             <p class="fw-lighter fs-3 my-5">
-            Meet Your Local City Representatives introducing you to the dedicated honourable members working for your community. Learn about their roles, achievements, and how they're shaping the future of your municipality.
-                
-        </p>
+                Meet Your Local City Representatives introducing you to the dedicated honourable members working for your community. Learn about their roles, achievements, and how they're shaping the future of your municipality.
+
+            </p>
         </div>
     </div>
 
 
-<!-- place code here -->
-<!-- links to council and administration -->
+    <!-- place code here -->
+    <div class="row justify-content-center">
+        
+            <div class="col-md-3 my-2">
+                <a href="<?php echo buildurl('councillors/council') ?>">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="d-flex inline">
+                                <i class="bi bi-globe fs-1 text-yellow m-3"></i>
+                                <p class="h5 m-3">Council</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3 my-2">
+                <a href="<?php echo buildurl('councillors/administration') ?>">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="d-flex inline">
+                                <i class="bi bi-globe fs-1 text-yellow m-3"></i>
+                                <p class="h5 m-3"> Administration</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+    </div>
 
 </div>
-
