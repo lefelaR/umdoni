@@ -72,11 +72,7 @@ $managers = $data['managers'];
     <div class="accordion accordion-flush" id="accordionFlushExample">
               
         <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                    <p class="text-uppercase h5 my-3 fw-bold text-blue "> Administrative Management</p>
-                </button>
-            </h2>
+    
             <div id="flush-collapseTwo" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
 

@@ -63,9 +63,9 @@ echo '
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <p class="h1 text-uppercase fw-bold text-secondary">
+           <!-- <p class="h1 text-uppercase fw-bold text-secondary">
                 Request municipality services form
-            </p>
+            </p>-->
             <p class="fw-lighter fs-3 my-5">
             To get the help you need from your local municipality. Use &apos;Request Municipal Services&apos; form below to ask for assistance with essential city services like waste collection, utilities, permits, and more. It&apos;s your direct line to a better community experience
                  
@@ -74,7 +74,7 @@ echo '
 
         <div class="card shadow ">
             <div class="card-body text-center m-3">
-                <p class="h1 text-secondary"> Municipal Services</p>
+                <p class="h1 text-secondary">Request Municipal Services</p>
                 <p class="fw-normal fs-5 text-secondary"> select municipal service type</p>
             </div>
 
@@ -84,7 +84,7 @@ echo '
 
 include('Includes/parts/alerts.php');
 
-echo '<form class="form" action="save" method="post">
+echo '<form class="form" action="save" method="post" id="requestForm">
                         <div class="row">
                             <div class="col-md-6">
                     
@@ -127,3 +127,22 @@ echo '<form class="form" action="save" method="post">
     </div>
 </div>
 </div>';
+?>
+
+<script>
+
+const form = document.getElementById("requestForm")
+
+form.addEventListener('submit',(event)=>{
+    
+    debugger
+    const {target: input} = event;
+
+
+
+
+
+})
+
+
+</script>
