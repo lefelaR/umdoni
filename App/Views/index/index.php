@@ -52,13 +52,13 @@ $data = $context->data;
         </div>
 
         <div class="col-lg-3 col-md-3 col-sm-12">
-            <a href="<?php echo buildurl("services/info") ?>">
+            <a href="<?php echo buildurl("tenders/index") ?>">
                 <div class="card card-hover mb-3 card-border">
                     <div class="card-body">
                         <div class="text-center m-2">
-                            <i class="bi bi-house fs-1 text-yellow"></i>
+                            <i class="bi bi-gear fs-1 text-yellow"></i>
                         </div>
-                        <p class="h5 my-3 fw-bold text-blue text-center ">Neighborhood Info</p>
+                        <p class="h5 my-3 fw-bold text-blue text-center ">Tenders</p>
                         <p class="card-text text-secondary text-center">Find your local trash pick-up days, utilities and more.</p>
                     </div>
                 </div>
@@ -150,12 +150,12 @@ $data = $context->data;
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-12">
-            <a href="<?php echo buildurl("communities/index") ?>">
+            <a href="<?php echo buildurl("services/info") ?>">
                 <div class="card card-hover mb-3 card-border">
                     <div class="card-body">
-                        <i class="bi bi-calendar2-date fs-1 text-yellow"></i>
-                        <p class="h5 fw-bold text-blue">Community Outreach</p>
-                        <p class="fw-normal p-1 text-secondary">Growth through community-focused outreach initiatives</p>
+                        <i class="bi bi-house fs-1 text-yellow"></i>
+                        <p class="h5 fw-bold text-blue">Neighborhood Info</p>
+                        <p class="fw-normal p-1 text-secondary">Find your local trash pick-up days, utitlities and more.</p>
                     </div>
                 </div>
             </a>

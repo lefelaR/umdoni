@@ -70,6 +70,7 @@ CREATE TABLE `events` (
   `img_file` varchar(255) DEFAULT NULL,
   `updatedBy` varchar(45) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,
+  `dueDate` varchar(11) DEFAULT NULL,
      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -146,6 +147,7 @@ CREATE TABLE `projects` (
   `img_file` varchar(45) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,
   `updatedBy` varchar(45) DEFAULT NULL,
+   `dueDate` varchar(11) DEFAULT NULL,
      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

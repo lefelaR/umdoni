@@ -108,7 +108,7 @@ echo '
       formData.append('username', username);
       const currentURL = window.location.href;
       const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
-      var code = document.getElementById('code');
+      var code = document.getElementById('code'); 
       var password = document.getElementById('password');
 
       fetch(stripped + '/requestchange', {

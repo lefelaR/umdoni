@@ -110,11 +110,11 @@ class Projects extends \Core\Controller
 
         try {
             $id =  Project::Save($data);
-            $_SESSION['success'] = ['message' => "Success!"];
+           
         } catch (\Throwable $th) {
-            $_SESSION['error'] = ['message' => $th->getMessage()];
+          echo  $th->getMessage();
         }
-        redirect('dashboard/projects/index');
+        // redirect('dashboard/projects/index');
     }
 
     public function updateAction()

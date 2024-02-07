@@ -166,12 +166,19 @@ const updatePassword = () => {
 
 
 const Toast = (type, message) =>{
+  if(type =="success"){
+    bgColor = '#4fbe87'
+  }
+  else if(type=="danger"){
+    bgColor = ''
+  }
     Toastify({
         text: message,
         className: type ,
         duration: 3000,
         gravity: "bottom",
         position: "left",
+        backgroundColor: bgColor
       }).showToast();
 }
 

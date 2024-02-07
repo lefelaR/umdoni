@@ -24,10 +24,16 @@ class Councillors extends \Core\Controller
     public function indexAction()
     {
         $data['councillors']  = Councillor::GET();
+    
+        view::render('councillors/index.php', $data, 'default');
+    }
+
+    public function administrationAction()
+    {
+       
         $data['managers'] = Councillor::getSeniors();
 
-
-        view::render('councillors/index.php', $data, 'default');
+        view::render('councillors/administration.php', $data, 'default');
     }
     /**
      * After filter
