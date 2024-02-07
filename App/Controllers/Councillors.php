@@ -23,11 +23,21 @@ class Councillors extends \Core\Controller
 
     public function indexAction()
     {
-        $data['councillors']  = Councillor::GET();
-        $data['managers'] = Councillor::getSeniors();
-
-
+        $data = array();
         view::render('councillors/index.php', $data, 'default');
+    }
+
+
+    public function councilAction()
+    {
+        $data['councillors']  = Councillor::GET();
+        view::render('councillors/council.php', $data, 'default');
+    }
+
+    public function administrationAction()
+    {
+        $data['managers'] = Councillor::getSeniors();
+        view::render('councillors/administration.php', $data, 'default');
     }
     /**
      * After filter
@@ -38,5 +48,4 @@ class Councillors extends \Core\Controller
     {
         //echo " (after)";
     }
-
 }

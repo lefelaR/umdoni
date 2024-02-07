@@ -1,9 +1,8 @@
 <?php
 global $context;
 $data = $context->data;
-// array_column
-$councillors  = $data['councillors'];
-$managers = $data['managers'];
+
+
 ?>
 
 <style>
@@ -36,9 +35,11 @@ $managers = $data['managers'];
         background-color: #fff;
         color: #000;
     }
+
     nav ul li a {
         color: #000;
     }
+
     nav ul li i {
         color: #000;
     }
@@ -55,7 +56,6 @@ $managers = $data['managers'];
         </div>
     </div>
 </div>
-
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
@@ -69,284 +69,8 @@ $managers = $data['managers'];
         </div>
     </div>
 
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                    <p class="text-uppercase h5 my-3 fw-bold text-blue ">councillors</p>
-                </button>
-            </h2>
-            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
 
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Exco Member
-                            </p>
-                        </div>
-
-                        <?php
-                        foreach ($councillors as $key => $exco) {
-
-                            if (isset($exco['name'])) {
-                                $name =  substr($exco['name'], 0, 1);
-                            }
-                            // data-bs-toggle="modal" data-bs-target="#councillorModal"
-                            if ($exco['category'] === 'EXCO') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                        <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;"  >
-                            <div class="card-body ">
-                                <img src="' . $exco['location'] . '" class="card-img-top" alt="municipal councelor">
-                            </div>
-                            <p class="fw-bold text-uppercase fs-5 lh-1">' . $exco['title'] . '</p>
-                            <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '</p>
-                        </div>
-                        </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                PR Councillors
-                            </p>
-                        </div>
-
-                        <?php
-
-                        foreach ($councillors as $key => $pr) {
-                            if (isset($pr['name'])) {
-                                $prName =  substr($pr['name'], 0, 1);
-                            }
-
-                            if ($pr['category'] === 'PR') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                            <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
-                                <div class="card-body ">
-                                    <img src="' . $pr['location'] . '" class="card-img-top" alt="municipal councelor">
-                                </div>
-                                <p class="fw-bold text-uppercase fs-5 lh-1">' . $pr['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($prName) . " " . $pr['surname'] . '</p>  
-                            </div>
-                            </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Ward Councillors
-                            </p>
-                        </div>
-                        <?php
-                        foreach ($councillors as $key => $ward) {
-                            if (isset($ward['name']) && $ward['category'] == 'WARD') {
-
-                                $wardName = substr($ward['name'], 0, 1);
-                                echo '
-                            <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                <div class="card text-center m-1 shadow" style="width: 18rem; border: 4px solid #A5A3A3;">
-                                    <div class="card-body">
-                                        <img src="' . $ward['location'] . '" class="card-img-top" alt="municipal councelor">
-                                    </div>
-                                    <p class="fw-bold text-uppercase fs-5 lh-1">' . $ward['title'] . '</p>
-                                    <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '</p>
-                                </div>
-                            </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                 
-                </div>
-            </div>
-        </div>
-        
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                    <p class="text-uppercase h5 my-3 fw-bold text-blue "> Administrative Management</p>
-                </button>
-            </h2>
-            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Senior Management
-                            </p>
-                        </div>
-
-                        <?php
-                        foreach ($managers as $key => $sm) {
-
-                            if (isset($sm['name'])) {
-                                $smname =  substr($sm['name'], 0, 1);
-                            }
-                           
-                            if ($sm['category'] === 'SM') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                            <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;"  >
-                                <div class="card-body ">
-                                    <img src="' . $sm['location'] . '" class="card-img-top" alt="municipal councelor">
-                                </div>
-                                <p class="fw-bold text-uppercase fs-5 lh-1">' . $sm['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1"> '.$sm['initials'].' '. $sm['name'] . " " . $sm['surname'] . '</p>
-                            </div>
-                            </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Community service department
-                            </p>
-                        </div>
-
-                        <?php
-                        foreach ($managers as $key => $csd) {
-                            if (isset($csd['name']) ) {
-                                $csdName = substr($csd['name'], 0, 1);
-                            }
-                            
-                          if ($csd['category'] === 'CSD') {
-                                echo '
-                                    <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                        <div class="card text-center m-1 shadow" style="width: 18rem; border: 4px solid #A5A3A3;">
-                                            <div class="card-body">
-                                                <img src="' . $csd['location'] . '" class="card-img-top" alt="municipal councelor">
-                                            </div>
-                                            <p class="fw-bold text-uppercase fs-5 lh-1">' . $csd['title'] . '</p>
-                                            <p class="fw-normal text-capitalize fs-5 lh-1"> '.$sm['initials'].' ' . $csd['name'] . " " . $csd['surname'] . '</p>
-                                        </div>
-                                    </div>';
-                                    }
-                        }
-                    
-                        ?>
-                    </div>
-
-                     <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Planning & development departments
-                            </p>
-                        </div>
-                        <?php
-                        foreach ($managers as $key => $pdd) {
-                            if (isset($pdd['name'])) {
-                                $pddName =  substr($pdd['name'], 0, 1);
-                            }
-                            if ($pdd['category'] === "PDD") {
-
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                    <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
-                                        <div class="card-body ">
-                                            <img src="' . $pdd['location'] . '" class="card-img-top" alt="municipal councelor">
-                                        </div>
-                                        <p class="fw-bold text-uppercase fs-5 lh-1">' . $pdd['title'] . '</p>
-                                        <p class="fw-normal text-capitalize fs-5 lh-1">'.$sm['initials'].' '. $pdd['name'] . " " . $pdd['surname'] . '</p>  
-                                    </div>
-                                    </div>';
-                                }
-                            }
-                        ?>
-                    </div> 
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Technical service department
-                            </p>
-                        </div>
-                        <?php
-                        foreach ($managers as $key => $tsd) {
-                            if (isset($tsd['name'])) {
-                                $tsdName =  substr($tsd['name'], 0, 1);
-                            }
-                            if ($tsd['category'] === 'TSD') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
-                                    <div class="card-body ">
-                                        <img src="' . $tsd['location'] . '" class="card-img-top" alt="municipal councelor">
-                                    </div>
-                                    <p class="fw-bold text-uppercase fs-5 lh-1">' . $tsd['title'] . '</p>
-                                    <p class="fw-normal text-capitalize fs-5 lh-1"> '.$sm['initials'].' '. $tsd['name'] . " " . $tsd['surname'] . '</p>  
-                                </div>
-                                </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Office of the municipal Manager
-                            </p>
-                        </div>
-                        <?php
-                        foreach ($managers as $key => $otmm) {
-
-                            if (isset($otmm['name'])) {
-                                $otmmName =  substr($otmm['name'], 0, 1);
-                            }
-
-                            if ($otmm['category'] === 'OTMM' || $otmm['category'] === 'CD' )  {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                            <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
-                                <div class="card-body ">
-                                    <img src="' . $otmm['location'] . '" class="card-img-top" alt="municipal councelor">
-                                </div>
-                                <p class="fw-bold text-uppercase fs-5 lh-1">' . $otmm['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1"> '.$sm['initials'].' '. $otmm['name'] . " " . $otmm['surname'] . '</p>  
-                            </div>
-                            </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                  
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                            Treasury department
-                            </p>
-                        </div>
-                        <?php
-                        foreach ($managers as $key => $fd) {
-                            if (isset($fd['name'])) {
-                                $fdName =  substr($fd['name'], 0, 1);
-                            }
-                            if ($fd['category'] === 'FM') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                            <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
-                                <div class="card-body ">
-                                    <img src="' . $fd['location'] . '" class="card-img-top" alt="municipal councelor">
-                                </div>
-                                <p class="fw-bold text-uppercase fs-5 lh-1">' . $fd['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1">'.$sm['initials'].' ' . $fd['name']. " " . $fd['surname'] . '</p>  
-                            </div>
-                            </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+<!-- place code here -->
 
 </div>
+

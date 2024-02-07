@@ -29,6 +29,7 @@ include_once '../Components/Helpers.php';
   <!-- Custom styles for this template -->
   <link href="<?php echo url('assets/css/site.css'); ?>" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
   
 </head>
 
@@ -37,7 +38,7 @@ include_once '../Components/Helpers.php';
   {{content}}
   <?php include '../public/Includes/frontendfooter.php' ?>
   <?php include '../public/Includes/include-js.php' ?>
-  
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 </body>
 <?php include '../public/Includes/cookie.php' ?>
 </html>

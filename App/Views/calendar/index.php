@@ -73,7 +73,7 @@ $data = $context->data;
         <div class=" col-md-12 col-lg-12 col-sm-12">
 
         <div class="table-responsive">
-            <table class="table table-striped" id="table1">
+            <table class="table table-striped" id="example">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -84,22 +84,18 @@ $data = $context->data;
                 </thead>
                 <tbody>
                     <?php
-
-                    foreach ($data as $key => $calendar) {
+                    foreach ($data as $key => $calendar) 
+                    {
                         $key++;
                         echo '
-                    <tr>
-                    <th scope="row">' . $key . '</th>
-                    <td>' . $calendar["title"] . '</td>
-                    <td>'. timeAgo($calendar['createdAt']) .'</td>
-                    <td>'. formatDate($calendar['']) .'</td>
-                </tr>
-                    ';
+                            <tr>
+                            <th scope="row">' . $key . '</th>
+                            <td>' . $calendar["title"] . '</td>
+                            <td>'. timeAgo($calendar['createdAt']) .'</td>
+                            <td>'. formatDate($calendar['dueDate']) .'</td>
+                            </tr>';
                     }
-
                     ?>
-
-
                 </tbody>
             </table>
         </div>
