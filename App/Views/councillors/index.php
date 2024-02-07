@@ -50,7 +50,7 @@ $data = $context->data;
         <div class="tag-header">
             <div class="col">
                 <p class="h1 m-5 fs-1 text-white">
-                    Council
+                    Leadership
                 </p>
             </div>
         </div>
@@ -71,6 +71,7 @@ $data = $context->data;
 
 
 <!-- place code here -->
+<!-- links to council and administration -->
 
 </div>
 
