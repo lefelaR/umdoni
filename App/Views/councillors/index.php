@@ -1,8 +1,7 @@
 <?php
 global $context;
 $data = $context->data;
-// array_column
-$councillors  = $data['councillors'];
+
 
 ?>
 
@@ -36,9 +35,11 @@ $councillors  = $data['councillors'];
         background-color: #fff;
         color: #000;
     }
+
     nav ul li a {
         color: #000;
     }
+
     nav ul li i {
         color: #000;
     }
@@ -69,113 +70,7 @@ $councillors  = $data['councillors'];
     </div>
 
 
-
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
-                    <p class="text-uppercase h5 my-3 fw-bold text-blue ">councillors</p>
-                </button>
-            </h2>
-            <div id="flush-collapseOne" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Exco Member
-                            </p>
-                        </div>
-
-                        <?php
-                        foreach ($councillors as $key => $exco) {
-
-                            if (isset($exco['name'])) {
-                                $name =  substr($exco['name'], 0, 1);
-                            }
-                            // data-bs-toggle="modal" data-bs-target="#councillorModal"
-                            if ($exco['category'] === 'EXCO') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                        <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;"  >
-                            <div class="card-body ">
-                                <img src="' . $exco['location'] . '" class="card-img-top" alt="municipal councelor">
-                            </div>
-                            <p class="fw-bold text-uppercase fs-5 lh-1">' . $exco['title'] . '</p>
-                            <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '</p>
-                        </div>
-                        </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                PR Councillors
-                            </p>
-                        </div>
-
-                        <?php
-
-                        foreach ($councillors as $key => $pr) {
-                            if (isset($pr['name'])) {
-                                $prName =  substr($pr['name'], 0, 1);
-                            }
-
-                            if ($pr['category'] === 'PR') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                            <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
-                                <div class="card-body ">
-                                    <img src="' . $pr['location'] . '" class="card-img-top" alt="municipal councelor">
-                                </div>
-                                <p class="fw-bold text-uppercase fs-5 lh-1">' . $pr['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($prName) . " " . $pr['surname'] . '</p>  
-                            </div>
-                            </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Ward Councillors
-                            </p>
-                        </div>
-                        <?php
-                        foreach ($councillors as $key => $ward) {
-                            if (isset($ward['name']) && $ward['category'] == 'WARD') {
-
-                                $wardName = substr($ward['name'], 0, 1);
-                                echo '
-                            <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                <div class="card text-center m-1 shadow" style="width: 18rem; border: 4px solid #A5A3A3;">
-                                    <div class="card-body">
-                                        <img src="' . $ward['location'] . '" class="card-img-top" alt="municipal councelor">
-                                    </div>
-                                    <p class="fw-bold text-uppercase fs-5 lh-1">' . $ward['title'] . '</p>
-                                    <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '</p>
-                                </div>
-                            </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                 
-                </div>
-            </div>
-        </div>
-    
-    </div>
-
-</div>
-
-
-
-
+<!-- place code here -->
 
 </div>
 
