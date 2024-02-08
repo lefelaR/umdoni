@@ -83,7 +83,7 @@ $data = $context->data;
 
 <!-- Council leadership -->
 
-<div class="container-fluid bg-picture pb-5  parallax" id="Councillors">
+<div class="container-fluid bg-picture pb-5  parallax d-table" id="Councillors">
     <div class="row">
         <div class="text-center">
             <p class="my-5 fw-bold fs-1 text-yellow text-uppercase "> Know your councillors</p>
@@ -194,8 +194,7 @@ $data = $context->data;
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fw-bold text-blue">' . $news["title"] . '</h5>
-                                  
+                                    <h5 class="card-title">'.$news["title"].'</h5>
                                 </div>
                             </div>
                         </div>
