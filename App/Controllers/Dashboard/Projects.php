@@ -114,7 +114,7 @@ class Projects extends \Core\Controller
         } catch (\Throwable $th) {
           echo  $th->getMessage();
         }
-        // redirect('dashboard/projects/index');
+        redirect('dashboard/projects/index');
     }
 
     public function updateAction()
