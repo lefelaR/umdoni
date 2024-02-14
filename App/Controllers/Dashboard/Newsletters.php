@@ -16,6 +16,23 @@ use Aws\S3\S3Client;
 class Newsletters extends \Core\Controller
 {
 
+    private $bucketName;
+    private $awsAccessKeyId;
+    private $clientId;
+    private $userPoolId;
+    private $region;
+    private $awsSecretAccessKey;
+
+    public function __construct()
+    {
+        $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
+        $this->clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
+        $this->userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
+        $this->region = $_ENV['AWS_REGION'];
+        $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
+        $this->bucketName = $_ENV['BUCKET_NAME'];
+    }
+    
     public function indexAction()
     {
         $newsletters = Newsletter::Get();
