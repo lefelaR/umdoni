@@ -118,7 +118,7 @@ if (count($data) > 0) {
                             height: 130px;">
                             </div>
                             <div class="col-md-10">
-                            <p class="text-muted">
+                            <p class="text-muted my-3">
                                 ' . $calendar['body'] . '
 
                                 </p>

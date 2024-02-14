@@ -1,3 +1,122 @@
+<?php
+global $context;
+$crumbs = getCrumbs();
+
+
+// use crumbs to determine what is active
+$sidebarItems = [
+  (object)[
+    'label' => 'Dashboard',
+    'icon' => 'bi bi-grid-fill',
+    'hasSub' => false,
+    'url' => buildurl("dashboard/index/index")
+  ],
+  (object)[
+    'label' => 'Event Management',
+    'icon' => 'bi bi-book-fill',
+    'hasSub' => true,
+    'subItems' => [
+      (object)['label' => 'Projects', 'url' => buildurl("dashboard/projects/index")],
+      (object)['label' => 'Events', 'url' => buildurl("dashboard/events/index")],
+      (object)['label' => 'Notices', 'url' => buildurl("dashboard/notices/index")],
+      (object)['label' => 'Meetings', 'url' => buildurl("dashboard/meetings/index")],
+      (object)['label' => 'Agendas', 'url' => buildurl("dashboard/agendas/index")]
+    ]
+  ],
+  (object)[
+    'label' => 'Content Management',
+    'icon' => 'bi bi-stack',
+    'hasSub' => true,
+    'subItems' => [
+      (object)['label' => 'Newsletters', 'url' => buildurl("dashboard/publications/index")],
+      (object)['label' => 'News', 'url' => buildurl("dashboard/news/index")],
+    ]
+  ],
+
+  (object)[
+    'label' => 'Service Management',
+    'icon' => 'bi bi-inbox-fill',
+    'hasSub' => true,
+    'subItems' => [
+      (object)['label' => 'All Services', 'url' => buildurl("dashboard/services/index")],
+      (object)['label' => 'Service Requests', 'url' => buildurl("dashboard/services/requests")],
+    ]
+  ],
+  (object)[
+    'label' => 'Official Profiles',
+    'icon' => 'bi bi-people-fill',
+    'hasSub' => true,
+    'subItems' => [
+      (object)['label' => 'Councillors', 'url' => buildurl("dashboard/councillors/index")],
+      (object)['label' => 'Senior Management', 'url' => buildurl("dashboard/councillors/senior")],
+    ]
+  ],
+  (object)[
+    'label' => 'Document Library',
+    'icon' => 'bi bi-archive-fill',
+    'hasSub' => true,
+    'subItems' => [
+      (object)['label' => 'Documents', 'url' => buildurl("dashboard/councillors/index")],
+    ]
+  ],
+
+  (object)[
+    'label' => 'Human Resources',
+    'icon' => 'bi bi-award-fill',
+    'hasSub' => true,
+    'subItems' => [
+      (object)['label' => 'Vacancies', 'url' => buildurl("dashboard/vacancies/index")],
+    ]
+  ],
+
+  (object)[
+    'label' => 'Community Engagement',
+    'icon' => 'bi bi-chat-right-fill',
+    'hasSub' => false,
+    'url'  => '#'
+  ],
+  (object)[
+    'label' => 'Economic Development',
+    'icon' => 'bi bi-wallet-fill',
+    'hasSub' => true,
+    'subItems' => [
+      (object)['label' => 'Tenders', 'url' => buildurl("dashboard/tenders/index")],
+      (object)['label' => 'Quotations', 'url' => buildurl("dashboard/quotations/index")],
+    ]
+  ],
+
+  (object)[
+    'label' => 'System Settings',
+    'icon' => 'bi bi-gear-fill',
+    'hasSub' => true,
+    'subItems' => [
+      (object)['label' => 'User Management', 'url' => buildurl("dashboard/users/index")],
+      (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
+      (object)['label' => 'Activity Logs', 'url' => buildurl("dashboard/logs/index")],
+    ]
+  ],
+  (object)[
+    'label' => 'Support',
+    'icon' => 'bi bi-headset',
+    'hasSub' => true,
+    'subItems' => [
+      (object)['label' => 'Help Center/ FAQs', 'url' => buildurl("dashboard/support/help")],
+      (object)['label' => 'Contact Support', 'url' => buildurl("dashboard/support/contact")],
+    ]
+  ],
+  (object)[
+    'label' => 'Economic Development',
+    'icon' => 'bi bi-wallet-fill',
+    'hasSub' => true,
+    'subItems' => [
+      (object)['label' => 'Tenders', 'url' => buildurl("dashboard/tenders/index")],
+      (object)['label' => 'Quotations', 'url' => buildurl("dashboard/quotations/index")],
+    ]
+  ],
+];
+?>
+
+
 
 <div id="sidebar" class="active">
   <div class="sidebar-wrapper active">
@@ -5,7 +124,7 @@
       <div class="d-flex justify-content-between">
         <div class="logo">
           <a href="index">
-            <img src="<?php echo url("assets/img/icon/logo.png") ?>" style="height: 4em; alt=" Logo" srcset="" />
+            <img src="<?php echo url("assets/img/icon/logo.png") ?>" style="height: 4em;" alt="Logo" srcset="" />
           </a>
         </div>
         <div class="toggler">
@@ -13,244 +132,57 @@
         </div>
       </div>
     </div>
-    <div class="sidebar-menu">
-      <ul class="menu">
-        <li class="sidebar-item ">
-          <a href="<?php echo buildurl("dashboard/index/index") ?>" class="sidebar-link">
-            <i class="bi bi-grid-fill"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
 
-        <li class="sidebar-item has-sub">
+    <?php
+    echo '
+      <div class="sidebar-menu">
+      <ul class="menu">';
+    foreach ($sidebarItems as $link) {
+      if ($link->hasSub === true) {
+        $sub = 'has-sub';
+        echo '
+        <li class="sidebar-item   ' . $sub . '">
           <a href="#" class="sidebar-link">
-            <i class="bi bi-book-fill"></i>
-            <span>Event Management</span>
-          </a>
-          <ul class="submenu">
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/projects/index") ?>">Projects</a>
-            </li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/events/index") ?>">Events</a>
-            </li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/notices/index") ?>">Notices</a>
-            </li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/meetings/index") ?>">Meetings</a>
-            </li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/agendas/index") ?>">Agendas</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="sidebar-item has-sub">
-          <a href="#" class="sidebar-link">
-            <i class="bi bi-stack"></i>
-            <span>Content Management</span>
-          </a>
-
-          <ul class="submenu">
-            <li class="sidebar-title">Publications</li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/publications/index") ?>">Newsletters</a>
-            </li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/news/index") ?>">News</a>
-            </li>
-          </ul>
-        </li>
-
-
-        <li class="sidebar-item has-sub">
-          <a href="#" class="sidebar-link">
-            <i class="bi bi-inbox-fill"></i>
-            <span>Service Management</span>
-          </a>
-          <ul class="submenu">
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/services/index") ?>">All Services</a>
-            </li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/services/requests") ?>">Service Requests</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="sidebar-item has-sub">
-          <a href="#" class="sidebar-link">
-            <i class="bi bi-people-fill"></i>
-            <span>Official Profiles</span>
-          </a>
-          <ul class="submenu">
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/councillors/index") ?>"> Councillors</a>
-            </li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/councillors/senior") ?>">Senior Management</a>
-            </li>
-          </ul>
-        </li>
-
-
-        <li class="sidebar-item has-sub">
-          <a href="#" class="sidebar-link">
-            <i class="bi bi-archive-fill"></i>
-            <span>Document Library</span>
-          </a>
-          <ul class="submenu">
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/documents/index") ?>">Documents</a>
-            </li>
-            <!-- <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/documents/reports") ?>"> Annual Reports </a>
-            </li> -->
-          </ul>
-        </li>
-
-        <li class="sidebar-item has-sub">
-          <a href="#" class="sidebar-link">
-            <i class="bi bi-award-fill"></i>
-            <span>Human Resources</span>
-          </a>
-          <ul class="submenu">
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/vacancies/index") ?>"> Vacancies </a>
-            </li>
-          </ul>
-        </li>
-
-
-        <li class="sidebar-item has-sub">
-          <a href="#" class="sidebar-link">
-            <i class="bi bi-chat-right-fill"></i>
-            <span>Community Engagement</span>
-          </a>
-          <ul class="submenu">
-            <li class="submenu-item">
-              <!-- <a href="<?php echo buildurl("dashboard/wardinfo/index") ?>"> -->
-              UMdoni Ward Profiles
-              <!-- </a> -->
-            </li>
-          </ul>
-        </li>
-
-
-        <li class="sidebar-item has-sub">
-          <a href="#" class="sidebar-link">
-            <i class="bi bi-wallet-fill"></i>
-            <span>Economic Development</span>
-          </a>
-
-          <ul class="submenu">
-            <li class="sidebar-title">Business Opportunities</li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/tenders/index") ?>"> Tenders</a>
-            </li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/quotations/index") ?>">Quotations</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="sidebar-item has-sub">
-          <a href="#" class="sidebar-link">
-            <i class="bi bi-gear-fill"></i>
-            <span>System Settings</span>
-          </a>
-          <ul class="submenu">
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/users/index") ?>">User Management</a>
-            </li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/settings/index") ?>">Site Settings</a>
-            </li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/logs/index") ?>">Activity Logs</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="sidebar-item">
-          <hr class="dropdown-divider">
-        </li>
-
-        <li class="sidebar-item has-sub">
-          <a href="#" class="sidebar-link">
-            <i class="bi bi-headset"></i>
-            <span>Support</span>
-          </a>
-          <ul class="submenu">
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/support/help") ?>">Help Center/ FAQ's</a>
-            </li>
-            <li class="submenu-item">
-              <a href="<?php echo buildurl("dashboard/support/contact") ?>">Contact Support</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="sidebar-item">
-          <hr class="dropdown-divider">
-        </li>
-
-        <li class="sidebar-item">
-          <a href="<?php echo buildurl("/") ?>" class="sidebar-link">
-            <i class="bi bi-box-arrow-left"></i>
-            <span>Home</span>
-          </a>
-        </li>
-        <li class="sidebar-item">
-          <a href="<?php echo buildurl("Authentication/logout") ?>" class="sidebar-link">
-            <i class="bi bi-box-arrow-left"></i>
-            <span>Signout</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <button class="sidebar-toggler btn x">
-      <i data-feather="x"></i>
-    </button>
+          <i class="' . $link->icon . '"></i>
+          <span>' . $link->label . '</span>
+          </a>';
+        echo ' <ul class="submenu">';
+        $subItems = $link->subItems;
+        foreach ($subItems as $key => $subItem) {
+          echo '
+            <li class="submenu-item 
+            ">
+              <a href="' . $subItem->url . '">' . $subItem->label . '</a>
+            </li>';
+        }
+        echo '</ul></li>';
+      } else {
+        $sub = '';
+       
+        echo '
+      <li class="sidebar-item   '. $sub .'">
+        <a href="' . $link->url . '" class="sidebar-link">
+        <i class="' . $link->icon . '"></i>
+        <span>' . $link->label . '</span>
+        </a>
+      </li>
+      ';
+      }
+    }
+  
+    ?>
+    <li class="sidebar-item">
+      <a href="<?php echo buildurl("Authentication/logout") ?>" class="sidebar-link">
+        <i class="bi bi-box-arrow-left"></i>
+        <span>Signout</span>
+      </a>
+    </li>
+    <?php
+    echo '</ul>';
+    echo '</div>';
+    ?>
   </div>
+  <button class="sidebar-toggler btn x">
+    <i data-feather="x"></i>
+  </button>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Get all sidebar items
-    var sidebarItems = document.querySelectorAll('.sidebar-item');
-
-    // Add click event listener to each sidebar item
-    sidebarItems.forEach(function (item) {
-      item.addEventListener('click', function () {
-        // Remove "active" class from all sidebar items
-        sidebarItems.forEach(function (sidebarItem) {
-          sidebarItem.classList.remove('active');
-        });
-
-        // Add "active" class to the clicked sidebar item or its parent if it has a submenu
-        var parentItem = item.closest('.sidebar-item.has-sub') || item;
-        parentItem.classList.add('active');
-      });
-
-      // Add click event listener to submenu items
-      var submenuItems = item.querySelectorAll('.submenu-item');
-      submenuItems.forEach(function (submenuItem) {
-        submenuItem.addEventListener('click', function (event) {
-          // Stop event propagation to prevent triggering the parent sidebar item click
-          event.stopPropagation();
-
-          // Remove "active" class from all sidebar items
-          sidebarItems.forEach(function (sidebarItem) {
-            sidebarItem.classList.remove('active');
-          });
-
-          // Add "active" class to the parent sidebar item of the clicked submenu item
-          var parentItem = item.closest('.sidebar-item.has-sub') || item;
-          parentItem.classList.add('active');
-        });
-      });
-    });
-  });
-</script>

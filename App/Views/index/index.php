@@ -83,7 +83,7 @@ $data = $context->data;
 
 <!-- Council leadership -->
 
-<div class="container-fluid bg-picture pb-5  parallax" id="Councillors">
+<div class="container-fluid bg-picture pb-5  parallax d-table" id="Councillors">
     <div class="row">
         <div class="text-center">
             <p class="my-5 fw-bold fs-1 text-yellow text-uppercase "> Know your councillors</p>
@@ -91,13 +91,15 @@ $data = $context->data;
     </div>
 
     <div class="row align-items-center justify-content-center">
-        <div class="col-lg-2 col-md-6 col-sm-12 ">
+        
+    <div class="col-lg-2 col-md-6 col-sm-12">
             <div class="card text-center m-1 card-hover">
                 <div class="card-body">
-                    <img src="<?php echo url("assets/img/COUNCILLORS/Cllr ME Mbutho - Deputy Mayor - Ward 3 2.jpg") ?>" class="card-img-top" alt="municipal councelor">
+                    <img src="<?php echo url("assets/img/COUNCILLORS/Cllr P Thabeethe - Deputy Mayor.jpg") ?>" class="card-img-top" alt="municipal councelor">
                 </div>
-                <p class="fw-bold text-secondary text-uppercase fs-3 lh-1">Deputy mayor</p>
-                <p class="fw-normal  fs-5 lh-1">Cllr ME Mbutho</p>
+                <p class="fw-bold text-secondary text-uppercase fs-3 lh-1">Deputy Mayor</p>
+                <p class="fw-normal  fs-5 lh-1">Cllr  P Thabethe</p>
+
             </div>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-12">
@@ -105,11 +107,22 @@ $data = $context->data;
                 <div class="card-body">
                     <img src="<?php echo url("assets/img/COUNCILLORS/Cllr MJ Cele - Speaker - Ward 16.jpg") ?>" class="card-img-top" alt="municipal councelor">
                 </div>
-                <p class="fw-bold text-secondary text-uppercase fs-3 lh-1">SPEAKER</p>
+                <p class="fw-bold text-secondary text-uppercase fs-3 lh-1">Mayor</p>
                 <p class="fw-normal  fs-5 lh-1">Cllr MJ Cele</p>
 
             </div>
         </div>
+        <div class="col-lg-2 col-md-6 col-sm-12 ">
+            <div class="card text-center m-1 card-hover">
+                <div class="card-body">
+                    <img src="<?php echo url("assets/img/COUNCILLORS/Cllr ME Mbutho - Deputy Mayor - Ward 3 2.jpg") ?>" class="card-img-top" alt="municipal councelor">
+                </div>
+
+                <p class="fw-bold text-secondary text-uppercase fs-3 lh-1">SPEAKER</p>
+                <p class="fw-normal  fs-5 lh-1">Cllr ME Mbutho</p>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -179,10 +192,10 @@ $data = $context->data;
 
 <div class="container content-section " id="News">
     <p class="text-left h1 fw-bold text-uppercase text-yellow pb-2">Trending News</p>
-    <?php  $trendingNews = $data['news']; ?>
+    <?php $trendingNews = $data['news']; ?>
     <div class="row">
         <div class="col-md-4 col-lg-4 col-sm-12 text-left pt-5">
-        <?php
+            <?php
             foreach ($trendingNews as $key => $news) {
                 if ($key <= 2) {
                     echo '        
@@ -194,8 +207,7 @@ $data = $context->data;
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title fw-bold text-blue">' . $news["title"] . '</h5>
-                                  
+                                    <h5 class="card-title">' . $news["title"] . '</h5>
                                 </div>
                             </div>
                         </div>
@@ -203,7 +215,7 @@ $data = $context->data;
                     </div>';
                 }
             }
-        ?>
+            ?>
 
 
 
