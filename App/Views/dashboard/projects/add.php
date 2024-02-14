@@ -50,7 +50,7 @@ echo '
     <div class="card-header">
         <h4 class="card-title">Add a Project</h4>
     </div>
-    <form class="form" enctype="multipart/form-data">
+    <form class="form" enctype="multipart/form-data" method="POST" action="'.$action.'">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
@@ -72,7 +72,7 @@ echo '
                         ' . $body . '
                         </textarea>
                     </div>
-                    <button class="btn btn-primary btn-lg" onclick="handlePost(event)"> submit </button>
+                    <button class="btn btn-primary btn-lg" onclick="handleSave()"> submit </button>
                 </div>
             </div>
         </div>
@@ -80,55 +80,3 @@ echo '
 </div>';
 ?>
 
-<script>
-    const handlePost = (event) => {
-        debugger
-        var action = '';
-        const id = document.getElementById('id').value;
-        const title = document.getElementById("title").value;
-        const subtitle = document.getElementById("subtitle").value;
-        const image = document.getElementById("image").files[0]
-
-        const body = document.getElementById("body").value;
-
-        showPreloader();
-        const formData = new FormData();
-
-        formData.append("id", id);
-        formData.append("title", title);
-        formData.append("subtitle", subtitle);
-        formData.append("image", image);
-        formData.append("body", body);
-        const currentURL = window.location.href;
-        const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
-
-
-        if (id === "") action = 'save';
-        else action = 'edit';
-
-        fetch(stripped + `/${action}`, {
-                method: "POST",
-                body: formData,
-            })
-            .then((response) => {
-                debugger
-                Toastify({
-                    text: "Project has been saved",
-                    duration: 3000,
-                    gravity: "bottom",
-                    position: "left",
-                    backgroundColor: "#4fbe87",
-                }).showToast();
-                hidePreloader();
-
-            }).catch((err) => {
-debugger
-                Swal.fire({
-                    icon: "error",
-                    title: err
-                })
-
-            })
-
-    }
-</script>

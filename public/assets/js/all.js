@@ -151,8 +151,7 @@ document.getElementById("avatarModalAccept").addEventListener("click", () => {
 const updatePassword = () => {
   const password = document.getElementById("updatepassword").value;
   const confirm = document.getElementById("confirmupdatepassword").value;
-  const currentURL = window.location.href;
-  const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
+  stripped = stripUrl();
   const url = stripped + "/updatePassword";
 
   fetch(url, {
@@ -164,38 +163,66 @@ const updatePassword = () => {
   // var isValid = validatePassword();
 };
 
-
-const Toast = (type, message) =>{
-  if(type =="success"){
-    bgColor = '#4fbe87'
+const Toast = (type, message) => {
+  if (type == "success") {
+    bgColor = "#4fbe87";
+  } else if (type == "danger") {
+    bgColor = "";
   }
-  else if(type=="danger"){
-    bgColor = ''
-  }
-    Toastify({
-        text: message,
-        className: type ,
-        duration: 3000,
-        gravity: "bottom",
-        position: "left",
-        backgroundColor: bgColor
-      }).showToast();
-}
+  Toastify({
+    text: message,
+    className: type,
+    duration: 3000,
+    gravity: "bottom",
+    position: "left",
+    backgroundColor: bgColor,
+  }).showToast();
+};
 
-
-
-
-
-const hideStatusModal = () =>{
+const hideStatusModal = () => {
   var modal = document.getElementById("userStatusModal");
   modal.style.display = "";
   modal.classList.remove("show");
+};
+
+document
+  .getElementById("userStatusModalCancel")
+  .addEventListener("click", function () {
+    hideStatusModal();
+  });
+
+const handlePost = async (url = "", data = {}) => {
+  var result;
+  await fetch(url, {
+    method: "POST",
+    body: data,
+  })
+    .then((response) => {
+      result = response;
+    })
+    .catch((error) => {
+      throw error;
+    });
+  return result;
+};
+
+const handleGet = async (url="") =>{
+  var result;
+  await fetch(url,{
+    method: "GET",
+  })
+  .then((response)=>{
+    result = response;
+  }).catch((error)=>{
+    result = error;
+  })
+return result;
 }
 
+const handleUpdate = async (url ='', data='') => {}
 
-document.getElementById("userStatusModalCancel")
-        .addEventListener("click", function () {
-          hideStatusModal();
-});
-
-
+const stripUrl = () =>{
+  const currentURL = window.location.href;
+  const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
+  return stripped;
+}

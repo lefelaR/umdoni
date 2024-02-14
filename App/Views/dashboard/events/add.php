@@ -42,6 +42,7 @@ if (isset($data[0]['id'])) {
 }
 $title = (isset($data[0]['title'])) ? $data[0]['title'] : '';
 $subtitle = (isset($data[0]['subtitle'])) ? $data[0]['subtitle'] : '';
+$duedate = (isset($data[0]['dueDate'])) ? $data[0]['dueDate'] : '';
 $body = (isset($data[0]['body'])) ? $data[0]['body'] : '';
 
 echo '
@@ -63,6 +64,10 @@ echo '
                         <label for="helperText">Subtitle</label>
                         <input type="text" id="subtitle" name="subtitle" class="form-control" value="' . $subtitle . '">
                     </div>
+                    <div class="form-group">
+                    <label for="helperText">Due Date</label>
+                    <input type="date" id="duedate" name="duedate" class="form-control" value="' . $duedate . '">
+                </div>
 
                     <div class="form-group">
                     <input type="file" class="form-control" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value="">
@@ -70,7 +75,7 @@ echo '
          
                 <div class="form-group">
                 <label for="body">Body</label>
-                <textarea type="text" name="body" class="form-control text-black" id="full" value="'.$body.'" rows="3">
+                <textarea type="text" name="body" class="form-control text-black" id="full" value="' . $body . '" rows="3">
                 </textarea>
             </div>
 

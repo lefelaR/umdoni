@@ -50,7 +50,7 @@ $data = $context->data;
         <div class="tag-header">
             <div class="col">
                 <p class="h1 m-5 fs-1 text-white">
-                    Council
+                    Leadership
                 </p>
             </div>
         </div>
@@ -59,46 +59,45 @@ $data = $context->data;
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <p class="h1 text-uppercase fw-normal">
-                <!-- Councillors -->
-                Meet Your Local City Representatives introducing you to the dedicated honourable members working for your community. Learn about their roles, achievements, and how they're shaping the future of your municipality.
-            </p>
+            <!-- <p class="h1 text-uppercase fw-normal">
+               
+              </p> -->
             <p class="fw-lighter fs-3 my-5">
-                Umdoni Municipality comprises of 37 Councillors, seven which are full time councillors that serve on the Umdoni Council. The Executive Committee (EXCO) is made of the Mayor, Deputy Mayor & 1 Member reports directly to Council. EXCO is chaired by Her Worship, The Mayor Cllr. ST KHATHI. The Speaker is the ex-officio member of all committees of Council and the Chairperson of Council Meetings. All members of EXCO & the Speaker are full time Councillors.
+                Meet Your Local City Representatives introducing you to the dedicated honourable members working for your community. Learn about their roles, achievements, and how they're shaping the future of your municipality.
+
             </p>
         </div>
     </div>
 
 
-<!-- place code here -->
-<div class="row center">
-    <center>
-<div class="col-md-3 my-2">
-            <a href="<?php echo buildurl('councillors/council') ?>">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <div class="d-flex inline">
-                            <i class="bi bi-globe fs-1 text-yellow m-3"></i>
-                            <p class="h5 m-3">Council</p>
+    <!-- place code here -->
+    <div class="row justify-content-center">
+        
+            <div class="col-md-3 my-2">
+                <a href="<?php echo buildurl('councillors/council') ?>">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="d-flex inline">
+                                <i class="bi bi-globe fs-1 text-yellow m-3"></i>
+                                <p class="h5 m-3">Council</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-3 my-2">
-            <a href="<?php echo buildurl('councillors/administration') ?>">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <div class="d-flex inline">
-                            <i class="bi bi-globe fs-1 text-yellow m-3"></i>
-                            <p class="h5 m-3"> Administration</p>
+                </a>
+            </div>
+            <div class="col-md-3 my-2">
+                <a href="<?php echo buildurl('councillors/administration') ?>">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="d-flex inline">
+                                <i class="bi bi-globe fs-1 text-yellow m-3"></i>
+                                <p class="h5 m-3"> Administration</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        </div>
-    </center>
-</div>
+                </a>
+            </div>
+
+    </div>
 
 </div>
-
