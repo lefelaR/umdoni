@@ -28,7 +28,7 @@ $sidebarItems = [
     'icon' => 'bi bi-stack',
     'hasSub' => true,
     'subItems' => [
-      (object)['label' => 'Newsletters', 'url' => buildurl("dashboard/publications/index")],
+      (object)['label' => 'Newsletters', 'url' => buildurl("dashboard/newsletters/index")],
       (object)['label' => 'News', 'url' => buildurl("dashboard/news/index")],
     ]
   ],
@@ -56,7 +56,7 @@ $sidebarItems = [
     'icon' => 'bi bi-archive-fill',
     'hasSub' => true,
     'subItems' => [
-      (object)['label' => 'Documents', 'url' => buildurl("dashboard/councillors/index")],
+      (object)['label' => 'Documents', 'url' => buildurl("dashboard/documents/index")],
     ]
   ],
 
@@ -90,9 +90,10 @@ $sidebarItems = [
     'icon' => 'bi bi-gear-fill',
     'hasSub' => true,
     'subItems' => [
-      (object)['label' => 'User Management', 'url' => buildurl("dashboard/users/index")],
-      (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
       (object)['label' => 'Activity Logs', 'url' => buildurl("dashboard/logs/index")],
+      (object)['label' => 'Permisions', 'url' => buildurl("dashboard/index/index")],
+      (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
+      (object)['label' => 'User Management', 'url' => buildurl("dashboard/users/index")],
     ]
   ],
   (object)[
@@ -104,15 +105,7 @@ $sidebarItems = [
       (object)['label' => 'Contact Support', 'url' => buildurl("dashboard/support/contact")],
     ]
   ],
-  (object)[
-    'label' => 'Economic Development',
-    'icon' => 'bi bi-wallet-fill',
-    'hasSub' => true,
-    'subItems' => [
-      (object)['label' => 'Tenders', 'url' => buildurl("dashboard/tenders/index")],
-      (object)['label' => 'Quotations', 'url' => buildurl("dashboard/quotations/index")],
-    ]
-  ],
+ 
 ];
 ?>
 
@@ -140,18 +133,25 @@ $sidebarItems = [
     foreach ($sidebarItems as $link) {
       if ($link->hasSub === true) {
         $sub = 'has-sub';
+        $subItems = $link->subItems;
+        $sidebarItemActive = '';
+       foreach ($subItems as $value) {
+          if($crumbs[1] == strtolower($value->label)) $sidebarItemActive = 'active';
+      }
         echo '
-        <li class="sidebar-item   ' . $sub . '">
+        <li class="sidebar-item  '.$sidebarItemActive.' ' . $sub . '">
           <a href="#" class="sidebar-link">
           <i class="' . $link->icon . '"></i>
           <span>' . $link->label . '</span>
           </a>';
-        echo ' <ul class="submenu">';
-        $subItems = $link->subItems;
+        echo ' <ul class="submenu  '.$sidebarItemActive.' ">';
+       
         foreach ($subItems as $key => $subItem) {
+          $page = strtolower($subItem->label);
+          if($page == $crumbs[1]) $submenuItemActive = 'active';
+          else $submenuItemActive = '';
           echo '
-            <li class="submenu-item 
-            ">
+            <li class="submenu-item  '.$submenuItemActive.' ">
               <a href="' . $subItem->url . '">' . $subItem->label . '</a>
             </li>';
         }
