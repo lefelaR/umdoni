@@ -67,9 +67,17 @@
       <p class="h3 text-yellow">Connect With Us</p>
       <p class="text-primary h5">Social links</p>
       <ul class="list-unstyled text-small pt-3">
-        <li><a href="https://www.facebook.com/umdonimunicipalitynews/" target="_blank" class="text-white"><i class="fa-brands fa-square-facebook fs-2 m-2"></i> Facebook</a> </li>
-        <li><a href="https://www.instagram.com/umdonimunicipality/" target="_blank" class="text-white"> <i class="fa-brands fa-square-instagram fs-2 m-2"></i> Instagram </a></li>
-        <li><a href="#" class="text-white" target="_blank"><i class="fa-brands fa-youtube fs-2 m-2"></i> Youtube </a></li>
+        <li>
+          <a href="https://www.facebook.com/umdonimunicipalitynews/" target="_blank" class="text-white">
+            <i class="fa-brands fa-square-facebook fs-2 m-2"></i> Facebook</a>
+         </li>
+        <li>
+          <a href="https://www.instagram.com/umdonimunicipality/" target="_blank" class="text-white">
+            <i class="fa-brands fa-square-instagram fs-2 m-2"></i> Instagram </a>
+          </li>
+        <li>
+          <a href="#" class="text-white" target="_blank"><i class="fa-brands fa-youtube fs-2 m-2"></i> Youtube </a>
+        </li>
       </ul>
     </div>
   </div>
