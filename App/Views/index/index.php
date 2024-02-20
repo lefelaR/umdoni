@@ -115,7 +115,7 @@ $data = $context->data;
         <div class="col-lg-2 col-md-6 col-sm-12 ">
             <div class="card text-center m-1 card-hover">
                 <div class="card-body">
-                    <img src="<?php echo url("assets/img/COUNCILLORS/speaker.png") ?>" class="card-img-top" alt="municipal councelor">
+                    <img src="<?php echo url("assets/img/COUNCILLORS/Speaker.png") ?>" class="card-img-top" alt="municipal councelor">
                 </div>
 
                 <p class="fw-bold text-secondary text-uppercase fs-3 lh-1">SPEAKER</p>
