@@ -72,7 +72,7 @@ echo '
               </p>
         </div>
 
-        <div class="card shadow ">
+        <div class="card shadow-sm">
             <div class="card-body text-center m-3">
                 <p class="h1 text-secondary">Request Municipal Services</p>
                 <p class="fw-normal fs-5 text-secondary"> select municipal service type</p>
@@ -85,9 +85,8 @@ echo '
 include('Includes/parts/alerts.php');
 
 echo '<form class="form" action="save" method="post" id="requestForm">
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-md-6">
-                    
                             <label for="service" class="form-label">Service Type</label>
                                 <input type="text" id="service" class="form-control" name="service" value="">
        
@@ -97,7 +96,7 @@ echo '<form class="form" action="save" method="post" id="requestForm">
                                 <input type="text" id="name" class="form-control" name="name">
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="mb-3  col-md-6">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" id="email" class="form-control" name="email">
@@ -107,7 +106,7 @@ echo '<form class="form" action="save" method="post" id="requestForm">
                                 <input type="number" id="telephone" class="form-control" name="telephone">
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-md-12">
                             <label for="comments" class="form-label">Comments</label>
                                 <textarea name="comments"  name="comments" id="comments" class="form-control" rows="5"></textarea>
