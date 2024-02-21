@@ -49,7 +49,7 @@ $managers = $data['managers'];
         <div class="tag-header">
             <div class="col">
                 <p class="h1 m-5 fs-1 text-white">
-                    Council
+                    Administration
                 </p>
             </div>
         </div>
@@ -59,13 +59,9 @@ $managers = $data['managers'];
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <p class="h1 text-uppercase fw-normal">
-                <!-- Councillors -->
-                Meet Your Local City Representatives introducing you to the dedicated honourable members working for your community. Learn about their roles, achievements, and how they're shaping the future of your municipality.
-            </p>
             <p class="fw-lighter fs-3 my-5">
-                Umdoni Municipality comprises of 37 Councillors, seven which are full time councillors that serve on the Umdoni Council. The Executive Committee (EXCO) is made of the Mayor, Deputy Mayor & 1 Member reports directly to Council. EXCO is chaired by Her Worship, The Mayor Cllr. ST KHATHI. The Speaker is the ex-officio member of all committees of Council and the Chairperson of Council Meetings. All members of EXCO & the Speaker are full time Councillors.
-            </p>
+            Welcome to the Municipal Administration page.  Here you will find information on the key personnel responsible for the daily operations and management of our municipality.       
+        </p>
         </div>
     </div>
 
