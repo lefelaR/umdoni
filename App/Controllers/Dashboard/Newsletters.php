@@ -1,14 +1,16 @@
 <?php
+
 /**
  * @author : rakheoana lefela
  * @date : 16th dec 2021
  * 
  * Front Controller/ hadles all the incoming requests to site
  */
+
 namespace App\Controllers\Dashboard;
 
 use \Core\View;
-use App\Models\User;
+use App\Models\UserModel;
 use App\Models\Newsletter;
 use Aws\S3\S3Client;
 
@@ -32,7 +34,7 @@ class Newsletters extends \Core\Controller
         $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
         $this->bucketName = $_ENV['BUCKET_NAME'];
     }
-    
+
     public function indexAction()
     {
         $newsletters = Newsletter::Get();
@@ -42,11 +44,10 @@ class Newsletters extends \Core\Controller
     public function addAction()
     {
         $data = getPostData();
-        if(isset($data['id'])) 
-        {
+        if (isset($data['id'])) {
             $id = $data['id'];
             $newsletter = Newsletter::GetById($id);
-        }else
+        } else
             $newsletter = array();
         view::render('dashboard/newsletters/add.php',  $newsletter, 'dashboard');
     }
@@ -54,25 +55,21 @@ class Newsletters extends \Core\Controller
     public function updateAction()
     {
         $data = $_POST;
-        try 
-        {
-          $id =  Newsletter::Update($data);
-        } catch (\Throwable $th) 
-        {
+        try {
+            $id =  Newsletter::Update($data);
+        } catch (\Throwable $th) {
             echo $th->getMessage();
         }
         redirect('dashboard/newsletters/list');
     }
-   
+
 
     public function deleteAction()
     {
         $id = $_GET['id'];
-        try 
-        {
-          User::Delete($id);
-        } catch (\Throwable $th) 
-        {
+        try {
+            UserModel::Delete($id);
+        } catch (\Throwable $th) {
             echo $th->getMessage();
         }
         redirect('dashboard/newsletters/list');
@@ -87,7 +84,4 @@ class Newsletters extends \Core\Controller
     {
         // echo "(after)";
     }
-
 }
-
-?>
