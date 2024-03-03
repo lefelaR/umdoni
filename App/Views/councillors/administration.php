@@ -2,7 +2,7 @@
 global $context;
 $data = $context->data;
 // array_column
-
+$crumbs = getCrumbs();
 $managers = $data['managers'];
 ?>
 
@@ -36,9 +36,11 @@ $managers = $data['managers'];
         background-color: #fff;
         color: #000;
     }
+
     nav ul li a {
         color: #000;
     }
+
     nav ul li i {
         color: #000;
     }
@@ -59,16 +61,40 @@ $managers = $data['managers'];
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
+
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+
+                    <?php
+
+                    if (isset($crumbs)) {
+                        foreach ($crumbs as $key => $crumb) {
+                            if ($key == (count($crumbs) - 1)) {
+                                $active = 'active';
+                                echo ' <li class="breadcrumb-item ' . $active . '" aria-current="page">' . $crumb . '</li>  ';
+                            } else {
+                                $active = '';
+                                echo '<li class="breadcrumb-item ' . $active . '" aria-current="page"><a href="#" class="btn btn-sm btn-primary btn-outline" onclick="history.back()">' . $crumb . '</a></li>';
+                            }
+                        }
+                    }
+
+                    ?>
+
+                </ol>
+            </nav>
+
+
             <p class="fw-lighter fs-3 my-5">
-            Welcome to the Municipal Administration page.  Here you will find information on the key personnel responsible for the daily operations and management of our municipality.       
-        </p>
+                Welcome to the Municipal Administration page. Here you will find information on the key personnel responsible for the daily operations and management of our municipality.
+            </p>
         </div>
     </div>
 
     <div class="accordion accordion-flush" id="accordionFlushExample">
-              
+
         <div class="accordion-item">
-    
+
             <div id="flush-collapseTwo" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
 
@@ -85,7 +111,7 @@ $managers = $data['managers'];
                             if (isset($sm['name'])) {
                                 $smname =  substr($sm['name'], 0, 1);
                             }
-                           
+
                             if ($sm['category'] === 'SM') {
                                 echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                             <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;"  >
@@ -93,7 +119,7 @@ $managers = $data['managers'];
                                     <img src="' . $sm['location'] . '" class="card-img-top" alt="municipal councelor">
                                 </div>
                                 <p class="fw-bold text-uppercase fs-5 lh-1">' . $sm['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1"> '.$sm['initials'].' '. $sm['name'] . " " . $sm['surname'] . '</p>
+                                <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $sm['name'] . " " . $sm['surname'] . '</p>
                             </div>
                             </div>';
                             }
@@ -111,11 +137,11 @@ $managers = $data['managers'];
 
                         <?php
                         foreach ($managers as $key => $csd) {
-                            if (isset($csd['name']) ) {
+                            if (isset($csd['name'])) {
                                 $csdName = substr($csd['name'], 0, 1);
                             }
-                            
-                          if ($csd['category'] === 'CSD') {
+
+                            if ($csd['category'] === 'CSD') {
                                 echo '
                                     <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                                         <div class="card text-center m-1 shadow" style="width: 18rem; border: 4px solid #A5A3A3;">
@@ -123,16 +149,16 @@ $managers = $data['managers'];
                                                 <img src="' . $csd['location'] . '" class="card-img-top" alt="municipal councelor">
                                             </div>
                                             <p class="fw-bold text-uppercase fs-5 lh-1">' . $csd['title'] . '</p>
-                                            <p class="fw-normal text-capitalize fs-5 lh-1"> '.$sm['initials'].' ' . $csd['name'] . " " . $csd['surname'] . '</p>
+                                            <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $csd['name'] . " " . $csd['surname'] . '</p>
                                         </div>
                                     </div>';
-                                    }
+                            }
                         }
-                    
+
                         ?>
                     </div>
 
-                     <div class="row align-items-center justify-content-center">
+                    <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-1 text-uppercase my-5">
                                 Planning & development departments
@@ -151,13 +177,13 @@ $managers = $data['managers'];
                                             <img src="' . $pdd['location'] . '" class="card-img-top" alt="municipal councelor">
                                         </div>
                                         <p class="fw-bold text-uppercase fs-5 lh-1">' . $pdd['title'] . '</p>
-                                        <p class="fw-normal text-capitalize fs-5 lh-1">'.$sm['initials'].' '. $pdd['name'] . " " . $pdd['surname'] . '</p>  
+                                        <p class="fw-normal text-capitalize fs-5 lh-1">' . $sm['initials'] . ' ' . $pdd['name'] . " " . $pdd['surname'] . '</p>  
                                     </div>
                                     </div>';
-                                }
                             }
+                        }
                         ?>
-                    </div> 
+                    </div>
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-1 text-uppercase my-5">
@@ -176,7 +202,7 @@ $managers = $data['managers'];
                                         <img src="' . $tsd['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
                                     <p class="fw-bold text-uppercase fs-5 lh-1">' . $tsd['title'] . '</p>
-                                    <p class="fw-normal text-capitalize fs-5 lh-1"> '.$sm['initials'].' '. $tsd['name'] . " " . $tsd['surname'] . '</p>  
+                                    <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $tsd['name'] . " " . $tsd['surname'] . '</p>  
                                 </div>
                                 </div>';
                             }
@@ -197,14 +223,14 @@ $managers = $data['managers'];
                                 $otmmName =  substr($otmm['name'], 0, 1);
                             }
 
-                            if ($otmm['category'] === 'OTMM' || $otmm['category'] === 'CD' )  {
+                            if ($otmm['category'] === 'OTMM' || $otmm['category'] === 'CD') {
                                 echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                             <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
                                 <div class="card-body ">
                                     <img src="' . $otmm['location'] . '" class="card-img-top" alt="municipal councelor">
                                 </div>
                                 <p class="fw-bold text-uppercase fs-5 lh-1">' . $otmm['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1"> '.$sm['initials'].' '. $otmm['name'] . " " . $otmm['surname'] . '</p>  
+                                <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $otmm['name'] . " " . $otmm['surname'] . '</p>  
                             </div>
                             </div>';
                             }
@@ -212,11 +238,11 @@ $managers = $data['managers'];
                         ?>
                     </div>
 
-                  
+
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-1 text-uppercase my-5">
-                            Treasury department
+                                Treasury department
                             </p>
                         </div>
                         <?php
@@ -231,7 +257,7 @@ $managers = $data['managers'];
                                     <img src="' . $fd['location'] . '" class="card-img-top" alt="municipal councelor">
                                 </div>
                                 <p class="fw-bold text-uppercase fs-5 lh-1">' . $fd['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1">'.$sm['initials'].' ' . $fd['name']. " " . $fd['surname'] . '</p>  
+                                <p class="fw-normal text-capitalize fs-5 lh-1">' . $sm['initials'] . ' ' . $fd['name'] . " " . $fd['surname'] . '</p>  
                             </div>
                             </div>';
                             }
