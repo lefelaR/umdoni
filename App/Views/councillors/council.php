@@ -4,6 +4,8 @@ $data = $context->data;
 // array_column
 $councillors  = $data['councillors'];
 
+$crumbs = getCrumbs();
+
 ?>
 
 <style>
@@ -36,9 +38,11 @@ $councillors  = $data['councillors'];
         background-color: #fff;
         color: #000;
     }
+
     nav ul li a {
         color: #000;
     }
+
     nav ul li i {
         color: #000;
     }
@@ -58,8 +62,32 @@ $councillors  = $data['councillors'];
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <!-- <p class="h1 text-uppercase fw-normal">
-               
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+
+                    <?php
+
+                    if (isset($crumbs)) {
+                        foreach ($crumbs as $key => $crumb) {
+                            if ($key == (count($crumbs) - 1)) {
+                                $active = 'active';
+                                echo ' <li class="breadcrumb-item ' . $active . '" aria-current="page">' . $crumb . '</li>  ';
+                            } else {
+                                $active = '';
+                                echo '<li class="breadcrumb-item ' . $active . '" aria-current="page"><a href="#" class="btn btn-sm btn-primary btn-outline" onclick="history.back()">' . $crumb . '</a></li>';
+                            }
+                        }
+                    }
+
+                    ?>
+
+                </ol>
+              
+            </nav>
+
+        
+
+            <!-- <p class="h1 text-uppercase fw-normal">               
                 Meet Your Local City Representatives introducing you to the dedicated honourable members working for your community. Learn about their roles, achievements, and how they're shaping the future of your municipality.
             </p> -->
             <p class="fw-lighter fs-3 my-5">
@@ -68,11 +96,9 @@ $councillors  = $data['councillors'];
         </div>
     </div>
 
-
-
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
-       
+
             <div id="flush-collapseOne" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
 
@@ -160,12 +186,12 @@ $councillors  = $data['councillors'];
                         ?>
                     </div>
 
-                 
+
                 </div>
             </div>
         </div>
-        
-       
+
+
     </div>
 
 
@@ -180,24 +206,24 @@ $councillors  = $data['councillors'];
 
 
 <script>
-  var accordions = document.querySelectorAll('.accordion-button');
-  debugger
-  accordions.forEach(function (accordion) {
-    accordion.addEventListener('click', function () {
-      var collapse = this.getAttribute('data-bs-target');
-      var parent = this.getAttribute('data-bs-parent');
-      
-      if (collapse && parent) {
-        var parentElement = document.querySelector(parent);
-        var collapses = parentElement.querySelectorAll('.collapse');
-        
-        collapses.forEach(function (item) {
-          if (item.id !== collapse.substring(1)) {
-            var bsCollapse = new bootstrap.Collapse(item);
-            bsCollapse.hide();
-          }
+    var accordions = document.querySelectorAll('.accordion-button');
+    debugger
+    accordions.forEach(function(accordion) {
+        accordion.addEventListener('click', function() {
+            var collapse = this.getAttribute('data-bs-target');
+            var parent = this.getAttribute('data-bs-parent');
+
+            if (collapse && parent) {
+                var parentElement = document.querySelector(parent);
+                var collapses = parentElement.querySelectorAll('.collapse');
+
+                collapses.forEach(function(item) {
+                    if (item.id !== collapse.substring(1)) {
+                        var bsCollapse = new bootstrap.Collapse(item);
+                        bsCollapse.hide();
+                    }
+                });
+            }
         });
-      }
     });
-  });
 </script>
