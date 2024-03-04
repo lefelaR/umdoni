@@ -88,6 +88,12 @@ class Settings extends \Core\Controller
         redirect('dashboard/tenders/index');
     }
 
+
+    public function permissionsAction()
+    {
+        view::render('dashboard/settings/permissions.php', array(), 'dashboard');
+    }
+
     protected function before()
     {
         enable_authorize();

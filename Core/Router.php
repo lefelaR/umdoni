@@ -76,7 +76,7 @@ class Router
     {
         foreach ($this->routes as $route => $params) 
         {
-            // echo '<pre>'; print_r($params);die;
+          
 
             if (preg_match($route, $url, $matches)) 
             {
