@@ -51,14 +51,11 @@ $crumbs = getCrumbs();
             </div>
             <div class="card-content">
                 <?php include('Includes/parts/alerts.php') ?>
-
                 <div class="card-body">
                     <div class="table-responsive">
-
                         <table class="table table-striped" id="table1">
                             <thead>
                                 <tr>
-
                                     <th>TITLE</th>
                                     <th>SUBTITLE</th>
                                     <th>BODY</th>
