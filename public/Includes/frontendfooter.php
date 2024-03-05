@@ -82,3 +82,6 @@
     </div>
   </div>
 </footer>
+<?php 
+include 'includes/copyright.php';
+?>

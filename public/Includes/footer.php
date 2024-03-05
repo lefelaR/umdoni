@@ -12,5 +12,6 @@ $gpsarray = explode('/' ,$root);
         }
     }else{
         include 'includes/frontendfooter.php';
+       
     }
 ?>
