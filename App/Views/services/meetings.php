@@ -63,11 +63,7 @@ $data = $context->data;
             <p class="fw-lighter fs-3 my-5">
                 This page is your gateway to understanding the inner workings of Umdoni Municipality. Here, you'll find detailed schedules, agendas, and minutes from various municipal meetings, including council sessions, committee discussions, and public forums. Our commitment to transparency and community involvement is reflected in providing these documents, which offer insights into decision-making processes, upcoming projects, and municipal governance. Stay engaged with local affairs by exploring this page for the latest meeting schedules and documented discussions. It's your direct line to the civic dialogue and actions shaping the future of Umdoni Municipality. </p>
         </div>
-
     </div>
-
-   
-
 
 
     <div class="row justify-content-center">
@@ -95,7 +91,6 @@ $data = $context->data;
                 </div>
             </a>
         </div>
-
     </div>
 
 
