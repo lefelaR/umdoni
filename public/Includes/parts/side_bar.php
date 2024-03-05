@@ -1,8 +1,6 @@
 <?php
 global $context;
 $crumbs = getCrumbs();
-
-
 // use crumbs to determine what is active
 $sidebarItems = [
   (object)[
@@ -38,8 +36,8 @@ $sidebarItems = [
     'icon' => 'bi bi-inbox-fill',
     'hasSub' => true,
     'subItems' => [
-      (object)['label' => 'All Services', 'url' => buildurl("dashboard/services/index")],
-      (object)['label' => 'Service Requests', 'url' => buildurl("dashboard/services/requests")],
+      (object)['label' => 'Services', 'url' => buildurl("dashboard/services/index")],
+      (object)['label' => 'Requests', 'url' => buildurl("dashboard/services/requests")],
     ]
   ],
   (object)[
@@ -91,7 +89,8 @@ $sidebarItems = [
     'hasSub' => true,
     'subItems' => [
       (object)['label' => 'Activity Logs', 'url' => buildurl("dashboard/logs/index")],
-      (object)['label' => 'Permisions', 'url' => buildurl("dashboard/index/index")],
+      (object)['label' => 'Roles', 'url' => buildurl("dashboard/settings/roles")],
+      (object)['label' => 'Permisions', 'url' => buildurl("dashboard/settings/permissions")],
       (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
       (object)['label' => 'User Management', 'url' => buildurl("dashboard/users/index")],
     ]
@@ -105,11 +104,10 @@ $sidebarItems = [
       (object)['label' => 'Contact Support', 'url' => buildurl("dashboard/support/contact")],
     ]
   ],
- 
+
 ];
+
 ?>
-
-
 
 <div id="sidebar" class="active">
   <div class="sidebar-wrapper active">
@@ -127,40 +125,43 @@ $sidebarItems = [
     </div>
 
     <?php
-    echo '
-      <div class="sidebar-menu">
+    echo '<div class="sidebar-menu">
       <ul class="menu">';
     foreach ($sidebarItems as $link) {
       if ($link->hasSub === true) {
         $sub = 'has-sub';
         $subItems = $link->subItems;
         $sidebarItemActive = '';
-       foreach ($subItems as $value) {
-          if($crumbs[1] == strtolower($value->label)) $sidebarItemActive = 'active';
-      }
+        foreach ($subItems as $value) {
+          if ($crumbs[1] == strtolower($value->label)) $sidebarItemActive = 'active';
+        
+        // determine whether user has previlegde to view the page
+        }
+
+
         echo '
-        <li class="sidebar-item  '.$sidebarItemActive.' ' . $sub . '">
+        <li class="sidebar-item  ' . $sidebarItemActive . ' ' . $sub . '">
           <a href="#" class="sidebar-link">
           <i class="' . $link->icon . '"></i>
           <span>' . $link->label . '</span>
           </a>';
-        echo ' <ul class="submenu  '.$sidebarItemActive.' ">';
-       
+        echo ' <ul class="submenu  ' . $sidebarItemActive . ' ">';
+
         foreach ($subItems as $key => $subItem) {
           $page = strtolower($subItem->label);
-          if($page == $crumbs[1]) $submenuItemActive = 'active';
+          if ($page == $crumbs[1]) $submenuItemActive = 'active';
           else $submenuItemActive = '';
           echo '
-            <li class="submenu-item  '.$submenuItemActive.' ">
+            <li class="submenu-item  ' . $submenuItemActive . ' ">
               <a href="' . $subItem->url . '">' . $subItem->label . '</a>
             </li>';
         }
         echo '</ul></li>';
       } else {
         $sub = '';
-       
+
         echo '
-      <li class="sidebar-item   '. $sub .'">
+      <li class="sidebar-item   ' . $sub . '">
         <a href="' . $link->url . '" class="sidebar-link">
         <i class="' . $link->icon . '"></i>
         <span>' . $link->label . '</span>
@@ -169,7 +170,7 @@ $sidebarItems = [
       ';
       }
     }
-  
+
     ?>
     <li class="sidebar-item">
       <a href="<?php echo buildurl("Authentication/logout") ?>" class="sidebar-link">

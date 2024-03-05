@@ -21,15 +21,15 @@ use Aws\S3\S3Client;
 
 class Index extends \Core\Controller
 {
+    public $role = "";
 
     public function indexAction()
     {
         $dashboard = array();
-
         // get logged in user information
         $AuthenticatedUser  = $_SESSION['profile'];
+        // check for user role
         $profile_id = $AuthenticatedUser['user_id'];
-
         if(count($AuthenticatedUser) > 0){
             $profile  = Profile::getUser($AuthenticatedUser['email']);
             foreach ($profile as $key => $value) {
@@ -38,21 +38,11 @@ class Index extends \Core\Controller
                 }
             }
         }
-
-       
-        
-        $users = UserModel::getUser($AuthenticatedUser['user_id']);
-
-        $projects = Project::Get();
-        $services = Request::getAll();
-        $events = Event::getAll();
-        $notices = Notice::getAll();
-
-        $dashboard['users'] = $users;
-        $dashboard['requests'] = $services;
-        $dashboard['projects'] = $projects;
-        $dashboard['events'] = $events;
-        $dashboard['notices'] = $notices;
+        $dashboard['users'] = UserModel::getUser($AuthenticatedUser['user_id']);
+        $dashboard['requests'] = Request::getAll();
+        $dashboard['projects'] = Project::Get();
+        $dashboard['events'] = Event::getAll();
+        $dashboard['notices'] = Notice::getAll();
         $dashboard['profile'] = $profile;
         $profile['profile'] = $AuthenticatedUser;
         view::render('dashboard/index.php', $dashboard, 'dashboard');
