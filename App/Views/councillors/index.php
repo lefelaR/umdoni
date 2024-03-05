@@ -59,9 +59,7 @@ $data = $context->data;
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <!-- <p class="h1 text-uppercase fw-normal">
-               
-              </p> -->
+   
             <p class="fw-lighter fs-3 my-5">
                 Meet Your Local City Representatives introducing you to the dedicated honourable members working for your community. Learn about their roles, achievements, and how they're shaping the future of your municipality.
 
