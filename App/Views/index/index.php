@@ -190,6 +190,45 @@ $data = $context->data;
     </div>
 </div>
 
+
+<div class="container" id="partners">
+<p class="text-left h1 fw-bold text-uppercase text-yellow pb-2">Partners</p>
+    <div class="row mt-5">
+            <div class="col-md-2 col-sm-12 col-lg-2">
+                <div class="m-1">
+                <img src="<?php echo url('assets/img/partners/ugu.jpg')?>" class="img-thumbnail mx-auto" alt="ugu" />       
+            </div>
+            </div>
+            <div class="col-md-2 col-sm-12 col-lg-2">
+                <div class="m-1">
+                <img src="<?php echo url('assets/img/partners/mzumbe.png')?>" class="img-thumbnail mx-auto" alt="ugu" />
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-12 col-lg-2">
+                <div class="m-1">
+                <img src="<?php echo url('assets/img/partners/ray-nkonyana.png')?>" class="img-thumbnail mx-auto" alt="ugu" />      
+            </div>
+            </div>
+            <div class="col-md-2 col-sm-12 col-lg-2">
+                <div class="m-1">
+                <img src="<?php echo url('assets/img/partners/umzi.png')?>" class="img-thumbnail mx-auto" alt="ugu" />    
+            </div>
+            </div>
+            <div class="col-md-2 col-sm-12 col-lg-2">
+                <div class="m-1">
+                <img src="<?php echo url('assets/img/partners/uscda.jpg')?>" class="img-thumbnail mx-auto" alt="ugu" />
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-12 col-lg-2">
+                <div class="m-1">
+                <img src="<?php echo url('assets/img/partners/south-coast-tourism.jpg')?>" class="img-thumbnail mx-auto" alt="ugu" />       
+            </div>
+            </div>
+    </div>
+</div>
+
+
+
 <div class="container content-section " id="News">
     <p class="text-left h1 fw-bold text-uppercase text-yellow pb-2">Trending News</p>
     <?php $trendingNews = $data['news']; ?>
