@@ -200,14 +200,14 @@ $data = $context->data;
                 if ($key <= 2) {
                     echo '        
                     <div class="card mb-3" style="max-width: 540px;">
-                    <a href="' . buildurl("news/details?id=" . $news['id']) . '">
+                    <a href="' . buildurl("news/details?id=" . $news['id']) . '" ">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img src="' . $news["location"] . '" class="img-fluid rounded-start" style="">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title">' . $news["title"] . '</h5>
+                                    <h5 class="card-title text-black text-capitalize">' . $news["title"] . '</h5>
                                 </div>
                             </div>
                         </div>
