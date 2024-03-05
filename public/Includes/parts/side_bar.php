@@ -1,7 +1,6 @@
 <?php
 global $context;
 $crumbs = getCrumbs();
-
 // use crumbs to determine what is active
 $sidebarItems = [
   (object)[
@@ -107,6 +106,7 @@ $sidebarItems = [
   ],
 
 ];
+
 ?>
 
 <div id="sidebar" class="active">
@@ -125,8 +125,7 @@ $sidebarItems = [
     </div>
 
     <?php
-    echo '
-      <div class="sidebar-menu">
+    echo '<div class="sidebar-menu">
       <ul class="menu">';
     foreach ($sidebarItems as $link) {
       if ($link->hasSub === true) {
@@ -135,7 +134,11 @@ $sidebarItems = [
         $sidebarItemActive = '';
         foreach ($subItems as $value) {
           if ($crumbs[1] == strtolower($value->label)) $sidebarItemActive = 'active';
+        
+        // determine whether user has previlegde to view the page
         }
+
+
         echo '
         <li class="sidebar-item  ' . $sidebarItemActive . ' ' . $sub . '">
           <a href="#" class="sidebar-link">
