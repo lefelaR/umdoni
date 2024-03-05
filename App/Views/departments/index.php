@@ -74,7 +74,7 @@
 
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/manager') ?>">
-                <div class="card shadow">
+                <div class="card card-hover">
                     <div class="card-body">
                         <div class="d-flex inline">
                             <i class="bi bi-globe fs-1 text-yellow m-3"></i>
@@ -86,7 +86,7 @@
         </div>
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/finance') ?>">
-                <div class="card shadow">
+                <div class="card  card-hover">
                     <div class="card-body">
                         <div class="d-flex inline">
                             <i class="bi bi-cash fs-1 text-yellow m-3"></i>
@@ -98,7 +98,7 @@
         </div>
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/corporate') ?>">
-                <div class="card shadow">
+                <div class="card  card-hover">
                     <div class="card-body">
                         <div class="d-flex inline">
                             <i class="bi bi-building fs-1 text-yellow m-3"></i>
@@ -110,7 +110,7 @@
         </div>
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/technical') ?>">
-                <div class="card shadow">
+                <div class="card  card-hover">
                     <div class="card-body">
                         <div class="d-flex inline">
                             <i class="bi bi-tools fs-1 text-yellow m-3"></i>
@@ -122,7 +122,7 @@
         </div>
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/community') ?>">
-                <div class="card shadow">
+                <div class="card  card-hover">
                     <div class="card-body">
                         <div class="d-flex inline">
                             <i class="bi bi-flag fs-1 text-yellow m-3"></i>
@@ -134,7 +134,7 @@
         </div>
         <div class="col-md-4 my-2">
             <a href="<?php echo buildurl('departments/planning') ?>">
-                <div class="card shadow">
+                <div class="card  card-hover">
                     <div class="card-body">
                         <div class="d-flex inline">
                             <i class="bi bi-pentagon fs-1 text-yellow m-3"></i>

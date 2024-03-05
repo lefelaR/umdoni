@@ -75,11 +75,11 @@ $data = $context->data;
         
             <div class="col-md-3 my-2">
                 <a href="<?php echo buildurl('councillors/council') ?>">
-                    <div class="card shadow">
+                    <div class="card card-hover">
                         <div class="card-body">
                             <div class="d-flex inline">
                                 <i class="bi bi-globe fs-1 text-yellow m-3"></i>
-                                <p class="h5 m-3 p-2">Council</p>
+                                <p class="h5 my-auto p-2">Council</p>
                             </div>
                         </div>
                     </div>
@@ -87,11 +87,11 @@ $data = $context->data;
             </div>
             <div class="col-md-3 my-2">
                 <a href="<?php echo buildurl('councillors/administration') ?>">
-                    <div class="card shadow">
+                    <div class="card card-hover">
                         <div class="card-body">
                             <div class="d-flex inline">
                                 <i class="bi bi-globe fs-1 text-yellow m-3"></i>
-                                <p class="h5 m-3 p-2"> Administration</p>
+                                <p class="h5 my-auto p-2"> Administration</p>
                             </div>
                         </div>
                     </div>

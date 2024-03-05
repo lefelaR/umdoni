@@ -13,7 +13,7 @@ use App\Models\Requests;
 use \Core\View;
 use App\Models\User;
 use App\Models\Service;
-use App\Models\Request;
+use App\Models\Roles;
 use DateTime;
 use Aws\S3\S3Client;
 
@@ -86,6 +86,17 @@ class Settings extends \Core\Controller
             echo $th->getMessage();
         }
         redirect('dashboard/tenders/index');
+    }
+
+    public function rolesAction()
+    {
+        $roles = Roles::getAll();
+        view::render('dashboard/settings/roles.php', $roles, 'dashboard');
+    }
+
+    public function permissionsAction()
+    {
+        view::render('dashboard/settings/permissions.php', array(), 'dashboard');
     }
 
     protected function before()
