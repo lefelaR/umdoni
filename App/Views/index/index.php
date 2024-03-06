@@ -234,7 +234,7 @@ $data = $context->data;
 
 <div class="container content-section" id="partners">
     <p class="text-left h1 fw-bold text-uppercase text-yellow pb-2">Partners</p>
-    <div class="row mt-5">
+    <div class="row my-5 pt-5">
         <div class="col-md-2 col-sm-12 col-lg-2">
             <a href="http://www.ugu.gov.za" target="_blank">
             <div class="m-1">
@@ -242,7 +242,6 @@ $data = $context->data;
             </div>
             </a>
         </div>
-
 
         <div class="col-md-2 col-sm-12 col-lg-2">
             <a href="http://www.umzumbe.gov.za" target="_blank">

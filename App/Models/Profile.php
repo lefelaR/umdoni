@@ -100,10 +100,10 @@ class Profile extends \Core\Model
     {
         global $context;
         $exists = self::getUser($data['username']);
-        
         $context = (object) array_merge( (array)$context, array( 'profile' => $exists ) );
         // $context->profile = $exists;
-
+        // we can determine the role from here and use it in the future
+        // get the role
         if(!empty($exists)) 
         {
             try {
@@ -111,7 +111,6 @@ class Profile extends \Core\Model
             } catch (\Throwable $th) {
                 throw $th;
             }
-       
             return true;
         }
         else
@@ -124,11 +123,9 @@ class Profile extends \Core\Model
      static function Authenticate($profile, $data)
     {
         global $context;
-       
         try{
             if ($profile[0]["locked"] == '1' ) 
-            {
-                
+            {   
                 $context->isLoggedIn = false;
                 return false;
             }
@@ -138,10 +135,8 @@ class Profile extends \Core\Model
                 setcookie("auth", $_SESSION['token'], time() + 3600 * 30, '/');
                 return true;
             }
-
         }catch (PDOException $e) {
             throw new Exception($e->getMessage());
         }
     }
-
 }
