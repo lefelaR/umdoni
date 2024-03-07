@@ -4,6 +4,9 @@ namespace App\Models;
 
 use PDO;
 
+
+
+
 /**
  * Post model
  *
@@ -12,6 +15,7 @@ use PDO;
 class Roles extends \Core\Model
 {
 
+    
     /**
      * Get all the posts as an associative array
      *
@@ -36,7 +40,20 @@ class Roles extends \Core\Model
      * 
      */
 
-
+     public static function GetById($id)
+     {
+   
+         try {
+             $db = static::getDB();
+             $stmt = $db->query("SELECT * FROM roles 
+             WHERE id = '$id'");
+             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+             return $results;
+         } catch (PDOException $e) {
+             echo $e->getMessage();
+         }
+     }
+ 
 
     /**
      * @return object
@@ -73,3 +90,4 @@ class Roles extends \Core\Model
     }
 
 }
+

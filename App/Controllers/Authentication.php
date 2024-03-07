@@ -13,6 +13,7 @@ use App\Models\Profile;
 use Components\Context;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
 use App\Models\UserModel;
+use App\models\Roles;
 use Aws\Exception\AwsException;
 
 
@@ -188,7 +189,12 @@ public function __construct()
       if ($accessToken) {
         $_SESSION['token'] = $accessToken;
         $isLoggedin  = Profile::Login($data);
-        if ($isLoggedin == true) {
+        if ($isLoggedin == true) { 
+        // get the role
+
+          $role = Roles::GetById($context->profile[0]['role_id']);
+          if(isset($role)) $_SESSION['role'] = $role;
+
           redirect('dashboard/index/index');
         } else {
           $context->error['message'] = 'Your account is locked, please contact your Administrator to gain accecss!';

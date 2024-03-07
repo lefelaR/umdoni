@@ -75,10 +75,13 @@
           <a href="https://www.instagram.com/umdonimunicipality/" target="_blank" class="text-white">
             <i class="fa-brands fa-square-instagram fs-2 m-2"></i> Instagram </a>
           </li>
-        <li>
+        <!-- <li>
           <a href="#" class="text-white" target="_blank"><i class="fa-brands fa-youtube fs-2 m-2"></i> Youtube </a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
 </footer>
+<?php 
+include 'includes/copyright.php';
+?>

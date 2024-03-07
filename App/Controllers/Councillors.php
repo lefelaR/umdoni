@@ -15,10 +15,9 @@ use  PHPMailer\PHPMailer\Exception;
 
 class Councillors extends \Core\Controller
 {
- 
     protected function before()
     {
-        //return false;
+   
     }
 
     public function indexAction()

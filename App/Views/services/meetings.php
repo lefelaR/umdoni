@@ -63,32 +63,37 @@ $data = $context->data;
             <p class="fw-lighter fs-3 my-5">
                 This page is your gateway to understanding the inner workings of Umdoni Municipality. Here, you'll find detailed schedules, agendas, and minutes from various municipal meetings, including council sessions, committee discussions, and public forums. Our commitment to transparency and community involvement is reflected in providing these documents, which offer insights into decision-making processes, upcoming projects, and municipal governance. Stay engaged with local affairs by exploring this page for the latest meeting schedules and documented discussions. It's your direct line to the civic dialogue and actions shaping the future of Umdoni Municipality. </p>
         </div>
+    </div>
 
-        <div class="col-md-6 my-2">
 
-            <a href="<?php echo buildurl('meetings/index') ?>">
-                <div class="card shadow">
+    <div class="row justify-content-center">
+        <div class="col-md-3 my-2">
+        <a href="<?php echo buildurl('meetings/index') ?>">
+                <div class="card card-hover">
                     <div class="card-body">
                         <div class="d-flex inline">
-                            <i class="bi bi-calendar-event fs-1 text-yellow"></i>
-                            <p class="h5 m-3 mx-auto"> Meetings</p>
+                        <i class="bi bi-calendar-event fs-1 text-yellow"></i>
+                            <p class="h5 m-auto p-2">Meetings</p>
                         </div>
                     </div>
                 </div>
             </a>
         </div>
-        <div class="col-md-6 my-2">
-            <a href="<?php echo buildurl('agendas/index') ?>">
-                <div class="card shadow">
+        <div class="col-md-3 my-2">
+        <a href="<?php echo buildurl('agendas/index') ?>">
+                <div class="card card-hover">
                     <div class="card-body">
                         <div class="d-flex inline">
-                            <i class="bi bi-book fs-1 text-yellow"></i>
-                            <p class="h5 m-3 mx-auto"> Agendas</p>
+                        <i class="bi bi-book fs-1 text-yellow"></i>
+                            <p class="h5 m-auto p-2"> Agendas</p>
                         </div>
                     </div>
                 </div>
             </a>
         </div>
     </div>
+
+
+</div>
 </div>
 </div>
