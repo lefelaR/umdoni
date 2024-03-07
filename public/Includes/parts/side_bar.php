@@ -109,9 +109,7 @@ $sidebarItems = [
       (object)['label' => 'Contact Support', 'url' => buildurl("dashboard/support/contact")],
     ]
   ],
-
 ];
-
 ?>
 
 <div id="sidebar" class="active">

@@ -83,5 +83,5 @@
   </div>
 </footer>
 <?php 
-include 'includes/copyright.php';
+include 'Includes/copyright.php';
 ?>
