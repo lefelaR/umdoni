@@ -13,7 +13,7 @@ use App\Models\Profile;
 use Components\Context;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
 use App\Models\UserModel;
-use App\models\Roles;
+use App\Models\Roles;
 use Aws\Exception\AwsException;
 
 
