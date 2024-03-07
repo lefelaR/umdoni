@@ -216,18 +216,18 @@ $managers = $data['managers'];
                             </p>
                         </div>
                         <?php
-                        foreach ($managers as $key => $csd) {
-                            if (isset($csd['name'])) {
-                                $csdName =  substr($csd['name'], 0, 1);
+                        foreach ($managers as $key => $cosd) {
+                            if (isset($cosd['name'])) {
+                                $cosdName =  substr($cosd['name'], 0, 1);
                             }
-                            if ($csd['category'] === 'CSD') {
+                            if ($cosd['category'] === 'COSD') {
                                 echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                                 <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
                                     <div class="card-body ">
-                                        <img src="' . $csd['location'] . '" class="card-img-top" alt="municipal councelor">
+                                        <img src="' . $cosd['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
-                                    <p class="fw-bold text-uppercase fs-5 lh-1">' . $csd['title'] . '</p>
-                                    <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $csd['name'] . " " . $csd['surname'] . '</p>  
+                                    <p class="fw-bold text-uppercase fs-5 lh-1">' . $cosd['title'] . '</p>
+                                    <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $cosd['name'] . " " . $cosd['surname'] . '</p>  
                                 </div>
                                 </div>';
                             }
