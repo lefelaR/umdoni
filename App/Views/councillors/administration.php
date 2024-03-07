@@ -80,10 +80,8 @@ $managers = $data['managers'];
                     }
 
                     ?>
-
                 </ol>
             </nav>
-
 
             <p class="fw-lighter fs-3 my-5">
                 Welcome to the Municipal Administration page. Here you will find information on the key personnel responsible for the daily operations and management of our municipality.
@@ -92,12 +90,9 @@ $managers = $data['managers'];
     </div>
 
     <div class="accordion accordion-flush" id="accordionFlushExample">
-
         <div class="accordion-item">
-
             <div id="flush-collapseTwo" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-1 text-uppercase my-5">
@@ -127,21 +122,15 @@ $managers = $data['managers'];
                         ?>
                     </div>
 
-
-
-
-
-
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                         <p class="fs-1 text-uppercase mt-5">
                             Extended Management
                         </p>   
-                       
                         </div>
 
                         <div class="col-md-12 col-lg-12 text-center">
- <p class="fs-5 text-uppercase mb-5">
+                            <p class="fs-5 text-uppercase mb-5">
                                 Community service department
                             </p> 
                             </div>
@@ -150,7 +139,6 @@ $managers = $data['managers'];
                             if (isset($csd['name'])) {
                                 $csdName = substr($csd['name'], 0, 1);
                             }
-
                             if ($csd['category'] === 'CSD') {
                                 echo '
                                     <div class="col-md-4 col-lg-3 col-sm-12 my-1">
@@ -164,7 +152,6 @@ $managers = $data['managers'];
                                     </div>';
                             }
                         }
-
                         ?>
                     </div>
 
@@ -189,7 +176,7 @@ $managers = $data['managers'];
                                         <p class="fw-bold text-uppercase fs-5 lh-1">' . $pdd['title'] . '</p>
                                         <p class="fw-normal text-capitalize fs-5 lh-1">' . $sm['initials'] . ' ' . $pdd['name'] . " " . $pdd['surname'] . '</p>  
                                     </div>
-                                    </div>';
+                                 </div>';
                             }
                         }
                         ?>
@@ -220,6 +207,36 @@ $managers = $data['managers'];
                         ?>
                     </div>
 
+
+
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class="fs-5 text-uppercase my-5">
+                                Corporate service department
+                            </p>
+                        </div>
+                        <?php
+                        foreach ($managers as $key => $csd) {
+                            if (isset($csd['name'])) {
+                                $csdName =  substr($csd['name'], 0, 1);
+                            }
+                            if ($csd['category'] === 'CSD') {
+                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
+                                <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
+                                    <div class="card-body ">
+                                        <img src="' . $csd['location'] . '" class="card-img-top" alt="municipal councelor">
+                                    </div>
+                                    <p class="fw-bold text-uppercase fs-5 lh-1">' . $csd['title'] . '</p>
+                                    <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $csd['name'] . " " . $csd['surname'] . '</p>  
+                                </div>
+                                </div>';
+                            }
+                        }
+                        ?>
+                    </div>
+
+
+
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-5 text-uppercase my-5">
@@ -248,7 +265,6 @@ $managers = $data['managers'];
                         ?>
                     </div>
 
-
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-5 text-uppercase my-5">
@@ -262,7 +278,7 @@ $managers = $data['managers'];
                             }
                             if ($fd['category'] === 'FM') {
                                 echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                            <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
+                                    <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
                                 <div class="card-body ">
                                     <img src="' . $fd['location'] . '" class="card-img-top" alt="municipal councelor">
                                 </div>
@@ -274,10 +290,6 @@ $managers = $data['managers'];
                         }
                         ?>
                     </div> 
-
-
-
-
                 </div>
             </div>
         </div>
