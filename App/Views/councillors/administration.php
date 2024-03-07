@@ -128,13 +128,23 @@ $managers = $data['managers'];
                     </div>
 
 
+
+
+
+
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Community service department
-                            </p>
+                        <p class="fs-1 text-uppercase mt-5">
+                            Extended Management
+                        </p>   
+                       
                         </div>
 
+                        <div class="col-md-12 col-lg-12 text-center">
+ <p class="fs-5 text-uppercase mb-5">
+                                Community service department
+                            </p> 
+                            </div>
                         <?php
                         foreach ($managers as $key => $csd) {
                             if (isset($csd['name'])) {
@@ -160,7 +170,7 @@ $managers = $data['managers'];
 
                    <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
+                            <p class="fs-5 text-uppercase my-5">
                                 Planning & development departments
                             </p>
                         </div>
@@ -186,7 +196,7 @@ $managers = $data['managers'];
                     </div>
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
+                            <p class="fs-5 text-uppercase my-5">
                                 Technical service department
                             </p>
                         </div>
@@ -212,7 +222,7 @@ $managers = $data['managers'];
 
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
+                            <p class="fs-5 text-uppercase my-5">
                                 Office of the municipal Manager
                             </p>
                         </div>
@@ -241,7 +251,7 @@ $managers = $data['managers'];
 
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
+                            <p class="fs-5 text-uppercase my-5">
                                 Finance department
                             </p>
                         </div>
