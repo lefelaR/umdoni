@@ -6,11 +6,7 @@ use PDO;
 
 
 
-interface Role
-{
-    public string $name = '';
-    public string $permissions = [];  
-}
+
 /**
  * Post model
  *
