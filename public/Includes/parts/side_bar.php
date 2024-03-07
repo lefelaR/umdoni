@@ -1,6 +1,11 @@
 <?php
 global $context;
 $crumbs = getCrumbs();
+
+
+// check  permission
+$role = $_SESSION['role'];
+
 // use crumbs to determine what is active
 $sidebarItems = [
   (object)[
@@ -127,6 +132,7 @@ $sidebarItems = [
     <?php
     echo '<div class="sidebar-menu">
       <ul class="menu">';
+
     foreach ($sidebarItems as $link) {
       if ($link->hasSub === true) {
         $sub = 'has-sub';
