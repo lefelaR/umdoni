@@ -12,7 +12,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class Roles extends \Core\Model
+class RolesModel extends \Core\Model
 {
 
     
@@ -26,7 +26,8 @@ class Roles extends \Core\Model
   
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM roles WHERE `status` = 1');
+            $stmt = $db->query('SELECT * FROM roles');
+            
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
             

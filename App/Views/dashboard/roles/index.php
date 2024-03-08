@@ -34,9 +34,9 @@ $crumbs = getCrumbs();
     <div class="col-md">
         <div class="card">
             <div class="card-header">
-            <p class="card-title fw-light">Project List</p>
+            <p class="card-title fw-light">Role list</p>
                 <div class="float-start float-lg-end">
-                    <a class="btn btn-sm" href="<?php echo buildurl("dashboard/projects/add") ?>" role="button">
+                    <a class="btn btn-sm" href="<?php echo buildurl("dashboard/roles/add") ?>" role="button">
                         <i class="bi bi-plus"></i> Add
                     </a>
                     <button class="btn  btn-sm">
@@ -52,30 +52,26 @@ $crumbs = getCrumbs();
                             <thead>
                                 <tr>
                                     <th>NO#</th>
-                                    <th>TITLE</th>
-                                    <th>SUMMARY</th>
-                                    <th>BODY</th>
-                                    <th>CREATED DATE</th>
+                                    <th>NAME</th>
+                                    <th>PERMISSIONS</th>
                                     <th>ACTIONS</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($data as $key => $project) {
+                                foreach ($data as $key => $role) {
                                     $key++;
                                     echo '
                                 <tr>
                                     <td class="text-bold-500">' . $key . '</td>
-                                    <td>' . $project['title'] . '</td>
-                                    <td>' . $project['subtitle'] . '</td>
-                                    <td>' . $project['body'] . '</td>
-                                    <td class="text-bold-500">' . $project['createdAt'] . '</td>
+                                    <td>' . $role['name'] . '</td>
+                                    <td>' . $role['permissions'] . '</td>
                                     <td>
                                        
-                                        <a class="btn  btn-sm" href="add?id=' .  $project['id'] . '" >
+                                        <a class="btn  btn-sm" href="add?id=' .  $role['id'] . '" >
                                         <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a class="btn btn-sm" href="delete?id='.  $project['id'] .'" onclick="handleDelete(event, '.$project['id'].')">
+                                        <a class="btn btn-sm" href="delete?id='.  $role['id'] .'" onclick="handleDelete(event, '.$role['id'].')">
                                          <i class="bi bi-trash"></i>
                                     </a>
                                     </td>

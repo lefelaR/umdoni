@@ -91,7 +91,8 @@ class Settings extends \Core\Controller
     public function rolesAction()
     {
         $roles = Roles::getAll();
-        view::render('dashboard/settings/roles.php', $roles, 'dashboard');
+
+        view::render('dashboard/settings/roles/index.php', $roles, 'dashboard');
     }
 
     public function permissionsAction()
