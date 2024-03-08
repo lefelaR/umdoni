@@ -13,6 +13,7 @@ use App\Models\User;
 use App\Models\Countries;
 use App\Models\UserModel;
 use Aws\S3\S3Client;
+use App\Models\Roles;
 
 
 class Users extends \Core\Controller

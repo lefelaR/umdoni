@@ -406,7 +406,6 @@ foreach ($data['quotations'] as $quotationkey => $quotaionValue) {
                                 </tr>
                                   ';
                                 }
-
                                 ?>
                             </tbody>
                         </table>

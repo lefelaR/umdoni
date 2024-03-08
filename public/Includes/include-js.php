@@ -15,12 +15,9 @@
     let table1 = document.querySelector('#table1');
     let table2 = document.querySelector('#table1');
     let table3 = document.querySelector('#table3');
-
     let table4 = document.querySelector('#table4');
     let table5 = document.querySelector('#table5');
     let table6 = document.querySelector('#table6');
-    
-
     let dataTable = new simpleDatatables.DataTable(table1);
     let dataTable2 = new simpleDatatables.DataTable(table2);
     let dataTable3 = new simpleDatatables.DataTable(table3);

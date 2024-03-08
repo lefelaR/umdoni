@@ -94,7 +94,7 @@ $sidebarItems = [
     'hasSub' => true,
     'subItems' => [
       (object)['label' => 'Activity Logs', 'url' => buildurl("dashboard/logs/index")],
-      (object)['label' => 'Roles', 'url' => buildurl("dashboard/settings/roles")],
+      (object)['label' => 'Roles', 'url' => buildurl("dashboard/roles/index")],
       (object)['label' => 'Permisions', 'url' => buildurl("dashboard/settings/permissions")],
       (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
       (object)['label' => 'User Management', 'url' => buildurl("dashboard/users/index")],
@@ -128,6 +128,9 @@ $sidebarItems = [
     </div>
 
     <?php
+        //check the session for permissions;
+
+    
     echo '<div class="sidebar-menu">
       <ul class="menu">';
 
