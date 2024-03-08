@@ -78,12 +78,12 @@ echo '
                 
                     <div class="form-group">
                         <label for="body">Body</label>
-                        <textarea type="text" name="body" class="form-control text-black" id="body" onclick="handleSave()" value="' . $body . '" rows="3">
+                        <textarea type="text" name="body" class="form-control text-black" id="body" value="' . $body . '" rows="3">
                         </textarea>
                     </div>
 
                     <div id="editor"></div>
-                <button class="btn btn-primary btn-lg">
+                         <button class="btn btn-primary btn-lg"  onclick="handleSave()">
                     submit
                 </button>
                 </div>

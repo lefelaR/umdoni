@@ -38,7 +38,8 @@ include_once '../Components/Helpers.php';
   {{content}}
   <?php include '../public/Includes/frontendfooter.php' ?>
   <?php include '../public/Includes/include-js.php' ?>
-  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+ 
+
 </body>
 <!-- <?php #include '../public/Includes/cookie.php' ?> -->
 </html>
