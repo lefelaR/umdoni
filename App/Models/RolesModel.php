@@ -27,7 +27,6 @@ class RolesModel extends \Core\Model
         try {
             $db = static::getDB();
             $stmt = $db->query('SELECT * FROM roles');
-            
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
             
@@ -66,26 +65,19 @@ class RolesModel extends \Core\Model
         global $context;
         $db = static::getDB(); 
         
-        $sql = "INSERT into loki.experience (company, position, start, end, responsibility, tools, city, contact)
-                VALUES ('$data[company]','$data[position]','$data[start]','$data[end]','$data[responsibility]','$data[tools]','$data[city]','$data[contact]')"; 
+        $sql = "INSERT into roles (name, permissions)
+                VALUES ('$data[name]','$data[permissions]')"; 
         $stmt = $db->exec($sql);
-        
+    
        return $stmt;
     }
 
-    public static function Update($id, $data)
-    {
-        global $context;
-        $db = static::getDB();
-        $sql = "";
-        $stmt = $db-exec($sql);
-        return $stmt;
-    }
+
 
     public static function Delete($id)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE  loki.experience SET `status` = 0 WHERE `id` = $id"; 
+        $sql = "DELETE FROM roles WHERE `id` = $id"; 
         $stmt = $db->exec($sql);
        return $stmt;
     }

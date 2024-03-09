@@ -37,9 +37,37 @@ class Roles extends \Core\Controller
 
     public function save()
     {   
-        $roles = RolesModel::getAll();
-        view::render('dashboard/roles/index.php', $roles, 'dashboard');
+        global $context;
+
+        if (isset($_POST)) $data = $_POST;
+
+    try{
+        $id = RolesModel::Save($data);
+        $_SESSION['success'] = ['message' => 'successfully added record!'];
+    }catch(\Throwable $th)
+    {
+        $_SESSION['error'] = ['message' => $th->getMessage()]; 
     }
+       redirect('dashboard/roles/index');
+    }
+
+
+    
+    public function deleteAction()
+    {
+        $id = $_GET['id'];
+        try 
+        {
+          RolesModel::Delete($id);
+          $_SESSION['success'] = ['message' => 'record deleted!'];
+        } catch (\Throwable $th) 
+        {
+            echo $th->getMessage();
+            $_SESSION['error'] = ['message' => $th->getMessage()]; 
+        }
+        redirect('dashboard/roles/index');
+    }
+
 
     protected function before()
     {

@@ -3,8 +3,7 @@ global $context;
 $crumbs = getCrumbs();
 
 
-// check  permission
-$role = $_SESSION['role'];
+ 
 
 // use crumbs to determine what is active
 $sidebarItems = [

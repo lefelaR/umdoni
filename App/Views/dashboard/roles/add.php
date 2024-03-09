@@ -14,9 +14,7 @@ echo '
     </h1>
     <div class="col-12 col-md-12 order-md-2 order-first">
         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-            <ol class="breadcrumb">
-           
-            ';
+            <ol class="breadcrumb">';
 
             foreach ($crumbs as $key => $crumb) 
             {
@@ -63,9 +61,9 @@ echo'
                         <input type="text" class="form-control" id="name" name="name" value="'.$name.'">
                     </div>
 
-                    <div class="form-group">
-                        <label for="helperText">Subtitle</label>
-                        <input type="text" id="subtitle" name="subtitle" class="form-control" value="'.$permissions. '">
+                    <div class="form-switch">
+                        <label for="helperText">Permissions</label>
+                        <input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="" name="switch" id="" >
                     </div>
 
                     <div id="editor"></div>
