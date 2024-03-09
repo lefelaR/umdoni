@@ -13,7 +13,7 @@ use App\Models\Profile;
 use Components\Context;
 use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
 use App\Models\UserModel;
-use App\Models\Roles;
+use App\Models\RolesModel;
 use Aws\Exception\AwsException;
 
 
@@ -192,7 +192,7 @@ public function __construct()
         if ($isLoggedin == true) { 
         // get the role
 
-          $role = Roles::GetById($context->profile[0]['role_id']);
+          $role = RolesModel::GetById($context->profile[0]['role_id']);
           if(isset($role)) $_SESSION['role'] = $role;
 
           redirect('dashboard/index/index');
