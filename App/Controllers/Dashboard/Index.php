@@ -17,11 +17,12 @@ use App\Models\Project;
 use App\Models\Event;
 use App\Models\Notice;
 use App\Models\UserModel;
+use App\Models\RolesModel;
 use Aws\S3\S3Client;
 
 class Index extends \Core\Controller
 {
-    public $role = "";
+
 
     public function indexAction()
     {
@@ -38,13 +39,14 @@ class Index extends \Core\Controller
                 }
             }
         }
-        $dashboard['users'] = UserModel::getUser($AuthenticatedUser['user_id']);
+        $dashboard['users'] = UserModel::getUser($profile_id);     
         $dashboard['requests'] = Request::getAll();
         $dashboard['projects'] = Project::Get();
         $dashboard['events'] = Event::getAll();
         $dashboard['notices'] = Notice::getAll();
         $dashboard['profile'] = $profile;
         $profile['profile'] = $AuthenticatedUser;
+    
         view::render('dashboard/index.php', $dashboard, 'dashboard');
     }
 

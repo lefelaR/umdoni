@@ -8,12 +8,14 @@ $crumbs = getCrumbs();
 $sidebarItems = [
   (object)[
     'label' => 'Dashboard',
+    'name' => 'dashboard',
     'icon' => 'bi bi-grid-fill',
     'hasSub' => false,
     'url' => buildurl("dashboard/index/index")
   ],
   (object)[
     'label' => 'Event Management',
+    'name' => 'eventManagement',
     'icon' => 'bi bi-book-fill',
     'hasSub' => true,
     'subItems' => [
@@ -26,6 +28,7 @@ $sidebarItems = [
   ],
   (object)[
     'label' => 'Content Management',
+    'name' => 'contentManagement',
     'icon' => 'bi bi-stack',
     'hasSub' => true,
     'subItems' => [
@@ -36,6 +39,7 @@ $sidebarItems = [
 
   (object)[
     'label' => 'Service Management',
+    'name' => 'serviceManagement',
     'icon' => 'bi bi-inbox-fill',
     'hasSub' => true,
     'subItems' => [
@@ -45,6 +49,7 @@ $sidebarItems = [
   ],
   (object)[
     'label' => 'Official Profiles',
+    'name' => 'officialProfiles',
     'icon' => 'bi bi-people-fill',
     'hasSub' => true,
     'subItems' => [
@@ -54,6 +59,7 @@ $sidebarItems = [
   ],
   (object)[
     'label' => 'Document Library',
+    'name' => 'documentLibrary',
     'icon' => 'bi bi-archive-fill',
     'hasSub' => true,
     'subItems' => [
@@ -63,6 +69,7 @@ $sidebarItems = [
 
   (object)[
     'label' => 'Human Resources',
+    'name' => 'humanResources',
     'icon' => 'bi bi-award-fill',
     'hasSub' => true,
     'subItems' => [
@@ -72,12 +79,14 @@ $sidebarItems = [
 
   (object)[
     'label' => 'Community Engagement',
+    'name' => 'communityEngagement',
     'icon' => 'bi bi-chat-right-fill',
     'hasSub' => false,
     'url'  => '#'
   ],
   (object)[
     'label' => 'Economic Development',
+    'name' => 'economicDevelopment',
     'icon' => 'bi bi-wallet-fill',
     'hasSub' => true,
     'subItems' => [
@@ -88,18 +97,19 @@ $sidebarItems = [
 
   (object)[
     'label' => 'System Settings',
+    'name' => 'systemSettings',
     'icon' => 'bi bi-gear-fill',
     'hasSub' => true,
     'subItems' => [
       (object)['label' => 'Activity Logs', 'url' => buildurl("dashboard/logs/index")],
       (object)['label' => 'Roles', 'url' => buildurl("dashboard/roles/index")],
-      (object)['label' => 'Permissions', 'url' => buildurl("dashboard/permissions/index")],
       (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
       (object)['label' => 'User Management', 'url' => buildurl("dashboard/users/index")],
     ]
   ],
   (object)[
     'label' => 'Support',
+    'name' => 'support',
     'icon' => 'bi bi-headset',
     'hasSub' => true,
     'subItems' => [
@@ -127,29 +137,33 @@ $sidebarItems = [
 
     <?php
         //check the session for permissions;
-
-    
+        // determine roles
+      if(isset($context->role[0])){
+        $permissions = json_decode($context->role[0]['permissions']);
+      }
+  
     echo '<div class="sidebar-menu">
       <ul class="menu">';
 
     foreach ($sidebarItems as $link) {
+
       if ($link->hasSub === true) {
         $sub = 'has-sub';
         $subItems = $link->subItems;
         $sidebarItemActive = '';
         foreach ($subItems as $value) {
-          if ($crumbs[1] == strtolower($value->label)) $sidebarItemActive = 'active';
-        
-        // determine whether user has previlegde to view the page
+          if ($crumbs[1] == strtolower($value->label)) $sidebarItemActive = 'active';        
         }
 
+        if (property_exists($permissions, $link->name) && $permissions->{$link->name} == 'on') {
 
-        echo '
-        <li class="sidebar-item  ' . $sidebarItemActive . ' ' . $sub . '">
+        echo 
+        '<li class="sidebar-item  ' . $sidebarItemActive . ' ' . $sub . '">
           <a href="#" class="sidebar-link">
           <i class="' . $link->icon . '"></i>
           <span>' . $link->label . '</span>
           </a>';
+        }
         echo ' <ul class="submenu  ' . $sidebarItemActive . ' ">';
 
         foreach ($subItems as $key => $subItem) {
