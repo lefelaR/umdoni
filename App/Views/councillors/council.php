@@ -40,7 +40,6 @@ $crumbs = getCrumbs();
     nav ul li a {
         color: #000;
     }
-
     nav ul li i {
         color: #000;
     }
@@ -62,6 +61,21 @@ $crumbs = getCrumbs();
    .card-footer p{
     line-height: 20px;
    }
+   @media (max-width: 575.98px) {
+    .card{
+        width: auto;
+        border: 4px solid #A5A3A3;
+    }
+   .card-body{
+    padding: 0 !important;
+    height: 16em; 
+    overflow: hidden;
+   }
+  
+   .card-footer p{
+    line-height: 22px;
+   }
+}
 
 </style>
 
