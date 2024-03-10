@@ -46,6 +46,36 @@ $managers = $data['managers'];
     nav ul li i {
         color: #000;
     }
+    .card{
+        width: 12em;
+        min-height: 30em;
+        border: 4px solid #A5A3A3;
+    }
+   .card-body{
+    padding: 0 !important;
+    width: auto;
+    height: 16em; 
+    overflow: hidden;
+   }
+   .card-footer{
+    min-height:10em;
+   }
+   .card-footer p{
+    line-height: 20px;
+   }
+   @media (max-width: 575.98px) {
+    .card{
+        width: auto;
+        border: 4px solid #A5A3A3;
+    }
+   .card-body{
+    padding: 0 !important;
+    height: 16em; 
+    overflow: hidden;
+   }
+   .card-footer p{
+    line-height: 22px;
+   }
 </style>
 
 <div class="container-fluid" id="service-page">
