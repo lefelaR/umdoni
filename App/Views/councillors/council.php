@@ -71,11 +71,13 @@ $crumbs = getCrumbs();
     height: 16em; 
     overflow: hidden;
    }
-  
    .card-footer p{
     line-height: 22px;
    }
 }
+
+
+
 
 </style>
 
