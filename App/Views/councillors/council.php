@@ -18,7 +18,9 @@ $crumbs = getCrumbs();
         background-size: cover;
 
     }
-
+    .card-body{
+        padding: 0 !important;
+    }
     #service-page p {
         bottom: 0px;
         position: absolute;
@@ -118,12 +120,12 @@ $crumbs = getCrumbs();
                             // data-bs-toggle="modal" data-bs-target="#councillorModal"
                             if ($exco['category'] === 'EXCO') {
                                 echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                        <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;"  >
+                        <div class="card text-center m-1 " style="width: 18rem;border: 4px solid #A5A3A3;"  >
                             <div class="card-body ">
                                 <img src="' . $exco['location'] . '" class="card-img-top" alt="municipal councelor">
                             </div>
-                            <p class="fw-bold text-uppercase fs-5 lh-1">' . $exco['title'] . '</p>
-                            <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '</p>
+                            <p class="fw-bold text-secondary text-uppercase fs-5 ">' . $exco['title'] . '</p>
+                            <p class="fw-normal text-capitalize fs-5 "> Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '</p>
                         </div>
                         </div>';
                             }
