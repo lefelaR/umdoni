@@ -72,7 +72,13 @@ class RolesModel extends \Core\Model
        return $stmt;
     }
 
-
+    public static function Update($id, $data)
+    {
+        $db = static::getDB(); 
+        $sql = "UPDATE roles SET `name` =  '$data[name]', `permissions` = '$data[permissions]'
+               WHERE `id`= $id"; 
+        $stmt = $db->exec($sql);
+    }
 
     public static function Delete($id)
     {

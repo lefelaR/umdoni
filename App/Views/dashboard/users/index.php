@@ -60,8 +60,6 @@ $crumbs = getCrumbs();
                     $img = '<img src=' . url("assets/img/pro.jpg") . ' style="width:30px">';
                   }
 
-             
-
 
                   $key++;
 
