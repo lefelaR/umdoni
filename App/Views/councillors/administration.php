@@ -110,7 +110,7 @@ $managers = $data['managers'];
                             }
 
                             if ($sm['category'] === 'SM') {
-                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                             <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;"  >
                                 <div class="card-body ">
                                     <img src="' . $sm['location'] . '" class="card-img-top" alt="municipal councelor">
@@ -143,7 +143,7 @@ $managers = $data['managers'];
                             }
                             if ($csd['category'] === 'CSD') {
                                 echo '
-                                    <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                    <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                                         <div class="card text-center m-1 shadow" style="width: 18rem; border: 4px solid #A5A3A3;">
                                             <div class="card-body">
                                                 <img src="' . $csd['location'] . '" class="card-img-top" alt="municipal councelor">
@@ -170,7 +170,7 @@ $managers = $data['managers'];
                             }
                             if ($pdd['category'] === "PDD") {
 
-                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                                     <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
                                         <div class="card-body ">
                                             <img src="' . $pdd['location'] . '" class="card-img-top" alt="municipal councelor">
@@ -195,7 +195,7 @@ $managers = $data['managers'];
                                 $tsdName =  substr($tsd['name'], 0, 1);
                             }
                             if ($tsd['category'] === 'TSD') {
-                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                                 <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
                                     <div class="card-body ">
                                         <img src="' . $tsd['location'] . '" class="card-img-top" alt="municipal councelor">
@@ -223,7 +223,7 @@ $managers = $data['managers'];
                                 $cosdName =  substr($cosd['name'], 0, 1);
                             }
                             if ($cosd['category'] === 'COSD') {
-                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                                 <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
                                     <div class="card-body ">
                                         <img src="' . $cosd['location'] . '" class="card-img-top" alt="municipal councelor">
@@ -253,7 +253,7 @@ $managers = $data['managers'];
                             }
 
                             if ($otmm['category'] === 'OTMM' || $otmm['category'] === 'CD') {
-                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                             <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
                                 <div class="card-body ">
                                     <img src="' . $otmm['location'] . '" class="card-img-top" alt="municipal councelor">
@@ -279,7 +279,7 @@ $managers = $data['managers'];
                                 $fdName =  substr($fd['name'], 0, 1);
                             }
                             if ($fd['category'] === 'FM') {
-                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
                                     <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
                                 <div class="card-body ">
                                     <img src="' . $fd['location'] . '" class="card-img-top" alt="municipal councelor">
