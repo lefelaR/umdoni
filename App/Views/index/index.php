@@ -4,6 +4,7 @@ global $context;
 $data = $context->data;
 
 ?>
+
 <div class="hero" id="animate-area">
     <div class="jumbotron-content">
         <div class="row">

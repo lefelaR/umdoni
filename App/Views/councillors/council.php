@@ -20,6 +20,13 @@ $crumbs = getCrumbs();
     }
     .card-body{
         padding: 0 !important;
+        overflow: hidden;
+        width: 300px !important;
+        height: 400px !important;
+    }
+    .card-body img{
+        width: 100%;
+        height: auto;
     }
     #service-page p {
         bottom: 0px;
@@ -87,8 +94,7 @@ $crumbs = getCrumbs();
               
             </nav>
 
-        
-
+    
             <!-- <p class="h1 text-uppercase fw-normal">               
                 Meet Your Local City Representatives introducing you to the dedicated honourable members working for your community. Learn about their roles, achievements, and how they're shaping the future of your municipality.
             </p> -->
@@ -149,7 +155,7 @@ $crumbs = getCrumbs();
 
                             if ($pr['category'] === 'PR') {
                                 echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                            <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
+                            <div class="card text-center m-1 " style="width: 18rem;border: 4px solid #A5A3A3;">
                                 <div class="card-body ">
                                     <img src="' . $pr['location'] . '" class="card-img-top" alt="municipal councelor">
                                 </div>
@@ -175,7 +181,7 @@ $crumbs = getCrumbs();
                                 $wardName = substr($ward['name'], 0, 1);
                                 echo '
                             <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                <div class="card text-center m-1 shadow" style="width: 18rem; border: 4px solid #A5A3A3;">
+                                <div class="card text-center m-1 " style="width: 18rem; border: 4px solid #A5A3A3;">
                                     <div class="card-body">
                                         <img src="' . $ward['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
@@ -188,20 +194,11 @@ $crumbs = getCrumbs();
                         ?>
                     </div>
 
-
                 </div>
             </div>
         </div>
-
-
     </div>
-
-
 </div>
-
-
-
-
 
 </div>
 
