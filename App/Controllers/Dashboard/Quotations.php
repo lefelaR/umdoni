@@ -107,13 +107,10 @@ class Quotations extends \Core\Controller
         $data['location'] = isset($result['ObjectURL']) ? $result['ObjectURL'] : "";
         $data['updatedBy'] =  $_SESSION['profile']['username'];
 
-
         // generate a refernce
-
-
-
         try {
             $id =  Quotation::Save($data);
+
             $_SESSION['success'] = ['message' => 'successfully added record!'];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];          
@@ -181,6 +178,7 @@ public static function getStatusName($status)
         try 
         {
           Quotation::Delete($id);
+          
         } catch (\Throwable $th) 
         {
             echo $th->getMessage();

@@ -3,8 +3,6 @@ global $context;
 $crumbs = getCrumbs();
 
 
-// check  permission
-$role = $_SESSION['role'];
 
 // use crumbs to determine what is active
 $sidebarItems = [
@@ -94,8 +92,8 @@ $sidebarItems = [
     'hasSub' => true,
     'subItems' => [
       (object)['label' => 'Activity Logs', 'url' => buildurl("dashboard/logs/index")],
-      (object)['label' => 'Roles', 'url' => buildurl("dashboard/settings/roles")],
-      (object)['label' => 'Permisions', 'url' => buildurl("dashboard/settings/permissions")],
+      (object)['label' => 'Roles', 'url' => buildurl("dashboard/roles/index")],
+      (object)['label' => 'Permissions', 'url' => buildurl("dashboard/permissions/index")],
       (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
       (object)['label' => 'User Management', 'url' => buildurl("dashboard/users/index")],
     ]
@@ -109,9 +107,7 @@ $sidebarItems = [
       (object)['label' => 'Contact Support', 'url' => buildurl("dashboard/support/contact")],
     ]
   ],
-
 ];
-
 ?>
 
 <div id="sidebar" class="active">
@@ -130,6 +126,9 @@ $sidebarItems = [
     </div>
 
     <?php
+        //check the session for permissions;
+
+    
     echo '<div class="sidebar-menu">
       <ul class="menu">';
 
