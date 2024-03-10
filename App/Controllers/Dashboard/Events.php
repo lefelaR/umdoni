@@ -10,7 +10,7 @@
 namespace App\Controllers\Dashboard;
 
 use \Core\View;
-use App\Models\Event;
+use App\Models\EventModel;
 use Aws\S3\S3Client;
 
 class Events extends \Core\Controller
@@ -41,7 +41,7 @@ class Events extends \Core\Controller
         // get information from the model and inject it into the viewport
         //    name an object that will carry all dashboard items
         // $dashboard = array();
-        $events = Event::getAll();
+        $events = EventModel::getAll();
 
         view::render('dashboard/events/index.php', $events, 'dashboard');
     }
@@ -50,7 +50,7 @@ class Events extends \Core\Controller
         $data = getPostData();
         if (isset($data['id'])) {
             $id = $data['id'];
-            $event = Event::getEvent($id);
+            $event = EventModel::getEvent($id);
         } else $event = array();
         view::render('dashboard/events/add.php',  $event, 'dashboard');
     }
@@ -100,7 +100,7 @@ class Events extends \Core\Controller
         $data['updatedBy'] = $_SESSION['profile']['username'];
 
         try {
-            $id =  Event::Save($data);
+            $id =  EventModel::Save($data);
             $_SESSION['success'] = ['message' => "Success!"];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
@@ -117,7 +117,7 @@ class Events extends \Core\Controller
         $data['updatedAt'] = date("Y-m-d H:i:s");
 
         try {
-            $id =  Event::update($data);
+            $id =  EventModel::update($data);
             if($id) $_SESSION['success'] = ['message' => "Updated"];
         } catch (\Throwable $th) {
             $_SESSION['success'] = ['message' => $th->getMessage()];
@@ -130,7 +130,7 @@ class Events extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-            Event::Delete($id);
+            EventModel::Delete($id);
             $_SESSION['success'] = ['message' => "Deleted"];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];

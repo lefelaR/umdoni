@@ -8,8 +8,8 @@
 namespace App\Controllers;
 use \Core\View;
 use  App\Models\Post;
-use  App\Models\Roles;
-use App\Models\Tender;
+use  App\Models\RolesModel;
+use App\Models\TenderModel;
 use App\Models\Quotation;
 use  PHPMailer\PHPMailer\PHPMailer;
 use  PHPMailer\PHPMailer\Exception;
@@ -28,10 +28,8 @@ class Tenders extends \Core\Controller
 
     public function indexAction()
     {
-
         $context = array();
-
-        $tenders = Tender::Get();
+        $tenders = TenderModel::Get();
         $quotations = Quotation::getAll();
         $context['tenders']= $tenders;
         $context['quotations']= $quotations;
@@ -48,13 +46,5 @@ class Tenders extends \Core\Controller
     {
         //echo " (after)";
     }
-
-
-
-
-
-
-
-
 
 }

@@ -11,7 +11,7 @@ namespace App\Controllers\Dashboard;
 
 use \Core\View;
 use App\Models\Service;
-use App\Models\Councillor;
+use App\Models\CouncillorModel;
 use Aws\S3\S3Client;
 
 
@@ -39,12 +39,12 @@ class Councillors extends \Core\Controller
 
     public function indexAction()
     {
-        $councillors = Councillor::GET();
+        $councillors = CouncillorModel::GET();
         view::render('dashboard/councillors/index.php', $councillors, 'dashboard');
     }
     public function seniorAction()
     {
-        $managers = Councillor::getSeniors();
+        $managers = CouncillorModel::getSeniors();
 
         view::render('dashboard/councillors/senior.php', $managers, 'dashboard');
     }
@@ -53,7 +53,7 @@ class Councillors extends \Core\Controller
         $data = getPostData();
         if (isset($data['id'])) {
             $id = $data['id'];
-            $seniorMan = Councillor::getSeniorManById($id);
+            $seniorMan = CouncillorModel::getSeniorManById($id);
         } else {
             $seniorMan = array();
         }
@@ -64,7 +64,7 @@ class Councillors extends \Core\Controller
         $data = getPostData();
         if (isset($data['id'])) {
             $id = $data['id'];
-            $councillors = Councillor::getCouncillorById($id);
+            $councillors = CouncillorModel::getCouncillorById($id);
         } else
             $councillors = array();
         view::render('dashboard/councillors/add.php', $councillors, 'dashboard');
@@ -107,7 +107,7 @@ class Councillors extends \Core\Controller
         $data['location'] = $result['ObjectURL'];
         try {
 
-            $id =  Councillor::Save($data);
+            $id =  CouncillorModel::Save($data);
             if ($id) {
                 $_SESSION['success'] =  ['message' => "Councillor successfully Added"];
             }
@@ -155,7 +155,7 @@ class Councillors extends \Core\Controller
         $data['location'] = $result['ObjectURL'];
         try {
 
-            $id =  Councillor::SaveMan($data);
+            $id =  CouncillorModel::SaveMan($data);
             if ($id) {
                 $_SESSION['success'] =  ['message' => "Record created successfully"];
             }
@@ -211,7 +211,7 @@ class Councillors extends \Core\Controller
             $data['location'] = null;
         }
         try {
-            $id =  Councillor::update($data);
+            $id =  CouncillorModel::update($data);
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
@@ -267,7 +267,7 @@ class Councillors extends \Core\Controller
             $data['location'] = null;
         }
         try {
-            $id =  Councillor::UpdateMan($data);
+            $id =  CouncillorModel::UpdateMan($data);
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
@@ -280,7 +280,7 @@ class Councillors extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-            Councillor::Delete($id);
+            CouncillorModel::Delete($id);
             $_SESSION['success'] =  ['message' => "Councillor successfully deleted"];
         } catch (\Throwable $th) {
             echo $th->getMessage();
@@ -293,7 +293,7 @@ class Councillors extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-            Councillor::DeleteMan($id);
+            CouncillorModel::DeleteMan($id);
             $_SESSION['success'] =  ['message' => "Councillor successfully deleted"];
         } catch (\Throwable $th) {
             echo $th->getMessage();

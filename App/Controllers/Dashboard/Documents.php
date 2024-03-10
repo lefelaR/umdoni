@@ -11,7 +11,7 @@ namespace App\Controllers\Dashboard;
 
 use \Core\View;
 use App\Models\User;
-use App\Models\Document;
+use App\Models\DocumentModel;
 use Aws\S3\S3Client;
 
 
@@ -41,7 +41,7 @@ class Documents extends \Core\Controller
 
     public function indexAction()
     {
-        $documents = Document::GET();
+        $documents = DocumentModel::GET();
         view::render('dashboard/documents/index.php',$documents , 'dashboard');
     }
 
@@ -50,7 +50,7 @@ class Documents extends \Core\Controller
         $data = getPostData();
         if (isset($data['id'])) {
             $id = $data['id'];
-            $document = Document::getDocumentById($id);
+            $document = DocumentModel::GetById($id, $data);
         } else
             $document = array();
         view::render('dashboard/documents/add.php', $document, 'dashboard');
@@ -101,7 +101,7 @@ class Documents extends \Core\Controller
         $data['updatedBy'] = $loggedinUser['username'];
 
         try {
-            $id =  Document::Save($data);
+            $id =  DocumentModel::Save($data);
             $_SESSION['success'] = ['message' => "Document has been saved"];
         } catch (\Throwable $th) {
             $_SESSION['errors'] = ['message' => $th->getMessage()];
@@ -114,7 +114,7 @@ class Documents extends \Core\Controller
         $data = $_POST;
         $data['updatedAt'] = date("Y-m-d H:i:s");
         try {
-            $id =  Document::update($data);
+            $id =  DocumentModel::Update($data);
             $_SESSION['success'] = ['message' => "Document has been updated"];
         } catch (\Throwable $th) {
             echo $th->getMessage();
@@ -128,7 +128,7 @@ class Documents extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-           $idStatus = Document::Delete($id);
+           $idStatus = DocumentModel::Delete($id);
            if($idStatus > 0){
             $_SESSION['success'] = ['message' => "Document has been removed"];
            }

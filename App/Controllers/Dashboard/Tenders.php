@@ -14,7 +14,7 @@ use \Core\View;
 use App\Models\User;
 use App\Models\Service;
 use App\Models\Request;
-use App\Models\Tender;
+use App\Models\TenderModel;
 use DateTime;
 use Aws\S3\S3Client;
 
@@ -44,7 +44,7 @@ class Tenders extends \Core\Controller
 
     public function indexAction()
     {
-        $tenders = Tender::Get();
+        $tenders = TenderModel::Get();
         view::render('dashboard/tenders/index.php', $tenders, 'dashboard');
     }
 
@@ -55,10 +55,10 @@ class Tenders extends \Core\Controller
 
         if (isset($data['id'])) {
             $id = $data['id'];
-            $service = Service::getServiceById($id);
+            $tender = TenderModel::getServiceById($id);
         } else
-            $service = array();
-        view::render('dashboard/tenders/add.php', $service, 'dashboard');
+            $tender = array();
+        view::render('dashboard/tenders/add.php', $tender, 'dashboard');
     }
 
 
@@ -110,13 +110,8 @@ class Tenders extends \Core\Controller
         $data['location'] = $result && isset($result['ObjectURL']) ? $result['ObjectURL'] : "";
         $data['updatedBy'] =  $_SESSION['profile']['username'];
 
-
-        // generate a refernce
-
-
-
         try {
-            $id =  Tender::Save($data);
+            $id =  TenderModel::Save($data);
             $_SESSION['success'] = ['message' => 'successfully added record!'];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];          
@@ -129,7 +124,7 @@ class Tenders extends \Core\Controller
         $data = $_POST;
         $data['updatedAt'] = date("Y-m-d H:i:s");
         try {
-            $id =  Tender::Update($data);
+            $id =  TenderModel::Update($data);
             $_SESSION['success'] = ['message' => 'successfully updated record!'];
         } catch (\Throwable $th) {
             echo $th->getMessage();
@@ -141,7 +136,7 @@ class Tenders extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-            Tender::Delete($id);
+            TenderModel::Delete($id);
             $_SESSION['success'] = ['message' => 'successfully deleted record!'];
         } catch (\Throwable $th) {
             echo $th->getMessage();

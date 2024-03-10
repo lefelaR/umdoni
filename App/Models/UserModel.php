@@ -126,15 +126,10 @@ class UserModel extends \Core\Model
     public static function Delete($id)
     {
         $db = static::getDB(); 
-
         $sql = "DELETE FROM loki.users WHERE `user_id` = $id"; 
         $db->exec($sql);
-
         $sql = "DELETE FROM loki.profile WHERE `user_id` = $id"; 
-                
         $db->exec($sql);
-        
-
        return $stmt;
     }
 

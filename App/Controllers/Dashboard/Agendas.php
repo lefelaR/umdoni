@@ -9,7 +9,7 @@ namespace App\Controllers\Dashboard;
 use \Core\View;
 use App\Models\User;
 use App\Models\Meeting;
-use App\Models\Agenda;
+use App\Models\AgendaModel;
 use Aws\S3\S3Client;
 
 
@@ -42,7 +42,7 @@ class Agendas extends \Core\Controller
         // get information from the model and inject it into the viewport
         //    name an object that will carry all dashboard items
 
-        $agendas = Agenda::Get();
+        $agendas = AgendaModel::Get();
         view::render('dashboard/agendas/index.php', $agendas , 'dashboard');
     }
 
@@ -51,7 +51,7 @@ class Agendas extends \Core\Controller
         $data = getPostData();
         if (isset($data['id'])) {
             $id = $data['id'];
-            $agenda = Agenda::GetById($id);
+            $agenda = AgendaModel::GetById($id);
         } else $agenda = array();
         view::render('dashboard/agendas/add.php',  $agenda, 'dashboard');
     }
@@ -103,7 +103,7 @@ class Agendas extends \Core\Controller
         $data['updatedBy'] = $_SESSION['profile']['username'];
 
         try {
-            $id =  Agenda::Save($data);
+            $id =  AgendaModel::Save($data);
             $_SESSION['success'] = ['message' => "Success!"];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
@@ -117,7 +117,7 @@ class Agendas extends \Core\Controller
         $data = $_POST;
         $data['updatedAt'] = date("Y-m-d H:i:s");
         try {
-            $id =  Agenda::Update($data);
+            $id =  AgendaModel::Update($data);
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
@@ -129,7 +129,7 @@ class Agendas extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-            Agenda::Delete($id);
+            AgendaModel::Delete($id);
             $_SESSION['success'] = ['message' => "Success!"];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
