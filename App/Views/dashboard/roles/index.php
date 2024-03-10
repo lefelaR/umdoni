@@ -65,7 +65,7 @@ $crumbs = getCrumbs();
                                 <tr>
                                     <td class="text-bold-500">' . $key . '</td>
                                     <td>' . $role['name'] . '</td>
-                                    <td>' . $role['permissions'] . '</td>
+                                    <td><span class="text-truncate"> ' . $role['permissions'] . '</span></td>
                                     <td>
                                        
                                         <a class="btn  btn-sm" href="add?id=' .  $role['id'] . '" >
