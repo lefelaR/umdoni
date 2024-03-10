@@ -16,7 +16,9 @@ $managers = $data['managers'];
         background-size: cover;
 
     }
-
+    .card-body{
+        padding: 0 !important;
+    }
     #service-page p {
         bottom: 0px;
         position: absolute;
