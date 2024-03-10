@@ -14,8 +14,8 @@ use App\Models\User;
 use App\Models\Profile;
 use App\Models\Request;
 use App\Models\Project;
-use App\Models\Event;
-use App\Models\Notice;
+use App\Models\EventModel;
+use App\Models\NoticeModel;
 use App\Models\UserModel;
 use App\Models\RolesModel;
 use Aws\S3\S3Client;
@@ -42,8 +42,8 @@ class Index extends \Core\Controller
         $dashboard['users'] = UserModel::getUser($profile_id);     
         $dashboard['requests'] = Request::getAll();
         $dashboard['projects'] = Project::Get();
-        $dashboard['events'] = Event::getAll();
-        $dashboard['notices'] = Notice::getAll();
+        $dashboard['events'] = EventModel::getAll();
+        $dashboard['notices'] = NoticeModel::getAll();
         $dashboard['profile'] = $profile;
         $profile['profile'] = $AuthenticatedUser;
     

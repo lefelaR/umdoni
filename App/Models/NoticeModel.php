@@ -9,30 +9,19 @@ use PDO;
  *
  * PHP version 5.4
  */
-class Agenda extends \Core\Model
+class NoticeModel extends \Core\Model
 {
+
     /**
      * Get all the posts as an associative array
+     *
      * @return array
      */
-
-    public static function Get()
+    public static function getAll()
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM agendas WHERE `isActive` = 1');
-            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $results;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-    }
-    public static function GetById($id)
-    {
-        try {
-            $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM agendas 
-                                WHERE id = '$id' ");
+            $stmt = $db->query('SELECT * FROM notices WHERE `isActive` = 1');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
@@ -40,20 +29,29 @@ class Agenda extends \Core\Model
         }
     }
 
-    public static function Save($data)
+
+
+    /**
+     * @return object
+     */
+    public static function getById($id)
     {
-        $db = static::getDB();
-        $sql = "INSERT into agendas ( title, subtitle, body, createdAt, isActive, location, img_file, updatedBy) 
-                VALUES ( '$data[title]', '$data[subtitle]','$data[body]' , now() , 1 , '$data[location]', '$data[img_file]', '$data[updatedBy]')";
-        $stmt = $db->exec($sql);
-        return $stmt;
+        try {
+            $db = static::getDB();
+            $stmt = $db->query("SELECT * FROM notices WHERE id = '$id'");
+            $results = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
-    
+
+
     public static function Update($data)
     {
         $db = static::getDB();
 
-        $sql = "UPDATE agendas SET 
+        $sql = "UPDATE notices SET 
         `title` =  :title, 
         `subtitle` = :subtitle, 
         `body`= :body, 
@@ -71,13 +69,26 @@ class Agenda extends \Core\Model
         } else {
             return false;
         }
+
+    }
+
+
+    public static function Save($data)
+    {
+        global $context;
+        $db = static::getDB();
+        if (!isset($data['id'])) $data['id'] = 0;
+        $sql = "INSERT into notices (title, subtitle, body, isActive, img_file, location, createdAt)
+                VALUES ('$data[title]','$data[subtitle]','$data[body]','1', '$data[img_file]', '$data[location]', '$data[createdAt]' )";
+        $stmt = $db->exec($sql);
+        return $stmt;
     }
 
 
     public static function Delete($id)
     {
         $db = static::getDB();
-        $sql = "UPDATE  agendas SET `isActive` = 0 WHERE `id` = $id";
+        $sql = "UPDATE  notices SET `isActive` = 0 WHERE `id` = $id";
         $stmt = $db->exec($sql);
         return $stmt;
     }
@@ -85,9 +96,8 @@ class Agenda extends \Core\Model
     public static function Restore($id)
     {
         $db = static::getDB();
-        $sql = "UPDATE  agendas SET `isActive` = 1 WHERE `id` = $id";
+        $sql = "UPDATE  notices SET `isActive` = 1 WHERE `id` = $id";
         $stmt = $db->exec($sql);
         return $stmt;
     }
-
 }

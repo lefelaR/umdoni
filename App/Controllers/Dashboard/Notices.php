@@ -12,7 +12,7 @@ namespace App\Controllers\Dashboard;
 use \Core\View;
 use Aws\S3\S3Client;
 use App\Models\User;
-use App\Models\Notice;
+use App\Models\NoticeModel;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class Notices extends \Core\Controller
@@ -37,7 +37,7 @@ class Notices extends \Core\Controller
 
     public function indexAction()
     {
-        $notices = Notice::getAll();
+        $notices = NoticeModel::getAll();
         view::render('dashboard/notices/index.php', $notices, 'dashboard');
     }
 
@@ -46,7 +46,7 @@ class Notices extends \Core\Controller
         $data = getPostData();
         if (isset($data['id'])) {
             $id = $data['id'];
-            $notices = Notice::getById($id);
+            $notices = NoticeModel::getById($id);
         } else
             $notices = array();
         view::render('dashboard/notices/add.php',  $notices, 'dashboard');
@@ -101,7 +101,7 @@ class Notices extends \Core\Controller
         $data['createdAt'] = date("Y-m-d H:i:s");
   
         try {
-            $id =  Notice::Save($data);
+            $id =  NoticeModel::Save($data);
             $_SESSION['success'] = ['message' => 'Success'];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
@@ -115,7 +115,7 @@ class Notices extends \Core\Controller
         $data = $_POST;
         $data['updatedAt'] = date("Y-m-d H:i:s");
         try {
-            $id =  Notice::update($data);
+            $id =  NoticeModel::update($data);
             $_SESSION['success'] = ['message' => 'success'];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
@@ -129,7 +129,7 @@ class Notices extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-            Notice::Delete($id);
+            NoticeModel::Delete($id);
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }

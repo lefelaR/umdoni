@@ -62,9 +62,7 @@ $crumbs = getCrumbs();
 
 
                   $key++;
-
                 ?>
-
                   <tr>
                     <td><a href="#"><?php echo $img; ?></a></td>
                     <td><?php echo $user['username']; ?></td>

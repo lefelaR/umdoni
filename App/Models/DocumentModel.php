@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class Document extends \Core\Model
+class DocumentModel extends \Core\Model
 {
 
     /**

@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class Councillor extends \Core\Model
+class CouncillorModel extends \Core\Model
 {
 
     /**
@@ -152,6 +152,7 @@ class Councillor extends \Core\Model
         `middlename` = :middlename,
         `email` = :email,
         `telephone` = :telephone,
+        `category` = :category,
         `title` = :title,
         `img_file` = :img_file,
         " . (isset($data['location']) ? "`location` = :location," : "") . "
@@ -166,6 +167,7 @@ class Councillor extends \Core\Model
         $stmt->bindParam(':middlename', $data['middlename']);
         $stmt->bindParam(':email', $data['email']);
         $stmt->bindParam(':telephone', $data['telephone']);
+        $stmt->bindParam(':category', $data['category']);
         $stmt->bindParam(':title', $data['title']);
         $stmt->bindParam(':img_file', $data['img_file']);
         // Conditionally bind location parameter if it's provided
