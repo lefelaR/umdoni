@@ -205,10 +205,10 @@ $data = $context->data;
                     <div class="card mb-3" style="max-width: 540px;">
                     <a href="' . buildurl("news/details?id=" . $news['id']) . '" ">
                         <div class="row g-0">
-                            <div class="col-md-4">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-sx-12">
                                 <img src="' . $news["location"] . '" class="img-fluid rounded-start" style="">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-lg-4 col-md-8 col-sm-12 col-xs-12">
                                 <div class="card-body">
                                     <h5 class="card-title text-black text-capitalize">' . $news["title"] . '</h5>
                                 </div>
@@ -219,8 +219,6 @@ $data = $context->data;
                 }
             }
             ?>
-
-
 
             <p class="text-primary fs-5 text-end"><a href="<?php echo buildurl("news/index") ?>">See More</a></p>
         </div>
@@ -235,8 +233,8 @@ $data = $context->data;
 
 <div class="container content-section" id="partners">
     <p class="text-left h1 fw-bold text-uppercase text-yellow pb-2">Partners</p>
-    <div class="row my-5 pt-5">
-        <div class="col-md-2 col-sm-12 col-lg-2">
+    <div class="row my-5 pt-5 mx-auto">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="http://www.ugu.gov.za" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/ugu.jpg') ?>" class="img-thumbnail mx-auto" alt="ugu" />
@@ -244,35 +242,35 @@ $data = $context->data;
             </a>
         </div>
 
-        <div class="col-md-2 col-sm-12 col-lg-2">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="http://www.umzumbe.gov.za" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/mzumbe.png') ?>" class="img-thumbnail mx-auto" alt="ugu" />
             </div>
             </a>
         </div>
-        <div class="col-md-2 col-sm-12 col-lg-2">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="http://www.rnm.gov.za" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/ray-nkonyana.png') ?>" class="img-thumbnail mx-auto" alt="ugu" />
             </div>
             </a>
         </div>
-        <div class="col-md-2 col-sm-12 col-lg-2">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="https://www.umuziwabantu.gov.za/" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/umzi.png') ?>" class="img-thumbnail mx-auto" alt="ugu" />
             </div>
             </a>
         </div>
-        <div class="col-md-2 col-sm-12 col-lg-2">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="https://uscda.org.za/" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/uscda.jpg') ?>" class="img-thumbnail mx-auto" alt="ugu" />
             </div>
             </a>
         </div>
-        <div class="col-md-2 col-sm-12 col-lg-2">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="https://www.sctie.co.za/" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/south-coast-tourism.jpg') ?>" class="img-thumbnail mx-auto" alt="ugu" />

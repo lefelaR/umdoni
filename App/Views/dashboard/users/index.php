@@ -70,8 +70,11 @@ $crumbs = getCrumbs();
                     <td>
                       <?php echo $user['verified'] === 1 ? '<span class="badge bg-light-primary">Confirmed</span>' : '<span class="badge bg-light-warning">Unconfirmed</span>'; ?>
                       <?php echo $user['locked'] === 0 ? '<span class="badge bg-light-success">Active</span>' : '<span class="badge bg-light-danger">Inactive</span>' ?>
+                      <?php echo $user['role_id'] == 1 ? '<select class="btn" id="role" name="role" value="'.$user['role_id'].'"><option value="1">Administrator</option>
+                        <option value="2">Agent</option></select>' : '<select class="btn" id="role" name="role" value="'.$user['role_id'].'">
+                    <option value="1">Administrator</option><option value="2">Agent</option></select>'; ?>  
                       
-                       <?php echo $user['role_id'] === 1 ? '' : '' ?>    
+                      
                     </td>
                     <td>
                       <a href="details?id=<?php echo $user['user_id']; ?>" class="btn btn-sm">
@@ -111,7 +114,6 @@ $crumbs = getCrumbs();
         })
       }
 
-
       const handleToggle = (event) => {
         var userSwitch = event.target
         var locked = userSwitch.checked;
@@ -136,7 +138,5 @@ $crumbs = getCrumbs();
             }).showToast();
           })
           .catch((err) => console.log(err));
-
-
       }
     </script>
