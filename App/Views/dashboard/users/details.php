@@ -56,6 +56,7 @@ $address2   = isset($data['address_2']) ? $data['address_2'] : "";
 $town       = isset($data['town']) ? $data['town'] : "";
 $city       = isset($data['city']) ? $data['city'] : "";
 $postalCode = isset($data['postal_code']) ? $data['postal_code'] : "";
+$role_id    = isset($data['role_id']) ? $data['role_id'] : "";
 
 
 
@@ -125,6 +126,7 @@ echo '
                     <label for="helperText">City</label>
                     <input type="text" id="city" name="city" class="form-control" value="' . $city . '" disabled>
                   </div>
+               
                 </div>
             </div>         
           </div>
@@ -144,4 +146,12 @@ echo '
     event.preventDefault();
       showPasswordModal();
   }
+
+  // const handleRole = (event) =>{
+  //   debugger
+  //   event.preventDefault();
+  //   confirm()
+
+  // }
+
 </script>

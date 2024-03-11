@@ -88,8 +88,8 @@ class UserModel extends \Core\Model
         global $context;
         $db = static::getDB();
 
-        $sql = "INSERT into users (username,surname,email,password,status,locked, createdAt)
-                VALUES (:username,:surname,:email,:password,:status,:locked,:createdAt)";
+        $sql = "INSERT into users (username,surname,email,password,status,locked, role_id createdAt)
+                VALUES (:username,:surname,:email,:password,:status,:locked, :role_id,:createdAt)";
                
         $stmt = $db->prepare($sql);
         
@@ -99,6 +99,7 @@ class UserModel extends \Core\Model
         $stmt->bindParam(':password', $data['password']);
         $stmt->bindParam(':status', $data['status']);
         $stmt->bindParam(':locked', $data['locked']);
+        $stmt->bindParam(':role_id', $data['role_id']);
         $stmt->bindParam(':createdAt', $data['createdAt']);
     
         $stmt->execute();
@@ -125,15 +126,10 @@ class UserModel extends \Core\Model
     public static function Delete($id)
     {
         $db = static::getDB(); 
-
         $sql = "DELETE FROM loki.users WHERE `user_id` = $id"; 
         $db->exec($sql);
-
         $sql = "DELETE FROM loki.profile WHERE `user_id` = $id"; 
-                
         $db->exec($sql);
-        
-
        return $stmt;
     }
 

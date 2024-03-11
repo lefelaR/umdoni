@@ -8,7 +8,7 @@
 
 namespace App\Controllers;
 use \Core\View;
-use App\Models\Councillor;
+use App\Models\CouncillorModel;
 use  PHPMailer\PHPMailer\PHPMailer;
 use  PHPMailer\PHPMailer\Exception;
  
@@ -29,13 +29,13 @@ class Councillors extends \Core\Controller
 
     public function councilAction()
     {
-        $data['councillors']  = Councillor::GET();
+        $data['councillors']  = CouncillorModel::GET();
         view::render('councillors/council.php', $data, 'default');
     }
 
     public function administrationAction()
     {
-        $data['managers'] = Councillor::getSeniors();
+        $data['managers'] = CouncillorModel::getSeniors();
         view::render('councillors/administration.php', $data, 'default');
     }
     /**

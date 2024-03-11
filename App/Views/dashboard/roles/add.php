@@ -46,8 +46,7 @@ else
 $name = (isset($data['name'])) ? $data['name'] : '';
 $permissions =  (isset($data['permissions'])) ? json_decode($data['permissions']) : '';
 
-//permissions toggle\\
-
+//////////////////permissions toggle\\\\\\\\\\\\
 $eventManagement        =   (isset($permissions->eventManagement)       && $permissions->eventManagement    != "") == 'on' ? "checked" : ""; 
 $contentManagement      =   (isset($permissions->contentManagement)     && $permissions->contentManagement  != "") == 'on' ? "checked" : ""; 
 $serviceManagement      =   (isset($permissions->serviceManagement)     && $permissions->serviceManagement  != "") == 'on' ? "checked" : "";
@@ -58,15 +57,14 @@ $communityEngagement    =   (isset($permissions->communityEngagement)   && $perm
 $economicDevelopment    =   (isset($permissions->economicDevelopment)   && $permissions->economicDevelopment != "") == 'on' ? "checked" : "";;
 $systemSettings         =   (isset($permissions->systemSettings)        && $permissions->systemSettings      != "") == 'on' ? "checked" : "";;
 $support                =   (isset($permissions->support)               && $permissions->support            != "") == 'on' ? "checked" : "";;
-
 //////////////////\\\\\\\\\\\\\\\\\\\\\\
 
 echo '
 <div class="card">
-    <div class="card-header">
-        <h4 class="card-title">Add a role</h4>
-    </div>
-    <form class="form" action="' . $action . '" method="post" enctype="multipart/form-data">
+<div class="card-header">
+    <h4 class="card-title">Add a role</h4>
+</div>
+<form class="form" action="' . $action . '" method="post" enctype="multipart/form-data">
 <div class="card-body">
 <div class="row">
 <div class="col-md-6">
@@ -129,15 +127,13 @@ echo '
 <label class="form-check-label" for="helperText">support</label>
 </div>
 </div>
-                
 
-   
-                <button class="btn btn-primary btn-lg">
-                    submit
-                </button>
-                </div>
-            </div>
-        </div>
-    </form>
+<button class="btn btn-primary btn-lg">
+submit
+</button>
+</div>
+</div>
+</div>
+</form>
 </div>';
 ?>

@@ -3,9 +3,7 @@ global $context;
 $data = $context->data;
 // array_column
 $councillors  = $data['councillors'];
-
 $crumbs = getCrumbs();
-
 ?>
 
 <style>
@@ -42,10 +40,45 @@ $crumbs = getCrumbs();
     nav ul li a {
         color: #000;
     }
-
     nav ul li i {
         color: #000;
     }
+ 
+    .card{
+        width: 12em;
+        min-height: 30em;
+        border: 4px solid #A5A3A3;
+    }
+   .card-body{
+    padding: 0 !important;
+    width: auto;
+    height: 16em; 
+    overflow: hidden;
+   }
+   .card-footer{
+    min-height:10em;
+   }
+   .card-footer p{
+    line-height: 20px;
+   }
+   @media (max-width: 575.98px) {
+    .card{
+        width: auto;
+        border: 4px solid #A5A3A3;
+    }
+   .card-body{
+    padding: 0 !important;
+    height: 16em; 
+    overflow: hidden;
+   }
+   .card-footer p{
+    line-height: 22px;
+   }
+}
+
+
+
+
 </style>
 
 <div class="container-fluid" id="service-page">
@@ -64,9 +97,7 @@ $crumbs = getCrumbs();
         <div class="col-md-12 col-lg-12">
             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                 <ol class="breadcrumb">
-
                     <?php
-
                     if (isset($crumbs)) {
                         foreach ($crumbs as $key => $crumb) {
                             if ($key == (count($crumbs) - 1)) {
@@ -78,18 +109,10 @@ $crumbs = getCrumbs();
                             }
                         }
                     }
-
                     ?>
-
                 </ol>
-              
             </nav>
 
-        
-
-            <!-- <p class="h1 text-uppercase fw-normal">               
-                Meet Your Local City Representatives introducing you to the dedicated honourable members working for your community. Learn about their roles, achievements, and how they're shaping the future of your municipality.
-            </p> -->
             <p class="fw-lighter fs-3 my-5">
                 Umdoni Municipality comprises of 37 Councillors, seven which are full time councillors that serve on the Umdoni Council. The Executive Committee (EXCO) is made of the Mayor, Deputy Mayor & 1 Member reports directly to Council. EXCO is chaired by Her Worship, The Mayor Cllr. ST KHATHI. The Speaker is the ex-officio member of all committees of Council and the Chairperson of Council Meetings. All members of EXCO & the Speaker are full time Councillors.
             </p>
@@ -108,24 +131,28 @@ $crumbs = getCrumbs();
                                 Exco Member
                             </p>
                         </div>
-
                         <?php
                         foreach ($councillors as $key => $exco) {
-
                             if (isset($exco['name'])) {
                                 $name =  substr($exco['name'], 0, 1);
                             }
-                            // data-bs-toggle="modal" data-bs-target="#councillorModal"
                             if ($exco['category'] === 'EXCO') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                        <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;"  >
-                            <div class="card-body ">
-                                <img src="' . $exco['location'] . '" class="card-img-top" alt="municipal councelor">
-                            </div>
-                            <p class="fw-bold text-uppercase fs-5 lh-1">' . $exco['title'] . '</p>
-                            <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '</p>
-                        </div>
-                        </div>';
+                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                <div class="card text-center m-1 ">
+                                    <div class="card-body">
+                                        <img src="' . $exco['location'] . '" class="card-img-top" alt="municipal councelor">
+                                    </div>
+
+                                    <div class="card-footer">
+                                    <p class="fw-bold text-secondary text-uppercase fs-6">' . $exco['title'] . '</p>
+                                    <p>
+                                     Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '<br>
+                                    <span class="fw-bold">'.$exco['telephone'].'</span><br>
+                                    '.$exco['email'].'<br>
+                                    </p>
+                                    </div>
+                                    </div>
+                                </div>';
                             }
                         }
                         ?>
@@ -146,13 +173,19 @@ $crumbs = getCrumbs();
                             }
 
                             if ($pr['category'] === 'PR') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                            <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
+                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                            <div class="card text-center m-1 ">
                                 <div class="card-body ">
                                     <img src="' . $pr['location'] . '" class="card-img-top" alt="municipal councelor">
                                 </div>
-                                <p class="fw-bold text-uppercase fs-5 lh-1">' . $pr['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($prName) . " " . $pr['surname'] . '</p>  
+                                <div class="card-footer">
+                                <p class="fw-bold text-secondary text-uppercase fs-6">' . $pr['title'] . '</p>
+                                <p> 
+                                Cllr &nbsp;' . strtoupper($prName) . " " . $pr['surname'] . ' <br>
+                                <span class="fw-bold">'.$pr['telephone'].'</span><br>
+                                '.$pr['email'].'<br>
+                                </p>  
+                                </div>
                             </div>
                             </div>';
                             }
@@ -172,13 +205,20 @@ $crumbs = getCrumbs();
 
                                 $wardName = substr($ward['name'], 0, 1);
                                 echo '
-                            <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                <div class="card text-center m-1 shadow" style="width: 18rem; border: 4px solid #A5A3A3;">
+                            <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                <div class="card text-center m-1 " >
                                     <div class="card-body">
                                         <img src="' . $ward['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
-                                    <p class="fw-bold text-uppercase fs-5 lh-1">' . $ward['title'] . '</p>
-                                    <p class="fw-normal text-capitalize fs-5 lh-1"> Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '</p>
+                                    <div class="card-footer">
+                                    <p class="fw-bold text-uppercase fs-6">' . $ward['title'] . '</p>
+                                    
+                                    <p> 
+                                    Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '
+                                    <span class="fw-bold">'.$ward['telephone'].'</span><br>
+                                    '.$ward['email'].'<br>
+                                    </p>
+                                    </div>
                                 </div>
                             </div>';
                             }
@@ -186,20 +226,11 @@ $crumbs = getCrumbs();
                         ?>
                     </div>
 
-
                 </div>
             </div>
         </div>
-
-
     </div>
-
-
 </div>
-
-
-
-
 
 </div>
 
@@ -207,7 +238,6 @@ $crumbs = getCrumbs();
 
 <script>
     var accordions = document.querySelectorAll('.accordion-button');
-    debugger
     accordions.forEach(function(accordion) {
         accordion.addEventListener('click', function() {
             var collapse = this.getAttribute('data-bs-target');

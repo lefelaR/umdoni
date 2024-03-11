@@ -245,6 +245,7 @@ public function __construct()
         $data['createdAt'] = date("Y-m-d H:i:s");
         $data['status'] = 0;
         $data['locked'] = 1;
+        $data['role_id'] = 2;
         $data['UserSub'] = $result['UserSub'];
         $user = UserModel::Save($data);
         $_SESSION['success'] = ['message' => 'Registration Successfull, please find your authentication code in your email inbox'];
