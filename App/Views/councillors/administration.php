@@ -145,9 +145,18 @@ $managers = $data['managers'];
                                 <div class="card-body ">
                                     <img src="' . $sm['location'] . '" class="card-img-top" alt="municipal councelor">
                                 </div>
-                                <p class="fw-bold text-uppercase fs-5 lh-1">' . $sm['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $sm['name'] . " " . $sm['surname'] . '</p>
+                                
+                                <div class="card-footer">
+                                <p class="fw-bold text-secondary text-uppercase fs-6">' . $sm['title'] . '</p>
+
+                                <p>  
+                                
+                                ' . $sm['initials'] . ' ' . $sm['name'] . " " . $sm['surname'] . '<br>
+                                <span class="fw-bold">'.$sm['telephone'].'</span><br>
+                                '.$sm['email'].'<br>
+                                </p>
                             </div>
+                                </div>
                             </div>';
                             }
                         }
@@ -178,8 +187,14 @@ $managers = $data['managers'];
                                             <div class="card-body">
                                                 <img src="' . $csd['location'] . '" class="card-img-top" alt="municipal councelor">
                                             </div>
-                                            <p class="fw-bold text-uppercase fs-5 lh-1">' . $csd['title'] . '</p>
-                                            <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $csd['name'] . " " . $csd['surname'] . '</p>
+                                            <div class="card-footer">
+                                            <p class="fw-bold text-secondary text-uppercase fs-6">' . $csd['title'] . '</p>
+                                            <p> 
+                                            ' . $sm['initials'] . ' ' . $csd['name'] . " " . $csd['surname'] . '<br>
+                                            <span class="fw-bold">'.$csd['telephone'].'</span><br>
+                                            '.$csd['email'].'<br>
+                                            </p>
+                                        </div>
                                         </div>
                                     </div>';
                             }
@@ -205,8 +220,16 @@ $managers = $data['managers'];
                                         <div class="card-body ">
                                             <img src="' . $pdd['location'] . '" class="card-img-top" alt="municipal councelor">
                                         </div>
-                                        <p class="fw-bold text-uppercase fs-5 lh-1">' . $pdd['title'] . '</p>
-                                        <p class="fw-normal text-capitalize fs-5 lh-1">' . $sm['initials'] . ' ' . $pdd['name'] . " " . $pdd['surname'] . '</p>  
+                                        
+                                        <div class="card-footer">
+                                        <p class="fw-bold text-secondary text-uppercase fs-6">
+                                        ' . $pdd['title'] . '
+                                        </p>
+                                        <p>
+                                        ' . $sm['initials'] . ' ' . $pdd['name'] . " " . $pdd['surname'] . '
+                                        <span class="fw-bold">'.$pdd['telephone'].'</span><br>
+                                        '.$pdd['email'].'<br>
+                                        </p>  
                                     </div>
                                  </div>';
                             }
