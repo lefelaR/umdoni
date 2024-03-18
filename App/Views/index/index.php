@@ -3,6 +3,8 @@
 global $context;
 $data = $context->data;
 
+
+
 ?>
 
 <div class="hero" id="animate-area">
@@ -195,10 +197,12 @@ $data = $context->data;
 
 <div class="container content-section " id="News">
     <p class="text-left h1 fw-bold text-uppercase text-yellow pb-2">Trending News</p>
-    <?php $trendingNews = $data['news']; ?>
+    <?php 
+        $trendingNews = $data['news']; 
+    ?>
     <div class="row">
         <div class="col-md-4 col-lg-4 col-sm-12 text-left pt-5">
-            <?php
+             <?php
             foreach ($trendingNews as $key => $news) {
                 if ($key <= 2) {
                     echo '        
@@ -218,7 +222,7 @@ $data = $context->data;
                     </div>';
                 }
             }
-            ?>
+            ?> 
 
             <p class="text-primary fs-5 text-end"><a href="<?php echo buildurl("news/index") ?>">See More</a></p>
         </div>

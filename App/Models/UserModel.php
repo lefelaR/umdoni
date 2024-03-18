@@ -88,7 +88,7 @@ class UserModel extends \Core\Model
         global $context;
         $db = static::getDB();
 
-        $sql = "INSERT into users (username,surname,email,password,status,locked, role_id createdAt)
+        $sql = "INSERT into users (username,surname,email,password,status,locked, role_id, createdAt)
                 VALUES (:username,:surname,:email,:password,:status,:locked, :role_id,:createdAt)";
                
         $stmt = $db->prepare($sql);

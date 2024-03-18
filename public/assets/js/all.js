@@ -10,7 +10,14 @@ function handleDelete() {
 }
 
 function handleSave() {
+  debugger
   showPreloader();
+}
+
+
+function handleValidate(){
+
+
 }
 
 function showDeleteModal() {

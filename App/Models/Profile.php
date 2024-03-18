@@ -2,6 +2,8 @@
 
 namespace App\Models;
 use PDO;
+use Exception;
+use PDOException;
 /**
  * Post model
  *
@@ -111,30 +113,51 @@ class Profile extends \Core\Model
             } catch (\Throwable $th) {
                 throw $th;
             }
+
+            // if ($exists[0]["confirmation_token"] != "") {
+            //     throw new Exception("NotVerified");
+            // }
+            if ($exists[0]["locked"] == 1) {
+                $context->error['message'] = 'Your account is inactive, please contact your admin for activation';
+            }
+        
+            if($context->isLoggedIn == null){
+                return false;
+            }
+
             return true;
         }
         else
         {
             throw new Exception("Error Processing Request", 1);
-        }
+        } 
     }
 
 
      static function Authenticate($profile, $data)
     {
         global $context;
+
+        if($data !== null) $hashed = md5($data['password']);
+
+// compare the hash
+
         try{
-            if ($profile[0]["locked"] == '1' ) 
-            {   
-                $context->isLoggedIn = false;
-                return false;
-            }
-            else
+            if($profile[0]['password'] === $hashed)
             {
-                $_SESSION['profile'] = $profile[0];
-                setcookie("auth", $_SESSION['token'], time() + 3600 * 30, '/');
-                return true;
+                if ($profile[0]["locked"] == '1') {
+                    $context->isLoggedIn = false;
+                    return false;
+                }
+                else
+                {
+                    $_SESSION['profile'] = $profile[0];
+                    setcookie("auth", $_SESSION['token'], time() + 3600 * 30, '/');
+                    $context->isLoggedIn = true;
+                    return true;
+                }
             }
+            
         }catch (PDOException $e) {
             throw new Exception($e->getMessage());
         }

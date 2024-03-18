@@ -48,6 +48,19 @@ $data = $context->data;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
+    @media (max-width: 575.98px) 
+    {
+
+        .img-fluid.rounded-start{
+            margin: auto;
+  display: block;
+  margin-top: 3px;
+
+width: 100%;
+        }
+    }
+
 </style>
 
 

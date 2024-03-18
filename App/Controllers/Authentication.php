@@ -161,37 +161,17 @@ public function __construct()
   {
     global $context;
     if (isset($_POST)) $data = $_POST;
-    $isLoggedin = $context->isLoggedIn;
-    $clientId = $this->clientId;
-    $userPoolId = $this->userPoolId;
-    $region = $this->region;
-
-    $client = new CognitoIdentityProviderClient([
-      'version' => 'latest',
-      'region'  => $region,
-      'credentials' => [
-        'key'    => $this->awsAccessKeyId,
-        'secret' => $this->awsSecretAccessKey,
-      ],
-    ]);
+   
 
     try {
-      $result = $client->adminInitiateAuth([
-        'AuthFlow' => 'ADMIN_NO_SRP_AUTH',
-        'ClientId' => $clientId,
-        'UserPoolId' => $userPoolId,
-        'AuthParameters' => [
-          'USERNAME' => $data['username'],
-          'PASSWORD' => $data['password'],
-        ],
-      ]);
-      $accessToken = $result->get('AuthenticationResult')['AccessToken'];
+
+      $accessToken = rand(1000000, 9999999);
+      
       if ($accessToken) {
         $_SESSION['token'] = $accessToken;
         $isLoggedin  = Profile::Login($data);
         if ($isLoggedin == true) { 
         // get the role
-
           $role = RolesModel::GetById($context->profile[0]['role_id']);
           if(isset($role)) $_SESSION['role'] = $role;
 
@@ -214,44 +194,24 @@ public function __construct()
   {
     global $context;
     if (isset($_POST)) $data = $_POST;
-    $clientId = $this->clientId;
-    $userPoolId = $this->userPoolId;
-    $region = $this->region;
+   
 
-    $client = new CognitoIdentityProviderClient([
-      'version' => 'latest',
-      'region'  => $region,
-      'credentials' => [
-        'key'    => 'AKIA4Y2PS6FVQSB7BW6X',
-        'secret' => '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',
-      ],
-    ]);
 
     try {
-      $result  =  $client->signUp([
-        'ClientId' => $clientId,
-        'Username' => $data['email'],
-        'Password' => $data['password'],
-        'UserAttributes' => [
-          [
-            'Name' => 'name',
-            'Value' => $data['username']
-          ]
-        ],
-      ]);
-
-      if ($result) {
+    
+      if (isset($data['password']) && !empty($data['password']))
+        {
+          $data['password'] = md5($data['password']);
+        }  
         //   create user
         $data['createdAt'] = date("Y-m-d H:i:s");
         $data['status'] = 0;
         $data['locked'] = 1;
         $data['role_id'] = 2;
-        $data['UserSub'] = $result['UserSub'];
         $user = UserModel::Save($data);
-        $_SESSION['success'] = ['message' => 'Registration Successfull, please find your authentication code in your email inbox'];
-      }
+        $_SESSION['success'] = ['message' => 'Registration Successfull, please login with your email and password'];
+      redirect('authentication/login');
 
-      redirect('authentication/code');
     } catch (\Throwable $th) {
 
       $_SESSION['error'] = ['message' => $th->getMessage()];

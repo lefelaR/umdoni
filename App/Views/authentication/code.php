@@ -43,9 +43,7 @@ if (isset($context->errors['message'])) {
                         <form id="login-form" action="verify" method="POST">
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text" class="form-control form-control-xl" name="username" placeholder="Email">
-                                <div class="form-control-icon">
-                                    <i class="bi bi-person"></i>
-                                </div>
+                               
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4 input-group">
                                 <input type="password" class="form-control form-control-xl" name="code" placeholder="code">
