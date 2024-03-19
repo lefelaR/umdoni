@@ -119,16 +119,28 @@ echo '
 
                 <div class="col-md-6 mb-4">
                 <h6>Category</h6>
-                <fieldset class="form-group">
-                    <select class="form-select" id="category" name="category" value="'.$category.'">
-                        <option value="SM">SENIOR MANAGEMENT</option>
-                        <option value="CSD">COMMUNICTY SERVICES DEPARTMENT</option>
-                        <option value="PDD">PLANNING AND DEVELOMENT DEPARTMENT</option>
-                        <option value="TSD">TECHNICAL SERVICES DEPARTMENT</option>
-                        <option value="COSD">CORPORATE SERVICES DEPARTMENT</option>
-                        <option value="OTMM">OFFICE OF THE MUNICIPAL MANAGER</option>
-                        <option value="CD">COMMUNICATIONS DEPARTMENT</option>
-                        <option value="FM">FINANCE DEPARTMENT</option>
+                <fieldset class="form-group">';
+
+                $options = array(
+                    "SM"=>"SENIOR MANAGEMENT" ,
+                    "CSD"=>"COMMUNICTY SERVICES DEPARTMENT" ,
+                    "PDD"=>"PLANNING AND DEVELOMENT DEPARTMENT" ,
+                    "TSD"=>"TECHNICAL SERVICES DEPARTMENT" ,
+                    "COSD"=>"CORPORATE SERVICES DEPARTMENT" ,
+                    "OTMM"=>"OFFICE OF THE MUNICIPAL MANAGER" ,
+                    "CD"=>"COMMUNICATIONS DEPARTMENT" ,
+                    "FM"=>"FINANCE DEPARTMENT" 
+                
+                );
+
+                echo  ' <select class="form-select" id="category" name="category" value="'.$category.'">';
+                
+                foreach ($options as $key => $value) {
+                    
+                    $selected = ($category == $key) ? "selected" : "";
+                    echo '<option value="'.$key.'" '.$selected.'>'.$value.'</option>'; 
+                }
+                echo '
                     </select>
                 </fieldset>
                 </div>
