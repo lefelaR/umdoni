@@ -52,7 +52,13 @@ $crumbs = getCrumbs();
    .card-body{
     padding: 0 !important;
     width: auto;
-    height: 16em; 
+    height: 13em; 
+    overflow: hidden;
+   }
+   .cardbody{
+    padding: 0 !important;
+    width: auto;
+    height: 13em; 
     overflow: hidden;
    }
    .card-footer{
@@ -138,8 +144,8 @@ $crumbs = getCrumbs();
                             }
                             if ($exco['category'] === 'EXCO') {
                                 echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                                <div class=" text-center m-1 ">
-                                    <div >
+                                <div class="text-center m-1">
+                                    <div class="cardbody">
                                         <img src="' . $exco['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
 
@@ -174,11 +180,11 @@ $crumbs = getCrumbs();
 
                             if ($pr['category'] === 'PR') {
                                 echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                            <div class="card text-center m-1 ">
-                                <div class="card-body ">
+                            <div class="text-center m-1 ">
+                                <div class="cardbody">
                                     <img src="' . $pr['location'] . '" class="card-img-top" alt="municipal councelor">
                                 </div>
-                                <div class="card-footer">
+                                <div>
                                 <p class="fw-bold text-secondary text-uppercase fs-6">' . $pr['title'] . '</p>
                                 <p> 
                                 Cllr &nbsp;' . strtoupper($prName) . " " . $pr['surname'] . ' <br>
@@ -206,13 +212,12 @@ $crumbs = getCrumbs();
                                 $wardName = substr($ward['name'], 0, 1);
                                 echo '
                             <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                                <div class="card text-center m-1 " >
-                                    <div class="card-body">
+                                <div class="text-center m-1 " >
+                                    <div class="cardbody">
                                         <img src="' . $ward['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
-                                    <div class="card-footer">
+                                    <div>
                                     <p class="fw-bold text-uppercase fs-6">' . $ward['title'] . '</p>
-                                    
                                     <p> 
                                     Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '
                                     <span class="fw-bold">'.$ward['telephone'].'</span><br>

@@ -47,14 +47,13 @@ $managers = $data['managers'];
         color: #000;
     }
     .card{
-        width: 12em;
-        min-height: 30em;
-        border: 4px solid #A5A3A3;
+       
+        border: 2px solid #A5A3A3;
     }
    .card-body{
     padding: 0 !important;
     width: auto;
-    height: 16em; 
+    height: 13em; 
     overflow: hidden;
    }
    .card-footer{
@@ -66,7 +65,7 @@ $managers = $data['managers'];
    @media (max-width: 575.98px) {
     .card{
         width: auto;
-        border: 4px solid #A5A3A3;
+        border: 1px solid #A5A3A3;
     }
    .card-body{
     padding: 0 !important;
@@ -142,20 +141,18 @@ $managers = $data['managers'];
 
                             if ($sm['category'] === 'SM') {
                                 echo '
-                                <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                    <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;"  >
+                                <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                    <div class="card text-center m-1 shadow" >
                                         <div class="card-body ">
                                             <img src="' . $sm['location'] . '" class="card-img-top" alt="municipal councelor">
                                         </div>
-                                        
                                         <div class="card-footer">
-                                        <p class="fw-bold text-secondary text-uppercase fs-6">' . $sm['title'] . '</p>
-
-                                        <p>  
-                                        
-                                        ' . $sm['initials'] . ' ' . $sm['name'] . " " . $sm['surname'] . '<br>
-                                        <span class="fw-bold">'.$sm['telephone'].'</span><br>
-                                        '.$sm['email'].'<br>
+                                        <p>
+                                        <span class="fw-normal">'. $sm['title'] .'</span><br>
+                                        <span class="fw-normal">'. $sm['initials'] . ' ' . $sm['name'] . ' ' . $sm['surname'] . '</span><br>
+                                        <span class="fw-lighter">'.$sm['telephone'].'</span><br>
+                                        <span class="fw-lighter small fs-sm text-wrap">'.$sm['email'].'</span><br>
+                                        <span class="fw-lighter small">Ward:'.$sm['ward'].'</span>
                                         </p>
                                     </div>
                                 </div>
@@ -184,18 +181,19 @@ $managers = $data['managers'];
                             }
                             if ($csd['category'] === 'CSD') {
                                 echo '
-                                    <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                        <div class="card text-center m-1 shadow" style="width: 18rem; border: 4px solid #A5A3A3;">
+                                    <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                        <div class="card text-center m-1 shadow" >
                                             <div class="card-body">
                                                 <img src="' . $csd['location'] . '" class="card-img-top" alt="municipal councelor">
                                             </div>
                                             <div class="card-footer">
-                                                <p class="fw-bold text-secondary text-uppercase fs-6">' . $csd['title'] . '</p>
-                                                <p> 
-                                                ' . $sm['initials'] . ' ' . $csd['name'] . " " . $csd['surname'] . '<br>
-                                                <span class="fw-bold">'.$csd['telephone'].'</span><br>
-                                                '.$csd['email'].'<br>
-                                                </p>
+                                            <p>
+                                            <span class="fw-normal">'. $csd['title'] .'</span><br>
+                                            <span class="fw-normal">'. $sm['initials'] . ' ' . $csd['name'] . ' ' . $csd['surname'] . '</span><br>
+                                            <span class="fw-lighter">'.$csd['telephone'].'</span><br>
+                                            <span class="fw-lighter small fs-sm text-wrap">'.$csd['email'].'</span><br>
+                                            <span class="fw-lighter small">Ward:'.$csd['ward'].'</span>
+                                            </p>
                                             </div>
                                         </div>
                                     </div>';
@@ -217,21 +215,20 @@ $managers = $data['managers'];
                             }
                             if ($pdd['category'] === "PDD") {
 
-                            echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                    <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
+                            echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                    <div class="card text-center m-1 shadow" >
                                         <div class="card-body ">
                                             <img src="' . $pdd['location'] . '" class="card-img-top" alt="municipal councelor">
                                         </div>
                                         
                                         <div class="card-footer">
-                                        <p class="fw-bold text-secondary text-uppercase fs-6">
-                                        ' . $pdd['title'] . '
-                                        </p>
                                         <p>
-                                        ' . $sm['initials'] . ' ' . $pdd['name'] . " " . $pdd['surname'] . '
-                                        <span class="fw-bold">'.$pdd['telephone'].'</span><br>
-                                        '.$pdd['email'].'<br>
-                                        </p>  
+                                        <span class="fw-normal">'. $pdd['title'] .'</span><br>
+                                        <span class="fw-normal">'. $sm['initials'] . ' ' . $pdd['name'] . ' ' . $pdd['surname'] . '</span><br>
+                                        <span class="fw-lighter">'.$pdd['telephone'].'</span><br>
+                                        <span class="fw-lighter small fs-sm text-wrap">'.$pdd['email'].'</span><br>
+                                        <span class="fw-lighter small">Ward:'.$pdd['ward'].'</span>
+                                        </p>
                                     </div>
                                  </div>
                                 </div>';
@@ -252,16 +249,19 @@ $managers = $data['managers'];
                                 $tsdName =  substr($tsd['name'], 0, 1);
                             }
                             if ($tsd['category'] === 'TSD') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
+                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                <div class="card text-center m-1 shadow">
                                     <div class="card-body ">
                                         <img src="' . $tsd['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
                                     <div class="card-footer">
-                                    <p class="fw-bold text-secondary text-uppercase fs-6">
-                                        '. $tsd['title'] . '
-                                    </p>
-                                    <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $tsd['name'] . " " . $tsd['surname'] . '</p>  
+                                   <p>
+                                   <span class="fw-normal">'. $tsd['title'] .'</span><br>
+                                   <span class="fw-normal">'. $sm['initials'] . ' ' . $tsd['name'] . ' ' . $tsd['surname'] . '</span><br>
+                                   <span class="fw-lighter">'.$tsd['telephone'].'</span><br>
+                                   <span class="fw-lighter small fs-sm text-wrap">'.$tsd['email'].'</span><br>
+                                   <span class="fw-lighter small">Ward:'.$tsd['ward'].'</span>
+                                    </p>  
                                 </div>
                                 </div>
                                 </div>';
@@ -284,13 +284,18 @@ $managers = $data['managers'];
                                 $cosdName =  substr($cosd['name'], 0, 1);
                             }
                             if ($cosd['category'] === 'COSD') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
+                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                <div class="card text-center m-1 shadow" >
                                     <div class="card-body ">
                                         <img src="' . $cosd['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
-                                    <p class="fw-bold text-uppercase fs-5 lh-1">' . $cosd['title'] . '</p>
-                                    <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $cosd['name'] . " " . $cosd['surname'] . '</p>  
+                                    <p>
+                                    <span class="fw-normal">'. $cosd['title'] .'</span><br>
+                                    <span class="fw-normal">'. $sm['initials'] . ' ' . $cosd['name'] . ' ' . $cosd['surname'] . '</span><br>
+                                    <span class="fw-lighter">'.$cosd['telephone'].'</span><br>
+                                    <span class="fw-lighter small fs-sm text-wrap">'.$cosd['email'].'</span><br>
+                                    <span class="fw-lighter small">Ward:'.$cosd['ward'].'</span>
+                                    </p>  
                                 </div>
                                 </div>';
                             }
@@ -314,13 +319,20 @@ $managers = $data['managers'];
                             }
 
                             if ($otmm['category'] === 'OTMM' || $otmm['category'] === 'CD') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                            <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
+                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                            <div class="card text-center m-1 shadow" >
                                 <div class="card-body ">
                                     <img src="' . $otmm['location'] . '" class="card-img-top" alt="municipal councelor">
                                 </div>
-                                <p class="fw-bold text-uppercase fs-5 lh-1">' . $otmm['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1"> ' . $sm['initials'] . ' ' . $otmm['name'] . " " . $otmm['surname'] . '</p>  
+                                <div class="card-footer">
+                               <p>
+                               <span class="fw-normal">'. $otmm['title'] .'</span><br>
+                               <span class="fw-normal">'. $sm['initials'] . ' ' . $otmm['name'] . ' ' . $otmm['surname'] . '</span><br>
+                               <span class="fw-lighter">'.$otmm['telephone'].'</span><br>
+                               <span class="fw-lighter small fs-sm text-wrap">'.$otmm['email'].'</span><br>
+                               <span class="fw-lighter small">Ward:'.$otmm['ward'].'</span>
+                               </p>
+                            </div>
                             </div>
                             </div>';
                             }
@@ -340,13 +352,20 @@ $managers = $data['managers'];
                                 $fdName =  substr($fd['name'], 0, 1);
                             }
                             if ($fd['category'] === 'FM') {
-                                echo ' <div class="col-md-4 col-lg-3 col-sm-12 my-1">
-                                    <div class="card text-center m-1 shadow" style="width: 18rem;border: 4px solid #A5A3A3;">
+                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                    <div class="card text-center m-1 shadow" >
                                 <div class="card-body ">
                                     <img src="' . $fd['location'] . '" class="card-img-top" alt="municipal councelor">
                                 </div>
-                                <p class="fw-bold text-uppercase fs-5 lh-1">' . $fd['title'] . '</p>
-                                <p class="fw-normal text-capitalize fs-5 lh-1">' . $sm['initials'] . ' ' . $fd['name'] . " " . $fd['surname'] . '</p>  
+                                <div class="card-footer">
+                                <p>
+                                    <span class="fw-normal text-truncate">'. $fd['title'] .'</span><br>
+                                    <span class="fw-normal">'. $sm['initials'] . ' ' . $fd['name'] . ' ' . $fd['surname'] . '</span><br>
+                                    <span class="fw-lighter">'.$fd['telephone'].'</span><br>
+                                    <span class="fw-lighter small fs-sm text-wrap">'.$fd['email'].'</span><br>
+                                    <span class="fw-lighter small">Ward:'.$fd['ward'].'</span>
+                                </p>
+                            </div>
                             </div>
                             </div>';
                             }
