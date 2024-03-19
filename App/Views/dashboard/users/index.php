@@ -1,7 +1,11 @@
 <?php
 global $context;
+
 $data = $context->data;
 $crumbs = getCrumbs();
+
+use App\Models\RolesModel;
+
 ?>
 <!-- Container Fluid-->
 <div class="container-fluid" id="container-wrapper">
@@ -70,7 +74,16 @@ $crumbs = getCrumbs();
                     <td>
                       <?php echo $user['verified'] === 1 ? '<span class="badge bg-light-primary">Confirmed</span>' : '<span class="badge bg-light-warning">Unconfirmed</span>'; ?>
                       <?php echo $user['locked'] === 0 ? '<span class="badge bg-light-success">Active</span>' : '<span class="badge bg-light-danger">Inactive</span>' ?>
-                      <?php echo $user['role_id'] == 1 ? '<select class="btn" id="role" name="role" value="'.$user['role_id'].'"><option value="1">Administrator</option>
+
+                      <?php
+                      $options = [];
+                      $roles = RolesModel::getAll();
+                      foreach ($roles as $key => $role) {
+                          array_push($options,$key);
+                      }
+                      
+                      echo $user['role_id'] == 1 ? '<select class="btn" id="'.$user['user_id'].'" name="role" onchange="handleSelect(event)" value="'.$user['role_id'].'">
+                      <option value="1">Administrator</option>
                         <option value="2">Agent</option></select>' : '<select class="btn" id="role" name="role" value="'.$user['role_id'].'">
                     <option value="1">Administrator</option><option value="2">Agent</option></select>'; ?>  
                       
@@ -83,8 +96,8 @@ $crumbs = getCrumbs();
 
                       <span class="form-switch">
                         <?php
-                        $checked = $user['status'] == 1 ? "checked" : "";
-                        echo ' <input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="' . $user['id'] . '" name="switch" id="' . $user['id'] . '" ' . $checked . '>';
+                        $checked = $user['locked'] == 1 ? "checked" : "";
+                        echo ' <input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="' . $user['user_id'] . '" name="switch" id="' . $user['user_id'] . '" ' . $checked . '>';
                         ?>
                       </span>     
                     </td>
@@ -114,6 +127,32 @@ $crumbs = getCrumbs();
         })
       }
 
+      const handleSelect = (e) => {
+        var selection = e.target.value;
+        var user_id = e.target.id;
+        const formData = new FormData();
+        formData.append("role_id", selection);
+        formData.append("user_id", user_id);
+        const currentURL = window.location.href;
+        const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
+
+        fetch(stripped + '/managerole', {
+            method: "post",
+            body: formData,
+          })
+          .then((response) => {
+            location.reload();
+            Toastify({
+              text: "user role has been changed",
+              duration: 3000,
+              gravity: "bottom",
+              position: "left",
+              backgroundColor: "#4fbe87",
+            }).showToast();
+          })
+          .catch((err) => console.log(err));
+      }
+
       const handleToggle = (event) => {
         var userSwitch = event.target
         var locked = userSwitch.checked;
@@ -137,6 +176,14 @@ $crumbs = getCrumbs();
               backgroundColor: "#4fbe87",
             }).showToast();
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            Toastify({
+              text: "Status change has failed",
+              duration: 3000,
+              gravity: "bottom",
+              position: "left",
+              backgroundColor: "#f3616d",
+            }).showToast();
+          });
       }
     </script>

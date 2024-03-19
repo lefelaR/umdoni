@@ -138,12 +138,12 @@ $crumbs = getCrumbs();
                             }
                             if ($exco['category'] === 'EXCO') {
                                 echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                                <div class="card text-center m-1 ">
-                                    <div class="card-body">
+                                <div class=" text-center m-1 ">
+                                    <div >
                                         <img src="' . $exco['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
 
-                                    <div class="card-footer">
+                                    <div>
                                     <p class="fw-bold text-secondary text-uppercase fs-6">' . $exco['title'] . '</p>
                                     <p>
                                      Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '<br>
