@@ -192,18 +192,20 @@ class CouncillorModel extends \Core\Model
         $db = static::getDB();
 
         $sql = "UPDATE seniors SET 
-        `initials` = :initials,
-        `name` = :name, 
-        `surname` = :surname,
-        `middlename` = :middlename,
-        `email` = :email,
-        `telephone` = :telephone,
-        `title` = :title,
-        `img_file` = :img_file,
-        " . (isset($data['location']) ? "`location` = :location," : "") . "
-        `ward` = :ward,
-        `updatedAt` = :updatedAt
-        WHERE `id` = :id";
+        `initials`      = :initials,
+        `name`          = :name, 
+        `surname`       = :surname,
+        `middlename`    = :middlename,
+        `email`         = :email,
+        `telephone`     = :telephone,
+        `title`         = :title,
+        `category`      = :category,
+        `img_file`      = :img_file,
+        " . (isset($data['location']) ? "
+        `location` = :location," : "") . "
+        `ward`          = :ward,
+        `updatedAt`     = :updatedAt
+        WHERE `id`      = :id";
 
         $stmt = $db->prepare($sql);
 
@@ -214,6 +216,7 @@ class CouncillorModel extends \Core\Model
         $stmt->bindParam(':email', $data['email']);
         $stmt->bindParam(':telephone', $data['telephone']);
         $stmt->bindParam(':title', $data['title']);
+        $stmt->bindParam(':category', $data['category']);
         $stmt->bindParam(':img_file', $data['img_file']);
       
         if (isset($data['location'])) {
