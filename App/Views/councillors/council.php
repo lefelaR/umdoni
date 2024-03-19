@@ -154,7 +154,9 @@ $crumbs = getCrumbs();
                                     <p>
                                      Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '<br>
                                     <span class="fw-bold">'.$exco['telephone'].'</span><br>
-                                    '.$exco['email'].'<br>
+                                    <span class="text-wrap">
+                                    '.$exco['email'].'
+                                    </span><br>
                                     </p>
                                     </div>
                                     </div>
@@ -189,7 +191,9 @@ $crumbs = getCrumbs();
                                 <p> 
                                 Cllr &nbsp;' . strtoupper($prName) . " " . $pr['surname'] . ' <br>
                                 <span class="fw-bold">'.$pr['telephone'].'</span><br>
-                                '.$pr['email'].'<br>
+                                <span class="text-wrap">
+                                '.$pr['email'].'
+                                </span><br>
                                 </p>  
                                 </div>
                             </div>
@@ -217,11 +221,15 @@ $crumbs = getCrumbs();
                                         <img src="' . $ward['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
                                     <div>
-                                    <p class="fw-bold text-uppercase fs-6">' . $ward['title'] . '</p>
+                                    <p class="fw-bold text-secondary text-uppercase fs-6">' . $ward['title'] . '</p>
                                     <p> 
-                                    Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '
-                                    <span class="fw-bold">'.$ward['telephone'].'</span><br>
-                                    '.$ward['email'].'<br>
+                                    Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '<br>
+                                    <span class="fw-bold">
+                                    '.$ward['telephone'].'
+                                    </span><br>
+                                    <span class="text-wrap">
+                                    '.$ward['email'].'
+                                    </span><br>
                                     </p>
                                     </div>
                                 </div>
