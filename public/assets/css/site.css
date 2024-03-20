@@ -1,8 +1,5 @@
-
---primary
-
-html {
-    scroll-behavior: smooth;
+* html {
+  scroll-behavior: smooth;
   }
 .navbar{
     z-index: 1;
@@ -156,7 +153,13 @@ nav ul li a{
 
 /* Extra small devices (phones) */
 @media (max-width: 575.98px) {
+  
+  
+  * html {
+    scroll-behavior: smooth;
+    }
   /* Your styles here */
+
   .jumbotron-content{
     font-size: 9px;
     top: 50%;
@@ -234,6 +237,9 @@ height: auto !important;
 
 /* Small devices (tablets) */
 @media (min-width: 576px) and (max-width: 767.98px) {
+  * html {
+    scroll-behavior: smooth;
+    }
   /* Your styles here */
   .card-img-top {
     width: 100%;
@@ -245,6 +251,9 @@ height: auto !important;
 
 /* Medium devices (desktops) */
 @media (min-width: 768px) and (max-width: 991.98px) {
+  * html {
+    scroll-behavior: smooth;
+    }
   /* Your styles here */
   .card-img-top {
     width: 100%;
@@ -256,12 +265,18 @@ height: auto !important;
 
 /* Large devices (desktops) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
+  * html {
+    scroll-behavior: smooth;
+    }
   /* Your styles here */
 
 }
 
 /* Extra large devices (large desktops) */
 @media (min-width: 1200px) {
+  * html {
+    scroll-behavior: smooth;
+    }
   /* Your styles here */
 }
 
@@ -427,6 +442,9 @@ section#appfooter {
 
 /* Mobile */
 @media screen and (max-width:400px){
+  * html {
+    scroll-behavior: smooth;
+    }
     .welcome-header .welcome-text{
         font-size: 40px;
     }
@@ -446,6 +464,9 @@ section#appfooter {
 
 /* app */
 @media all and (display-mode: standalone) {
+  * html {
+    scroll-behavior: smooth;
+    }
     body{
       background: #efefef;
     }
