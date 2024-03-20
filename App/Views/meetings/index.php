@@ -66,6 +66,16 @@ $data = $context->data;
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
+
+
+        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item" aria-current="page"><a href="#" class="btn btn-sm btn-primary btn-outline" onclick="history.back()">Meetings & Agendas</a></li>    
+                <li class="breadcrumb-item" aria-current="page">meetings</li> 
+                </ol>
+            </nav>
+    
+
             <p class="h1 text-uppercase fw-bold">
                 
             </p>

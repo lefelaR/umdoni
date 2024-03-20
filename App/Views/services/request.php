@@ -84,6 +84,13 @@ echo '
 
 include('Includes/parts/alerts.php');
 
+
+$requestTypes = array(
+    
+);
+
+
+
 echo '<form class="form" action="save" method="post" id="requestForm">
                         <div class="row my-2">
                             <div class="col-md-6">

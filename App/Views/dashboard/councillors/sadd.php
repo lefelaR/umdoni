@@ -62,17 +62,25 @@ echo '
             <div class="row">
             <div class="col-md-6 mb-4">
             <h6>Initials</h6>
-            <fieldset class="form-group">
-                <select class="form-select" id="initials" name="initials" value="'.$initials.'">
+            <fieldset class="form-group">';
+
+            $initialOptions = array(
+                "Dr"=>"Dr." ,
+                "Mr"=>"Mr." ,
+                "Mrs"=>"Mrs." ,
+                "Ms"=> "Ms." ,
+                "Sir"=>"Sir." 
+            );
+
+            echo'
+                <select class="form-select" id="initials" name="initials" value="'.$initials.'">';
                 
-                <option value="Dr">Dr.</option>
-                    <option value="Mr">Mr.</option>
-                   
-                    <option value="Mrs">Mrs.</option>
-                    <option value="Ms">Ms.</option>
-                    <option value="Sir">Sir.</option>
-                    
-                </select>
+                foreach ($initialOptions as $key => $opt) {
+                    $selected = ($initials == $key) ? "selected" : "";
+                    echo '<option value="'.$key.'" '.$selected.'>'.$opt.'</option>';
+                }
+
+                echo '</select>
             </fieldset>
             </div>
                 <div class="col-md-6">

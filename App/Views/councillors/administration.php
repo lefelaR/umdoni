@@ -152,7 +152,7 @@ $managers = $data['managers'];
                                         <span class="fw-normal">'. $sm['initials'] . ' ' . $sm['name'] . ' ' . $sm['surname'] . '</span><br>
                                         <span class="fw-lighter">'.$sm['telephone'].'</span><br>
                                         <span class="fw-lighter small fs-sm text-wrap">'.$sm['email'].'</span><br>
-                                        <span class="fw-lighter small">Ward:'.$sm['ward'].'</span>
+                                      
                                         </p>
                                     </div>
                                 </div>
@@ -189,10 +189,10 @@ $managers = $data['managers'];
                                             <div class="card-footer">
                                             <p>
                                             <span class="fw-normal">'. $csd['title'] .'</span><br>
-                                            <span class="fw-normal">'. $sm['initials'] . ' ' . $csd['name'] . ' ' . $csd['surname'] . '</span><br>
+                                            <span class="fw-normal">'. $csd['initials'] . ' ' . $csd['name'] . ' ' . $csd['surname'] . '</span><br>
                                             <span class="fw-lighter">'.$csd['telephone'].'</span><br>
                                             <span class="fw-lighter small fs-sm text-wrap">'.$csd['email'].'</span><br>
-                                            <span class="fw-lighter small">Ward:'.$csd['ward'].'</span>
+                                           
                                             </p>
                                             </div>
                                         </div>
@@ -224,10 +224,10 @@ $managers = $data['managers'];
                                         <div class="card-footer">
                                         <p>
                                         <span class="fw-normal">'. $pdd['title'] .'</span><br>
-                                        <span class="fw-normal">'. $sm['initials'] . ' ' . $pdd['name'] . ' ' . $pdd['surname'] . '</span><br>
+                                        <span class="fw-normal">'. $pdd['initials'] . ' ' . $pdd['name'] . ' ' . $pdd['surname'] . '</span><br>
                                         <span class="fw-lighter">'.$pdd['telephone'].'</span><br>
                                         <span class="fw-lighter small fs-sm text-wrap">'.$pdd['email'].'</span><br>
-                                        <span class="fw-lighter small">Ward:'.$pdd['ward'].'</span>
+                                    
                                         </p>
                                     </div>
                                  </div>
@@ -257,10 +257,10 @@ $managers = $data['managers'];
                                     <div class="card-footer">
                                    <p>
                                    <span class="fw-normal">'. $tsd['title'] .'</span><br>
-                                   <span class="fw-normal">'. $sm['initials'] . ' ' . $tsd['name'] . ' ' . $tsd['surname'] . '</span><br>
+                                   <span class="fw-normal">'. $tsd['initials'] . ' ' . $tsd['name'] . ' ' . $tsd['surname'] . '</span><br>
                                    <span class="fw-lighter">'.$tsd['telephone'].'</span><br>
                                    <span class="fw-lighter small fs-sm text-wrap">'.$tsd['email'].'</span><br>
-                                   <span class="fw-lighter small">Ward:'.$tsd['ward'].'</span>
+                                  
                                     </p>  
                                 </div>
                                 </div>
@@ -291,10 +291,10 @@ $managers = $data['managers'];
                                     </div>
                                     <p>
                                     <span class="fw-normal">'. $cosd['title'] .'</span><br>
-                                    <span class="fw-normal">'. $sm['initials'] . ' ' . $cosd['name'] . ' ' . $cosd['surname'] . '</span><br>
+                                    <span class="fw-normal">'. $cosd['initials'] . ' ' . $cosd['name'] . ' ' . $cosd['surname'] . '</span><br>
                                     <span class="fw-lighter">'.$cosd['telephone'].'</span><br>
                                     <span class="fw-lighter small fs-sm text-wrap">'.$cosd['email'].'</span><br>
-                                    <span class="fw-lighter small">Ward:'.$cosd['ward'].'</span>
+                                
                                     </p>  
                                 </div>
                                 </div>';
@@ -327,10 +327,10 @@ $managers = $data['managers'];
                                 <div class="card-footer">
                                <p>
                                <span class="fw-normal">'. $otmm['title'] .'</span><br>
-                               <span class="fw-normal">'. $sm['initials'] . ' ' . $otmm['name'] . ' ' . $otmm['surname'] . '</span><br>
+                               <span class="fw-normal">'. $otmm['initials'] . ' ' . $otmm['name'] . ' ' . $otmm['surname'] . '</span><br>
                                <span class="fw-lighter">'.$otmm['telephone'].'</span><br>
                                <span class="fw-lighter small fs-sm text-wrap">'.$otmm['email'].'</span><br>
-                               <span class="fw-lighter small">Ward:'.$otmm['ward'].'</span>
+                               
                                </p>
                             </div>
                             </div>
@@ -360,10 +360,10 @@ $managers = $data['managers'];
                                 <div class="card-footer">
                                 <p>
                                     <span class="fw-normal text-truncate">'. $fd['title'] .'</span><br>
-                                    <span class="fw-normal">'. $sm['initials'] . ' ' . $fd['name'] . ' ' . $fd['surname'] . '</span><br>
+                                    <span class="fw-normal">'. $fd['initials'] . ' ' . $fd['name'] . ' ' . $fd['surname'] . '</span><br>
                                     <span class="fw-lighter">'.$fd['telephone'].'</span><br>
                                     <span class="fw-lighter small fs-sm text-wrap">'.$fd['email'].'</span><br>
-                                    <span class="fw-lighter small">Ward:'.$fd['ward'].'</span>
+                                
                                 </p>
                             </div>
                             </div>
