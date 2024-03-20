@@ -7,13 +7,15 @@
  */
 namespace App\Controllers;
 use \Core\View;
+use  App\Models\Post;
 use  App\Models\RolesModel;
 use App\Models\TenderModel;
+use App\Models\QuotationsModel;
 use  PHPMailer\PHPMailer\PHPMailer;
 use  PHPMailer\PHPMailer\Exception;
  
 
-class Tenders extends \Core\Controller
+class Quotations extends \Core\Controller
 {
   /**
      * Before filter
@@ -25,9 +27,9 @@ class Tenders extends \Core\Controller
     }
 
     public function indexAction()
-    {
-        $tenders = TenderModel::Get();
-        view::render('tenders/index.php', $tenders, 'default');
+    {  
+        $quotations = QuotationsModel::getAll();
+        view::render('quotations/index.php', $quotations, 'default');
     }
 
   

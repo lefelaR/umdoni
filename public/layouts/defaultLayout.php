@@ -39,7 +39,6 @@ include_once '../Components/Helpers.php';
   <?php include '../public/Includes/frontendfooter.php' ?>
   <?php include '../public/Includes/include-js.php' ?>
  
-
 </body>
 <!-- <?php #include '../public/Includes/cookie.php' ?> -->
 </html>

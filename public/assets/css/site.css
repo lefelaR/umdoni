@@ -80,6 +80,11 @@ nav ul li a{
     color: #fff;
 }
 
+
+.img-thumbnail{
+  border: 0 none !important
+}
+
 .welcome-header{
     font-family: Arial,Arial,Helvetica,sans-serif;
     font-weight: 200;
@@ -157,6 +162,8 @@ nav ul li a{
     top: 50%;
   }
 
+  
+
   .jumbotron-content .subtitle{
     display: none;
   }
@@ -219,8 +226,6 @@ height: auto !important;
   justify-items: center;
   transform: scale(1);
 } 
-
-
 
 
 

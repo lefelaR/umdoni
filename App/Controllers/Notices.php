@@ -7,7 +7,7 @@
  */
 namespace App\Controllers;
 
-use App\Models\Notice;
+use App\Models\NoticeModel;
 use \Core\View;
 
  
@@ -25,7 +25,7 @@ class Notices extends \Core\Controller
     public function indexAction()
     {
 
-        $notices = Notice::getAll();
+        $notices = NoticeModel::getAll();
         view::render('notices/index.php', $notices, 'default');
     }
   
@@ -35,7 +35,7 @@ class Notices extends \Core\Controller
         $data = getPostData();
         if(isset($data['id'])){
             $id = $data['id'];
-            $notice = Notice::getById($id);
+            $notice = NoticeModel::getById($id);
         }else{
             $notice = array();
         }

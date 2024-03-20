@@ -1,10 +1,6 @@
 <?php
-
 global $context;
 $data = $context->data;
-
-
-
 ?>
 
 <div class="hero" id="animate-area">
