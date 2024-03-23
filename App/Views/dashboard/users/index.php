@@ -76,18 +76,18 @@ use App\Models\RolesModel;
                       <?php echo $user['locked'] === 0 ? '<span class="badge bg-light-success">Active</span>' : '<span class="badge bg-light-danger">Inactive</span>' ?>
 
                       <?php
-                      $options = [];
+                  
                       $roles = RolesModel::getAll();
+
+                      echo '<select class="btn" id="'.$user['user_id'].'" name="role" onchange="handleSelect(event)" value="'.$user['role_id'].'">';
                       foreach ($roles as $key => $role) {
-                          array_push($options,$key);
+                          $selected = $user['role_id'] == $role['id']? "selected":"";
+                          echo '<option value="'.$role['id'].'" '.$selected.'>'.$role['name'].'</option>'; 
                       }
+                      echo '</select>';
                       
-                      echo $user['role_id'] == 1 ? '<select class="btn" id="'.$user['user_id'].'" name="role" onchange="handleSelect(event)" value="'.$user['role_id'].'">
-                      <option value="1">Administrator</option>
-                        <option value="2">Agent</option></select>' : '<select class="btn" id="role" name="role" value="'.$user['role_id'].'">
-                    <option value="1">Administrator</option><option value="2">Agent</option></select>'; ?>  
-                      
-                      
+                      ?>
+
                     </td>
                     <td>
                       <a href="details?id=<?php echo $user['user_id']; ?>" class="btn btn-sm">
@@ -128,6 +128,7 @@ use App\Models\RolesModel;
       }
 
       const handleSelect = (e) => {
+        confirm("you are about to change a user's role, are you sure you want to proceed?")
         var selection = e.target.value;
         var user_id = e.target.id;
         const formData = new FormData();
@@ -141,7 +142,7 @@ use App\Models\RolesModel;
             body: formData,
           })
           .then((response) => {
-            location.reload();
+           
             Toastify({
               text: "user role has been changed",
               duration: 3000,
