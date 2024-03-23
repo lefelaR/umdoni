@@ -103,11 +103,25 @@ echo '
                 <div class="col-md-6 mb-4">
                 <h6>Category</h6>
                 <fieldset class="form-group">
-                    <select class="form-select" id="category" name="category" value="'.$category.'">
-                        <option value="EXCO">EXCO MEMBER</option>
-                        <option value="WARD">WARD COUNCILLOR</option>
-                        <option value="PR">PR COUNCILLOR</option>
-                    </select>
+
+';
+
+                // handle options
+
+                $options = array(
+                    "EXCO" => "EXCO MEMBER",
+                    "WARD" =>"WARD COUNCILLOR",
+                    "PR" => "PR COUNCILLOR"
+                );
+
+            echo'<select class="form-select" id="category" name="category" value="'.$category.'">';
+                    
+                    foreach ($options as $key => $value) {
+                        $selected = ($category == $key) ? "selected":"";
+                        echo ' <option value="'.$key.'" '.$selected.'>'.$value.'</option>';
+                    }
+                echo '</select>
+            
                 </fieldset>
             </div>
 

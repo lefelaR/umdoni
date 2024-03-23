@@ -18,7 +18,7 @@ function buildurl($string)
 function redirect($url)
 {
     if (isset($url)) {
-        ob_clean();
+        // ob_clean();
         Header('Location: ' . buildurl($url));
         die();
     }

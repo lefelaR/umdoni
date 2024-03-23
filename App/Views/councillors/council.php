@@ -16,10 +16,6 @@ $crumbs = getCrumbs();
         background-size: cover;
 
     }
-    .card-body{
-        padding: 0 !important;
-     
-    }
 
     #service-page p {
         bottom: 0px;
@@ -44,19 +40,46 @@ $crumbs = getCrumbs();
     nav ul li a {
         color: #000;
     }
-
     nav ul li i {
         color: #000;
     }
+ 
+    .card{
+     
+        border: 4px solid #A5A3A3;
+    }
    .card-body{
     padding: 0 !important;
-    width: 11em;
-    height: 14.66em;
+    width: auto;
+    height: 12em; 
     overflow: hidden;
+   }
+
+   .card-footer{
+    min-height:10em;
    }
    .card-footer p{
     line-height: 20px;
    }
+   @media (max-width: 575.98px) {
+    .card{
+        width: auto;
+        border: 4px solid #A5A3A3;
+    }
+   .card-body{
+    padding: 0 !important;
+    height: 16em; 
+    overflow: hidden;
+   }
+
+
+   .card-footer p{
+    line-height: 22px;
+   }
+}
+
+
+
 
 </style>
 
@@ -117,17 +140,21 @@ $crumbs = getCrumbs();
                             }
                             if ($exco['category'] === 'EXCO') {
                                 echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                                <div class="card text-center m-1 " style="border: 4px solid #A5A3A3;"  >
+                                <div class="card text-center m-1">
                                     <div class="card-body">
                                         <img src="' . $exco['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
+
+                                    <div>
                                     <div class="card-footer">
                                     <p class="fw-bold text-secondary text-uppercase fs-6">' . $exco['title'] . '</p>
-                                    <p>
-                                     Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '<br>
-                                    <span class="fw-bold">'.$exco['telephone'].'</span><br>
-                                    '.$exco['email'].'<br>
-                                    </p>
+                                        <p>
+                                        <span class="fw-normal"> Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '</span><br>
+                                        <span class="fw-lighter">'.$exco['telephone'].'</span><br>
+                                        
+                                        <span class="fw-lighter small">Ward:'.$exco['ward'].'</span>
+                                        </p>
+                                    </div>
                                     </div>
                                     </div>
                                 </div>';
@@ -152,16 +179,21 @@ $crumbs = getCrumbs();
 
                             if ($pr['category'] === 'PR') {
                                 echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                            <div class="card text-center m-1 " style="border: 4px solid #A5A3A3;">
-                                <div class="card-body ">
+                            <div class="card text-center m-1 ">
+                                <div class="card-body">
                                     <img src="' . $pr['location'] . '" class="card-img-top" alt="municipal councelor">
                                 </div>
+                                <div>
+                                <div class="card-footer">
                                 <p class="fw-bold text-secondary text-uppercase fs-6">' . $pr['title'] . '</p>
-                                <p> 
-                                Cllr &nbsp;' . strtoupper($prName) . " " . $pr['surname'] . ' <br>
-                                <span class="fw-bold">'.$pr['telephone'].'</span><br>
-                                '.$pr['email'].'<br>
-                                </p>  
+                                    <p>
+                                    <span class="fw-normal"> Cllr &nbsp;' . strtoupper($prName) . " " . $pr['surname'] . '</span><br>
+                                    <span class="fw-lighter">'.$pr['telephone'].'</span><br>
+                                    
+                                    <span class="fw-lighter small">Ward:'.$pr['ward'].'</span>
+                                    </p>
+                                </div>
+                                </div>
                             </div>
                             </div>';
                             }
@@ -182,16 +214,19 @@ $crumbs = getCrumbs();
                                 $wardName = substr($ward['name'], 0, 1);
                                 echo '
                             <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                                <div class="card text-center m-1 " style="; border: 4px solid #A5A3A3;">
+                                <div class="card text-center m-1 " >
                                     <div class="card-body">
                                         <img src="' . $ward['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
-                                    <p class="fw-bold text-uppercase fs-6">' . $ward['title'] . '</p>
-                                    <p> 
-                                    Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '
-                                    <span class="fw-bold">'.$ward['telephone'].'</span><br>
-                                    '.$ward['email'].'<br>
+                                    <div class="card-footer">
+                                     <p class="fw-bold text-secondary text-uppercase fs-6">' . $ward['title'] . '</p>
+                                    <p>
+                                    <span class="fw-normal"> Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '</span><br>
+                                    <span class="fw-lighter">'.$ward['telephone'].'</span><br>
+                                   
+                                    <span class="fw-lighter small">Ward:'.$ward['ward'].'</span>
                                     </p>
+                                </div>
                                 </div>
                             </div>';
                             }

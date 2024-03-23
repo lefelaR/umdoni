@@ -14,7 +14,7 @@ use  App\Models\Post;
 use  App\Models\Roles;
 use  PHPMailer\PHPMailer\PHPMailer;
 use  PHPMailer\PHPMailer\Exception;
-use App\Models\Document;
+use App\Models\DocumentModel;
 
 class Documents extends \Core\Controller
 {
@@ -39,7 +39,7 @@ class Documents extends \Core\Controller
             $id = $data['id'];
             $category = $data['category'];
 
-            $document = Document::GetById($id,$category);
+            $document = DocumentModel::GetById($id,$category);
         }else $document = array();
 
         view::render('documents/details.php', $document, 'default');
@@ -47,70 +47,70 @@ class Documents extends \Core\Controller
 
     public function newslettersAction()
     {
-        $newsletters = Document::GET();
+        $newsletters = DocumentModel::GET();
         view::render('documents/newsletters.php', $newsletters, 'default');
     }
 
     public function annualreportsAction()
     {
-        $annualreports = Document::GET();
+        $annualreports = DocumentModel::GET();
         view::render('documents/annualreports.php', $annualreports, 'default');
     }
 
     public function wardprofileAction()
     {
-        $wardprofile = Document::GET();
+        $wardprofile = DocumentModel::GET();
         view::render('documents/wardprofile.php', $wardprofile, 'default');
     }
 
     public function idpAction()
     {
-        $idp = Document::GET();
+        $idp = DocumentModel::GET();
         view::render('documents/idp.php', $idp, 'default');
     }
 
 
     public function policiesAction()
     {
-        $policies = Document::GET();
+        $policies = DocumentModel::GET();
         view::render('documents/policies.php', $policies, 'default');
     }
 
     public function budgetAction()
     {
-        $budget = Document::GET();
+        $budget = DocumentModel::GET();
         view::render('documents/budget.php', $budget, 'default');
     }
 
     public function valuationrollAction()
     {
-        $valuationroll = Document::GET();
+        $valuationroll = DocumentModel::GET();
         view::render('documents/valuationroll.php', $valuationroll, 'default');
     }
 
     public function internalauditAction()
     {
-        $internalaudit = Document::GET();
+        $internalaudit = DocumentModel::GET();
         view::render('documents/internalaudit.php', $internalaudit, 'default');
     }
 
 
     public function councilminutesAction()
     {
-        $councilminutes = Document::GET();
+        $councilminutes = DocumentModel::GET();
         view::render('documents/councilminutes.php', $councilminutes, 'default');
     }
     
     public function servicedeliveryAction()
     {
-        $servicedelivery = Document::GET();
+        $servicedelivery = DocumentModel::GET();
         view::render('documents/servicedelivery.php', $servicedelivery, 'default');
     }
 
 
     public function ledAction()
     {
-        $led = Document::GET();
+        $led = DocumentModel::GET();
         view::render('documents/led.php', $led, 'default');
     }
     /**

@@ -5,6 +5,14 @@ include_once '../Components/Helpers.php';
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QK3ZNVWTWP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QK3ZNVWTWP');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard </title>
@@ -25,6 +33,12 @@ include_once '../Components/Helpers.php';
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/toastify/toastify.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/images/favicon.svg") ?>">
     <link rel="stylesheet" href="<?php echo url('assets/vendors/simple-datatables/style.css') ?>">
+    <script src="//d2wy8f7a9ursnm.cloudfront.net/v7/bugsnag.min.js"></script>
+<script type="module">
+  import BugsnagPerformance from '//d2wy8f7a9ursnm.cloudfront.net/v1/bugsnag-performance.min.js'
+  Bugsnag.start({ apiKey: 'efeaa75b4c6845b5fcd047a83480a73d' })
+  BugsnagPerformance.start({ apiKey: 'efeaa75b4c6845b5fcd047a83480a73d' })
+</script>
 </head>
 
 <body>

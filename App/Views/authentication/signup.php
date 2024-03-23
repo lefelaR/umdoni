@@ -47,31 +47,31 @@ if (isset($context->errors['message'])) {
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text" class="form-control form-control-xl" name="username" placeholder="Name">
                                 <div class="form-control-icon">
-                                    <i class="bi bi-person"></i>
+                                  
                                 </div>
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text" class="form-control form-control-xl" name="surname" placeholder="Surname">
                                 <div class="form-control-icon">
-                                    <i class="bi bi-person"></i>
+                                 
                                 </div>
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text" class="form-control form-control-xl" name="email" placeholder="Email">
                                 <div class="form-control-icon">
-                                    <i class="bi bi-person"></i>
+                                   
                                 </div>
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="password" class="form-control form-control-xl" name="password" placeholder="Password">
                                 <div class="form-control-icon">
-                                    <i class="bi bi-eye"></i>
+                                   
                                 </div>
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="password" class="form-control form-control-xl" name="confirm_password" placeholder="Retype Password">
                                 <div class="form-control-icon">
-                                    <i class="bi bi-eye"></i>
+                                  
                                 </div>
                             </div>
                           

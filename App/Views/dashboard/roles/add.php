@@ -50,7 +50,7 @@ $permissions =  (isset($data['permissions'])) ? json_decode($data['permissions']
 $eventManagement        =   (isset($permissions->eventManagement)       && $permissions->eventManagement    != "") == 'on' ? "checked" : ""; 
 $contentManagement      =   (isset($permissions->contentManagement)     && $permissions->contentManagement  != "") == 'on' ? "checked" : ""; 
 $serviceManagement      =   (isset($permissions->serviceManagement)     && $permissions->serviceManagement  != "") == 'on' ? "checked" : "";
-$officialProfiles       =   (isset($permissions->officeProfiles)        && $permissions->officeProfiles     != "") == 'on' ? "checked" : "";;
+$officialProfiles       =   (isset($permissions->officialProfiles)      && $permissions->officialProfiles     != "") == 'on' ? "checked" : "";;
 $documentLibrary        =   (isset($permissions->documentLibrary)       && $permissions->documentLibrary    != "") == 'on' ? "checked" : "";;
 $humanResources         =   (isset($permissions->humanResources)        && $permissions->humanResources     != "") == 'on' ? "checked" : "";;
 $communityEngagement    =   (isset($permissions->communityEngagement)   && $permissions->communityEngagement != "") == 'on' ? "checked" : "";;

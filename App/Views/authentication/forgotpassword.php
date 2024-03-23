@@ -41,9 +41,7 @@ if (isset($context->errors['message'])) {
                         <form id="login-form" action="request" method="POST">
                             <div class="form-group position-relative has-icon-left mb-4">
                                 <input type="text" class="form-control form-control-xl" name="username" placeholder="Email">
-                                <div class="form-control-icon">
-                                    <i class="bi bi-person"></i>
-                                </div>
+                               
                             </div>
                             <input class="btn main-btn btn-primary btn-block shadow-lg mt-5" type="submit" name="submit" value="Send">
                         </form>

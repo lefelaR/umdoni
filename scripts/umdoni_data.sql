@@ -1,10 +1,4 @@
 
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
-  `name` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 
 DROP TABLE IF EXISTS `seniors`;
 CREATE TABLE `seniors` (
@@ -24,7 +18,7 @@ CREATE TABLE `seniors` (
   `updatedAt` varchar(45) DEFAULT NULL,
   `initials` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 DROP TABLE IF EXISTS `documents`;
@@ -41,7 +35,8 @@ CREATE TABLE `documents` (
   `isActive` varchar(45) DEFAULT NULL,
   `updatedBy` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 DROP TABLE IF EXISTS `vacancies`;
 CREATE TABLE `vacancies` (
@@ -52,7 +47,7 @@ CREATE TABLE `vacancies` (
   `duties` varchar(500) DEFAULT NULL,
   `experience` varchar(45) DEFAULT NULL,
   `createdAt` varchar(45) DEFAULT NULL,
-  `createdBy` varchar(45) DEFAULT NULL, 
+  `createdBy` varchar(45) DEFAULT NULL,
   `isActive` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -70,9 +65,9 @@ CREATE TABLE `events` (
   `img_file` varchar(255) DEFAULT NULL,
   `updatedBy` varchar(45) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,
-  `dueDate` varchar(11) DEFAULT NULL,
-     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `dueDate` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 
@@ -90,7 +85,7 @@ CREATE TABLE `news` (
   `updatedAt` varchar(45) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 
@@ -107,7 +102,7 @@ CREATE TABLE `newsletters` (
   `summary` varchar(1000) DEFAULT NULL,
   `youtube` varchar(45) DEFAULT NULL,
   `rating` varchar(45) DEFAULT NULL,
-     PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -127,7 +122,7 @@ CREATE TABLE `profile` (
   `location` varchar(255) DEFAULT NULL,
   `img_file` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -147,9 +142,9 @@ CREATE TABLE `projects` (
   `img_file` varchar(45) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,
   `updatedBy` varchar(45) DEFAULT NULL,
-   `dueDate` varchar(11) DEFAULT NULL,
-     PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `dueDate` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `projects`
@@ -169,8 +164,8 @@ CREATE TABLE `requests` (
   `comments` varchar(45) DEFAULT NULL,
   `createdAt` varchar(45) DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `requests`
@@ -187,11 +182,9 @@ CREATE TABLE `tenders` (
   `reference` varchar(45) DEFAULT NULL,
   `dueDate` varchar(45) DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL,
-  `field_list` varchar(255) DEFAULT NULL,
-
+  `status` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 DROP TABLE IF EXISTS `quotations`;
@@ -208,7 +201,7 @@ CREATE TABLE `quotations` (
   `location` varchar(255) DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 --
@@ -220,17 +213,16 @@ CREATE TABLE `services` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
   `subtitle` varchar(255) DEFAULT NULL,
-  `body` varchar(2500) DEFAULT NULL,
+  `body` varchar(1000) DEFAULT NULL,
   `isActive` varchar(45) DEFAULT NULL,
   `createdAt` varchar(45) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,
   `updatedBy` varchar(45) DEFAULT NULL,
   `img_file` varchar(255) DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
-   `createdBy` varchar(255) DEFAULT NULL,
+  `createdBy` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Dumping data for table `services`
 --
@@ -250,8 +242,8 @@ CREATE TABLE `councillors` (
   `affiliation` varchar(255) DEFAULT NULL,
   `isActive` int(11) DEFAULT NULL,
   `updatedAt` varchar(45) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Table structure for table `users`
 --
@@ -269,8 +261,9 @@ CREATE TABLE `users` (
   `confirmation_token` varchar(255) DEFAULT NULL,
   `locked` int(11) DEFAULT NULL,
   `surname` varchar(255) DEFAULT NULL,
+  `role_id` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 DROP TABLE IF EXISTS `notices`;
@@ -287,7 +280,7 @@ CREATE TABLE `notices` (
   `updatedAt` varchar(45) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 --
 -- Indexes for dumped tables
 --
@@ -306,12 +299,11 @@ CREATE TABLE `meetings` (
   `user_id` int(11) DEFAULT NULL,
   `updatedBy` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
---
--- Indexes for table `categories`
---
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
+--
+-- Indexes for dumped tables
+--
 DROP TABLE IF EXISTS `agendas`;
 CREATE TABLE `agendas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -327,11 +319,8 @@ CREATE TABLE `agendas` (
   `user_id` int(11) DEFAULT NULL,
   `updatedBy` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `councillors`
@@ -379,11 +368,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for dumped tables
 --
 
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 
 --
 -- AUTO_INCREMENT for table `councillors`

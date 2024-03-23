@@ -62,17 +62,25 @@ echo '
             <div class="row">
             <div class="col-md-6 mb-4">
             <h6>Initials</h6>
-            <fieldset class="form-group">
-                <select class="form-select" id="initials" name="initials" value="'.$initials.'">
+            <fieldset class="form-group">';
+
+            $initialOptions = array(
+                "Dr"=>"Dr." ,
+                "Mr"=>"Mr." ,
+                "Mrs"=>"Mrs." ,
+                "Ms"=> "Ms." ,
+                "Sir"=>"Sir." 
+            );
+
+            echo'
+                <select class="form-select" id="initials" name="initials" value="'.$initials.'">';
                 
-                <option value="Dr">Dr.</option>
-                    <option value="Mr">Mr.</option>
-                   
-                    <option value="Mrs">Mrs.</option>
-                    <option value="Ms">Ms.</option>
-                    <option value="Sir">Sir.</option>
-                    
-                </select>
+                foreach ($initialOptions as $key => $opt) {
+                    $selected = ($initials == $key) ? "selected" : "";
+                    echo '<option value="'.$key.'" '.$selected.'>'.$opt.'</option>';
+                }
+
+                echo '</select>
             </fieldset>
             </div>
                 <div class="col-md-6">
@@ -119,16 +127,28 @@ echo '
 
                 <div class="col-md-6 mb-4">
                 <h6>Category</h6>
-                <fieldset class="form-group">
-                    <select class="form-select" id="category" name="category" value="'.$category.'">
-                        <option value="SM">SENIOR MANAGEMENT</option>
-                        <option value="CSD">COMMUNICTY SERVICES DEPARTMENT</option>
-                        <option value="PDD">PLANNING AND DEVELOMENT DEPARTMENT</option>
-                        <option value="TSD">TECHNICAL SERVICES DEPARTMENT</option>
-                        <option value="COSD">CORPORATE SERVICES DEPARTMENT</option>
-                        <option value="OTMM">OFFICE OF THE MUNICIPAL MANAGER</option>
-                        <option value="CD">COMMUNICATIONS DEPARTMENT</option>
-                        <option value="FM">FINANCE DEPARTMENT</option>
+                <fieldset class="form-group">';
+
+                $options = array(
+                    "SM"=>"SENIOR MANAGEMENT" ,
+                    "CSD"=>"COMMUNICTY SERVICES DEPARTMENT" ,
+                    "PDD"=>"PLANNING AND DEVELOMENT DEPARTMENT" ,
+                    "TSD"=>"TECHNICAL SERVICES DEPARTMENT" ,
+                    "COSD"=>"CORPORATE SERVICES DEPARTMENT" ,
+                    "OTMM"=>"OFFICE OF THE MUNICIPAL MANAGER" ,
+                    "CD"=>"COMMUNICATIONS DEPARTMENT" ,
+                    "FM"=>"FINANCE DEPARTMENT" 
+                
+                );
+
+                echo  ' <select class="form-select" id="category" name="category" value="'.$category.'">';
+                
+                foreach ($options as $key => $value) {
+                    
+                    $selected = ($category == $key) ? "selected" : "";
+                    echo '<option value="'.$key.'" '.$selected.'>'.$value.'</option>'; 
+                }
+                echo '
                     </select>
                 </fieldset>
                 </div>

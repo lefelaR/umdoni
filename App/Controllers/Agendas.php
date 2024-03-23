@@ -11,7 +11,7 @@ use \Core\View;
 use  App\Models\Roles;
 use  App\Models\NewsModel;
 
-use App\Models\Agenda;
+use App\Models\AgendaModel;
 use  PHPMailer\PHPMailer\PHPMailer;
 use  PHPMailer\PHPMailer\Exception;
  
@@ -28,7 +28,7 @@ class Agendas extends \Core\Controller
     public function indexAction()
     {
 
-        $agendas = Agenda::Get();
+        $agendas = AgendaModel::Get();
 
         view::render('agendas/index.php', $agendas, 'default');
     }
@@ -38,7 +38,7 @@ class Agendas extends \Core\Controller
         $data = getPostData();
         if(isset($data['id'])){
             $id = $data['id'];
-            $agendas = Agenda::GetById($id);
+            $agendas = AgendaModel::GetById($id);
         }else{
             $agendas = array();
         }

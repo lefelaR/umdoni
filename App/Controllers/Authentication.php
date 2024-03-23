@@ -197,7 +197,7 @@ public function __construct()
 
           redirect('dashboard/index/index');
         } else {
-          $context->error['message'] = 'Your account is locked, please contact your Administrator to gain accecss!';
+          $_SESSION['error'] = ['message' => 'Your account is locked, please contact your Administrator to gain accecss!'];
           redirect('authentication/login');
         }
       }

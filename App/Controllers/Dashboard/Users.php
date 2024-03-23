@@ -38,7 +38,7 @@ class Users extends \Core\Controller
         if(isset($data['id'])) 
         {
             $id = $data['id'];
-            $user = User::getUser($id);
+            $user = UserModel::getUser($id);
            
         }else
             $user = array();
@@ -66,7 +66,7 @@ class Users extends \Core\Controller
         if(isset($_POST))   $data = $_POST;
         try 
         {
-          $id =  User::Save($data);
+          $id =  UserModel::Save($data);
             
         } catch (\Throwable $th) 
         {
@@ -80,7 +80,7 @@ class Users extends \Core\Controller
         $id = $_GET['id'];
         try 
         {
-          User::Delete($id);
+            UserModel::Delete($id);
         } catch (\Throwable $th) 
         {
             echo $th->getMessage();
@@ -104,13 +104,10 @@ public function detailsAction()
 public function manageuserAction()
 {
     $data = $_POST;
-    
-
     $locked = [
-        'false' => '1',
-        'true' => '0' 
+        'false' => '0',
+        'true' => '1' 
     ];
-
     $data['locked'] = $locked[$data['locked']];
     try{
        $id = UserModel::ChangeStatus($data);
@@ -120,9 +117,20 @@ public function manageuserAction()
     {
         echo $th->getMessage();
     }
-
 }
 
+
+    public function manageroleAction()
+    {
+        $data = $_POST;
+        try{
+            UserModel::ChangeRole($data);
+            redirect('dashboard/users/index');
+        }catch(\Throwable $th)
+        {
+            echo $th->getMessage();
+        }
+    }
 
 
     protected function before()
