@@ -14,7 +14,6 @@ if (isset($context->errors['message'])) {
         background-size: cover;
         height: fit-content;
     }
-
     #auth {
         position: absolute;
         min-height: 100% !important;

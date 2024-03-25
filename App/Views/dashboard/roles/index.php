@@ -39,7 +39,7 @@ $crumbs = getCrumbs();
                     <a class="btn btn-sm" href="<?php echo buildurl("dashboard/roles/add") ?>" role="button">
                         <i class="bi bi-plus"></i> Add
                     </a>
-                    <button class="btn  btn-sm">
+                    <button class="btn  btn-sm" onclick="handleDownload()">
                         <i class="bi bi-download"></i> Save
                     </button>
                 </div>

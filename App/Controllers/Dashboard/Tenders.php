@@ -104,7 +104,7 @@ class Tenders extends \Core\Controller
         if (isset($_POST)) $data = $_POST;
 
         $data['status'] = 1;
-        $data['createdAt'] = date("Y-m-d H:i:s");
+        $data['createdAt'] = $data['createdAt'];
         $data['isActive'] = 1;
         $data['img_file'] = $objectKey;
         $data['location'] = $result && isset($result['ObjectURL']) ? $result['ObjectURL'] : "";

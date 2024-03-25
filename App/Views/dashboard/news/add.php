@@ -60,17 +60,17 @@ echo'
                     <input type="hidden"  id="id" name="id" value="'.$id.'" >
                         <div class="form-group">
                             <label for="basicInput">Title</label>
-                            <input type="text" class="form-control" id="title" name="title" value="'.$title.'">
+                            <input type="text" class="form-control" id="title" name="title" value="'.$title.'" required>
                         </div>
 
                         <div class="form-group">
                             <label for="helperText">Subtitle</label>
-                            <input type="text" id="subtitle" name="subtitle" class="form-control" value="'.$subtitle.'">
+                            <input type="text" id="subtitle" name="subtitle" class="form-control" value="'.$subtitle.'" required>
                         </div>
 
                         <div class="col-md-6">
                         <div class="form-group">
-                            <input type="file" class="form-control text-black" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value="">
+                            <input type="file" class="form-control text-black" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value="" required>
                         </div>
                     </div>
 

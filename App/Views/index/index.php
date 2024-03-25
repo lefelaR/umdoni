@@ -206,11 +206,11 @@ $data = $context->data;
                     <a href="' . buildurl("news/details?id=" . $news['id']) . '" ">
                         <div class="row g-0">
                             <div class="col-lg-4 col-md-4 col-sm-12 col-sx-12">
-                                <img src="' . $news["location"] . '" class="img-fluid rounded-start" style="">
+                                <img src="' . $news["location"] . '" class="img-fluid rounded-start" style="object-fit: cover;">
                             </div>
-                            <div class="col-lg-4 col-md-8 col-sm-12 col-xs-12">
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                 <div class="card-body">
-                                    <h5 class="card-title text-black text-capitalize">' . $news["title"] . '</h5>
+                                    <h5 class="fs-6 text-black text-capitalize">' . $news["title"] . '</h5>
                                 </div>
                             </div>
                         </div>

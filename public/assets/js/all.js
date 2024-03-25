@@ -15,9 +15,36 @@ function handleSave() {
 }
 
 
+function handleDownload()
+{
+  debugger
+  const currentURL = window.location.href;
+  const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
+  fetch(stripped+'/download', {
+    method: "GET",
+  }).then((res)=>{
+    debugger
+    Toastify({
+      text: res.message,
+      duration: 3000,
+      gravity: "bottom",
+      position: "left",
+      backgroundColor: "#4fbe87",
+    }).showToast();
+  }).catch((err)=>{
+  debugger
+    Toastify({
+      text: err.message,
+      duration: 3000,
+      gravity: "bottom",
+      position: "left",
+      backgroundColor: "#4fbe87",
+    }).showToast();
+  })
+}
+
+
 function handleValidate(){
-
-
 }
 
 function showDeleteModal() {

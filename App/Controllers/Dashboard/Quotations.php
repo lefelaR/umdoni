@@ -12,7 +12,7 @@ namespace App\Controllers\Dashboard;
 
 use \Core\View;
 use App\Models\Service;
-use App\Models\Quotation;
+use App\Models\QuotationsModel;
 use App\Models\Tender;
 use Aws\S3\S3Client;
 
@@ -41,7 +41,7 @@ class Quotations extends \Core\Controller
     public function indexAction()
     {
       
-        $quotation = Quotation::getAll();
+        $quotation = QuotationsModel::getAll();
         view::render('dashboard/quotations/index.php', $quotation, 'dashboard');
     }
 
@@ -52,7 +52,7 @@ class Quotations extends \Core\Controller
         if(isset($data['id']))
         {
             $id = $data['id'];
-            $service = Quotation::getById($id);
+            $service = QuotationsModel::getById($id);
         }else
             $service = array();
         view::render('dashboard/quotations/add.php', $service, 'dashboard');
@@ -101,7 +101,7 @@ class Quotations extends \Core\Controller
         if (isset($_POST)) $data = $_POST;
 
         $data['status'] = 1;
-        $data['createdAt'] = date("Y-m-d H:i:s");
+        $data['createdAt'] = $data['createdAt'];
         $data['isActive'] = 1;
         $data['img_file'] = $objectKey;
         $data['location'] = isset($result['ObjectURL']) ? $result['ObjectURL'] : "";
@@ -109,7 +109,7 @@ class Quotations extends \Core\Controller
 
         // generate a refernce
         try {
-            $id =  Quotation::Save($data);
+            $id =  QuotationsModel::Save($data);
 
             $_SESSION['success'] = ['message' => 'successfully added record!'];
         } catch (\Throwable $th) {
@@ -121,7 +121,7 @@ class Quotations extends \Core\Controller
     public function getByStatusAction()
 {
     $status = $_GET['status']; // Get the status from the query parameter
-    $quotations = Quotation::getByStatus($status);
+    $quotations = QuotationsModel::getByStatus($status);
     View::render('dashboard/quotations/index.php', $quotations, 'dashboard');
 }
 
@@ -132,7 +132,7 @@ public function updateStatusAction()
     $status = $data['status'];
 
     try {
-        Quotation::updateStatus($id, $status);
+        QuotationsModel::updateStatus($id, $status);
         $_SESSION['success'] = ['message' => 'Quotation status updated successfully!'];
     } catch (\Throwable $th) {
         $_SESSION['error'] = ['message' => $th->getMessage()];
@@ -177,7 +177,7 @@ public static function getStatusName($status)
         $id = $_GET['id'];
         try 
         {
-          Quotation::Delete($id);
+            QuotationsModel::Delete($id);
           
         } catch (\Throwable $th) 
         {

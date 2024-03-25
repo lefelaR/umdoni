@@ -10,8 +10,7 @@
 namespace App\Controllers\Dashboard;
 
 use \Core\View;
-use App\Models\User;
-use Aws\S3\S3Client;
+use Components\DownloadPdf;
 use App\Models\RolesModel;
 
 class Roles extends \Core\Controller
@@ -93,6 +92,14 @@ class Roles extends \Core\Controller
         redirect('dashboard/roles/index');
     }
 
+    public function download()
+    {
+        $roles = RolesModel::getAll();
+
+       $html = DownloadPdf::convertHtml($roles);
+
+        DownloadPdf::SavePdf($html);
+    }
 
     protected function before()
     {
