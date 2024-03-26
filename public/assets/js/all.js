@@ -25,16 +25,16 @@ function handleDownload()
   }).then((res)=>{
     debugger
     Toastify({
-      text: res.message,
+      text: "Download has been generated",
       duration: 3000,
       gravity: "bottom",
       position: "left",
       backgroundColor: "#4fbe87",
     }).showToast();
   }).catch((err)=>{
-  debugger
+  
     Toastify({
-      text: err.message,
+      text: "Failled to generate download",
       duration: 3000,
       gravity: "bottom",
       position: "left",

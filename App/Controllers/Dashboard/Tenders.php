@@ -9,12 +9,9 @@
 
 namespace App\Controllers\Dashboard;
 
-use App\Models\Requests;
 use \Core\View;
-use App\Models\User;
-use App\Models\Service;
-use App\Models\Request;
 use App\Models\TenderModel;
+use Components\DownloadPdf;
 use DateTime;
 use Aws\S3\S3Client;
 
@@ -28,7 +25,7 @@ class Tenders extends \Core\Controller
     private $clientId;
     private $userPoolId;
     private $region;
-    private $awsSecretAccessKey; 
+    private $awsSecretAccessKey;
 
 
 
@@ -114,7 +111,7 @@ class Tenders extends \Core\Controller
             $id =  TenderModel::Save($data);
             $_SESSION['success'] = ['message' => 'successfully added record!'];
         } catch (\Throwable $th) {
-            $_SESSION['error'] = ['message' => $th->getMessage()];          
+            $_SESSION['error'] = ['message' => $th->getMessage()];
         }
         redirect('dashboard/tenders/index');
     }
@@ -142,6 +139,17 @@ class Tenders extends \Core\Controller
             echo $th->getMessage();
         }
         redirect('dashboard/tenders/index');
+    }
+
+    public function download()
+    {
+        try {
+            $tenders = TenderModel::Get();
+            $html = DownloadPdf::convertHtml($tenders);
+            DownloadPdf::SavePdf($html);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     protected function before()

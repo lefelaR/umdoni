@@ -1,33 +1,34 @@
 <?php
 
 namespace Components;
-use Dompdf\Dompdf;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
 abstract class DownloadPdf
 {
 
+
     public static function SavePdf($html = '')
     {
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isPhpEnabled', true);
+                
+        try {
+            $dompdf = new Dompdf();
+            $dompdf->loadHtml($html, 'UTF-8');
+            $dompdf->setPaper('A4', 'portrait');
+            $dompdf->render();
+            $dompdf->stream('download.pdf', array("Attachment" => true));
 
-    // HTML content that you want to convert to PDF
-    // Create a Dompdf instance
-    $dompdf = new Dompdf();
-    // Load HTML content
-
-    $dompdf->loadHtml($html);
-    // $dompdf->setPaper('A4', 'portrait');
-    $dompdf->render();
-
-    
-
-    $dompdf->stream('download.pdf');
-
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
 
     public static function convertHtml($data)
     {
-
         $html = '<!DOCTYPE html>
             <html lang="en">
             <head>
@@ -36,18 +37,16 @@ abstract class DownloadPdf
                 <title>Document</title>
             </head>
             <body>';
-        $html = '<table border="1">';
-            foreach ($data as  $row) {
-                $html .= '<tr>';
-                foreach ($row as $cell) {
-                    $html .= '<td>'.$cell.'</td>';                    
-                }
-                $html .= '</tr>';
+        $html = '<table border="1" width="500">';
+        foreach ($data as  $row) {
+            $html .= '<tr>';
+            foreach ($row as $cell) {
+                $html .= '<td>' . $cell . '</td>';
             }
-
+            $html .= '</tr>';
+        }
         $html .= '</table>';
-        $html .=' </body></html>';
-        
+        $html .= ' </body></html>';
         return $html;
     }
 }
