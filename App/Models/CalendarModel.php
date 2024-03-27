@@ -18,9 +18,9 @@ class CalendarModel extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM events 
+            $stmt = $db->query('SELECT * FROM events WHERE `isActive` = 1
                                 UNION
-                                SELECT * FROM  projects 
+                                SELECT * FROM  projects  WHERE `isActive` = 1
                                 ORDER BY `dueDate` ASC'
                             );                              
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);

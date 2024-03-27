@@ -47,6 +47,7 @@ $title = (isset($data['title'])) ? $data['title'] : '';
 $subtitle = (isset($data['subtitle'])) ? $data['subtitle'] : '';
 $body = (isset($data['body'])) ? $data['body'] : '';
 $reference = (isset($data['reference'])) ? $data['reference'] : '';
+$createdAt = (isset($data['createdAt'])) ? $data['createdAt'] : '';
 $duedate = (isset($data['duedate'])) ? $data['duedate'] : '';
 
 
@@ -74,6 +75,11 @@ echo'
                 <label for="helperText">Reference</label>
                 <input type="text" id="reference" name="reference" class="form-control" value="' . $reference . '">
             </div>
+
+            <div class="form-group">
+            <label for="helperText">Created Date</label>
+            <input type="date" id="createdAt" name="createdAt" class="form-control" value="' . $createdAt . '">
+            </div>
                 
                 <div class="form-group">
                     <label for="helperText">End Date</label>
@@ -88,6 +94,7 @@ echo'
                 <div class="form-group">
                     <label for="body">Body</label>
                     <textarea type="text" name="body" class="form-control text-black" id="body" value="' . $body . '" rows="3">
+                    '.$body.'
                     </textarea>
                 </div>
 

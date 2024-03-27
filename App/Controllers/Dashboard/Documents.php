@@ -10,7 +10,6 @@
 namespace App\Controllers\Dashboard;
 
 use \Core\View;
-use App\Models\User;
 use App\Models\DocumentModel;
 use Aws\S3\S3Client;
 

@@ -11,9 +11,8 @@ namespace App\Controllers\Dashboard;
 
 use \Core\View;
 use Aws\S3\S3Client;
-use App\Models\User;
 use App\Models\NoticeModel;
-use Intervention\Image\ImageManagerStatic as Image;
+
 
 class Notices extends \Core\Controller
 {

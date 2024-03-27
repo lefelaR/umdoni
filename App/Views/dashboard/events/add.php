@@ -75,7 +75,8 @@ echo '
          
                 <div class="form-group">
                 <label for="body">Body</label>
-                <textarea type="text" name="body" class="form-control text-black" id="full" value="' . $body . '" rows="3">
+                <textarea type="text" name="body" class="form-control text-black" id="body" value="' . $body . '" rows="3">
+                '.$body.'
                 </textarea>
             </div>
 

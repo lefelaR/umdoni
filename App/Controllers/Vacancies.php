@@ -10,11 +10,7 @@
 namespace App\Controllers;
 
 use \Core\View;
-use  App\Models\Post;
-use  App\Models\Roles;
-use  PHPMailer\PHPMailer\PHPMailer;
-use  PHPMailer\PHPMailer\Exception;
-use App\Models\Vacancy;
+use App\Models\VacancyModel;
 
 class Vacancies extends \Core\Controller
 {
@@ -28,8 +24,8 @@ class Vacancies extends \Core\Controller
     public function indexAction()
     {
 
-
-        view::render('vacancies/index.php', $events= array(), 'default');
+        $vacancies = VacancyModel::GET();
+        view::render('vacancies/index.php', $vacancies, 'default');
     }
 
  

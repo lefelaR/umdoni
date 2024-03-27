@@ -10,12 +10,8 @@
 namespace App\Controllers;
 
 use \Core\View;
-use  App\Models\Post;
-use  App\Models\Roles;
-use  PHPMailer\PHPMailer\PHPMailer;
-use  PHPMailer\PHPMailer\Exception;
 use  App\Models\NewsModel;
-use Components\ExternalAPIHandler;
+
 
 class Index extends \Core\Controller
 {

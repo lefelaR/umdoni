@@ -7,8 +7,6 @@
  */
 namespace App\Controllers\Dashboard;
 use \Core\View;
-use App\Models\User;
-use App\Models\Meeting;
 use App\Models\AgendaModel;
 use Aws\S3\S3Client;
 
@@ -38,10 +36,6 @@ class Agendas extends \Core\Controller
 
     public function indexAction()
     {
-       
-        // get information from the model and inject it into the viewport
-        //    name an object that will carry all dashboard items
-
         $agendas = AgendaModel::Get();
         view::render('dashboard/agendas/index.php', $agendas , 'dashboard');
     }
@@ -65,7 +59,7 @@ class Agendas extends \Core\Controller
             $bucketName = $this->bucketName;
             $awsAccessKeyId =   $this->awsAccessKeyId;
             $awsSecretAccessKey =  $this->awsSecretAccessKey;
-            $region =  $this->region; // Change to your desired region
+            $region =  $this->region; 
 
             $s3 = new S3Client([
                 'version' => 'latest',

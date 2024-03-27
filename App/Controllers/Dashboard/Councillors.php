@@ -10,7 +10,6 @@
 namespace App\Controllers\Dashboard;
 
 use \Core\View;
-use App\Models\Service;
 use App\Models\CouncillorModel;
 use Aws\S3\S3Client;
 
@@ -73,7 +72,6 @@ class Councillors extends \Core\Controller
     public function saveAction()
     {
         global $context;
-        // check file and send to aws s3;
         if (isset($_FILES)) {
 
             $s3 = new S3Client([
@@ -90,7 +88,6 @@ class Councillors extends \Core\Controller
             $objectKey = $file['name']['name'];
             $loc = "";
             try {
-                // Upload the file to S3
                 $result = $s3->putObject([
                     'Bucket' => $this->bucketName,
                     'Key' => $objectKey,
@@ -121,7 +118,6 @@ class Councillors extends \Core\Controller
     public function savemanAction()
     {
         global $context;
-        // check file and send to aws s3;
         if (isset($_FILES)) {
 
             $s3 = new S3Client([
@@ -138,7 +134,6 @@ class Councillors extends \Core\Controller
             $objectKey = $file['name']['name'];
             $loc = "";
             try {
-                // Upload the file to S3
                 $result = $s3->putObject([
                     'Bucket' => $this->bucketName,
                     'Key' => $objectKey,
@@ -170,8 +165,8 @@ class Councillors extends \Core\Controller
     public function updateAction()
     {
 
-        if (isset($_FILES) && $_FILES['name']['size'] > 0) {
-            // upload
+        if (isset($_FILES) && $_FILES['name']['size'] > 0) 
+        {
             $bucketName =  $this->bucketName;
             $awsAccessKeyId = $this->awsAccessKeyId;
             $awsSecretAccessKey =  $this->awsSecretAccessKey;
@@ -224,12 +219,13 @@ class Councillors extends \Core\Controller
     public function updateManAction()
     {
 
-        if (isset($_FILES) && $_FILES['name']['size'] > 0) {
-            // upload
+        if (isset($_FILES) && $_FILES['name']['size'] > 0) 
+        {
+        
             $bucketName = $this-> bucketName;
             $awsAccessKeyId = $this-> awsAccessKeyId;
             $awsSecretAccessKey = $this->awsSecretAccessKey;
-            $region = $this->region; // Change to your desired region
+            $region = $this->region;
 
             $s3 = new S3Client([
                 'version' => 'latest',
@@ -246,7 +242,7 @@ class Councillors extends \Core\Controller
 
 
             try {
-                // Upload the file to S3
+       
                 $result = $s3->putObject([
                     'Bucket' => $bucketName,
                     'Key' => $objectKey,

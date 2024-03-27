@@ -7,13 +7,10 @@
  */
 
 namespace App\Controllers;
-use \Core\View;
-use  App\Models\Roles;
-use  App\Models\NewsModel;
 
+use \Core\View;
 use App\Models\AgendaModel;
-use  PHPMailer\PHPMailer\PHPMailer;
-use  PHPMailer\PHPMailer\Exception;
+
  
 
 class Agendas extends \Core\Controller

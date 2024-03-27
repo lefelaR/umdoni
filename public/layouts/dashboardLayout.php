@@ -3,15 +3,14 @@ include_once '../Components/Helpers.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QK3ZNVWTWP"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKXJ5LHLZV"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-QK3ZNVWTWP');
+  gtag('config', 'G-WKXJ5LHLZV');
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,17 +27,15 @@ include_once '../Components/Helpers.php';
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/sweetalert2/sweetalert2.min.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/bootstrap-icons/bootstrap-icons.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/simple-datatables/style.css") ?>">
-    <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/quill/quill.bubble.css") ?>">
-    <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/quill/quill.snow.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/toastify/toastify.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/images/favicon.svg") ?>">
     <link rel="stylesheet" href="<?php echo url('assets/vendors/simple-datatables/style.css') ?>">
     <script src="//d2wy8f7a9ursnm.cloudfront.net/v7/bugsnag.min.js"></script>
-<script type="module">
-  import BugsnagPerformance from '//d2wy8f7a9ursnm.cloudfront.net/v1/bugsnag-performance.min.js'
-  Bugsnag.start({ apiKey: 'efeaa75b4c6845b5fcd047a83480a73d' })
-  BugsnagPerformance.start({ apiKey: 'efeaa75b4c6845b5fcd047a83480a73d' })
-</script>
+    <script type="module">
+    import BugsnagPerformance from '//d2wy8f7a9ursnm.cloudfront.net/v1/bugsnag-performance.min.js'
+    Bugsnag.start({ apiKey: 'efeaa75b4c6845b5fcd047a83480a73d' })
+    BugsnagPerformance.start({ apiKey: 'efeaa75b4c6845b5fcd047a83480a73d' })
+    </script>
 </head>
 
 <body>
@@ -56,13 +53,12 @@ include_once '../Components/Helpers.php';
             </header>
             {{content}}
         </div>
-        
         <?php include '../public/Includes/modals.php'; ?>
      
     </div>
     <?php include '../public/Includes/backendfooter.php'; ?>
-
     <script src="<?php echo url("assets/js/all.js") ?>"></script>
+    <script src="<?php echo url("assets/js/jquery.min.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/js/bootstrap.bundle.min.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/js/mazer.js") ?>"></script>
@@ -73,13 +69,20 @@ include_once '../Components/Helpers.php';
     <script src="<?php echo url("themes/mazor/assets/vendors/sweetalert2/sweetalert2.all.min.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/vendors/toastify/toastify.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/js/extensions/toastify.js") ?>"></script>
+    <script src="<?php echo url("themes/mazor/assets/vendors/tinymce/tinymce.min.js") ?>"></script>
+    <script src="<?php echo url("themes/mazor/assets/vendors/tinymce/plugins/code/plugin.min.js") ?>"></script>
+    <script>
+    tinymce.init({
+        selector: 'textarea#body',
+        toolbar: 'undo redo styleselect bold italic alignleft aligncenter alignright bullist numlist outdent indent code', 
+        plugins: 'code'
+    });
+    </script>
     <script>
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="<?php echo url("themes/mazor/assets/js/pages/form-editor.js") ?>"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
-
 </html>

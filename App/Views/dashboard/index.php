@@ -23,11 +23,14 @@ $data = $context->data;
                                 $requestCount = count($requests);
 
                                 echo '
+                               
                                 <div class="col-md-8">
+                                <a href="'.buildurl("dashboard/services/requests").'">
                                     <h6 class="text-muted font-semibold">Service Requests</h6>
                                     <h6 class="font-extrabold mb-0">' . $requestCount . '</h6>
+                                    </a>
                                 </div>
-
+                                
                                 ';
                                 ?>
                             </div>
@@ -49,8 +52,10 @@ $data = $context->data;
                                 $projectCount = count($projects);
                                 echo '
                                 <div class="col-md-8">
+                                <a href="'.buildurl("dashboard/projects/index").'">
                                 <h6 class="text-muted font-semibold">Projects</h6>
                                 <h6 class="font-extrabold mb-0">' . $projectCount . '</h6>
+                                </a>
                             </div>
                                 '
                                 ?>
@@ -75,8 +80,10 @@ $data = $context->data;
                                 echo '
                                 
                                   <div class="col-md-8">
+                                  <a href="'.buildurl("dashboard/events/index").'">
                                     <h6 class="text-muted font-semibold">Events</h6>
                                     <h6 class="font-extrabold mb-0">' . $eventCount . '</h6>
+                                    </a>
                                 </div>
                                 
                                 ';
@@ -103,9 +110,11 @@ $data = $context->data;
 
                                 echo '
                                  <div class="col-md-8">
+                                 <a href="'.buildurl("dashboard/notices/index").'">
                                     <h6 class="text-muted font-semibold">Notices</h6>
                                     <h6 class="font-extrabold mb-0">' . $noticeCount . '</h6>
-                                </div>
+                                </a>
+                                    </div>
                                 '
                                 ?>
                             </div>

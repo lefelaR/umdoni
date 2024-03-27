@@ -7,8 +7,7 @@
  */
 namespace App\Controllers\Dashboard;
 use \Core\View;
-use App\Models\User;
-use Aws\S3\S3Client;
+use App\Models\UserModel;
 
 class Directory extends \Core\Controller
 {
@@ -16,10 +15,8 @@ class Directory extends \Core\Controller
     public function indexAction()
     {
        
-        // get information from the model and inject it into the viewport
-        //    name an object that will carry all dashboard items
         $dashboard = array();
-        $users = User::getAll();
+        $users = UserModel::getAll();
         $dashboard['users'] = $users;
 
         view::render('dashboard/directory/index.php', $dashboard , 'dashboard');
