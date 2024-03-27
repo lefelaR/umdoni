@@ -78,7 +78,7 @@ $crumbs = getCrumbs();
                                     <a class="btn  btn-sm" href="add?id=' .  $event['id'] . '">
                                     <i class="bi bi-pencil"></i>
                                     </a>
-                                    <a class="btn btn-sm" href="delete?id=' .  $event['id'] . '"onclick="handleDelete()">
+                                    <a class="btn btn-sm" href="delete?id=' .  $event['id'] . '"onclick="handleDelete(event, '.$event['id'].')">
                                      <i class="bi bi-trash"></i>
                                 </a>
                                     </td>

@@ -92,6 +92,7 @@ class Events extends \Core\Controller
                 }
             }
         }
+
         if (isset($_POST)) $data = $_POST;
         $data['isActive'] = 1;
         $data['createdAt'] = date("Y-m-d H:i:s");
