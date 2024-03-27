@@ -59,21 +59,21 @@ echo '
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($data as $key => $service) {
+                                foreach ($data as $key => $news) {
                                     $key++;
 
                                     echo '
                                 <tr>
                                  
-                                    <td>' . $service['title'] . '</td>
-                                    <td>' . $service['subtitle'] . '</td>
-                                    <td> ' . $service['body'] . '</td>
-                                    <td>' . $service['createdAt'] . '</td>
+                                    <td>' . $news['title'] . '</td>
+                                    <td>' . $news['subtitle'] . '</td>
+                                    <td> ' . $news['body'] . '</td>
+                                    <td>' . $news['createdAt'] . '</td>
                                     <td>
-                                        <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">
+                                        <a class="btn  btn-sm" href="add?id=' .  $news['id'] . '">
                                         <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a class="btn btn-sm" href="delete?id=' .  $service['id'] . '"onclick="handleDelete()">
+                                        <a class="btn btn-sm" href="delete?id=' .  $news['id'] . '" onclick="handleDelete(event, '.$news['id'].')">
                                          <i class="bi bi-trash"></i>
                                     </a>
                                     </td>
