@@ -87,7 +87,7 @@ echo '
                             
                             foreach ($options as $key => $value) {
                                 $selected = ($category == $key)? "selected":"";
-                             echo '<option value="'.$key.'" class="text-uppercase">'.$value.'</option>';
+                             echo '<option value="'.$key.'" class="text-uppercase" '.$selected.'>'.$value.'</option>';
                             }
                             
                                 echo '   
