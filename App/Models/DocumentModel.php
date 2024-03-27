@@ -35,7 +35,7 @@ class DocumentModel extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM documents WHERE id = '$id' AND category = '$category'");
+            $stmt = $db->query("SELECT * FROM documents WHERE id = '$id'");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
