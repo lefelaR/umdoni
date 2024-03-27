@@ -6,11 +6,10 @@
  * Front Controller/ hadles all the incoming requests to site
  */
 namespace App\Controllers;
+
 use \Core\View;
-use  App\Models\RolesModel;
 use App\Models\TenderModel;
-use  PHPMailer\PHPMailer\PHPMailer;
-use  PHPMailer\PHPMailer\Exception;
+
  
 
 class Tenders extends \Core\Controller

@@ -61,21 +61,21 @@ class Roles extends \Core\Controller
 
     public function update()
     {
-        
+
         $id = $_POST['id'];
         $data['name'] = $_POST['name'];
         array_shift($_POST);
         array_shift($_POST);
         $data['permissions'] = json_encode($_POST);
 
-        
+
         try {
             RolesModel::Update($id, $data);
             $_SESSION['success'] = ['message' => 'Quotation status updated successfully!'];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
         }
-    
+
         redirect('dashboard/roles/index');
     }
 
@@ -95,10 +95,8 @@ class Roles extends \Core\Controller
     public function download()
     {
         $roles = RolesModel::getAll();
-
-       $html = DownloadPdf::convertHtml($roles);
-
-        DownloadPdf::SavePdf($html);
+        $html = DownloadPdf::convertHtml($roles);
+         DownloadPdf::SavePdf($html);
     }
 
     protected function before()

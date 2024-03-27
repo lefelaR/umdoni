@@ -162,11 +162,11 @@ $data = $context->data;
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-12">
-            <a href="<?php echo buildurl("services/info") ?>">
+            <a href="<?php echo buildurl("documents/index") ?>">
                 <div class="card card-hover mb-3 card-border">
                     <div class="card-body">
-                        <i class="bi bi-house fs-1 text-yellow"></i>
-                        <p class="h5 fw-bold text-blue">Neighborhood Info</p>
+                        <i class="bi bi-journals fs-1 text-yellow"></i>
+                        <p class="h5 fw-bold text-blue">Documents Library</p>
                         <p class="fw-normal p-1 text-secondary">Find your local trash pick-up days, utitlities and more.</p>
                     </div>
                 </div>

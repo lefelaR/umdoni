@@ -9,8 +9,7 @@
 namespace App\Controllers;
 use \Core\View;
 use App\Models\CouncillorModel;
-use  PHPMailer\PHPMailer\PHPMailer;
-use  PHPMailer\PHPMailer\Exception;
+
  
 
 class Councillors extends \Core\Controller

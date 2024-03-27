@@ -12,7 +12,7 @@ namespace App\Controllers\Dashboard;
 use \Core\View;
 use App\Models\UserModel;
 use App\Models\Newsletter;
-use Aws\S3\S3Client;
+
 
 
 class Newsletters extends \Core\Controller

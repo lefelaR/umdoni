@@ -2,25 +2,23 @@
 
 namespace Components;
 
-use Dompdf\Dompdf;
-use Dompdf\Options;
+use TCPDF;
+
 abstract class DownloadPdf
 {
 
 
     public static function SavePdf($html = '')
     {
-        $options = new Options();
-        $options->set('isHtml5ParserEnabled', true);
-        $options->set('isPhpEnabled', true);
-                
-        try {
-            $dompdf = new Dompdf();
-            $dompdf->loadHtml($html, 'UTF-8');
-            $dompdf->setPaper('A4', 'portrait');
-            $dompdf->render();
-            $dompdf->stream('download.pdf', array("Attachment" => true));
+        global $context;
 
+        try {
+            $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false, true);
+            $pdf->SetTitle("TEST TITLE");
+            $pdf->AddPage();
+            $pdf->writeHTML($html, true, false, true, false, '');
+            $pdf->Output('download.pdf', 'D');
+           
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -29,15 +27,8 @@ abstract class DownloadPdf
 
     public static function convertHtml($data)
     {
-        $html = '<!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Document</title>
-            </head>
-            <body>';
-        $html = '<table border="1" width="500">';
+        $html = '<<<EOD';
+        $html .= '<table border="1" width="500">';
         foreach ($data as  $row) {
             $html .= '<tr>';
             foreach ($row as $cell) {
@@ -46,7 +37,7 @@ abstract class DownloadPdf
             $html .= '</tr>';
         }
         $html .= '</table>';
-        $html .= ' </body></html>';
+        $html .= 'EOD;';
         return $html;
     }
 }

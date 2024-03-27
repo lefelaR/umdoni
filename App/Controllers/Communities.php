@@ -10,12 +10,7 @@
 namespace App\Controllers;
 
 use \Core\View;
-use  App\Models\Post;
-use  App\Models\Roles;
-use  PHPMailer\PHPMailer\PHPMailer;
-use  PHPMailer\PHPMailer\Exception;
-use  App\Models\NewsModel;
-use  App\Models\Event;
+
 
 class Communities extends \Core\Controller
 {
@@ -33,8 +28,6 @@ class Communities extends \Core\Controller
 
     public function indexAction()
     {
-        
-     
         view::render('communities/index.php', $community = array(), 'default');
     }
 

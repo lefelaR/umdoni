@@ -7,11 +7,10 @@
  */
 
 namespace App\Controllers;
+
 use \Core\View;
-use  App\Models\Roles;
 use  App\Models\NewsModel;
-use  PHPMailer\PHPMailer\PHPMailer;
-use  PHPMailer\PHPMailer\Exception;
+
  
 
 class News extends \Core\Controller

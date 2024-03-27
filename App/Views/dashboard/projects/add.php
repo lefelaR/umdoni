@@ -69,7 +69,7 @@ echo '
                     <div class="form-group">
                         <label for="body">Body</label>
                         
-                    <textarea type="text" name="body" id="body" class="form-control text-black" value="' . $body . '" rows="3">
+                    <textarea type="text" name="body" id="body" class="form-control text-secondary" value="' . $body . '" rows="3">
                        '.$body.'
                     </textarea>
                

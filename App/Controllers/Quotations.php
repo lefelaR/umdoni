@@ -6,13 +6,10 @@
  * Front Controller/ hadles all the incoming requests to site
  */
 namespace App\Controllers;
+
 use \Core\View;
-use  App\Models\Post;
-use  App\Models\RolesModel;
-use App\Models\TenderModel;
 use App\Models\QuotationsModel;
-use  PHPMailer\PHPMailer\PHPMailer;
-use  PHPMailer\PHPMailer\Exception;
+
  
 
 class Quotations extends \Core\Controller
