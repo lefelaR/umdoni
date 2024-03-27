@@ -59,11 +59,11 @@ class Publications extends \Core\Controller
     {
         global $context;
         // check file and send to aws s3;
-        if (isset($_FILES)) {
+        if (isset($_FILES) && $_FILES['name']['size'] > 0) {
             $bucketName =  $this->bucketName;
             $awsAccessKeyId = $this->awsAccessKeyId;
-            $awsSecretAccessKey = $this->awsSecretAccessKey ;
-            $region = $this->region; 
+            $awsSecretAccessKey = $this->awsSecretAccessKey;
+            $region = $this->region;
 
 
             $s3 = new S3Client([
@@ -75,27 +75,28 @@ class Publications extends \Core\Controller
                 ],
             ]);
             $file = $_FILES;
-
-            $filePath = $file['name']['tmp_name'];
-            $objectKey = $file['name']['name'];
-            $loc = "";
-            try {
-                // Upload the file to S3
-                $result = $s3->putObject([
-                    'Bucket' => $bucketName,
-                    'Key' => $objectKey,
-                    'SourceFile' => $filePath,
-                ]);
-            } catch (Exception $e) {
-                echo "Error uploading file: " . $e->getMessage();
+            if (count($file) > 0) {
+                $filePath = $file['name']['tmp_name'];
+                $objectKey = $file['name']['name'];
+                $loc = "";
+                try {
+                    // Upload the file to S3
+                    $result = $s3->putObject([
+                        'Bucket' => $bucketName,
+                        'Key' => $objectKey,
+                        'SourceFile' => $filePath,
+                    ]);
+                } catch (\Throwable $e) {
+                    echo "Error uploading file: " . $e->getMessage();
+                }
             }
         }
 
         if (isset($_POST)) $data = $_POST;
         $data['publisher'] = (isset($_SESSION['profile']['username'])) ? $_SESSION['profile']['username'] : "";
         $data['isActive'] = 1;
-        $data['img_file'] = $objectKey;
-        $data['location'] = $result['ObjectURL'];
+        $data['img_file'] =  isset($result) ? $objectKey : "";
+        $data['location'] = isset($result) ? $result['ObjectURL'] : "";
         $data['createdAt'] = date("Y-m-d H:i:s");
         try {
             $id =  Newsletter::Save($data);

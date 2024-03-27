@@ -73,7 +73,7 @@ echo '
                                         <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">
                                         <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a class="btn btn-sm" href="delete?id=' .  $service['id'] . '"onclick="handleDelete()">
+                                        <a class="btn btn-sm" href="delete?id=' .  $service['id'] . '"onclick="handleDelete(event, '.$service['id'].')">
                                          <i class="bi bi-trash"></i>
                                     </a>
                                     </td>
