@@ -5,14 +5,13 @@ window.addEventListener("load", function (event) {
 });
 
 function handleDelete(e, id) {
-  debugger
-  var confirmation = confirm("are you sure you want to delete?");
+  var confirmation = confirm("Are you sure you want to delete?");
   if(confirmation === true){
     showPreloader();
   }else{
     e.preventDefault();
     e.stopPropagation();
-    Toast('danger','Delete was calcelled');
+    Toast('danger','Delete was cancelled');
     return;
   }
  
