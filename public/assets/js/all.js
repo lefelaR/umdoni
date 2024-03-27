@@ -5,8 +5,17 @@ window.addEventListener("load", function (event) {
 });
 
 function handleDelete(e, id) {
-  confirm("are you sure you want to delete?");
-  showPreloader();
+  debugger
+  var confirmation = confirm("are you sure you want to delete?");
+  if(confirmation === true){
+    showPreloader();
+  }else{
+    e.preventDefault();
+    e.stopPropagation();
+    Toast('danger','Delete was calcelled');
+    return;
+  }
+ 
 }
 
 function handleSave() {
