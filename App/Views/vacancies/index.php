@@ -61,13 +61,74 @@ $data = $context->data;
 
 <div class="container content-section">
     <div class="row">
-
         <div class="col-md-12 col-lg-12">
-            <p class="h1 text-uppercase fw-bold text-secondary">
-                <!-- Umdoni leadership undergoes COVID-19 testing and screening -->
-            </p>
 
+            <!-- <p class="fw-lighter fs-3 my-5">
+                Discover lucrative business prospects through our Tender Opportunities page. Explore curated tender opportunities from various industries. Stay informed about upcoming projects, contracts, and procurement opportunities. Unlock new avenues for growth and success.
+            </p> -->
+            <p class="h1 text-uppercase fw-normal">
+                Vacancies
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class=" col-md-12 col-lg-12 col-sm-12">
+
+           
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                    <div class="mt-5">
+                        <table class="table" id="table1">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Title
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Reference
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Closing Date
+                                        </p>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                foreach ($data as $key => $vacancy) {
+                                    $key++;
+                                    echo '
+                                <tr>
+                                    <th scope="row">
+                                    <a class="text-secondary fw-bold" href="' . $vacancy['location'] . '" target="_blank">
+                                     <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
+                                    </a>
+                                    </th>
+                                    <td>
+                                        <a class="text-secondary fw-bold" href="' . $vacancy['location'] . '" target="_blank">' . $vacancy["title"] . '</a>
+                                    </td>
+                                    <td>' . $vacancy['reference'] . '</td>
+                                    <td> ' . $vacancy['dueDate'] . '</td>
+                                </tr>
+                                  ';
+                                }
+
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                 
+            </div>
         </div>
     </div>
 </div>
-<section

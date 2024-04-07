@@ -6,11 +6,9 @@
  * Front Controller/ hadles all the incoming requests to site
  */
 namespace App\Controllers;
+
 use \Core\View;
-use  App\Models\Post;
-use  App\Models\Roles;
-use  PHPMailer\PHPMailer\PHPMailer;
-use  PHPMailer\PHPMailer\Exception;
+
  
 
 class Leadership extends \Core\Controller

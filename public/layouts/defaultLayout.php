@@ -4,6 +4,15 @@ include_once '../Components/Helpers.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QK3ZNVWTWP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QK3ZNVWTWP');
+</script>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +39,12 @@ include_once '../Components/Helpers.php';
   <link href="<?php echo url('assets/css/site.css'); ?>" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-  
+  <script src="//d2wy8f7a9ursnm.cloudfront.net/v7/bugsnag.min.js"></script>
+  <script type="module">
+    import BugsnagPerformance from '//d2wy8f7a9ursnm.cloudfront.net/v1/bugsnag-performance.min.js'
+    Bugsnag.start({ apiKey: 'efeaa75b4c6845b5fcd047a83480a73d' })
+    BugsnagPerformance.start({ apiKey: 'efeaa75b4c6845b5fcd047a83480a73d' })
+  </script>
 </head>
 
 <body>
@@ -39,7 +53,6 @@ include_once '../Components/Helpers.php';
   <?php include '../public/Includes/frontendfooter.php' ?>
   <?php include '../public/Includes/include-js.php' ?>
  
-
 </body>
 <!-- <?php #include '../public/Includes/cookie.php' ?> -->
 </html>

@@ -88,7 +88,7 @@ class UserModel extends \Core\Model
         global $context;
         $db = static::getDB();
 
-        $sql = "INSERT into users (username,surname,email,password,status,locked, role_id createdAt)
+        $sql = "INSERT into users (username,surname,email,password,status,locked, role_id, createdAt)
                 VALUES (:username,:surname,:email,:password,:status,:locked, :role_id,:createdAt)";
                
         $stmt = $db->prepare($sql);
@@ -142,4 +142,11 @@ class UserModel extends \Core\Model
        return $id;
     }
 
+    public static function ChangeRole($data)
+    {
+        $db = static::getDB();
+        $sql = "UPDATE users SET `role_id` = $data[role_id] WHERE `user_id` = '$data[user_id]'"; 
+        $id = $db->exec($sql);
+       return $id;
+    }
 }

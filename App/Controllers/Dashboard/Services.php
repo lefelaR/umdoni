@@ -108,8 +108,8 @@ class Services extends \Core\Controller
         if (isset($_POST)) $data = $_POST;
         $data['isActive'] = 1;
         $data['createdAt'] = date("Y-m-d H:i:s");
-        $data['img_file'] = $objectKey;
-        $data['location'] = $result['ObjectURL'];
+        $data['img_file'] = isset($objectKey)? $objectKey: '';
+        $data['location'] = isset($result['ObjectURL']) ? $result['ObjectURL'] : '';
         $data['createdBy'] = $_SESSION['profile']['username'];
 
         try {
@@ -119,7 +119,6 @@ class Services extends \Core\Controller
             }
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
-       
         }
         redirect('dashboard/services/index');
     }

@@ -1,3 +1,6 @@
+<?php
+$crumbs = getCrumbs();
+?>
 <style>
     #service-page {
         background-image: linear-gradient(rgba(15, 7, 50, 0.079), rgba(12, 3, 51, 0.084)),
@@ -56,6 +59,26 @@
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12 mx-auto">
+
+        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                <ol class="breadcrumb">
+                    <?php
+                    if (isset($crumbs)) {
+                        foreach ($crumbs as $key => $crumb) {
+                            if ($key == (count($crumbs) - 1)) {
+                                $active = 'active';
+                                echo ' <li class="breadcrumb-item ' . $active . '" aria-current="page">' . $crumb . '</li>  ';
+                            } else {
+                                $active = '';
+                                echo '<li class="breadcrumb-item ' . $active . '" aria-current="page"><a href="#" class="btn btn-sm btn-primary btn-outline" onclick="history.back()">' . $crumb . '</a></li>';
+                            }
+                        }
+                    }
+                    ?>
+                </ol>
+            </nav>
+    
+            
         <p class="h1 text-uppercase fw-bold text-secondary">
         Municipal Manager : Dr V Tsako
             </p>

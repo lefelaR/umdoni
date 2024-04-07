@@ -9,13 +9,10 @@
 
 namespace App\Controllers\Dashboard;
 
-use App\Models\Requests;
 use \Core\View;
-use App\Models\User;
 use App\Models\Service;
-use App\Models\Request;
-use DateTime;
-use Aws\S3\S3Client;
+use App\Models\VacancyModel;
+
 
 
 class Vacancies extends \Core\Controller
@@ -23,7 +20,7 @@ class Vacancies extends \Core\Controller
 
     public function indexAction()
     {
-        $services = Service::getAll();
+        $services = VacancyModel::GET();
         view::render('dashboard/vacancies/index.php', $services, 'dashboard');
     }
 
@@ -36,7 +33,7 @@ class Vacancies extends \Core\Controller
         if(isset($data['id']))
         {
             $id = $data['id'];
-            $service = Service::getServiceById($id);
+            $service = VacancyModel::getById($id);
         }else
             $service = array();
         view::render('dashboard/vacancies/add.php', $service, 'dashboard');
@@ -51,11 +48,11 @@ class Vacancies extends \Core\Controller
         $date['createdAt'] = date("Y-m-d H:i:s");
         try 
         {
-          $id =  Service::Save($data);   
+          $id =  VacancyModel::Save($data);   
         } catch (\Throwable $th) 
         {
             $_SESSION['errors'] = ['message' => $th->getMessage()];
-           print_r($th->getMessage()); die;
+
         }
         redirect('dashboard/vacancies/index');
     }

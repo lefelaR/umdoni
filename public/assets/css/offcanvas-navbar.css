@@ -17,6 +17,7 @@ body {
     transition: transform .3s ease-in-out, visibility .3s ease-in-out;
   }
   .offcanvas-collapse.open {
+    z-index: 111px !important;
     visibility: visible;
     transform: translateX(-100%);
   }

@@ -39,7 +39,7 @@ $crumbs = getCrumbs();
                     <a class="btn btn-sm" href="<?php echo buildurl("dashboard/roles/add") ?>" role="button">
                         <i class="bi bi-plus"></i> Add
                     </a>
-                    <button class="btn  btn-sm">
+                    <button class="btn  btn-sm" onclick="handleDownload()">
                         <i class="bi bi-download"></i> Save
                     </button>
                 </div>
@@ -53,7 +53,7 @@ $crumbs = getCrumbs();
                                 <tr>
                                     <th>NO#</th>
                                     <th>NAME</th>
-                                    <th>PERMISSIONS</th>
+                                   
                                     <th>ACTIONS</th>
                                 </tr>
                             </thead>
@@ -65,7 +65,7 @@ $crumbs = getCrumbs();
                                 <tr>
                                     <td class="text-bold-500">' . $key . '</td>
                                     <td>' . $role['name'] . '</td>
-                                    <td><span class="text-truncate"> ' . $role['permissions'] . '</span></td>
+                                    
                                     <td>
                                        
                                         <a class="btn  btn-sm" href="add?id=' .  $role['id'] . '" >

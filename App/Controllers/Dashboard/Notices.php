@@ -11,9 +11,8 @@ namespace App\Controllers\Dashboard;
 
 use \Core\View;
 use Aws\S3\S3Client;
-use App\Models\User;
 use App\Models\NoticeModel;
-use Intervention\Image\ImageManagerStatic as Image;
+
 
 class Notices extends \Core\Controller
 {
@@ -96,8 +95,8 @@ class Notices extends \Core\Controller
 
         if (isset($_POST)) $data = $_POST;
         $data['isActive'] = 1;
-        $data['img_file'] = $objectKey;
-        $data['location'] = $result['ObjectURL'];
+        $data['img_file'] =  isset($result) ? $objectKey : "";
+        $data['location'] = isset($result) ? $result['ObjectURL'] : "";
         $data['createdAt'] = date("Y-m-d H:i:s");
   
         try {

@@ -10,8 +10,7 @@
 namespace App\Controllers\Dashboard;
 
 use \Core\View;
-use App\Models\User;
-use Aws\S3\S3Client;
+use Components\DownloadPdf;
 use App\Models\RolesModel;
 
 class Roles extends \Core\Controller
@@ -62,21 +61,21 @@ class Roles extends \Core\Controller
 
     public function update()
     {
-        
+
         $id = $_POST['id'];
         $data['name'] = $_POST['name'];
         array_shift($_POST);
         array_shift($_POST);
         $data['permissions'] = json_encode($_POST);
 
-        
+
         try {
             RolesModel::Update($id, $data);
             $_SESSION['success'] = ['message' => 'Quotation status updated successfully!'];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
         }
-    
+
         redirect('dashboard/roles/index');
     }
 
@@ -93,6 +92,12 @@ class Roles extends \Core\Controller
         redirect('dashboard/roles/index');
     }
 
+    public function download()
+    {
+        $roles = RolesModel::getAll();
+        $html = DownloadPdf::convertHtml($roles);
+         DownloadPdf::SavePdf($html);
+    }
 
     protected function before()
     {

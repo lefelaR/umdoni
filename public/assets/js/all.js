@@ -4,13 +4,41 @@ window.addEventListener("load", function (event) {
   }, 500);
 });
 
-function handleDelete() {
-  confirm("are you sure you want to delete?");
-  showPreloader();
+function handleDelete(e, id) {
+  var confirmation = confirm("Are you sure you want to delete?");
+  if(confirmation === true){
+    showPreloader();
+  }else{
+    e.preventDefault();
+    e.stopPropagation();
+    Toast('danger','Delete was cancelled');
+    return;
+  }
+ 
 }
 
 function handleSave() {
   showPreloader();
+}
+
+
+function handleDownload()
+{
+  const currentURL = window.location.href;
+  const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
+  fetch(stripped + "/download", {
+    method: "GET",
+  })
+    .then((res) => {
+      Toast("success", "Download has been generated");
+    })
+    .catch((err) => {
+      Toast("danger", "Failled to generate download");
+    });
+}
+
+
+function handleValidate(){
 }
 
 function showDeleteModal() {
@@ -133,13 +161,7 @@ document.getElementById("avatarModalAccept").addEventListener("click", () => {
     body: formData,
   })
     .then((response) => {
-      Toastify({
-        text: "Profile image has been Saved",
-        duration: 3000,
-        gravity: "bottom",
-        position: "left",
-        backgroundColor: "#4fbe87",
-      }).showToast();
+      Toast("success","Profile image has been updated")
       hidePreloader();
       hideAvatarModal();
     })
@@ -153,7 +175,6 @@ const updatePassword = () => {
   const confirm = document.getElementById("confirmupdatepassword").value;
   stripped = stripUrl();
   const url = stripped + "/updatePassword";
-
   fetch(url, {
     method: "POST",
     body: formData,
@@ -167,7 +188,11 @@ const Toast = (type, message) => {
   if (type == "success") {
     bgColor = "#4fbe87";
   } else if (type == "danger") {
-    bgColor = "";
+    bgColor = "#be4f4f";
+  }
+  else if(type="warn")
+  {
+    bgColor = "#bea04f";
   }
   Toastify({
     text: message,
@@ -177,6 +202,7 @@ const Toast = (type, message) => {
     position: "left",
     backgroundColor: bgColor,
   }).showToast();
+
 };
 
 const hideStatusModal = () => {

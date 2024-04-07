@@ -12,7 +12,7 @@ namespace App\Controllers\Dashboard;
 use \Core\View;
 use App\Models\UserModel;
 use App\Models\Newsletter;
-use Aws\S3\S3Client;
+
 
 
 class Newsletters extends \Core\Controller
@@ -57,6 +57,7 @@ class Newsletters extends \Core\Controller
         $data = $_POST;
         try {
             $id =  Newsletter::Update($data);
+            $_SESSION['success'] = ['message' => 'success'];
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
@@ -68,11 +69,13 @@ class Newsletters extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-            UserModel::Delete($id);
+            Newsletter::Delete($id);
+            $_SESSION['success'] = ['message' => 'success'];
         } catch (\Throwable $th) {
             echo $th->getMessage();
+            $_SESSION['error'] = ['message' => 'Failed to delete'];
         }
-        redirect('dashboard/newsletters/list');
+        redirect('dashboard/newsletters/index');
     }
 
     protected function before()

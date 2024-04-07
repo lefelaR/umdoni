@@ -44,7 +44,7 @@ $crumbs = getCrumbs();
                     <a class="btn btn-sm" href="<?php echo buildurl("dashboard/tenders/add") ?>" role="button">
                         <i class="bi bi-plus"></i> Add
                     </a>
-                    <button class="btn  btn-sm">
+                    <button class="btn  btn-sm" onclick="handleDownload()">
                         <i class="bi bi-download"></i> Save
                     </button>
                 </div>
@@ -104,7 +104,7 @@ $crumbs = getCrumbs();
                                         <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">
                                         <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a class="btn btn-sm" href="delete?id='.  $service['id'] .'"onclick="handleDelete()">
+                                        <a class="btn btn-sm" href="delete?id='.  $service['id'] .'"onclick="handleDelete(event, '.$service['id'].')">
                                          <i class="bi bi-trash"></i>
                                     </a>
                                     </td>

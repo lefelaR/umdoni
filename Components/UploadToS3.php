@@ -46,14 +46,13 @@ class UploadToS3
 
     $file = $_FILES;
 
-
     $filePath = $file['name']['tmp_name'];
     $objectKey = $file['name']['name'];
     $loc = "";
 
 
     // resize the file
-    $image = Image::make($filePath);
+  
     // $image->crop(636, 358, 25, 25);
     $resizedImageBinary =   $image->resize(null, 358, function ($constraint) {
         $constraint->aspectRatio();
@@ -71,9 +70,16 @@ class UploadToS3
             'Body'   => $resizedImageBinary,
             'ACL'    => 'public-read',
         ]);
+    }catch(\Exception $th)
+    {
+        throw new Exception("Error Processing Request", 1);      
     }
+    
 
 }
 
 
-
+public function resizeImage($img)
+{
+    $image = Image::make($filePath);
+}

@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class Quotation extends \Core\Model
+class QuotationsModel extends \Core\Model
 {
 
     /**

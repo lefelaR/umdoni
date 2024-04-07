@@ -1,8 +1,6 @@
 <?php
-
 global $context;
 $data = $context->data;
-
 ?>
 
 <div class="hero" id="animate-area">
@@ -164,11 +162,11 @@ $data = $context->data;
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-12">
-            <a href="<?php echo buildurl("services/info") ?>">
+            <a href="<?php echo buildurl("documents/index") ?>">
                 <div class="card card-hover mb-3 card-border">
                     <div class="card-body">
-                        <i class="bi bi-house fs-1 text-yellow"></i>
-                        <p class="h5 fw-bold text-blue">Neighborhood Info</p>
+                        <i class="bi bi-journals fs-1 text-yellow"></i>
+                        <p class="h5 fw-bold text-blue">Documents Library</p>
                         <p class="fw-normal p-1 text-secondary">Find your local trash pick-up days, utitlities and more.</p>
                     </div>
                 </div>
@@ -195,22 +193,24 @@ $data = $context->data;
 
 <div class="container content-section " id="News">
     <p class="text-left h1 fw-bold text-uppercase text-yellow pb-2">Trending News</p>
-    <?php $trendingNews = $data['news']; ?>
+    <?php 
+        $trendingNews = $data['news']; 
+    ?>
     <div class="row">
         <div class="col-md-4 col-lg-4 col-sm-12 text-left pt-5">
-            <?php
+             <?php
             foreach ($trendingNews as $key => $news) {
                 if ($key <= 2) {
                     echo '        
                     <div class="card mb-3" style="max-width: 540px;">
                     <a href="' . buildurl("news/details?id=" . $news['id']) . '" ">
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="' . $news["location"] . '" class="img-fluid rounded-start" style="">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-sx-12">
+                                <img src="' . $news["location"] . '" class="img-fluid rounded-start" style="object-fit: cover;">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                                 <div class="card-body">
-                                    <h5 class="card-title text-black text-capitalize">' . $news["title"] . '</h5>
+                                    <h5 class="fs-6 text-black text-capitalize">' . $news["title"] . '</h5>
                                 </div>
                             </div>
                         </div>
@@ -218,9 +218,7 @@ $data = $context->data;
                     </div>';
                 }
             }
-            ?>
-
-
+            ?> 
 
             <p class="text-primary fs-5 text-end"><a href="<?php echo buildurl("news/index") ?>">See More</a></p>
         </div>
@@ -235,8 +233,8 @@ $data = $context->data;
 
 <div class="container content-section" id="partners">
     <p class="text-left h1 fw-bold text-uppercase text-yellow pb-2">Partners</p>
-    <div class="row my-5 pt-5">
-        <div class="col-md-2 col-sm-12 col-lg-2">
+    <div class="row my-5 pt-5 mx-auto">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="http://www.ugu.gov.za" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/ugu.jpg') ?>" class="img-thumbnail mx-auto" alt="ugu" />
@@ -244,35 +242,35 @@ $data = $context->data;
             </a>
         </div>
 
-        <div class="col-md-2 col-sm-12 col-lg-2">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="http://www.umzumbe.gov.za" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/mzumbe.png') ?>" class="img-thumbnail mx-auto" alt="ugu" />
             </div>
             </a>
         </div>
-        <div class="col-md-2 col-sm-12 col-lg-2">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="http://www.rnm.gov.za" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/ray-nkonyana.png') ?>" class="img-thumbnail mx-auto" alt="ugu" />
             </div>
             </a>
         </div>
-        <div class="col-md-2 col-sm-12 col-lg-2">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="https://www.umuziwabantu.gov.za/" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/umzi.png') ?>" class="img-thumbnail mx-auto" alt="ugu" />
             </div>
             </a>
         </div>
-        <div class="col-md-2 col-sm-12 col-lg-2">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="https://uscda.org.za/" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/uscda.jpg') ?>" class="img-thumbnail mx-auto" alt="ugu" />
             </div>
             </a>
         </div>
-        <div class="col-md-2 col-sm-12 col-lg-2">
+        <div class="col-md-2 col-sm-12 col-lg-2 text-center">
             <a href="https://www.sctie.co.za/" target="_blank">
             <div class="m-1">
                 <img src="<?php echo url('assets/img/partners/south-coast-tourism.jpg') ?>" class="img-thumbnail mx-auto" alt="ugu" />

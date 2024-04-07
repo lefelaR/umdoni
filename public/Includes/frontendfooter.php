@@ -55,11 +55,14 @@
             </a>
           </p>
         </li>
-        <li>
-          <a href="<?php echo buildurl("tenders/index") ?>" class="fs-6 fw-lighter text-white">Tenders & Quotations</a>
+        <li class="my-3">
+          <a href="<?php echo buildurl("tenders/index") ?>" class="fs-6 fw-lighter text-white">Tenders</a>
         </li>
-        <li>
-          <!-- <a href="<?php echo buildurl("vacancies/index") ?>" class="fs-6 fw-lighter text-white">Vacancies</a> -->
+        <li class="my-3">
+          <a href="<?php echo buildurl("quotations/index") ?>" class="fs-6 fw-lighter text-white">Quotations</a>
+        </li>
+        <li class="my-3">
+          <a href="<?php echo buildurl("vacancies/index") ?>" class="fs-6 fw-lighter text-white">Vacancies</a>
         </li>
       </ul>
     </div>
@@ -75,9 +78,7 @@
           <a href="https://www.instagram.com/umdonimunicipality/" target="_blank" class="text-white">
             <i class="fa-brands fa-square-instagram fs-2 m-2"></i> Instagram </a>
           </li>
-        <!-- <li>
-          <a href="#" class="text-white" target="_blank"><i class="fa-brands fa-youtube fs-2 m-2"></i> Youtube </a>
-        </li> -->
+   
       </ul>
     </div>
   </div>

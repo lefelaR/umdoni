@@ -10,12 +10,7 @@
 namespace App\Controllers;
 
 use \Core\View;
-use  App\Models\Post;
-use  App\Models\Roles;
-use  PHPMailer\PHPMailer\PHPMailer;
-use  PHPMailer\PHPMailer\Exception;
-use  App\Models\NewsModel;
-use  App\Models\Event;
+use  App\Models\EventModel;
 
 class Events extends \Core\Controller
 {
@@ -33,7 +28,7 @@ class Events extends \Core\Controller
 
     public function indexAction()
     {
-        $event = Event::getAll();
+        $event = EventModel::getAll();
      
         view::render('events/index.php', $event, 'default');
     }
@@ -44,7 +39,7 @@ class Events extends \Core\Controller
         $data = getPostData();
         if(isset($data['id'])){
             $id = $data['id'];
-            $event = Event::getEvent($id);
+            $event = EventModel::getEvent($id);
         }else{
             $event = array();
         }

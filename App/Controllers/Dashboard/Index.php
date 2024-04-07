@@ -10,15 +10,13 @@
 namespace App\Controllers\Dashboard;
 
 use \Core\View;
-use App\Models\User;
 use App\Models\Profile;
 use App\Models\Request;
 use App\Models\Project;
 use App\Models\EventModel;
 use App\Models\NoticeModel;
 use App\Models\UserModel;
-use App\Models\RolesModel;
-use Aws\S3\S3Client;
+
 
 class Index extends \Core\Controller
 {
