@@ -35,7 +35,7 @@ class DocumentModel extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM documents WHERE id = '$id' AND category = '$category'");
+            $stmt = $db->query("SELECT * FROM documents WHERE id = '$id'");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
@@ -83,10 +83,11 @@ class DocumentModel extends \Core\Model
         $sql = "UPDATE documents SET 
         `title`  = :title,
         `subtitle` = :subtitle,
+        `category` = :category,
         `body` = :body, 
         `img_file` = :img_file, 
         " . (isset($data['location']) ? "`location` = :location," : "") . "
-        `createdAt` = :createdAt,
+       
         `updatedBy` = :updatedBy,
         `updatedAt` = :updatedAt
 
@@ -96,12 +97,13 @@ class DocumentModel extends \Core\Model
 
         $stmt->bindParam(':title', $data['title']);
         $stmt->bindParam(':subtitle', $data['subtitle']);
+        $stmt->bindParam(':category', $data['category']);
         $stmt->bindParam(':body', $data['body']);
         $stmt->bindParam(':img_file', $data['img_file']);
         if (isset($data['location'])) {
             $stmt->bindParam(':location', $data['location']);
         }
-        $stmt->bindParam(':createdAt', $data['createdAt']);
+       
         $stmt->bindParam(':updatedBy', $data['updatedBy']);
         $stmt->bindParam(':updatedAt', $data['updatedAt']);
         $stmt->bindParam(':id', $data['id']);
