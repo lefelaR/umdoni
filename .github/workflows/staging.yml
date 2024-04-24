@@ -1,0 +1,17 @@
+on: push
+name: ftp deployment
+jobs:
+  web-deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v2
+
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ftpupload.net
+          username: if0_36425067
+          password: JmOOhImPAPuoFSY
+          server-dir: /home/vol14_2/infinityfree.com/if0_36425067
