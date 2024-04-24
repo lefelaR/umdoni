@@ -20,6 +20,25 @@ CREATE TABLE `seniors` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+DROP TABLE IF EXISTS `exco`;
+CREATE TABLE `exco` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `middlename` varchar(45) DEFAULT NULL,
+  `surname` varchar(455) DEFAULT NULL,
+  `telephone` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `category` varchar(255) DEFAULT NULL,
+  `img_file` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `ward` varchar(255) DEFAULT NULL,
+  `affiliation` varchar(255) DEFAULT NULL,
+  `isActive` int(11) DEFAULT NULL,
+  `updatedAt` varchar(45) DEFAULT NULL,
+  `initials` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `documents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
