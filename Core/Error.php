@@ -1,7 +1,8 @@
 <?php
 
 namespace Core;
-
+use Rollbar\Rollbar;
+use Rollbar\Payload\Level;
 /**
  * Error and exception handler
  *
@@ -53,6 +54,7 @@ class Error
             echo "<p>Stack trace:<pre>" . $exception->getTraceAsString() . "</pre></p>";
             
             echo "<p>Thrown in '" . $exception->getFile() . "' on line " . $exception->getLine() . "</p>";
+
         
         } else {
             $log = dirname(__DIR__) . '/logs/' . date('Y-m-d') . '.txt';
@@ -62,10 +64,9 @@ class Error
             $message .= "\nStack trace: " . $exception->getTraceAsString();
             $message .= "\nThrown in '" . $exception->getFile() . "' on line " . $exception->getLine();
             error_log($message);
-    
-           echo $message;
+            echo $message;
+             Rollbar::log(Level::INFO, $message);
         }
-
-    
     }
 }
+

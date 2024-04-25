@@ -65,32 +65,19 @@ echo '
                 </div>
                 <div class="col-md-6">
                         <div class="form-group">
-                                <fieldset class="form-group">';
-
-
-                                $options = array(
-                                    "NL"=>"Newsletters",
-                                    "AR"=>"Annual Reports",
-                                    "WP"=>"Ward Profiles",
-                                    "IDP"=>"IDP",
-                                    "PB"=>"Policies & Bylaws",
-                                    "BR"=>"Budget & Reporting",
-                                    "VR"=>"Valuation Roll",
-                                    "IA"=>"Internal Audit",
-                                    "CM"=>"Council Minutes",
-                                    "SDA"=>"Service Delivery Agreements",
-                                    "LED"=>"LED"
-                                );
-
-
-                            echo '   <select class="form-select" id="category" name="category" value="' . $category . '">';
-                            
-                            foreach ($options as $key => $value) {
-                                $selected = ($category == $key)? "selected":"";
-                             echo '<option value="'.$key.'" class="text-uppercase" '.$selected.'>'.$value.'</option>';
-                            }
-                            
-                                echo '   
+                                <fieldset class="form-group">
+                                <select class="form-select" id="category" name="category" value="' . $category . '">
+                                    <option value="NL" class="text-uppercase">Newsletters</option>
+                                    <option value="AR" class="text-uppercase">Annual Reports</option>
+                                    <option value="WP" class="text-uppercase">Ward Profiles</option>
+                                    <option value="IDP"class="text-uppercase">IDP</option>
+                                    <option value="PB" class="text-uppercase">Policies & Bylaws</option>
+                                    <option value="BR" class="text-uppercase">Budget & Reporting</option>
+                                    <option value="VR" class="text-uppercase">Valuation Roll</option>
+                                    <option value="IA" class="text-uppercase">Internal Audit</option>
+                                    <option value="CM" class="text-uppercase">Council Minuts</option>
+                                    <option value="SDA" class="text-uppercase">Service Delivery Agreements</option>
+                                    <option value="LED" class="text-uppercase">LED</option>
                                 </select>
                             </fieldset>    
                         </div>

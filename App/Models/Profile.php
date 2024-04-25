@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use PDO;
+use App\Models\LogsModel;
 /**
  * Post model
  *
@@ -131,6 +132,7 @@ class Profile extends \Core\Model
             }
             else
             {
+                LogsModel::Save($profile[0]);
                 $_SESSION['profile'] = $profile[0];
                 setcookie("auth", $_SESSION['token'], time() + 3600 * 30, '/');
                 return true;

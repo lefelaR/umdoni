@@ -17,7 +17,6 @@ use App\Models\EventModel;
 use App\Models\NoticeModel;
 use App\Models\UserModel;
 
-
 class Index extends \Core\Controller
 {
 
@@ -38,15 +37,17 @@ class Index extends \Core\Controller
             }
         }
         $dashboard['users'] = UserModel::getUser($profile_id);     
+        
         $dashboard['requests'] = Request::getAll();
         $dashboard['projects'] = Project::Get();
         $dashboard['events'] = EventModel::getAll();
         $dashboard['notices'] = NoticeModel::getAll();
         $dashboard['profile'] = $profile;
         $profile['profile'] = $AuthenticatedUser;
-    
+        
         view::render('dashboard/index.php', $dashboard, 'dashboard');
     }
+
 
     protected function before()
     {

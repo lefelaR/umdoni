@@ -74,7 +74,7 @@ echo '
                                         <i class="bi bi-pencil"></i>
                                         </a>
 
-                                        <a class="btn btn-sm" href="delete?id=' .  $news['id'] . '"onclick="handleDelete(event, '.$news['id'].')">
+                                        <a class="btn btn-sm" href="delete?id=' .  $service['id'] . '"onclick="handleDelete(event, '.$service['id'].')">
 
                                         <a class="btn btn-sm" href="delete?id=' .  $news['id'] . '" onclick="handleDelete(event, '.$news['id'].')">
 

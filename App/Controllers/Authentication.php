@@ -15,6 +15,7 @@ use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
 use App\Models\UserModel;
 use App\Models\RolesModel;
 use Aws\Exception\AwsException;
+use App\Models\LogsModel;
 
 
 class Authentication extends \Core\Controller
@@ -191,10 +192,10 @@ public function __construct()
         $isLoggedin  = Profile::Login($data);
         if ($isLoggedin == true) { 
         // get the role
-
+     
           $role = RolesModel::GetById($context->profile[0]['role_id']);
-          if(isset($role)) $_SESSION['role'] = $role;
 
+          if(isset($role)) $_SESSION['role'] = $role;
           redirect('dashboard/index/index');
         } else {
           $_SESSION['error'] = ['message' => 'Your account is locked, please contact your Administrator to gain accecss!'];
@@ -329,10 +330,14 @@ public function __construct()
 
   public function logoutAction()
   {
+    global $context;
+
+    LogsModel::UserLogout($_SESSION['profile']);
+
     session_destroy();
     $logout = new Context();
     $logout->setLoggedIn(false);
     setcookie("auth", "", time() - 3600, '/');
-    redirect('/');
+    redirect('/authentication/login');
   }
 }

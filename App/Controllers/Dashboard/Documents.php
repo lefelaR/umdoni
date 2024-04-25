@@ -110,16 +110,14 @@ class Documents extends \Core\Controller
 
     public function updateAction()
     {
-        $loggedinUser = $_SESSION['profile'];
         $data = $_POST;
         $data['updatedAt'] = date("Y-m-d H:i:s");
-        $data['updatedBy'] = $loggedinUser['username'];
         try {
             $id =  DocumentModel::Update($data);
             $_SESSION['success'] = ['message' => "Document has been updated"];
         } catch (\Throwable $th) {
             echo $th->getMessage();
-            $_SESSION['error'] = ['message' => "Updating failed"];
+            $_SESSION['error'] = ['message' => "Document has been saved"];
         }
         redirect('dashboard/documents/index');
     }

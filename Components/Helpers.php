@@ -8,6 +8,10 @@ function url($string = '')
 }
 
 
+function findInPublic($string)
+{
+    return 'public/'.$string;
+}
 
 function buildurl($string)
 {

@@ -45,6 +45,7 @@ $crumbs = getCrumbs();
                   <th>ID</th>
                   <th>User ID</th>
                   <th>Username</th>
+                  <th>Email</th>
                   <th>Login Time</th>
                   <th>Logout Time</th>
                   <th>Session Duration</th>
@@ -52,14 +53,19 @@ $crumbs = getCrumbs();
               </thead>
               <tbody>
                 <?php
-                foreach ($logs as $log) {
+                foreach ($logs as $key => $log) 
+                {
+                  $key++;
+
                   echo '<tr>
-                          <td>' . $log['id'] . '</td>
-                          <td>' . $log['user_id'] . '</td>
+                          <td>' .$key. '</td>
+                          <td>' . $log['userId'] . '</td>
                           <td>' . $log['username'] . '</td>
-                          <td>' . $log['login_time'] . '</td>
-                          <td>' . $log['logout_time'] . '</td>
-                          <td>' . $log['session_duration'] . ' seconds</td>
+                          <td>' . $log['email'] . '</td>
+
+                          <td>' . $log['last_login'] . '</td>
+                          <td>' . $log['logout'] . '</td>
+                          <td>' . $log['time_log'] . ' seconds</td>
                         </tr>';
                 }
                 ?>

@@ -49,6 +49,7 @@ use App\Models\RolesModel;
                   <th>Avator</th>
                   <th>Name</th>
                   <th>Email</th>
+                  <th>Last login</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -71,23 +72,19 @@ use App\Models\RolesModel;
                     <td><a href="#"><?php echo $img; ?></a></td>
                     <td><?php echo $user['username']; ?></td>
                     <td><?php echo $user['email']; ?></td>
+                    <td> Last login</td>
                     <td>
                       <?php echo $user['verified'] === 1 ? '<span class="badge bg-light-primary">Confirmed</span>' : '<span class="badge bg-light-warning">Unconfirmed</span>'; ?>
                       <?php echo $user['locked'] === 0 ? '<span class="badge bg-light-success">Active</span>' : '<span class="badge bg-light-danger">Inactive</span>' ?>
-
-                      <?php
-                  
+                      <?php                  
                       $roles = RolesModel::getAll();
-
                       echo '<select class="btn" id="'.$user['user_id'].'" name="role" onchange="handleSelect(event)" value="'.$user['role_id'].'">';
                       foreach ($roles as $key => $role) {
                           $selected = $user['role_id'] == $role['id']? "selected":"";
                           echo '<option value="'.$role['id'].'" '.$selected.'>'.$role['name'].'</option>'; 
                       }
                       echo '</select>';
-                      
                       ?>
-
                     </td>
                     <td>
                       <a href="details?id=<?php echo $user['user_id']; ?>" class="btn btn-sm">

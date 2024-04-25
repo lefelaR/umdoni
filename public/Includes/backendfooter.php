@@ -23,7 +23,7 @@
           document.write(new Date().getFullYear());
         </script>
         <span class="inline mx-3">
-        v<?php echo \App\Config::VERSION; ?></span>
+   
       </span>
     </div>
   </div>
