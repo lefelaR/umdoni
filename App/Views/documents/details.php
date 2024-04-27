@@ -49,7 +49,7 @@ switch ($data['category']) {
     </p> 
   
     <span class="py-3 mb-3">
-        <img src="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'">
+       <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
     </span>
     <p class="my-5 fs-4 lh-lg  ">
         '.$data['body'].'
@@ -57,6 +57,211 @@ switch ($data['category']) {
 
         break;
     
+      case 'VR':
+        
+        echo'
+        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+    '.$data['title'].'
+    </p>
+
+    <p class="fs-3 my-2 text-yellow">
+        '.$data['subtitle'].'
+    </p> 
+  
+    <span class="py-3 mb-3">
+        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
+    </span>
+         
+
+    <p class="my-5 fs-4 lh-lg  ">
+        '.$data['body'].'
+    </p>';
+
+        break;
+        
+             case 'WP':
+        
+        echo'
+        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+    '.$data['title'].'
+    </p>
+
+    <p class="fs-3 my-2 text-yellow">
+        '.$data['subtitle'].'
+    </p> 
+  
+    <span class="py-3 mb-3">
+        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
+    </span>
+    <p class="my-5 fs-4 lh-lg  ">
+        '.$data['body'].'
+    </p>';
+
+        break;
+        
+             case 'IDP':
+        
+        echo'
+        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+    '.$data['title'].'
+    </p>
+
+    <p class="fs-3 my-2 text-yellow">
+        '.$data['subtitle'].'
+    </p> 
+  
+    <span class="py-3 mb-3">
+        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
+    </span>
+    <p class="my-5 fs-4 lh-lg  ">
+        '.$data['body'].'
+    </p>';
+
+        break;
+        
+        
+             case 'PB':
+        
+        echo'
+        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+    '.$data['title'].'
+    </p>
+
+    <p class="fs-3 my-2 text-yellow">
+        '.$data['subtitle'].'
+    </p> 
+  
+    <span class="py-3 mb-3">
+       <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
+    </span>
+    <p class="my-5 fs-4 lh-lg  ">
+        '.$data['body'].'
+    </p>';
+
+        break;
+        
+        
+             case 'BR':
+        
+        echo'
+        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+    '.$data['title'].'
+    </p>
+
+    <p class="fs-3 my-2 text-yellow">
+        '.$data['subtitle'].'
+    </p> 
+  
+    <span class="py-3 mb-3">
+       <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
+    </span>
+    <p class="my-5 fs-4 lh-lg  ">
+        '.$data['body'].'
+    </p>';
+
+        break;
+
+
+     case 'IA':
+        
+        echo'
+        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+    '.$data['title'].'
+    </p>
+
+    <p class="fs-3 my-2 text-yellow">
+        '.$data['subtitle'].'
+    </p> 
+  
+    <span class="py-3 mb-3">
+        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
+    </span>
+    <p class="my-5 fs-4 lh-lg  ">
+        '.$data['body'].'
+    </p>';
+
+        break;
+        
+             case 'CM':
+        
+        echo'
+        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+    '.$data['title'].'
+    </p>
+
+    <p class="fs-3 my-2 text-yellow">
+        '.$data['subtitle'].'
+    </p> 
+  
+    <span class="py-3 mb-3">
+        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
+    </span>
+    <p class="my-5 fs-4 lh-lg  ">
+        '.$data['body'].'
+    </p>';
+
+        break;
+        
+             case 'SDA':
+        
+        echo'
+        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+    '.$data['title'].'
+    </p>
+
+    <p class="fs-3 my-2 text-yellow">
+        '.$data['subtitle'].'
+    </p> 
+  
+    <span class="py-3 mb-3">
+        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
+    </span>
+    <p class="my-5 fs-4 lh-lg  ">
+        '.$data['body'].'
+    </p>';
+
+        break;
+        
+             case 'LED':
+        
+        echo'
+        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+    '.$data['title'].'
+    </p>
+
+    <p class="fs-3 my-2 text-yellow">
+        '.$data['subtitle'].'
+    </p> 
+  
+    <span class="py-3 mb-3">
+       <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
+    </span>
+    <p class="my-5 fs-4 lh-lg  ">
+        '.$data['body'].'
+    </p>';
+
+        break;
+        
+             case 'CM':
+        
+        echo'
+        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+    '.$data['title'].'
+    </p>
+
+    <p class="fs-3 my-2 text-yellow">
+        '.$data['subtitle'].'
+    </p> 
+  
+    <span class="py-3 mb-3">
+       <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
+    </span>
+    <p class="my-5 fs-4 lh-lg  ">
+        '.$data['body'].'
+    </p>';
+
+        break;
+        
     case 'NL':
         echo '
         <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
@@ -66,7 +271,7 @@ switch ($data['category']) {
                 '.$data['subtitle'].'
             </p> 
             <span class="py-3 mb-3">
-            <img src="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" />
+             <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
             </span>
             <p class="my-5 fs-4 lh-lg  ">
                 '.$data['body'].'

@@ -21,14 +21,10 @@
       </ul>
       <div class="d-flex" role="search">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle fw-bold" href="#" data-bs-toggle="dropdown" aria-expanded="true">About</a>
-            <ul class="dropdown-menu " data-bs-popper="static">
-              <li><a class="dropdown-item fs-small" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li> -->
+       
+          <li class="nav-item">
+            <a href="<?php echo buildurl("services/index") ?>" class="fw-bold">About Us</a>
+          </li>
           <li class="nav-item">
             <a href="<?php echo buildurl("services/index") ?>" class="fw-bold">Services</a>
           </li>

@@ -36,7 +36,7 @@ class User extends \Core\Controller
 
     protected function before()
     {
-            enable_authorize();
+            // enable_authorize();
     }
 
 

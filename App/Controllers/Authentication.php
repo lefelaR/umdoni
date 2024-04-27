@@ -204,7 +204,7 @@ public function __construct()
       }
     } catch (AwsException $aw) {
       $errMsg = $aw->getMessage();  
-        $_SESSION['error'] = ['message'=>'Incorrect username or password'];
+        $_SESSION['error'] = ['message'=>$errMsg];
 
       redirect('authentication/login');
     }

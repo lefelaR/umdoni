@@ -28,6 +28,8 @@ class Documents extends \Core\Controller
     public function detailsAction()
     {
 
+     
+
         $data = getPostData();
         if(isset($data['id']))
         {
@@ -36,6 +38,8 @@ class Documents extends \Core\Controller
 
             $document = DocumentModel::GetById($id,$category);
         }else $document = array();
+
+
 
         view::render('documents/details.php', $document, 'default');
     }
