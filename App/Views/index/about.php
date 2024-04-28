@@ -59,69 +59,64 @@ $data = $context->data;
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h1 text-uppercase fw-bold">
-                        OVERVIEW:
-                    </p>
-                    <p class="fw-lighter fs-3 my-5">
+            
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="<?php echo url('assets/img/Umdoni-TownClock2.jpg') ?>"
+                                    class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+
+                                    <p class="h4 text-uppercase fw-bold">
+                                        OVERVIEW:
+                                    </p>
+                                    <p class="card-text fs-5 fw-lighter">
 
 
-                        Umdoni Local Municipality is located in KwaZulu-Natal within the Ugu District Municipality
-                        (DC21). Our local municipality consists of 19 wards. It abuts eThekwini Metro to the north, and
-                        uMzumbe to the south, making it almost halfway from Port Shepstone and Durban. The Municipality
-                        is therefore conveniently located about 50 km from Durban and 65 km from Port Shepstone. UMdoni
-                        has an approximate coastline of 40 km and stretches inland as far as uMzinto.
+                                        Umdoni Local Municipality is located in KwaZulu-Natal within the Ugu District
+                                        Municipality
+                                        (DC21). Our local municipality consists of 19 wards. It abuts eThekwini Metro to
+                                        the north, and
+                                        uMzumbe to the south, making it almost halfway from Port Shepstone and Durban.
+                                        The Municipality
+                                        is therefore conveniently located about 50 km from Durban and 65 km from Port
+                                        Shepstone. UMdoni
+                                        has an approximate coastline of 40 km and stretches inland as far as uMzinto.
 
-                        <br><br>
-                        The municipality incorporates 7 traditional authority areas. The traditional Authorities falls
-                        under Ugu Local Houses of Traditional Leaders in KZN. The Local House has its own vision,
-                        mission, and strategic focus areas, depending on the development programmes of its community.
-                        The Ugu Local House is governed by the Traditional Leadership and Governance Framework Act, 41
-                        of 2003, and the KZN Traditional Leadership and Governance Act, 5 of 2005. These two pieces of
-                        legislation ensure alignment of the institution of traditional leadership in KZN with
-                        constitutional imperatives. UMdoni Council comprises of 19 ward Councillors and 18 Proportional
-                        Representative Councillors.
-                        <br><br>
-                        UMdoni Municipality has a total population of approximately 144, 551 which constitutes of 74,924
-                        of that population being female and 69, 627 being male from the total population. The
-                        Municipality also has a total number of 35, 433 of households. These statistics are based on the
-                        2011 Census undertaken by Statistics South Africa.
+                                        <br>
+                                        The municipality incorporates 7 traditional authority areas. The traditional
+                                        Authorities falls
+                                        under Ugu Local Houses of Traditional Leaders in KZN. The Local House has its
+                                        own vision,
+                                        mission, and strategic focus areas, depending on the development programmes of
+                                        its community.
+                                        The Ugu Local House is governed by the Traditional Leadership and Governance
+                                        Framework Act, 41
+                                        of 2003, and the KZN Traditional Leadership and Governance Act, 5 of 2005. These
+                                        two pieces of
+                                        legislation ensure alignment of the institution of traditional leadership in KZN
+                                        with
+                                        constitutional imperatives. UMdoni Council comprises of 19 ward Councillors and
+                                        18 Proportional
+                                        Representative Councillors.
+                                        <br><br>
+                                        UMdoni Municipality has a total population of approximately 144, 551 which
+                                        constitutes of 74,924
+                                        of that population being female and 69, 627 being male from the total
+                                        population. The
+                                        Municipality also has a total number of 35, 433 of households. These statistics
+                                        are based on the
+                                        2011 Census undertaken by Statistics South Africa.
 
-                    </p>
-                </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+           
             </div>
         </div>
     </div>
 
-
-    <div class="row">
-        <?php
-        foreach ($data as $key => $value) {
-
-            echo '
-        <div class=" col-md-4 col-lg-4 col-sm-12">
-        <a href="' . buildurl("news/details?id=" . $value['id']) . '">
-            <div class="card mb-3 card-hover" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                    <img src="' . $value["location"] . '" class="img-fluid rounded-start" style="    object-fit: cover;
-                    height: 130px;">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">' . $value["title"] . '</h5>
-                            <p class=" text-truncate">' . $value["body"] . '</p>
-                            
-                         
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-        </div>';
-        }
-
-        ?>
-    </div>
 </div>
