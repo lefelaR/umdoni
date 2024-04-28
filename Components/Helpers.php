@@ -64,6 +64,17 @@ function useClass($classname)
 }
 
 
+
+function getYear()
+{
+    return date('Y');
+}
+
+function getMonth()
+{
+    return date('m');
+}
+
 function getCrumbs()
 {
     $url = $_SERVER['QUERY_STRING'];

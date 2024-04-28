@@ -34,258 +34,401 @@ $data = $context->data[0];
     <div class="row">
         <div class="col-md-12 col-lg-12">
 
-<?php
+            <?php
 
-switch ($data['category']) {
-    case 'AR':
-        
-        echo'
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-    '.$data['title'].'
-    </p>
+            switch ($data['category']) {
+                case 'AR':
+                    $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
 
-    <p class="fs-3 my-2 text-yellow">
-        '.$data['subtitle'].'
-    </p> 
-  
-    <span class="py-3 mb-3">
-       <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-    </span>
-    <p class="my-5 fs-4 lh-lg  ">
-        '.$data['body'].'
-    </p>';
-
-        break;
-    
-      case 'VR':
-        
-        echo'
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-    '.$data['title'].'
-    </p>
-
-    <p class="fs-3 my-2 text-yellow">
-        '.$data['subtitle'].'
-    </p> 
-  
-    <span class="py-3 mb-3">
-        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-    </span>
-         
-
-    <p class="my-5 fs-4 lh-lg  ">
-        '.$data['body'].'
-    </p>';
-
-        break;
-        
-             case 'WP':
-        
-        echo'
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-    '.$data['title'].'
-    </p>
-
-    <p class="fs-3 my-2 text-yellow">
-        '.$data['subtitle'].'
-    </p> 
-  
-    <span class="py-3 mb-3">
-        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-    </span>
-    <p class="my-5 fs-4 lh-lg  ">
-        '.$data['body'].'
-    </p>';
-
-        break;
-        
-             case 'IDP':
-        
-        echo'
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-    '.$data['title'].'
-    </p>
-
-    <p class="fs-3 my-2 text-yellow">
-        '.$data['subtitle'].'
-    </p> 
-  
-    <span class="py-3 mb-3">
-        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-    </span>
-    <p class="my-5 fs-4 lh-lg  ">
-        '.$data['body'].'
-    </p>';
-
-        break;
-        
-        
-             case 'PB':
-        
-        echo'
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-    '.$data['title'].'
-    </p>
-
-    <p class="fs-3 my-2 text-yellow">
-        '.$data['subtitle'].'
-    </p> 
-  
-    <span class="py-3 mb-3">
-       <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-    </span>
-    <p class="my-5 fs-4 lh-lg  ">
-        '.$data['body'].'
-    </p>';
-
-        break;
-        
-        
-             case 'BR':
-        
-        echo'
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-    '.$data['title'].'
-    </p>
-
-    <p class="fs-3 my-2 text-yellow">
-        '.$data['subtitle'].'
-    </p> 
-  
-    <span class="py-3 mb-3">
-       <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-    </span>
-    <p class="my-5 fs-4 lh-lg  ">
-        '.$data['body'].'
-    </p>';
-
-        break;
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
 
 
-     case 'IA':
-        
-        echo'
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-    '.$data['title'].'
-    </p>
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
 
-    <p class="fs-3 my-2 text-yellow">
-        '.$data['subtitle'].'
-    </p> 
-  
-    <span class="py-3 mb-3">
-        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-    </span>
-    <p class="my-5 fs-4 lh-lg  ">
-        '.$data['body'].'
-    </p>';
+                break;
 
-        break;
-        
-             case 'CM':
-        
-        echo'
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-    '.$data['title'].'
-    </p>
+                case 'VR':
 
-    <p class="fs-3 my-2 text-yellow">
-        '.$data['subtitle'].'
-    </p> 
-  
-    <span class="py-3 mb-3">
-        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-    </span>
-    <p class="my-5 fs-4 lh-lg  ">
-        '.$data['body'].'
-    </p>';
+                    $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
 
-        break;
-        
-             case 'SDA':
-        
-        echo'
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-    '.$data['title'].'
-    </p>
-
-    <p class="fs-3 my-2 text-yellow">
-        '.$data['subtitle'].'
-    </p> 
-  
-    <span class="py-3 mb-3">
-        <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-    </span>
-    <p class="my-5 fs-4 lh-lg  ">
-        '.$data['body'].'
-    </p>';
-
-        break;
-        
-             case 'LED':
-        
-        echo'
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-    '.$data['title'].'
-    </p>
-
-    <p class="fs-3 my-2 text-yellow">
-        '.$data['subtitle'].'
-    </p> 
-  
-    <span class="py-3 mb-3">
-       <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-    </span>
-    <p class="my-5 fs-4 lh-lg  ">
-        '.$data['body'].'
-    </p>';
-
-        break;
-        
-             case 'CM':
-        
-        echo'
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-    '.$data['title'].'
-    </p>
-
-    <p class="fs-3 my-2 text-yellow">
-        '.$data['subtitle'].'
-    </p> 
-  
-    <span class="py-3 mb-3">
-       <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-    </span>
-    <p class="my-5 fs-4 lh-lg  ">
-        '.$data['body'].'
-    </p>';
-
-        break;
-        
-    case 'NL':
-        echo '
-        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-                '.$data['title'].'
-            </p>
-            <p class="fs-3 my-2 text-yellow">
-                '.$data['subtitle'].'
-            </p> 
-            <span class="py-3 mb-3">
-             <a href="'.$data['location'].'" class="img-fluid" style="width: 50%;" alt="'.$data['title'].'" target="_blank">'.$data['title'].'</a>
-            </span>
-            <p class="my-5 fs-4 lh-lg  ">
-                '.$data['body'].'
-            </p>
-        ';
-
-    default:
-        # code...
-        break;
-}
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
 
 
-?>
-      
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+               
+                break;
+
+                case 'WP':
+                   
+                    $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
+
+
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+
+                break;
+
+                case 'IDP':
+                   
+                    $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
+
+
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+
+                break;
+
+
+                case 'PB':
+                       
+                    $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
+
+
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+                break;
+
+                case 'BR':
+
+                    $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
+
+
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+
+                break;
+
+                case 'IA':
+                        $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
+
+
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+                    break;
+
+                case 'CM':
+                    $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
+
+
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+                    break;
+
+                case 'SDA':
+
+                    $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
+
+
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+                    break;
+
+                case 'LED':
+                    $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
+
+
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+
+                    break;
+
+                case 'CM':
+
+                    $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
+
+
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+                    break;
+
+                case 'NL':
+                    $link = ltrim($data['location'],'.');
+                    echo '
+                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> 
+                    
+                        <span class="py-3 mb-3">
+                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
+                        </span>
+
+
+                        <div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe>
+                    </div>
+                        <p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+
+                default:
+                    # code...
+                    break;
+            }
+
+
+            ?>
+
         </div>
     </div>
 </div>

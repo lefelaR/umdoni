@@ -17,7 +17,7 @@ class Documents extends \Core\Controller
 
     protected function before()
     {
- 
+
     }
 
     public function indexAction()
@@ -28,16 +28,16 @@ class Documents extends \Core\Controller
     public function detailsAction()
     {
 
-     
+
 
         $data = getPostData();
-        if(isset($data['id']))
-        {
+        if (isset($data['id'])) {
             $id = $data['id'];
             $category = $data['category'];
 
-            $document = DocumentModel::GetById($id,$category);
-        }else $document = array();
+            $document = DocumentModel::GetById($id, $category);
+        } else
+            $document = array();
 
 
 
@@ -99,7 +99,7 @@ class Documents extends \Core\Controller
         $councilminutes = DocumentModel::GET();
         view::render('documents/councilminutes.php', $councilminutes, 'default');
     }
-    
+
     public function servicedeliveryAction()
     {
         $servicedelivery = DocumentModel::GET();

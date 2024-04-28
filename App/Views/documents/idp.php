@@ -2,6 +2,9 @@
 global $context;
 $data = $context->data;
 
+
+
+
 ?>
 
 <style>
@@ -53,6 +56,10 @@ $data = $context->data;
     <div class="row align-items-center">
 
         <?php
+
+
+
+
         $annualreports = $data;
         foreach ($annualreports as $key => $report) {
                 if($report['category'] === "IDP"){

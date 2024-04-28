@@ -40,8 +40,6 @@ class User extends \Core\Controller
     }
 
 
- 
-
     public function indexAction()
     {
         global $context;

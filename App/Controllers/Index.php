@@ -10,7 +10,7 @@
 namespace App\Controllers;
 
 use \Core\View;
-use  App\Models\NewsModel;
+use App\Models\NewsModel;
 
 
 class Index extends \Core\Controller
@@ -29,7 +29,7 @@ class Index extends \Core\Controller
 
     public function indexAction()
     {
-        $data['news'] =  NewsModel::Get(); 
+        $data['news'] = NewsModel::Get();
         view::render('index/index.php', $data, 'default');
     }
 
