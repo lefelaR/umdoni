@@ -30,20 +30,16 @@ include_once '../Components/Helpers.php';
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/toastify/toastify.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/images/favicon.svg") ?>">
     <link rel="stylesheet" href="<?php echo url('assets/vendors/simple-datatables/style.css') ?>">
-    <script src="//d2wy8f7a9ursnm.cloudfront.net/v7/bugsnag.min.js"></script>
-    <script type="module">
-    import BugsnagPerformance from '//d2wy8f7a9ursnm.cloudfront.net/v1/bugsnag-performance.min.js'
-    Bugsnag.start({ apiKey: 'efeaa75b4c6845b5fcd047a83480a73d' })
-    BugsnagPerformance.start({ apiKey: 'efeaa75b4c6845b5fcd047a83480a73d' })
-    </script>
+   
+ 
 </head>
 
 <body>
     <div id="app">
         <!-- loader -->
-        <?php include '../public/Includes/loader.php'; ?>
+        <!-- <?php #include '../public/Includes/loader.php'; ?> -->
         <!-- Sidebar -->
-        <?php include '../public/Includes/parts/side_bar.php'; ?>
+         <!-- <?php # include '../public/Includes/parts/side_bar.php'; ?>  -->
         <!-- Sidebar -->
         <div id="main">
             <header class="mb-3">

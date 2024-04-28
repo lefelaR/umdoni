@@ -8,7 +8,7 @@
 namespace App\Controllers\Dashboard;
 
 use \Core\View;
-
+use App\Models\LogsModel;
 
 
 class Logs extends \Core\Controller
@@ -16,7 +16,8 @@ class Logs extends \Core\Controller
 
     public function indexAction()
     {   
-        $logs = array();
+        $logs = LogsModel::Get();
+
         view::render('dashboard/logs/index.php', $logs, 'dashboard');
     }
   

@@ -113,7 +113,7 @@ class Publications extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-            Newsletter::Delete($id);
+            Newsletters::Delete($id);
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }

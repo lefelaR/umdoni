@@ -59,9 +59,11 @@ $data = $context->data;
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
-   
+
             <p class="fw-lighter fs-3 my-5">
-                Meet Your Local City Representatives introducing you to the dedicated honourable members working for your community. Learn about their roles, achievements, and how they're shaping the future of your municipality.
+                Meet Your Local City Representatives introducing you to the dedicated honourable members working for
+                your community. Learn about their roles, achievements, and how they're shaping the future of
+                your municipality.
 
             </p>
         </div>
@@ -70,31 +72,43 @@ $data = $context->data;
 
     <!-- place code here -->
     <div class="row justify-content-center">
-        
-            <div class="col-md-3 my-2">
-                <a href="<?php echo buildurl('councillors/council') ?>">
-                    <div class="card card-hover">
-                        <div class="card-body">
-                            <div class="d-flex inline">
-                                <i class="bi bi-globe fs-1 text-yellow m-3"></i>
-                                <p class="h5 my-auto p-2">Council</p>
-                            </div>
+        <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This page is still under consruction">
+            <a href="<?php #echo buildurl('councillors/exco') ?>" disbaled>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex inline">
+                            <i class="bi bi-globe fs-1 text-secondary m-3"></i>
+                            <p class="h5 my-auto p-2">Exco</p>
                         </div>
                     </div>
-                </a>
-            </div>
-            <div class="col-md-3 my-2">
-                <a href="<?php echo buildurl('councillors/administration') ?>">
-                    <div class="card card-hover">
-                        <div class="card-body">
-                            <div class="d-flex inline">
-                                <i class="bi bi-globe fs-1 text-yellow m-3"></i>
-                                <p class="h5 my-auto p-2"> Administration</p>
-                            </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This page is still under consruction">
+            <a href="<?php # echo buildurl('councillors/council') ?>" disbaled>
+                <div class="card ">
+                    <div class="card-body">
+                        <div class="d-flex inline">
+                            <i class="bi bi-globe fs-1 text-secondary m-3"></i>
+                            <p class="h5 my-auto p-2">Council</p>
                         </div>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This page is still under consruction">
+            <a href="<?php #echo buildurl('councillors/administration') ?>" disbaled>
+                <div class="card ">
+                    <div class="card-body">
+                        <div class="d-flex inline">
+                            <i class="bi bi-globe fs-1 text-secondary m-3"></i>
+                            <p class="h5 my-auto p-2"> Administration</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
 
     </div>
 
