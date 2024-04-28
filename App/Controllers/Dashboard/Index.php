@@ -17,7 +17,6 @@ use App\Models\EventModel;
 use App\Models\NoticeModel;
 use App\Models\UserModel;
 
-
 class Index extends \Core\Controller
 {
 
@@ -26,31 +25,33 @@ class Index extends \Core\Controller
     {
         $dashboard = array();
         // get logged in user information
-        $AuthenticatedUser  = $_SESSION['profile'];
+        $AuthenticatedUser = $_SESSION['profile'];
         // check for user role
         $profile_id = $AuthenticatedUser['user_id'];
-        if(count($AuthenticatedUser) > 0){
-            $profile  = Profile::getUser($AuthenticatedUser['email']);
+        if (count($AuthenticatedUser) > 0) {
+            $profile = Profile::getUser($AuthenticatedUser['email']);
             foreach ($profile as $key => $value) {
-                if($value['user_id'] === $profile_id){
+                if ($value['user_id'] === $profile_id) {
                     $profile = $value;
                 }
             }
         }
-        $dashboard['users'] = UserModel::getUser($profile_id);     
+        $dashboard['users'] = UserModel::getUser($profile_id);
+
         $dashboard['requests'] = Request::getAll();
         $dashboard['projects'] = Project::Get();
         $dashboard['events'] = EventModel::getAll();
         $dashboard['notices'] = NoticeModel::getAll();
         $dashboard['profile'] = $profile;
         $profile['profile'] = $AuthenticatedUser;
-    
+
         view::render('dashboard/index.php', $dashboard, 'dashboard');
     }
 
+
     protected function before()
     {
-        enable_authorize();
+        // enable_authorize();
     }
 
     protected function after()

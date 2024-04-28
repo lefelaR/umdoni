@@ -53,9 +53,11 @@ $data = $context->data;
     <div class="row align-items-center">
 
         <?php
+
+
         $newsletters = $data;
         foreach ($newsletters as $key => $newsletter) {
-                if($newsletter['category'] === "AI"){
+                if($newsletter['category'] === "IA"){
             echo '
                 <div class="col-md-4 my-1">
                     <a href="details?id='.$newsletter['id'].'&category='.$newsletter['category'].'">
