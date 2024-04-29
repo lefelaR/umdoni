@@ -47,6 +47,8 @@ class Councillors extends \Core\Controller
 
         view::render('dashboard/councillors/senior.php', $managers, 'dashboard');
     }
+
+
     public function saddAction()
     {
         $data = getPostData();
@@ -58,6 +60,29 @@ class Councillors extends \Core\Controller
         }
         view::render('dashboard/councillors/sadd.php', $seniorMan, 'dashboard');
     }
+
+
+    public function excoAction()
+    {
+        $exco = CouncillorModel::getExco();
+
+        view::render('dashboard/councillors/exco.php', $exco, 'dashboard');
+    }
+
+
+    public function eaddAction()
+    {
+        $data = getPostData();
+        if (isset($data['id'])) {
+            $id = $data['id'];
+            $exco = CouncillorModel::getExcoById($id);
+        } else {
+            $exco = array();
+        }
+        view::render('dashboard/councillors/eadd.php', $exco, 'dashboard');
+    }
+
+
     public function addAction()
     {
         $data = getPostData();
@@ -213,9 +238,6 @@ class Councillors extends \Core\Controller
         redirect('dashboard/councillors/index');
     }
 
-
-
-
     public function updateManAction()
     {
 
@@ -301,7 +323,7 @@ class Councillors extends \Core\Controller
 
     protected function before()
     {
-        enable_authorize();
+        // enable_authorize();
     }
 
     protected function after()
