@@ -139,6 +139,11 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     </th>
                                     <th scope="col">
                                         <p class="text-uppercase ">
+                                            Created Date
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
                                             Closing Date
                                         </p>
                                     </th>
@@ -160,6 +165,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                         <a class="text-secondary fw-bold" href="' . $currentQuotation['location'] . '" target="_blank">' . $currentQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $currentQuotation['reference'] . '</td>
+                                    <td>'.$currentQuotation['createdAt'].'</td>
                                     <td> ' . $currentQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';
@@ -189,6 +195,11 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     </th>
                                     <th scope="col">
                                         <p class="text-uppercase ">
+                                            Created Date
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
                                             Closing Date
                                         </p>
                                     </th>
@@ -207,6 +218,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                         <a class="text-secondary fw-bold" href="' . $openQuotation['location'] . '" target="_blank">' . $openQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $openQuotation['reference'] . '</td>
+                                    <td>'.$openQuotation['createdAt'].'</td>
                                     <td> ' . $openQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';
@@ -235,6 +247,11 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     </th>
                                     <th scope="col">
                                         <p class="text-uppercase ">
+                                            Created Date
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
                                             Closing Date
                                         </p>
                                     </th>
@@ -253,6 +270,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                         <a class="text-secondary fw-bold" href="' . $awardedQuotation['location'] . '" target="_blank">' . $awardedQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $awardedQuotation['reference'] . '</td>
+                                    <td>'.$awardedQuotation['createdAt'].'</td>
                                     <td> ' . $awardedQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';

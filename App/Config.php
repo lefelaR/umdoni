@@ -25,17 +25,23 @@ class Config
      * Database user
      * @var string
      */
-    const DB_USER = 'admin';
+    const DB_USER = 'username';
 
     /**
      * Database password
      * @var string
      */
-    const DB_PASSWORD = 'Ytmxlz2&';
+    const DB_PASSWORD = 'password';
 
     /**
      * Show or hide error messages on screen
      * @var boolean
      */
     const SHOW_ERRORS = true;
+
+
+    /**
+     * version
+     */
+    const VERSION = '1';
 }
