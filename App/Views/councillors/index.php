@@ -72,12 +72,12 @@ $data = $context->data;
 
     <!-- place code here -->
     <div class="row justify-content-center">
-        <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This page is still under consruction">
-            <a href="<?php echo buildurl('councillors/exco') ?>" disbaled>
+        <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="loading................90%">
+            <a href="<?php #echo buildurl('councillors/exco') ?>" disbaled>
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex inline">
-                            <i class="bi bi-globe fs-1 text-yellow m-3"></i>
+                            <i class="bi bi-globe fs-1 text-text-secondary m-3"></i>
                             <p class="h5 my-auto p-2">Exco</p>
                         </div>
                     </div>
@@ -85,8 +85,8 @@ $data = $context->data;
             </a>
         </div>
 
-        <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This page is still under consruction">
-            <a href="<?php echo buildurl('councillors/council') ?>" disbaled>
+        <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This page is still under consruction loading........65%">
+            <a href="<?php #echo buildurl('councillors/council') ?>" disbaled>
                 <div class="card ">
                     <div class="card-body">
                         <div class="d-flex inline">
@@ -97,7 +97,7 @@ $data = $context->data;
                 </div>
             </a>
         </div>
-        <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This page is still under consruction">
+        <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This page is still under consruction loading................5%">
             <a href="<?php #echo buildurl('councillors/administration') ?>" disbaled>
                 <div class="card ">
                     <div class="card-body">
