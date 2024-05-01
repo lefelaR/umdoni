@@ -37,7 +37,7 @@ echo '
                  
                     <p class="card-title fw-light">Councillor Member List</p>
                     <div class="float-start float-lg-end">
-                        <a class="btn btn-sm" href="<?php echo buildurl("dashboard/councillors/eadd") ?>" role="button">
+                        <a class="btn btn-sm" href="<?php echo buildurl("dashboard/councillors/addexco") ?>" role="button">
                             <i class="bi bi-plus"></i> Add
                         </a>
                         <button class="btn  btn-sm">
@@ -82,10 +82,10 @@ echo '
                                     <td>' . $exco['category'] . '</td>
                                     <td>' . $exco['ward'] . '</td>
                                     <td>
-                                    <a class="btn  btn-sm" href="add?id=' .  $exco['id'] . '">
+                                    <a class="btn  btn-sm" href="addexco?id=' .  $exco['id'] . '">
                                     <i class="bi bi-pencil"></i>
                                     </a>
-                                    <a class="btn btn-sm" id="delete"  [id=' . $exco['id'] . ']  href="delete?id=' .  $exco['id'] . '"onclick="handleDelete(event, '.$exco['id'].')">
+                                    <a class="btn btn-sm" id="deleteexco"  [id=' . $exco['id'] . ']  href="delete?id=' .  $exco['id'] . '"onclick="handleDelete(event, '.$exco['id'].')">
                                      <i class="bi bi-trash"></i>
                                 </a>
                                     </td>

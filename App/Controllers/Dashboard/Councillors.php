@@ -70,7 +70,7 @@ class Councillors extends \Core\Controller
     }
 
 
-    public function eaddAction()
+    public function addexco()
     {
         $data = getPostData();
         if (isset($data['id'])) {
@@ -79,7 +79,7 @@ class Councillors extends \Core\Controller
         } else {
             $exco = array();
         }
-        view::render('dashboard/councillors/eadd.php', $exco, 'dashboard');
+        view::render('dashboard/councillors/addexco.php', $exco, 'dashboard');
     }
 
 
@@ -138,6 +138,52 @@ class Councillors extends \Core\Controller
         }
         redirect('dashboard/councillors/index');
     }
+
+    public function saveExcoAction()
+    {
+        global $context;
+        if (isset($_FILES)) {
+
+            $s3 = new S3Client([
+                'version' => 'latest',
+                'region' => $this->region,
+                'credentials' => [
+                    'key' => $this->awsAccessKeyId,
+                    'secret' => $this->awsSecretAccessKey,
+                ],
+            ]);
+            $file = $_FILES;
+
+            $filePath = $file['name']['tmp_name'];
+            $objectKey = $file['name']['name'];
+            $loc = "";
+            try {
+                $result = $s3->putObject([
+                    'Bucket' => $this->bucketName,
+                    'Key' => $objectKey,
+                    'SourceFile' => $filePath,
+                ]);
+            } catch (Exception $e) {
+                echo "Error uploading file: " . $e->getMessage();
+            }
+        }
+
+        if (isset($_POST)) $data = $_POST;
+        $data['isActive'] = 1;
+        $data['img_file'] = $objectKey;
+        $data['location'] = $result['ObjectURL'];
+        try {
+
+            $id =  CouncillorModel::SaveExco($data);
+            if ($id) {
+                $_SESSION['success'] =  ['message' => "Record created successfully"];
+            }
+        } catch (\Throwable $th) {
+            $_SESSION['error'] = ['message' => $th->getMessage()];
+        }
+        redirect('dashboard/councillors/exco');
+    }
+
 
 
     public function savemanAction()

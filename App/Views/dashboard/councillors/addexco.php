@@ -38,7 +38,7 @@ if (isset($data[0]['id'])) {
 } else {
     $page = 'Add';
     $id = '';
-    $action = 'saveman';
+    $action = 'saveExcoAction';
 }
 $initials = (isset($data[0]['initials']))? $data[0]['initials']:'' ;
 $name = (isset($data[0]['name'])) ? $data[0]['name'] : '';

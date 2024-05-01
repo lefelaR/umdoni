@@ -66,6 +66,18 @@ class CouncillorModel extends \Core\Model
         }
     }
 
+    public static function getExcoById($id)
+    {
+        try {
+            $db = static::getDB();
+            $stmt = $db->query("SELECT * FROM exco WHERE id = $id");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+        } catch (PDOException $e) {
+            throw new Exception($e->getMessage(), 1);
+        }
+    }
+
 
     public static function getSeniorManById($id)
     {
@@ -101,6 +113,67 @@ class CouncillorModel extends \Core\Model
         if (!isset($data['id'])) $data['id'] = 0;
 
         $sql = "INSERT into seniors (
+            `initials`,
+            `name`,
+            `middlename`,
+            `surname`,
+            `email`,
+            `telephone`,
+            `title`,
+            `category`,
+            `ward`,
+            `img_file`,
+            `location`,
+            `isActive`
+
+            )VALUES (
+            
+            :initials, 
+            :name, 
+            :middlename, 
+            :surname, 
+            :email, 
+            :telephone, 
+            :title, 
+            :category, 
+            :ward, 
+            :img_file, 
+            :location, 
+            :isActive
+            )";
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(':initials', $data['initials']);
+        $stmt->bindParam(':name', $data['name']);
+        $stmt->bindParam(':middlename', $data['middlename']);
+        $stmt->bindParam(':surname', $data['surname']);
+        $stmt->bindParam(':email', $data['email']);
+        $stmt->bindParam(':telephone', $data['telephone']);
+        $stmt->bindParam(':title', $data['title']);
+        $stmt->bindParam(':category', $data['category']);
+        $stmt->bindParam(':ward', $data['ward']);
+        $stmt->bindParam(':img_file', $data['img_file']);
+        $stmt->bindParam(':location', $data['location']);
+        $stmt->bindParam(':isActive', $data['isActive']);
+
+
+        if ($stmt->execute()) {
+            return $db->lastInsertId(); // Return the last inserted ID
+        } else {
+            // Handle the error, log it, or return false
+            return false;
+        }
+    }
+
+
+    public static function SaveExco($data)
+    {
+        global $context;
+        $db = static::getDB();
+        if (!isset($data['id'])) $data['id'] = 0;
+
+        $sql = "INSERT into exco (
             `initials`,
             `name`,
             `middlename`,
