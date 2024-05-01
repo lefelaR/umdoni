@@ -130,18 +130,15 @@ echo '
                 <fieldset class="form-group">';
 
                 $options = array(
-                    "EXCO"=>"EXCO Member" ,
-                    "MM"=>"The Municipal Manager" ,
-                    "GMTS"=>"General Manager Technical Services" ,
-                    "GMCS"=>"General Manager Corporate Services" ,
-                    "GMMS"=>"General Manager Community Services" ,
-                    "GMPD"=>"General Manager Planning and Development " ,
-                    "GMT"=>"General Manager Treasury (CFO)"
-                
+                    
+                    "CP"=>"CHAIRPERSON" ,
+                    "M"=>"EXCO MEMBER" ,
+                    "Cllr"=>"COUNCILLOR" 
+                   
                 );
 
                 echo  ' <select class="form-select" id="category" name="category" value="'.$category.'">';
-                
+                 
                 foreach ($options as $key => $value) {
                     
                     $selected = ($category == $key) ? "selected" : "";
