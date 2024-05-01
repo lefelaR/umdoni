@@ -39,7 +39,7 @@ include_once '../Components/Helpers.php';
         <!-- loader -->
         <!-- <?php #include '../public/Includes/loader.php'; ?> -->
         <!-- Sidebar -->
-         <!-- <?php # include '../public/Includes/parts/side_bar.php'; ?>  -->
+         <?php include '../public/Includes/parts/side_bar.php'; ?> 
         <!-- Sidebar -->
         <div id="main">
             <header class="mb-3">

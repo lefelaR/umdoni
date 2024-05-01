@@ -53,6 +53,7 @@ $sidebarItems = [
     'icon' => 'bi bi-people-fill',
     'hasSub' => true,
     'subItems' => [
+      (object)['label' => 'Exco Members', 'url' => buildurl("dashboard/councillors/exco")],
       (object)['label' => 'Councillors', 'url' => buildurl("dashboard/councillors/index")],
       (object)['label' => 'Senior Management', 'url' => buildurl("dashboard/councillors/senior")],
     ]

@@ -161,101 +161,30 @@ $crumbs = getCrumbs();
                             </p>
                         </div>
                         <?php
-                        foreach ($councillors as $key => $exco) {
+                        foreach ($exco as $key => $value) {
                             if (isset($exco['name'])) {
-                                $name =  substr($exco['name'], 0, 1);
+                                $name =  substr($value['name'], 0, 1);
                             }
                             if ($exco['category'] === 'EXCO') {
                                 echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
                                 <div class="card text-center m-1">
                                     <div class="card-body">
-                                        <img src="' . $exco['location'] . '" class="card-img-top" alt="municipal councelor">
+                                        <img src="' . $value['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
 
                                     <div>
                                     <div class="card-footer">
-                                    <p class="fw-bold text-secondary text-uppercase fs-6">' . $exco['title'] . '</p>
+                                    <p class="fw-bold text-secondary text-uppercase fs-6">' . $value['title'] . '</p>
                                         <p>
-                                        <span class="fw-normal"> Cllr &nbsp;' . strtoupper($name) . " " . $exco['surname'] . '</span><br>
-                                        <span class="fw-lighter">'.$exco['telephone'].'</span><br>
+                                        <span class="fw-normal"> Cllr &nbsp;' . strtoupper($name) . " " . $value['surname'] . '</span><br>
+                                        <span class="fw-lighter">'.$value['telephone'].'</span><br>
                                         
-                                        <span class="fw-lighter small">Ward:'.$exco['ward'].'</span>
+                                        <span class="fw-lighter small">Ward:'.$value['ward'].'</span>
                                         </p>
                                     </div>
                                     </div>
                                     </div>
                                 </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                PR Councillors
-                            </p>
-                        </div>
-
-                        <?php
-
-                        foreach ($councillors as $key => $pr) {
-                            if (isset($pr['name'])) {
-                                $prName =  substr($pr['name'], 0, 1);
-                            }
-
-                            if ($pr['category'] === 'PR') {
-                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                            <div class="card text-center m-1 ">
-                                <div class="card-body">
-                                    <img src="' . $pr['location'] . '" class="card-img-top" alt="municipal councelor">
-                                </div>
-                                <div>
-                                <div class="card-footer">
-                                <p class="fw-bold text-secondary text-uppercase fs-6">' . $pr['title'] . '</p>
-                                    <p>
-                                    <span class="fw-normal"> Cllr &nbsp;' . strtoupper($prName) . " " . $pr['surname'] . '</span><br>
-                                    <span class="fw-lighter">'.$pr['telephone'].'</span><br>
-                                    
-                                    <span class="fw-lighter small">Ward:'.$pr['ward'].'</span>
-                                    </p>
-                                </div>
-                                </div>
-                            </div>
-                            </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                Ward Councillors
-                            </p>
-                        </div>
-                        <?php
-                        foreach ($councillors as $key => $ward) {
-                            if (isset($ward['name']) && $ward['category'] == 'WARD') {
-
-                                $wardName = substr($ward['name'], 0, 1);
-                                echo '
-                            <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                                <div class="card text-center m-1 " >
-                                    <div class="card-body">
-                                        <img src="' . $ward['location'] . '" class="card-img-top" alt="municipal councelor">
-                                    </div>
-                                    <div class="card-footer">
-                                     <p class="fw-bold text-secondary text-uppercase fs-6">' . $ward['title'] . '</p>
-                                    <p>
-                                    <span class="fw-normal"> Cllr &nbsp;' . strtoupper($wardName) . " " . $ward['surname'] . '</span><br>
-                                    <span class="fw-lighter">'.$ward['telephone'].'</span><br>
-                                   
-                                    <span class="fw-lighter small">Ward:'.$ward['ward'].'</span>
-                                    </p>
-                                </div>
-                                </div>
-                            </div>';
                             }
                         }
                         ?>
