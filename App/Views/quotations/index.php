@@ -157,12 +157,12 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     echo '
                                 <tr>
                                     <th scope="row">
-                                    <a class="text-secondary fw-bold" href="' . $currentQuotation['location'] . '" target="_blank">
+                                  
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
                                     </a>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $currentQuotation['location'] . '" target="_blank">' . $currentQuotation["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . url($currentQuotation['location']) . '" target="_blank">' . $currentQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $currentQuotation['reference'] . '</td>
                                     <td>'.$currentQuotation['createdAt'].'</td>
@@ -215,7 +215,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $openQuotation['location'] . '" target="_blank">' . $openQuotation["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' .url($openQuotation['location']) . '" target="_blank">' . $openQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $openQuotation['reference'] . '</td>
                                     <td>'.$openQuotation['createdAt'].'</td>
@@ -267,7 +267,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $awardedQuotation['location'] . '" target="_blank">' . $awardedQuotation["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . url($awardedQuotation['location']) . '" target="_blank">' . $awardedQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $awardedQuotation['reference'] . '</td>
                                     <td>'.$awardedQuotation['createdAt'].'</td>
