@@ -85,7 +85,7 @@ echo '
                                     <a class="btn  btn-sm" href="addexco?id=' .  $exco['id'] . '">
                                     <i class="bi bi-pencil"></i>
                                     </a>
-                                    <a class="btn btn-sm" id="deleteexco"  [id=' . $exco['id'] . ']  href="delete?id=' .  $exco['id'] . '"onclick="handleDelete(event, '.$exco['id'].')">
+                                    <a class="btn btn-sm" id="deleteexco"  [id=' . $exco['id'] . ']  href="deleteexco?id=' .  $exco['id'] . '"onclick="handleDelete(event, '.$exco['id'].')">
                                      <i class="bi bi-trash"></i>
                                 </a>
                                     </td>

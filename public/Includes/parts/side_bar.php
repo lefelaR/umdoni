@@ -78,13 +78,6 @@ $sidebarItems = [
     ]
   ],
 
-  // (object)[
-  //   'label' => 'Community Engagement',
-  //   'name' => 'communityEngagement',
-  //   'icon' => 'bi bi-chat-right-fill',
-  //   'hasSub' => false,
-  //   'url'  => '#'
-  // ],
 
   (object)[
     'label' => 'Economic Development',

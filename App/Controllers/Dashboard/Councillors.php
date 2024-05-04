@@ -339,7 +339,59 @@ class Councillors extends \Core\Controller
     }
 
 
+    public function updateExcoAction()
+    {
 
+        if (isset($_FILES) && $_FILES['name']['size'] > 0) 
+        {
+        
+            $bucketName = $this-> bucketName;
+            $awsAccessKeyId = $this-> awsAccessKeyId;
+            $awsSecretAccessKey = $this->awsSecretAccessKey;
+            $region = $this->region;
+
+            $s3 = new S3Client([
+                'version' => 'latest',
+                'region' => $region,
+                'credentials' => [
+                    'key' => $awsAccessKeyId,
+                    'secret' => $awsSecretAccessKey,
+                ],
+            ]);
+            $file = $_FILES;
+            $filePath = $file['name']['tmp_name'];
+            $objectKey = $file['name']['name'];
+            $loc = "";
+
+
+            try {
+       
+                $result = $s3->putObject([
+                    'Bucket' => $bucketName,
+                    'Key' => $objectKey,
+                    'SourceFile' => $filePath,
+                ]);
+            } catch (Exception $e) {
+                echo "Error uploading file: " . $e->getMessage();
+            }
+        }
+        $data = $_POST;
+        $data['updatedAt'] = date("Y-m-d H:i:s");
+        // if($_FILES)
+        if (isset($_FILES) && $_FILES['name']['size'] > 0) {
+            $data['img_file'] = isset($objectKey) ? $objectKey : "";
+            $data['location'] = isset($result['ObjectURL']) ? $result['ObjectURL'] : "";
+        } else {
+            $data['img_file'] = null;
+            $data['location'] = null;
+        }
+        try {
+            $id =  CouncillorModel::UpdateExco($data);
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+        redirect('dashboard/councillors/exco');
+    }
     public function deleteAction()
     {
         $id = $_GET['id'];
@@ -364,6 +416,19 @@ class Councillors extends \Core\Controller
             $_SESSION['error'] = ['message' => $th->getMessage()];
         }
         redirect('dashboard/councillors/senior');
+    }
+
+    public function deleteExcoAction()
+    {
+        $id = $_GET['id'];
+        try {
+            CouncillorModel::DeleteExco($id);
+            $_SESSION['success'] =  ['message' => "Councillor successfully deleted"];
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            $_SESSION['error'] = ['message' => $th->getMessage()];
+        }
+        redirect('dashboard/councillors/exco');
     }
 
 

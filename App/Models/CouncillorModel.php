@@ -322,6 +322,55 @@ class CouncillorModel extends \Core\Model
         }
     }
 
+    public static function UpdateExco($data)
+    {
+        $db = static::getDB();
+
+        $sql = "UPDATE exco SET 
+        `initials`      = :initials,
+        `name`          = :name, 
+        `surname`       = :surname,
+        `middlename`    = :middlename,
+        `email`         = :email,
+        `telephone`     = :telephone,
+        `title`         = :title,
+        `category`      = :category,
+        `img_file`      = :img_file,
+        " . (isset($data['location']) ? "
+        `location` = :location," : "") . "
+        `ward`          = :ward,
+        `updatedAt`     = :updatedAt
+        WHERE `id`      = :id";
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(':initials', $data['initials']);
+        $stmt->bindParam(':name', $data['name']);
+        $stmt->bindParam(':surname', $data['surname']);
+        $stmt->bindParam(':middlename', $data['middlename']);
+        $stmt->bindParam(':email', $data['email']);
+        $stmt->bindParam(':telephone', $data['telephone']);
+        $stmt->bindParam(':title', $data['title']);
+        $stmt->bindParam(':category', $data['category']);
+        $stmt->bindParam(':img_file', $data['img_file']);
+      
+        if (isset($data['location'])) {
+            $stmt->bindParam(':location', $data['location']);
+        }
+        
+        $stmt->bindParam(':ward', $data['ward']);
+        $stmt->bindParam(':updatedAt', $data['updatedAt']);
+        $stmt->bindParam(':id', $data['id']);
+
+
+        if ($stmt->execute()) {
+            return true; // or any meaningful success indicator
+        } else {
+            // Handle the error, log it, or return false
+            return false;
+        }
+    }
+
 
     public static function Delete($id)
     {
@@ -335,6 +384,15 @@ class CouncillorModel extends \Core\Model
     {
         $db = static::getDB();
         $sql = "UPDATE   seniors SET `isActive` = 0 WHERE `id` = $id";
+        $stmt = $db->exec($sql);
+        return $stmt;
+    }
+
+
+    public static function DeleteExco($id)
+    {
+        $db = static::getDB();
+        $sql = "UPDATE   exco SET `isActive` = 0 WHERE `id` = $id";
         $stmt = $db->exec($sql);
         return $stmt;
     }

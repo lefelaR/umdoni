@@ -33,7 +33,7 @@ echo '
 
 if (isset($data[0]['id'])) {
     $id =  $data[0]['id'];
-    $action = 'updateMan';
+    $action = 'updateExcoAction';
     $page = 'Edit';
 } else {
     $page = 'Add';
@@ -133,7 +133,8 @@ echo '
                     
                     "CP"=>"CHAIRPERSON" ,
                     "M"=>"EXCO MEMBER" ,
-                    "Cllr"=>"COUNCILLOR" 
+                    "Cllr"=>"COUNCILLOR",
+                    "MM"=>"" 
                    
                 );
 
