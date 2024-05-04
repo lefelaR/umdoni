@@ -5,6 +5,20 @@ $data = $context->data[0];
 ?>
 
 <style>
+        #service-page {
+        background-image: linear-gradient(rgba(15, 7, 50, 0.079), rgba(12, 3, 51, 0.084)),
+            url('<?php echo url("assets/img/strips/Umdoni-docs-strip.jpg") ?>');
+        min-height: 40vh;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #service-page p {
+        bottom: 0px;
+        position: absolute;
+        font-size: 8em !important;
+    }
     nav {
         width: 100%;
         position: relative;

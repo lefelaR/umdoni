@@ -83,13 +83,15 @@ class LogsModel extends \Core\Model
         
         $sql = "UPDATE logs SET 
         `logout` =  :logout
-        WHERE `userId`= :userId";
+        WHERE `userId`= :userId
+        AND `id` = :id";
 
         $stmt = $db->prepare($sql);
         
         $stmt->bindParam(':logout', $date);
         $stmt->bindParam(':userId' , $data['user_id']);
-
+        $stmt->bindParam(':id', $data['log_id']);
+        
         if ($stmt->execute()) {
             return true; 
         } else {

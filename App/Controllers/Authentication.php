@@ -255,7 +255,7 @@ public function __construct()
         $_SESSION['success'] = ['message' => 'Registration Successfull, please find your authentication code in your email inbox'];
         } else {
           $_SESSION['error'] = ['message' => 'This email already exists, please try resetting your password.'];
-          return false
+          return false;
         }
       }
 
@@ -339,7 +339,7 @@ public function __construct()
   {
     global $context;
 
-    LogsModel::UserLogout($_SESSION['profile'], $_SESSION['log_id']);
+    LogsModel::UserLogout($_SESSION['profile']);
 
     session_destroy();
     $logout = new Context();
