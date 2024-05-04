@@ -55,16 +55,14 @@ class LogsModel extends \Core\Model
     public static function Save($data)
     {
        
-
         global $context;
-
          $date = date("Y-m-d H:i:s");
-
         $db = static::getDB(); 
         $sql = "INSERT into logs (`userId`,`username`, `email`, `time_log`,`status`,`last_login`)
                 VALUES ('$data[user_id]' ,'$data[username]','$data[email]','$date', '$data[status]','$date')"; 
         $stmt = $db->exec($sql);
-       return $stmt;
+        $id = $db->lastInsertId();
+       return $id;
     }
 
     public static function Delete($id)
