@@ -131,11 +131,14 @@ echo '
 
                 $options = array(
                     
-                    "CP"=>"CHAIRPERSON" ,
-                    "M"=>"EXCO MEMBER" ,
-                    "Cllr"=>"COUNCILLOR",
-                    "MM"=>"" 
-                   
+                    "CP"    => "CHAIRPERSON" ,
+                    "M"     => "EXCO MEMBER" ,
+                    "CLLR"  => "COUNCILLOR",
+                    "MM"    => "THE MUNICIPAL MANAGER",
+                    "GMTS"  => "GENETAL MANAGER TECHNICAL SERVICES",
+                    "GMCS"  => "GENERAL MANAGER COMMUNITY SERVICES ",
+                    "GMPD"  => "GENERAL MANAGER PLANNING AND DEVELOPMENT  ",
+                    "CFO"   => "GENERAL MANAGER TREASURY"
                 );
 
                 echo  ' <select class="form-select" id="category" name="category" value="'.$category.'">';
