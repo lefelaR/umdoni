@@ -153,12 +153,12 @@ foreach ($data as $tenderkey => $tenderValue) {
                                     echo '
                                 <tr>
                                     <th scope="row">
-                                    <a class="text-secondary fw-bold" href="' . $currentTender['location'] . '" target="_blank">
+                                    <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
                                     </a>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $currentTender['location'] . '" target="_blank">' . $currentTender["title"] . '</a>
+                                    <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">' . $currentTender["title"] . '</a>
                                     </td>
                                     <td>' . $currentTender['reference'] . '</td>
                                     <td>'.$currentTender['createdAt'].'</td>
@@ -211,7 +211,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $openTender['location'] . '" target="_blank">' . $openTender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . url($openTender['location']) . '" target="_blank">' . $openTender["title"] . '</a>
                                     </td>
                                     <td>' . $openTender['reference'] . '</td>
                                     <td>'.$openTender['createdAt'].'</td>
@@ -265,7 +265,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $awardedTender['location'] . '" target="_blank">' . $awardedTender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . url($awardedTender['location']) . '" target="_blank">' . $awardedTender["title"] . '</a>
                                     </td>
                                     <td>' . $awardedTender['reference'] . '</td>
                                     <td>'.$awardedTender['createdAt'].'</td>
