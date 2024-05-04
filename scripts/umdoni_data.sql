@@ -311,6 +311,22 @@ CREATE TABLE `projects` (
 INSERT INTO `projects` (`id`, `title`, `subtitle`, `body`, `createdAt`, `isActive`, `location`, `img_file`, `updatedAt`, `updatedBy`, `dueDate`) VALUES
 (51, 'test', 'test sub', '                        \r\n               test description         ', '2024-03-18 15:25:19', '0', '', NULL, '0', 'rakheoana', NULL);
 
+
+CREATE TABLE `rfps` (
+   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(552) DEFAULT NULL,
+  `subtitle` varchar(552) DEFAULT NULL,
+  `body` varchar(1000) DEFAULT NULL,
+  `createdAt` varchar(45) DEFAULT NULL,
+  `isActive` varchar(45) DEFAULT NULL,
+  `updatedBy` varchar(45) DEFAULT NULL,
+  `reference` varchar(45) DEFAULT NULL,
+  `dueDate` varchar(45) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
 -- --------------------------------------------------------
 
 SELECT * FROM umdoni.logs;CREATE TABLE `logs` (
