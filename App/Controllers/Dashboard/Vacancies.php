@@ -46,13 +46,13 @@ class Vacancies extends \Core\Controller
 
         if(isset($_POST)) $data = $_POST;
         $date['createdAt'] = date("Y-m-d H:i:s");
+        $data['isActive'] = 1;
         try 
         {
           $id =  VacancyModel::Save($data);   
         } catch (\Throwable $th) 
         {
             $_SESSION['errors'] = ['message' => $th->getMessage()];
-
         }
         redirect('dashboard/vacancies/index');
     }
