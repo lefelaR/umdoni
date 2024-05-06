@@ -123,7 +123,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-away" role="tabpanel" aria-labelledby="nav-away-tab" tabindex="0">
                     <div class="mt-5">
-                        <table class="table" id="table4">
+                    <table class="table" id="table1">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col"></th>
@@ -179,7 +179,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
 
                 <div class="tab-pane fade" id="nav-record" role="tabpanel" aria-labelledby="nav-record-tab" tabindex="0">
                     <div class="mt-5">
-                        <table class="table" id="table5">
+                    <table class="table" id="table2">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col"></th>
@@ -231,7 +231,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
 
                 <div class="tab-pane fade" id="nav-ignore" role="tabpanel" aria-labelledby="nav-ignore-tab" tabindex="0">
                     <div class="mt-5">
-                        <table class="table" id="table6">
+                    <table class="table" id="table3">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col"></th>

@@ -66,6 +66,19 @@ echo '
                             <?php
                             foreach ($data as $key => $exco) {
                                 $key++;
+                                $options = array(
+                    
+                                    "CP"    => "CHAIRPERSON" ,
+                                    "DM" => "DEPUTY MAYOR",
+                                    "S" =>"SPEAKER",
+                                    "M"     => "EXCO MEMBER" ,
+                                    "CLLR"  => "COUNCILLOR",
+                                    "MM"    => "THE MUNICIPAL MANAGER",
+                                    "GMTS"  => "GENETAL MANAGER TECHNICAL SERVICES",
+                                    "GMCS"  => "GENERAL MANAGER COMMUNITY SERVICES ",
+                                    "GMPD"  => "GENERAL MANAGER PLANNING AND DEVELOPMENT  ",
+                                    "CFO"   => "GENERAL MANAGER TREASURY"
+                                );
                                 echo '
                                 <tr>
                                     <td>
@@ -79,7 +92,7 @@ echo '
                                     <td>' . $exco['telephone'] . '</td>
                                     <td>' . $exco['email'] . '</td>
                                     <td>' . $exco['title'] . '</td>
-                                    <td>' . $exco['category'] . '</td>
+                                    <td>' . $options[$exco['category']] . '</td>
                                     <td>' . $exco['ward'] . '</td>
                                     <td>
                                     <a class="btn  btn-sm" href="addexco?id=' .  $exco['id'] . '">

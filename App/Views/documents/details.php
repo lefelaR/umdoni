@@ -2,6 +2,7 @@
 global $context;
 $data = $context->data[0];
 // array_column
+$crumbs = getCrumbs();
 ?>
 
 <style>
@@ -48,8 +49,8 @@ $data = $context->data[0];
     <div class="row">
         <div class="col-md-12 col-lg-12">
 
-            <?php
 
+            <?php
             switch ($data['category']) {
                 case 'AR':
                     $link = ltrim($data['location'],'.');
@@ -61,11 +62,6 @@ $data = $context->data[0];
                         <p class="fs-3 my-2 text-yellow">
                             ' . $data['subtitle'] . '
                         </p> 
-                    
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
 
                         <div class=" my-5 mx-auto">
                         <iframe
@@ -94,11 +90,6 @@ $data = $context->data[0];
                             ' . $data['subtitle'] . '
                         </p> 
                     
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
-
                         <div class=" my-5 mx-auto">
                         <iframe
                         src="' . url($link) . '"
@@ -127,10 +118,6 @@ $data = $context->data[0];
                             ' . $data['subtitle'] . '
                         </p> 
                     
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
 
                         <div class=" my-5 mx-auto">
                         <iframe
@@ -160,10 +147,6 @@ $data = $context->data[0];
                             ' . $data['subtitle'] . '
                         </p> 
                     
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
 
                         <div class=" my-5 mx-auto">
                         <iframe
@@ -194,10 +177,6 @@ $data = $context->data[0];
                             ' . $data['subtitle'] . '
                         </p> 
                     
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
 
                         <div class=" my-5 mx-auto">
                         <iframe
@@ -226,11 +205,7 @@ $data = $context->data[0];
                             ' . $data['subtitle'] . '
                         </p> 
                     
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
-
+                
                         <div class=" my-5 mx-auto">
                         <iframe
                         src="' . url($link) . '"
@@ -257,12 +232,7 @@ $data = $context->data[0];
                         <p class="fs-3 my-2 text-yellow">
                             ' . $data['subtitle'] . '
                         </p> 
-                    
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
-
+               
                         <div class=" my-5 mx-auto">
                         <iframe
                         src="' . url($link) . '"
@@ -288,12 +258,7 @@ $data = $context->data[0];
                         <p class="fs-3 my-2 text-yellow">
                             ' . $data['subtitle'] . '
                         </p> 
-                    
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
-
+          
                         <div class=" my-5 mx-auto">
                         <iframe
                         src="' . url($link) . '"
@@ -321,10 +286,6 @@ $data = $context->data[0];
                             ' . $data['subtitle'] . '
                         </p> 
                     
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
 
                         <div class=" my-5 mx-auto">
                         <iframe
@@ -351,11 +312,7 @@ $data = $context->data[0];
                         <p class="fs-3 my-2 text-yellow">
                             ' . $data['subtitle'] . '
                         </p> 
-                    
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
+          
 
                         <div class=" my-5 mx-auto">
                         <iframe
@@ -385,10 +342,7 @@ $data = $context->data[0];
                             ' . $data['subtitle'] . '
                         </p> 
                     
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
+              
 
                         <div class=" my-5 mx-auto">
                         <iframe
@@ -416,11 +370,7 @@ $data = $context->data[0];
                             ' . $data['subtitle'] . '
                         </p> 
                     
-                        <span class="py-3 mb-3">
-                            <a href="' . $data['location'] . '" class="img-fluid" style="width: 50%;" alt="' . $data['title'] . '" target="_blank">' . $data['title'] . '</a>
-                        </span>
-
-
+              
                         <div class=" my-5 mx-auto">
                         <iframe
                         src="' . url($link) . '"
