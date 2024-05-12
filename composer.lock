@@ -62,18 +62,6 @@
         },
         {
             "name": "aws/aws-sdk-php",
-<<<<<<< HEAD
-            "version": "3.305.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c553a07fab74348517e72a0ccc02a612cbf4688b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c553a07fab74348517e72a0ccc02a612cbf4688b",
-                "reference": "c553a07fab74348517e72a0ccc02a612cbf4688b",
-=======
             "version": "3.305.7",
             "source": {
                 "type": "git",
@@ -84,7 +72,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f4108b0222fdc0f0d96c5dbc8055b957d06f1cae",
                 "reference": "f4108b0222fdc0f0d96c5dbc8055b957d06f1cae",
->>>>>>> 2541ae7020da84c521eae6da4837f2cb8588847f
                 "shasum": ""
             },
             "require": {
@@ -164,15 +151,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-<<<<<<< HEAD
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.305.2"
-            },
-            "time": "2024-04-24T18:07:47+00:00"
-=======
                 "source": "https://github.com/aws/aws-sdk-php/tree/3.305.7"
             },
             "time": "2024-05-01T18:05:51+00:00"
->>>>>>> 2541ae7020da84c521eae6da4837f2cb8588847f
         },
         {
             "name": "doctrine/instantiator",
