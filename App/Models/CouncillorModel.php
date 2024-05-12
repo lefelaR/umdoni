@@ -54,6 +54,22 @@ class CouncillorModel extends \Core\Model
         }
     }
 
+
+    public static function GetExco()
+    {
+        try {
+            $db = static::getDB();
+            $stmt = $db->query('SELECT * FROM exco WHERE `isActive` = 1');
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+        } catch (PDOException $e) {
+            throw new Exception($e->getMessage(), 1);
+        }
+    }
+
+
+
+
     public static function getCouncillorById($id)
     {
         try {

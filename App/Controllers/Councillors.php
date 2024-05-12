@@ -27,8 +27,8 @@ class Councillors extends \Core\Controller
 
     public function excoAction()
     {
-        $exco = CouncillorModel::getExco();
-        view::render('councillors/exco.php', $exco, 'default');
+        $data  = CouncillorModel::GetExco();
+        view::render('councillors/exco.php', $data, 'default');
     }
 
     public function councilAction()
