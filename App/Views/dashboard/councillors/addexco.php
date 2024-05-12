@@ -132,10 +132,12 @@ echo '
                 $options = array(
                     
                     "CP"    => "CHAIRPERSON" ,
+                    "DM" => "DEPUTY MAYOR",
+                    "S" =>"SPEAKER",
                     "M"     => "EXCO MEMBER" ,
                     "CLLR"  => "COUNCILLOR",
                     "MM"    => "THE MUNICIPAL MANAGER",
-                    "GMTS"  => "GENETAL MANAGER TECHNICAL SERVICES",
+                    "GMTS"  => "GENERAL MANAGER TECHNICAL SERVICES",
                     "GMCS"  => "GENERAL MANAGER COMMUNITY SERVICES ",
                     "GMPD"  => "GENERAL MANAGER PLANNING AND DEVELOPMENT  ",
                     "CFO"   => "GENERAL MANAGER TREASURY"

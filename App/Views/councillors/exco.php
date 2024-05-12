@@ -159,10 +159,23 @@ $crumbs = getCrumbs();
                         </div>
                         <?php
                         foreach ($exco as $key => $value) {
-                            if (isset($exco['name'])) {
+                            if (isset($value['name'])) {
                                 $name = substr($value['name'], 0, 1);
                             }
-                            if ($exco['category'] === 'EXCO') {
+                            $options = array(
+                    
+                                "CP"    => "CHAIRPERSON",
+                                "DM"    => "DEPUTY MAYOR",
+                                "S"     => "SPEAKER",
+                                "M"     => "EXCO MEMBER" ,
+                                "CLLR"  => "COUNCILLOR",
+                                "MM"    => "THE MUNICIPAL MANAGER",
+                                "GMTS"  => "GENETAL MANAGER TECHNICAL SERVICES",
+                                "GMCS"  => "GENERAL MANAGER COMMUNITY SERVICES ",
+                                "GMPD"  => "GENERAL MANAGER PLANNING AND DEVELOPMENT  ",
+                                "CFO"   => "GENERAL MANAGER TREASURY"
+                            );
+
                                 echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
                                 <div class="card text-center m-1">
                                     <div class="card-body">
@@ -173,7 +186,7 @@ $crumbs = getCrumbs();
                                     <div class="card-footer">
                                     <p class="fw-bold text-secondary text-uppercase fs-6">' . $value['title'] . '</p>
                                         <p>
-                                        <span class="fw-normal"> Cllr &nbsp;' . strtoupper($name) . " " . $value['surname'] . '</span><br>
+                                        <span class="fw-normal"> '.$options[$value['category']].'<br/>' . strtoupper($name) . " " . $value['surname'] . '</span><br>
                                         <span class="fw-lighter">' . $value['telephone'] . '</span><br>
                                         
                                         <span class="fw-lighter small">Ward:' . $value['ward'] . '</span>
@@ -183,7 +196,7 @@ $crumbs = getCrumbs();
                                     </div>
                                 </div>';
                             }
-                        }
+                        // }
                         ?>
                     </div>
                 </div>

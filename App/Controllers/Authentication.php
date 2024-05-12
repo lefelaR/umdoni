@@ -248,8 +248,15 @@ public function __construct()
         $data['locked'] = 1;
         $data['role_id'] = 2;
         $data['UserSub'] = $result['UserSub'];
+ 
+        $exists = Profile::getUser($data);
+        if (!empty($exists)) {
         $user = UserModel::Save($data);
         $_SESSION['success'] = ['message' => 'Registration Successfull, please find your authentication code in your email inbox'];
+        } else {
+          $_SESSION['error'] = ['message' => 'This email already exists, please try resetting your password.'];
+          return false;
+        }
       }
 
       redirect('authentication/code');

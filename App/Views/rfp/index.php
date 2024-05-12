@@ -2,10 +2,27 @@
 global $context;
 $data = $context->data;
 // array_column
-$currentTenders = array();
-$openTenders = array();
-$awardedTenders = array();
+$currentRFPs = array();
+$openRFPs = array();
+$awardedRFPs = array();
 
+
+
+foreach ($data as $rfpKey => $rfpValue) {
+    
+    switch ($rfpValue['status']) {
+        case '1':
+        array_push($currentRFPs, $rfpValue);
+            break;
+        
+            case '2':
+                array_push($openRFPs, $rfpValue);
+                break;
+        default:
+            array_push($awardedRFPs, $rfpValue);
+            break;
+    }
+}
 
 ?>
 
@@ -65,40 +82,15 @@ $awardedTenders = array();
         </div>
     </div>
 </div>
-
-
-<?php
-
-// array_column
-$currentQuotations = array();
-$openQuotations = array();
-$awardedQuotations = array();
-
-
-
-foreach ($data as $quotationkey => $quotaionValue) {
-    
-    switch ($quotaionValue['status']) {
-        case '1':
-        array_push($currentQuotations, $quotaionValue);
-            break;
-        
-            case '2':
-                array_push($openQuotations, $quotaionValue);
-                break;
-        default:
-            array_push($awardedQuotations, $quotaionValue);
-            break;
-    }
-}
-
-?>
-
 <div class="container content-section">
     <div class="row">
         <div class="col-md-12 col-lg-12">
+
+            <p class="fw-lighter fs-3 my-5">
+                Discover lucrative business prospects through our Tender Opportunities page. Explore curated tender opportunities from various industries. Stay informed about upcoming projects, contracts, and procurement opportunities. Unlock new avenues for growth and success.
+            </p>
             <p class="h1 text-uppercase fw-normal">
-                Quotations
+                Request For Proposals
             </p>
         </div>
     </div>
@@ -108,22 +100,22 @@ foreach ($data as $quotationkey => $quotaionValue) {
 
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-away" type="button" role="tab" aria-controls="nav-away" aria-selected="true">
-                        <p class="fw-bold text-secondary">Current Quotations</p>
+                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
+                        <p class="fw-bold text-secondary">Current RFPs</p>
                     </button>
-                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-record" type="button" role="tab" aria-controls="nav-record" aria-selected="false">
-                        <p class="fw-bold text-secondary">Open Quotations</p>
+                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">
+                        <p class="fw-bold text-secondary">Open RFPs</p>
                     </button>
-                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-ignore" type="button" role="tab" aria-controls="nav-ignore" aria-selected="false">
+                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
                         <p class="fw-bold text-secondary">
-                            Awarded Quotations</p>
+                            Awarded RFPs</p>
                     </button>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="nav-away" role="tabpanel" aria-labelledby="nav-away-tab" tabindex="0">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                     <div class="mt-5">
-                    <table class="table" id="table1">
+                        <table class="table" id="table1">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col"></th>
@@ -152,21 +144,25 @@ foreach ($data as $quotationkey => $quotaionValue) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($currentQuotations as $currentQuotationkey => $currentQuotation) {
-                                    $currentQuotationkey++;
+
+
+
+
+                                foreach ($currentRFPs as $rfpKey => $currentRfp) {
+                                    $rfpKey++;
                                     echo '
                                 <tr>
                                     <th scope="row">
-                                  
+                                    <a class="text-secondary fw-bold" href="' . url($currentRfp['location']) . '" target="_blank">
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
                                     </a>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . url($currentQuotation['location']) . '" target="_blank">' . $currentQuotation["title"] . '</a>
+                                    <a class="text-secondary fw-bold" href="' . url($currentRfp['location']) . '" target="_blank">' . $currentRfp["title"] . '</a>
                                     </td>
-                                    <td>' . $currentQuotation['reference'] . '</td>
-                                    <td>'.$currentQuotation['createdAt'].'</td>
-                                    <td> ' . $currentQuotation['dueDate'] . '</td>
+                                    <td>' . $currentRfp['reference'] . '</td>
+                                    <td>'.$currentRfp['createdAt'].'</td>
+                                    <td> ' . $currentRfp['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }
@@ -177,9 +173,9 @@ foreach ($data as $quotationkey => $quotaionValue) {
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="nav-record" role="tabpanel" aria-labelledby="nav-record-tab" tabindex="0">
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
                     <div class="mt-5">
-                    <table class="table" id="table2">
+                        <table class="table" id="table2">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col"></th>
@@ -208,40 +204,41 @@ foreach ($data as $quotationkey => $quotaionValue) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($openQuotations as $openQuotationkey => $openQuotation) {
-                                    $openQuotationkey++;
+                                foreach ($openRFPs as $openRfpkey => $openRfp) {
+                                    $openRfpkey++;
                                     echo '
                                 <tr>
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' .url($openQuotation['location']) . '" target="_blank">' . $openQuotation["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . url($openRfp['location']) . '" target="_blank">' . $openRfp["title"] . '</a>
                                     </td>
-                                    <td>' . $openQuotation['reference'] . '</td>
-                                    <td>'.$openQuotation['createdAt'].'</td>
-                                    <td> ' . $openQuotation['dueDate'] . '</td>
+                                    <td>' . $openRfp['reference'] . '</td>
+                                    <td>'.$openRfp['createdAt'].'</td>
+                                    <td> ' . $openRfp['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }
+
                                 ?>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div class="tab-pane fade" id="nav-ignore" role="tabpanel" aria-labelledby="nav-ignore-tab" tabindex="0">
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
                     <div class="mt-5">
-                    <table class="table" id="table3">
+                        <table class="table" id="table3">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">
-                                        <p class="text-uppercase">
+                                        <p class="text-uppercase ">
                                             Title
                                         </p>
                                     </th>
                                     <th scope="col">
-                                        <p class="text-uppercase">
+                                        <p class="text-uppercase ">
                                             Reference
                                         </p>
                                     </th>
@@ -260,18 +257,19 @@ foreach ($data as $quotationkey => $quotaionValue) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($awardedQuotations as $awardedQuotationkey => $awardedQuotation) {
-                                    $awardedQuotationkey++;
+                                foreach ($awardedRFPs as $awardedRfpKey => $awardedRfp) 
+                                {
+                                    $awardedRfpKey++;
                                     echo '
                                 <tr>
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . url($awardedQuotation['location']) . '" target="_blank">' . $awardedQuotation["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . url($awardedRfp['location']) . '" target="_blank">' . $awardedRfp["title"] . '</a>
                                     </td>
-                                    <td>' . $awardedQuotation['reference'] . '</td>
-                                    <td>'.$awardedQuotation['createdAt'].'</td>
-                                    <td> ' . $awardedQuotation['dueDate'] . '</td>
+                                    <td>' . $awardedRfp['reference'] . '</td>
+                                    <td>'.$awardedRfp['createdAt'].'</td>
+                                    <td> ' . $awardedRfp['dueDate'] . '</td>
                                 </tr>
                                   ';
                                 }

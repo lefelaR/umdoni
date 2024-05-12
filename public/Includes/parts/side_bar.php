@@ -87,7 +87,7 @@ $sidebarItems = [
     'subItems' => [
       (object)['label' => 'Tenders', 'url' => buildurl("dashboard/tenders/index")],
       (object)['label' => 'Quotations', 'url' => buildurl("dashboard/quotations/index")],
-      (object)['label' => '', 'url' => buildurl("dashboard/tenders/index")],
+      (object)['label' => 'Request For Proposal', 'url' => buildurl("dashboard/rfps/index")],
     ]
   ],
 
