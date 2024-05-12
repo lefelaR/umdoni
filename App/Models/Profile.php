@@ -133,7 +133,8 @@ class Profile extends \Core\Model
             }
             else
             {
-                LogsModel::Save($profile[0]);
+               $logId = LogsModel::Save($profile[0]);
+               $profile[0]['log_id'] = $logId;
                 $_SESSION['profile'] = $profile[0];
                 setcookie("auth", $_SESSION['token'], time() + 3600 * 30, '/');
                 return true;

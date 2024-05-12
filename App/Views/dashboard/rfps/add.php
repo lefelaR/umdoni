@@ -9,14 +9,10 @@ $crumbs = getCrumbs();
 
 echo '
 <div class="row">
-    <h1>
-       Add Project
-    </h1>
+
     <div class="col-12 col-md-12 order-md-2 order-first">
         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-            <ol class="breadcrumb">
-            ';
-
+            <ol class="breadcrumb">';
 foreach ($crumbs as $key => $crumb) {
     if ($key == (count($crumbs) - 1)) {
         $active = 'active';
@@ -42,15 +38,16 @@ if (isset($data['id'])) {
 $title = (isset($data['title'])) ? $data['title'] : '';
 $subtitle = (isset($data['subtitle'])) ? $data['subtitle'] : '';
 $body = (isset($data['body'])) ? $data['body'] : '';
-$location = (isset($data['location'])) ? $data['location'] : '';
-$file_name = (isset($data['img_file'])) ? $data['img_file'] : '';
+$reference = (isset($data['reference'])) ? $data['reference'] : '';
+$createdAt = (isset($data['createdAt'])) ? $data['createdAt'] : '';
+$duedate = (isset($data['duedate'])) ? $data['duedate'] : '';
 
 echo '
 <div class="card">
     <div class="card-header">
-        <h4 class="card-title">Add a Project</h4>
+        <h4 class="card-title">Add a Request for proposal</h4>
     </div>
-    <form class="form" enctype="multipart/form-data" method="POST" action="'.$action.'">
+    <form class="form" action="' . $action . '" method="post" enctype="multipart/form-data" >
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
@@ -59,26 +56,46 @@ echo '
                         <label for="basicInput">Title</label>
                         <input type="text" class="form-control" id="title" name="title" value="' . $title . '">
                     </div>
+
                     <div class="form-group">
                         <label for="helperText">Subtitle</label>
                         <input type="text" id="subtitle" name="subtitle" class="form-control" value="' . $subtitle . '">
                     </div>
+
                     <div class="form-group">
-                        <input type="file"  accept="image/*" class="form-control" id="image" name="image" aria-describedby="' . $file_name . '" aria-label="Upload" value="' . $location . '">
+                    <label for="helperText">Reference</label>
+                    <input type="text" id="reference" name="reference" class="form-control" value="' . $reference . '">
+                </div>
+                
+                    <div class="form-group">
+                    <label for="helperText">Created Date</label>
+                    <input type="date" id="createdAt" name="createdAt" class="form-control" value="' . $createdAt . '">
                     </div>
+
+                    <div class="form-group">
+                        <label for="helperText">End Date</label>
+                        <input type="date" id="duedate" name="duedate" class="form-control" value="' . $duedate . '">
+                    </div>
+
+                    <div class="form-group">
+                    <label for="helperText">File upload</label>
+                        <input type="file" class="form-control" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value="">
+                    </div>
+                
                     <div class="form-group">
                         <label for="body">Body</label>
-                        
-                    <textarea type="text" name="body" id="body" class="form-control text-secondary" value="' . $body . '" rows="3">
-                       '.$body.'
-                    </textarea>
-               
+                        <textarea type="text" name="body" class="form-control text-black" id="body" value="' . $body . '" rows="3">
+                        '.$body.'
+                        </textarea>
                     </div>
-                    <button class="btn btn-primary btn-lg" onclick="handleSave()"> submit </button>
+
+                    <div id="editor"></div>
+                         <button class="btn btn-primary btn-lg"  onclick="handleSave()">
+                    submit
+                </button>
                 </div>
             </div>
         </div>
     </form>
 </div>';
 ?>
-
