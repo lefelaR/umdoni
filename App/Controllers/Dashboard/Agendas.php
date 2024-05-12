@@ -135,7 +135,7 @@ class Agendas extends \Core\Controller
 
     protected function before()
     {
-       enable_authorize();
+    //    enable_authorize();
     }
 
     protected function after()

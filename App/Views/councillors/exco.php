@@ -125,8 +125,9 @@ $crumbs = getCrumbs();
                 Speaker are full time Councillors. Administratively, Senior Management also forms part of EXCO.
                 <br />
                 <span class="fs-5 fw-bold">Representation of Councillors in the Executive Committee is as
-                    follows:</span><br>
-
+                    follows:</span>
+                    
+                <br>
                 18 – African National Congress (ANC)<br>
 
                 1 - Abantu Batho Congress (ABC)<br>
@@ -148,14 +149,12 @@ $crumbs = getCrumbs();
 
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
-
             <div id="flush-collapseOne" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-
+              
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase my-5">
-                                EXECUTIVE COMMITTEE (Exco)
+                            <p class="fs-1 text-uppercase my-1">
+                                EXCECUTIVE COMMITTEE (Exco)
                             </p>
                             <p class="fw-lighter fs-3 my-5">
                                 The Umdoni Local Municipality’s Executive Committee (EXCO) comprises of the made of the
@@ -163,42 +162,46 @@ $crumbs = getCrumbs();
                                 All members of EXCO & the Speaker are full time Councillors. Administratively, Senior
                                 Management also forms part of EXCO.
                             </p>
-                            <p>
+
+
+                        </div>
+                        <div class="col-md-12 col-lg-12">
+                            <p class="fs-5 fw-bold mb-5">
                                 Representation of Councillors in the Executive Committee is as follows:
                             </p>
-
                         </div>
                         <?php
                         foreach ($exco as $key => $value) {
                             if (isset($value['name'])) {
                                 $name = substr($value['name'], 0, 1);
                             }
-                            if ($exco['category'] === 'EXCO') {
-                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                                <div class="card text-center m-1">
-                                    <div class="card-body">
-                                        <img src="' . $value['location'] . '" class="card-img-top" alt="municipal councelor">
-                                    </div>
+                          
+                            if ($value['category'] === 'EXCO') {
+                        echo'       <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                        <div class="card text-center m-1">
+                                            <div class="card-body">
+                                                <img src="' . $value['location'] . '" class="card-img-top" alt="municipal councelor">
+                                            </div>
+                                        <div>
 
-                                    <div>
-                                    <div class="card-footer">
-                                    <p class="fw-bold text-secondary text-uppercase fs-6">' . $value['title'] . '</p>
-                                        <p>
-                                        <span class="fw-normal"> Cllr &nbsp;' . strtoupper($name) . " " . $value['surname'] . '</span><br>
-                                        <span class="fw-lighter">' . $value['telephone'] . '</span><br>
-                                        
-                                        <span class="fw-lighter small">Ward:' . $value['ward'] . '</span>
-                                        </p>
+                                        <div class="card-footer">
+                                            <p class="fw-bold text-secondary text-uppercase fs-6">' . $value['title'] . '</p>
+                                            <p>
+                                                <span class="fw-normal"> Cllr &nbsp;' . strtoupper($name) . " " . $value['surname'] . '</span><br>
+                                                <span class="fw-lighter">' . $value['telephone'] . '</span><br>    
+                                                <span class="fw-lighter small">Ward:' . $value['ward'] . '</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                    </div>
-                                    </div>
-                                </div>';
+                                </div>
+                            </div>';
                             }
                         }
                         ?>
-                    </div>
-
-                </div>
+                    </div>  
+                    
+                    
+                    
             </div>
         </div>
     </div>
@@ -208,24 +211,3 @@ $crumbs = getCrumbs();
 
 
 
-<script>
-    var accordions = document.querySelectorAll('.accordion-button');
-    accordions.forEach(function (accordion) {
-        accordion.addEventListener('click', function () {
-            var collapse = this.getAttribute('data-bs-target');
-            var parent = this.getAttribute('data-bs-parent');
-
-            if (collapse && parent) {
-                var parentElement = document.querySelector(parent);
-                var collapses = parentElement.querySelectorAll('.collapse');
-
-                collapses.forEach(function (item) {
-                    if (item.id !== collapse.substring(1)) {
-                        var bsCollapse = new bootstrap.Collapse(item);
-                        bsCollapse.hide();
-                    }
-                });
-            }
-        });
-    });
-</script>

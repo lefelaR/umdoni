@@ -116,28 +116,23 @@ $crumbs = getCrumbs();
             </nav>
 
             <p class="fw-lighter fs-3 my-5">
-            Umdoni Municipality comprises of 37 Councillors, categorised into two which are Ward Councillors and Proportional Representative (PR) Councillors. The Speaker is the ex-officio member of all committees of Council and is the Chairperson of Council Meetings.<br><br>
-            The number of Councillors that serve in the Umdoni Council is broken down as follows:<br>
-            19 – Ward Councillors and 18 PR Councillors.<br>
+            Umdoni Municipality comprises of 37 Councillors, categorised into two which are Ward Councillors and Proportional Representative (PR) Councillors.  The Speaker is the ex-officio member of all committees of Council and is the Chairperson of Council Meetings.
+           <br>
+           <br>
+            The number of Councillors that serve in the Umdoni Council is broken down as follows:
+19 – Ward Councillors and 18 PR Councillors. 
 <br>
 ‌
-
-<span class="fs-5 fw-bold">Umdoni municipality’s current composition of Council is as follows:</span><br>
+<br>
+<span class="fs-5 fw-bold">Umdoni municipality’s current composition of Council is as follows: </span><br>
 
 18 – African National Congress (ANC)<br>
-
 1 - Abantu Batho Congress (ABC)<br>
-
-1- Al-Jama –Ah<br>
-
+    1- Al-Jama –Ah <br>
 1 – Allied Movement for Change (AM4C)<br>
-
-6 – Democratic Alliance (DA)<br>
-
-5 – Economic Freedom Fighters (EFF)<br>
-
-5 – Inkatha Freedom Party (IFP)<br>
-
+6 – Democratic Alliance (DA) <br>
+5 – Economic Freedom Fighters (EFF)<br> 
+5 – Inkatha Freedom Party (IFP) <br>
 ‌
         </p>
         </div>

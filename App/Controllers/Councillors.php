@@ -22,12 +22,14 @@ class Councillors extends \Core\Controller
     public function indexAction()
     {
         $data = array();
+     
         view::render('councillors/index.php', $data, 'default');
     }
 
     public function excoAction()
     {
-        $exco = CouncillorModel::getExco();
+        // $exco = CouncillorModel::getExco();
+          $exco = CouncillorModel::GET();
         view::render('councillors/exco.php', $exco, 'default');
     }
 

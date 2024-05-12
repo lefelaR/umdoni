@@ -42,7 +42,10 @@ class Councillors extends \Core\Controller
  */
     public function indexAction()
     {
-        $councillors = CouncillorModel::GET();
+        // $councillors = CouncillorModel::GET();
+        $councillors = array();
+        var_dump($councillors); die;
+        
         view::render('dashboard/councillors/index.php', $councillors, 'dashboard');
     }
 
