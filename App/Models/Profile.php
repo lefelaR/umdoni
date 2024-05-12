@@ -2,6 +2,8 @@
 
 namespace App\Models;
 use PDO;
+use App\Models\LogsModel;
+use Exception;
 /**
  * Post model
  *
@@ -131,6 +133,8 @@ class Profile extends \Core\Model
             }
             else
             {
+               $logId = LogsModel::Save($profile[0]);
+               $profile[0]['log_id'] = $logId;
                 $_SESSION['profile'] = $profile[0];
                 setcookie("auth", $_SESSION['token'], time() + 3600 * 30, '/');
                 return true;

@@ -82,7 +82,7 @@ $crumbs = getCrumbs();
                                             <i class="bi bi-pencil"></i>
                                         </a>
 
-                                        <a class="btn  btn-sm" href="delete?id='.$newsletter['id'].'"onclick="handleDelete(event, '.$newsletter['id'].')">
+                                        <a class="btn  btn-sm" href="delete?id='.$newsletter['id'].'"onclick="handleDelete(event, '.$newsletters['id'].')">
 
                                         <a class="btn  btn-sm" href="delete?id='.$newsletter['id'].'" onclick="handleDelete(event, '.$newsletter['id'].')">
 

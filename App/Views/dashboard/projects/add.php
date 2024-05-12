@@ -64,7 +64,7 @@ echo '
                         <input type="text" id="subtitle" name="subtitle" class="form-control" value="' . $subtitle . '">
                     </div>
                     <div class="form-group">
-                        <input type="file" class="form-control" id="image" name="image" aria-describedby="' . $file_name . '" aria-label="Upload" value="' . $location . '">
+                        <input type="file"  accept="image/*" class="form-control" id="image" name="image" aria-describedby="' . $file_name . '" aria-label="Upload" value="' . $location . '">
                     </div>
                     <div class="form-group">
                         <label for="body">Body</label>

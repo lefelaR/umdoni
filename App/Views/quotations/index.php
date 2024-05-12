@@ -123,7 +123,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-away" role="tabpanel" aria-labelledby="nav-away-tab" tabindex="0">
                     <div class="mt-5">
-                        <table class="table" id="table4">
+                    <table class="table" id="table1">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col"></th>
@@ -135,6 +135,11 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     <th scope="col">
                                         <p class="text-uppercase ">
                                             Reference
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Created Date
                                         </p>
                                     </th>
                                     <th scope="col">
@@ -152,14 +157,15 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     echo '
                                 <tr>
                                     <th scope="row">
-                                    <a class="text-secondary fw-bold" href="' . $currentQuotation['location'] . '" target="_blank">
+                                  
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
                                     </a>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $currentQuotation['location'] . '" target="_blank">' . $currentQuotation["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . url($currentQuotation['location']) . '" target="_blank">' . $currentQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $currentQuotation['reference'] . '</td>
+                                    <td>'.$currentQuotation['createdAt'].'</td>
                                     <td> ' . $currentQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';
@@ -173,7 +179,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
 
                 <div class="tab-pane fade" id="nav-record" role="tabpanel" aria-labelledby="nav-record-tab" tabindex="0">
                     <div class="mt-5">
-                        <table class="table" id="table5">
+                    <table class="table" id="table2">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col"></th>
@@ -185,6 +191,11 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     <th scope="col">
                                         <p class="text-uppercase ">
                                             Reference
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Created Date
                                         </p>
                                     </th>
                                     <th scope="col">
@@ -204,9 +215,10 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $openQuotation['location'] . '" target="_blank">' . $openQuotation["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' .url($openQuotation['location']) . '" target="_blank">' . $openQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $openQuotation['reference'] . '</td>
+                                    <td>'.$openQuotation['createdAt'].'</td>
                                     <td> ' . $openQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';
@@ -219,7 +231,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
 
                 <div class="tab-pane fade" id="nav-ignore" role="tabpanel" aria-labelledby="nav-ignore-tab" tabindex="0">
                     <div class="mt-5">
-                        <table class="table" id="table6">
+                    <table class="table" id="table3">
                             <thead class="table-dark">
                                 <tr>
                                     <th scope="col"></th>
@@ -231,6 +243,11 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     <th scope="col">
                                         <p class="text-uppercase">
                                             Reference
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
+                                            Created Date
                                         </p>
                                     </th>
                                     <th scope="col">
@@ -250,9 +267,10 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $awardedQuotation['location'] . '" target="_blank">' . $awardedQuotation["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . url($awardedQuotation['location']) . '" target="_blank">' . $awardedQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $awardedQuotation['reference'] . '</td>
+                                    <td>'.$awardedQuotation['createdAt'].'</td>
                                     <td> ' . $awardedQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';

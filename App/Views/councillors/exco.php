@@ -14,7 +14,6 @@ $crumbs = getCrumbs();
         position: relative;
         background-repeat: no-repeat;
         background-size: cover;
-
     }
 
     #service-page p {

@@ -131,6 +131,11 @@ foreach ($data as $tenderkey => $tenderValue) {
                                     </th>
                                     <th scope="col">
                                         <p class="text-uppercase ">
+                                            Created Date
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
                                             Closing Date
                                         </p>
                                     </th>
@@ -139,19 +144,24 @@ foreach ($data as $tenderkey => $tenderValue) {
                             </thead>
                             <tbody>
                                 <?php
+
+
+
+
                                 foreach ($currentTenders as $currentTenderkey => $currentTender) {
                                     $currentTenderkey++;
                                     echo '
                                 <tr>
                                     <th scope="row">
-                                    <a class="text-secondary fw-bold" href="' . $currentTender['location'] . '" target="_blank">
+                                    <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
                                     </a>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $currentTender['location'] . '" target="_blank">' . $currentTender["title"] . '</a>
+                                    <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">' . $currentTender["title"] . '</a>
                                     </td>
                                     <td>' . $currentTender['reference'] . '</td>
+                                    <td>'.$currentTender['createdAt'].'</td>
                                     <td> ' . $currentTender['dueDate'] . '</td>
                                 </tr>
                                   ';
@@ -181,6 +191,11 @@ foreach ($data as $tenderkey => $tenderValue) {
                                     </th>
                                     <th scope="col">
                                         <p class="text-uppercase ">
+                                            Created Date
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
                                             Closing Date
                                         </p>
                                     </th>
@@ -196,9 +211,10 @@ foreach ($data as $tenderkey => $tenderValue) {
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $openTender['location'] . '" target="_blank">' . $openTender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . url($openTender['location']) . '" target="_blank">' . $openTender["title"] . '</a>
                                     </td>
                                     <td>' . $openTender['reference'] . '</td>
+                                    <td>'.$openTender['createdAt'].'</td>
                                     <td> ' . $openTender['dueDate'] . '</td>
                                 </tr>
                                   ';
@@ -228,6 +244,11 @@ foreach ($data as $tenderkey => $tenderValue) {
                                     </th>
                                     <th scope="col">
                                         <p class="text-uppercase ">
+                                            Created Date
+                                        </p>
+                                    </th>
+                                    <th scope="col">
+                                        <p class="text-uppercase ">
                                             Closing Date
                                         </p>
                                     </th>
@@ -244,9 +265,10 @@ foreach ($data as $tenderkey => $tenderValue) {
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $awardedTender['location'] . '" target="_blank">' . $awardedTender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . url($awardedTender['location']) . '" target="_blank">' . $awardedTender["title"] . '</a>
                                     </td>
                                     <td>' . $awardedTender['reference'] . '</td>
+                                    <td>'.$awardedTender['createdAt'].'</td>
                                     <td> ' . $awardedTender['dueDate'] . '</td>
                                 </tr>
                                   ';

@@ -8,6 +8,10 @@ function url($string = '')
 }
 
 
+function findInPublic($string)
+{
+    return 'public/'.$string;
+}
 
 function buildurl($string)
 {
@@ -59,6 +63,17 @@ function useClass($classname)
     }
 }
 
+
+
+function getYear()
+{
+    return date('Y');
+}
+
+function getMonth()
+{
+    return date('m');
+}
 
 function getCrumbs()
 {

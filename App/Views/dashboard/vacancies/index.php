@@ -43,7 +43,9 @@ echo '
                     </button>
                 </div>
             </div>
+            <?php include('Includes/parts/alerts.php') ?>
             <?php
+
             echo '
             <div class="card-content">
                 <div class="card-body">
