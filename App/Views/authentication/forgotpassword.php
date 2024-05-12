@@ -40,7 +40,7 @@ if (isset($context->errors['message'])) {
                         <p class="auth-title h2 mx-auto my-3">Request Password Reset.</p>
                         <form id="login-form" action="request" method="POST">
                             <div class="form-group position-relative has-icon-left mb-4">
-                                <input type="text" class="form-control form-control-xl" name="username" placeholder="Email">
+                                <input type="text" class="form-control form-control-xl" name="username" placeholder="Email" required>
                                
                             </div>
                             <input class="btn main-btn btn-primary btn-block shadow-lg mt-5" type="submit" name="submit" value="Send">

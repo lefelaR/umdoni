@@ -1,7 +1,7 @@
 <?php
 global $context;
 $crumbs = getCrumbs();
-
+$permissions = array();
 
 
 // use crumbs to determine what is active
@@ -53,6 +53,7 @@ $sidebarItems = [
     'icon' => 'bi bi-people-fill',
     'hasSub' => true,
     'subItems' => [
+      (object)['label' => 'Exco Members', 'url' => buildurl("dashboard/councillors/exco")],
       (object)['label' => 'Councillors', 'url' => buildurl("dashboard/councillors/index")],
       (object)['label' => 'Senior Management', 'url' => buildurl("dashboard/councillors/senior")],
     ]
@@ -77,13 +78,7 @@ $sidebarItems = [
     ]
   ],
 
-  (object)[
-    'label' => 'Community Engagement',
-    'name' => 'communityEngagement',
-    'icon' => 'bi bi-chat-right-fill',
-    'hasSub' => false,
-    'url'  => '#'
-  ],
+
   (object)[
     'label' => 'Economic Development',
     'name' => 'economicDevelopment',
@@ -92,6 +87,7 @@ $sidebarItems = [
     'subItems' => [
       (object)['label' => 'Tenders', 'url' => buildurl("dashboard/tenders/index")],
       (object)['label' => 'Quotations', 'url' => buildurl("dashboard/quotations/index")],
+      (object)['label' => '', 'url' => buildurl("dashboard/tenders/index")],
     ]
   ],
 
@@ -101,10 +97,11 @@ $sidebarItems = [
     'icon' => 'bi bi-gear-fill',
     'hasSub' => true,
     'subItems' => [
-      // (object)['label' => 'Activity Logs', 'url' => buildurl("dashboard/logs/index")],
+      (object)['label' => 'Activity Logs', 'url' => buildurl("dashboard/logs/index")],
       (object)['label' => 'Roles', 'url' => buildurl("dashboard/roles/index")],
       // (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
       (object)['label' => 'User Management', 'url' => buildurl("dashboard/users/index")],
+      
     ]
   ],
   (object)[
@@ -136,12 +133,18 @@ $sidebarItems = [
     </div>
 
     <?php
-        //check the session for permissions;
-        // determine roles
-      if(isset($context->role[0])){
-        $permissions = json_decode($context->role[0]['permissions']);
-      }
-  
+ 
+
+    if(!isset($_SESSION['sidebar']))
+    {
+      $_SESSION['sidebar'] = $sidebarItems;
+    }
+
+
+    if (isset($_SESSION['role'][0]['permissions'])) {
+      $permissions = json_decode($_SESSION['role'][0]['permissions']);
+    }
+
     echo '<div class="sidebar-menu">
       <ul class="menu">';
 
@@ -152,13 +155,13 @@ $sidebarItems = [
         $subItems = $link->subItems;
         $sidebarItemActive = '';
         foreach ($subItems as $value) {
-          if ($crumbs[1] == strtolower($value->label)) $sidebarItemActive = 'active';        
+          if ($crumbs[1] == strtolower($value->label)) $sidebarItemActive = 'active';
         }
 
         if (property_exists($permissions, $link->name) && $permissions->{$link->name} == 'on') {
 
-        echo 
-        '<li class="sidebar-item  ' . $sidebarItemActive . ' ' . $sub . '">
+          echo
+          '<li class="sidebar-item  ' . $sidebarItemActive . ' ' . $sub . '">
           <a href="#" class="sidebar-link">
           <i class="' . $link->icon . '"></i>
           <span>' . $link->label . '</span>
@@ -205,4 +208,4 @@ $sidebarItems = [
   <button class="sidebar-toggler btn x">
     <i data-feather="x"></i>
   </button>
-</div> 
+</div>

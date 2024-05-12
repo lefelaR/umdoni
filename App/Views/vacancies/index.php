@@ -108,15 +108,15 @@ $data = $context->data;
                                     echo '
                                 <tr>
                                     <th scope="row">
-                                    <a class="text-secondary fw-bold" href="' . $vacancy['location'] . '" target="_blank">
+                                   
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
                                     </a>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . $vacancy['location'] . '" target="_blank">' . $vacancy["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="#" target="_blank">' . $vacancy['title'] . '</a>
                                     </td>
                                     <td>' . $vacancy['reference'] . '</td>
-                                    <td> ' . $vacancy['dueDate'] . '</td>
+                                    <td> ' . $vacancy['duedate'] . '</td>
                                 </tr>
                                   ';
                                 }

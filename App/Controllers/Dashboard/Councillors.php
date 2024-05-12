@@ -47,6 +47,8 @@ class Councillors extends \Core\Controller
 
         view::render('dashboard/councillors/senior.php', $managers, 'dashboard');
     }
+
+
     public function saddAction()
     {
         $data = getPostData();
@@ -58,6 +60,29 @@ class Councillors extends \Core\Controller
         }
         view::render('dashboard/councillors/sadd.php', $seniorMan, 'dashboard');
     }
+
+
+    public function excoAction()
+    {
+        $exco = CouncillorModel::getExco();
+
+        view::render('dashboard/councillors/exco.php', $exco, 'dashboard');
+    }
+
+
+    public function addexco()
+    {
+        $data = getPostData();
+        if (isset($data['id'])) {
+            $id = $data['id'];
+            $exco = CouncillorModel::getExcoById($id);
+        } else {
+            $exco = array();
+        }
+        view::render('dashboard/councillors/addexco.php', $exco, 'dashboard');
+    }
+
+
     public function addAction()
     {
         $data = getPostData();
@@ -113,6 +138,52 @@ class Councillors extends \Core\Controller
         }
         redirect('dashboard/councillors/index');
     }
+
+    public function saveExcoAction()
+    {
+        global $context;
+        if (isset($_FILES)) {
+
+            $s3 = new S3Client([
+                'version' => 'latest',
+                'region' => $this->region,
+                'credentials' => [
+                    'key' => $this->awsAccessKeyId,
+                    'secret' => $this->awsSecretAccessKey,
+                ],
+            ]);
+            $file = $_FILES;
+
+            $filePath = $file['name']['tmp_name'];
+            $objectKey = $file['name']['name'];
+            $loc = "";
+            try {
+                $result = $s3->putObject([
+                    'Bucket' => $this->bucketName,
+                    'Key' => $objectKey,
+                    'SourceFile' => $filePath,
+                ]);
+            } catch (Exception $e) {
+                echo "Error uploading file: " . $e->getMessage();
+            }
+        }
+
+        if (isset($_POST)) $data = $_POST;
+        $data['isActive'] = 1;
+        $data['img_file'] = $objectKey;
+        $data['location'] = $result['ObjectURL'];
+        try {
+
+            $id =  CouncillorModel::SaveExco($data);
+            if ($id) {
+                $_SESSION['success'] =  ['message' => "Record created successfully"];
+            }
+        } catch (\Throwable $th) {
+            $_SESSION['error'] = ['message' => $th->getMessage()];
+        }
+        redirect('dashboard/councillors/exco');
+    }
+
 
 
     public function savemanAction()
@@ -213,9 +284,6 @@ class Councillors extends \Core\Controller
         redirect('dashboard/councillors/index');
     }
 
-
-
-
     public function updateManAction()
     {
 
@@ -271,7 +339,59 @@ class Councillors extends \Core\Controller
     }
 
 
+    public function updateExcoAction()
+    {
 
+        if (isset($_FILES) && $_FILES['name']['size'] > 0) 
+        {
+        
+            $bucketName = $this-> bucketName;
+            $awsAccessKeyId = $this-> awsAccessKeyId;
+            $awsSecretAccessKey = $this->awsSecretAccessKey;
+            $region = $this->region;
+
+            $s3 = new S3Client([
+                'version' => 'latest',
+                'region' => $region,
+                'credentials' => [
+                    'key' => $awsAccessKeyId,
+                    'secret' => $awsSecretAccessKey,
+                ],
+            ]);
+            $file = $_FILES;
+            $filePath = $file['name']['tmp_name'];
+            $objectKey = $file['name']['name'];
+            $loc = "";
+
+
+            try {
+       
+                $result = $s3->putObject([
+                    'Bucket' => $bucketName,
+                    'Key' => $objectKey,
+                    'SourceFile' => $filePath,
+                ]);
+            } catch (Exception $e) {
+                echo "Error uploading file: " . $e->getMessage();
+            }
+        }
+        $data = $_POST;
+        $data['updatedAt'] = date("Y-m-d H:i:s");
+        // if($_FILES)
+        if (isset($_FILES) && $_FILES['name']['size'] > 0) {
+            $data['img_file'] = isset($objectKey) ? $objectKey : "";
+            $data['location'] = isset($result['ObjectURL']) ? $result['ObjectURL'] : "";
+        } else {
+            $data['img_file'] = null;
+            $data['location'] = null;
+        }
+        try {
+            $id =  CouncillorModel::UpdateExco($data);
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+        redirect('dashboard/councillors/exco');
+    }
     public function deleteAction()
     {
         $id = $_GET['id'];
@@ -298,10 +418,23 @@ class Councillors extends \Core\Controller
         redirect('dashboard/councillors/senior');
     }
 
+    public function deleteExcoAction()
+    {
+        $id = $_GET['id'];
+        try {
+            CouncillorModel::DeleteExco($id);
+            $_SESSION['success'] =  ['message' => "Councillor successfully deleted"];
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            $_SESSION['error'] = ['message' => $th->getMessage()];
+        }
+        redirect('dashboard/councillors/exco');
+    }
+
 
     protected function before()
     {
-        enable_authorize();
+        // enable_authorize();
     }
 
     protected function after()

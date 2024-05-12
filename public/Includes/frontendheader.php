@@ -9,26 +9,23 @@
   <div class="container-fluid">
     <span class="my-0 mr-md-auto navbar-brand pl-5"><a href="<?php echo buildurl('index/index'); ?>">
         <img src="<?php echo url("assets/img/icon/logo.png")
-                  ?>" class="logo" class="logo" style="width: 80px;
+          ?>" class="logo" class="logo" style="width: 80px;
           position: relative;" />
       </a>
     </span>
     <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="navbar-collapse offcanvas-collapse offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" aria-labelledby="offcanvasScrollingLabel" id="navbarsExampleDefault">
+    <div class="navbar-collapse offcanvas-collapse offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false"
+      tabindex="-1" aria-labelledby="offcanvasScrollingLabel" id="navbarsExampleDefault">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       </ul>
       <div class="d-flex" role="search">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle fw-bold" href="#" data-bs-toggle="dropdown" aria-expanded="true">About</a>
-            <ul class="dropdown-menu " data-bs-popper="static">
-              <li><a class="dropdown-item fs-small" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li> -->
+
+          <li class="nav-item">
+            <a href="<?php echo buildurl("index/about") ?>" class="fw-bold">About Us</a>
+          </li>
           <li class="nav-item">
             <a href="<?php echo buildurl("services/index") ?>" class="fw-bold">Services</a>
           </li>

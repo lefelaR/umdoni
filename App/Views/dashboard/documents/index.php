@@ -45,6 +45,8 @@ echo '
             </div>
             <?php include('Includes/parts/alerts.php') ?>
             <?php
+            
+            
             echo '
             <div class="card-content">
                 <div class="card-body">
@@ -56,6 +58,7 @@ echo '
                                     <th>TITLE</th>
                                     <th>SUMMARY</th>
                                     <th>BODY</th>
+                                    <th>CATEGORY</th>
                                     <th>CREATED DATE</th>
                                     <th>ACTIONS</th>
                                 </tr>
@@ -64,16 +67,17 @@ echo '
 
             foreach ($data as $key => $document) {
                 $key++;
-
+                
                 echo '
                                 <tr>
                                  
                                     <td>' . $document['title'] . '</td>
                                     <td>' . $document['subtitle'] . '</td>
                                     <td>' . $document['body'] . '</td>
+                                    <td>'.$document['category'].'</td>
                                     <td>' . $document['createdAt'] . '</td>
                                     <td>
-                                        <a class="btn  btn-sm" href="add?id=' .  $document['id'] . '">
+                                        <a class="btn  btn-sm btn-danger disabled" href="#" disabled>
                                         <i class="bi bi-pencil"></i>
                                         </a>
                                         <a class="btn btn-sm" href="delete?id=' .  $document['id'] . '"onclick="handleDelete(event, '.$document['id'].')">

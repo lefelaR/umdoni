@@ -116,8 +116,30 @@ $crumbs = getCrumbs();
             </nav>
 
             <p class="fw-lighter fs-3 my-5">
-                Umdoni Municipality comprises of 37 Councillors, seven which are full time councillors that serve on the Umdoni Council. The Executive Committee (EXCO) is made of the Mayor, Deputy Mayor & 1 Member reports directly to Council. EXCO is chaired by Her Worship, The Mayor Cllr. ST KHATHI. The Speaker is the ex-officio member of all committees of Council and the Chairperson of Council Meetings. All members of EXCO & the Speaker are full time Councillors.
-            </p>
+            Umdoni Municipality comprises of 37 Councillors, categorised into two which are Ward Councillors and Proportional Representative (PR) Councillors. The Speaker is the ex-officio member of all committees of Council and is the Chairperson of Council Meetings.<br><br>
+            The number of Councillors that serve in the Umdoni Council is broken down as follows:<br>
+            19 – Ward Councillors and 18 PR Councillors.<br>
+<br>
+‌
+
+<span class="fs-5 fw-bold">Umdoni municipality’s current composition of Council is as follows:</span><br>
+
+18 – African National Congress (ANC)<br>
+
+1 - Abantu Batho Congress (ABC)<br>
+
+1- Al-Jama –Ah<br>
+
+1 – Allied Movement for Change (AM4C)<br>
+
+6 – Democratic Alliance (DA)<br>
+
+5 – Economic Freedom Fighters (EFF)<br>
+
+5 – Inkatha Freedom Party (IFP)<br>
+
+‌
+        </p>
         </div>
     </div>
 
@@ -130,7 +152,10 @@ $crumbs = getCrumbs();
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-1 text-uppercase my-5">
-                                Exco Member
+                            EXECUTIVE COMMITTEE  (Exco) 
+                            </p>
+                            <p class="fw-lighter fs-3 my-5">
+                            The Umdoni Local Municipality’s Executive Committee (EXCO) comprises of the made of the Mayor as the Chairperson of the committee, Deputy Mayor and four (4) other Councillors. All members of EXCO & the Speaker are full time Councillors. Administratively, Senior Management also forms part of EXCO.
                             </p>
                         </div>
                         <?php

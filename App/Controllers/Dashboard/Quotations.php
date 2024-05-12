@@ -14,7 +14,7 @@ use \Core\View;
 use App\Models\Service;
 use App\Models\QuotationsModel;
 use Aws\S3\S3Client;
-
+use Components\UploadToSite;
 
 class Quotations extends \Core\Controller
 {
@@ -62,48 +62,14 @@ class Quotations extends \Core\Controller
     {
         global $context;
         $objectKey = ""; 
-
-        if (isset($_FILES)) {
-            $bucketName = $this->bucketName;
-            $awsAccessKeyId =   $this->awsAccessKeyId;
-            $awsSecretAccessKey =  $this->awsSecretAccessKey;
-            $region =  $this->region; // Change to your desired region
-
-            $s3 = new S3Client([
-                'version' => 'latest',
-                'region' => $region,
-                'credentials' => [
-                    'key' => $awsAccessKeyId,
-                    'secret' => $awsSecretAccessKey,
-                ],
-            ]);
-            $file = $_FILES;
-
-            if (count($file) > 0) {
-                $filePath = $file['name']['tmp_name'];
-                $objectKey = $file['name']['name'];
-
-                if ($objectKey !== "") {
-                    try {
-                        $result = $s3->putObject([
-                            'Bucket' => $bucketName,
-                            'Key' => $objectKey,
-                            'SourceFile' => $filePath,
-                        ]);
-                    } catch (\Throwable $th) {
-                        echo "Error uploading file: " .  $th->getMessage();
-                    }
-                }
+             if (isset($_FILES)) {
+                $destination = UploadToSite::upload($_FILES, 'quotations');
             }
-        }
-
         if (isset($_POST)) $data = $_POST;
-
         $data['status'] = 1;
         $data['createdAt'] = $data['createdAt'];
         $data['isActive'] = 1;
-        $data['img_file'] = $objectKey;
-        $data['location'] = isset($result['ObjectURL']) ? $result['ObjectURL'] : "";
+        $data['location'] = $destination;
         $data['updatedBy'] =  $_SESSION['profile']['username'];
 
         // generate a refernce
