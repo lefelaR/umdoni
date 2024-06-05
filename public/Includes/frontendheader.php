@@ -27,6 +27,9 @@
             <a href="<?php echo buildurl("index/about") ?>" class="fw-bold">About Us</a>
           </li>
           <li class="nav-item">
+            <a href="<?php #echo buildurl("services/index") ?>" class="fw-bold">About Us</a>
+          </li>
+          <li class="nav-item">
             <a href="<?php echo buildurl("services/index") ?>" class="fw-bold">Services</a>
           </li>
           <li class="nav-item">
