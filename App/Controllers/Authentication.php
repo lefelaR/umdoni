@@ -163,36 +163,10 @@ public function __construct()
     global $context;
     if (isset($_POST)) $data = $_POST;
     $isLoggedin = $context->isLoggedIn;
-    $clientId = $this->clientId;
-    $userPoolId = $this->userPoolId;
-    $region = $this->region;
-
-    $client = new CognitoIdentityProviderClient([
-      'version' => 'latest',
-      'region'  => $region,
-      'credentials' => [
-        'key'    => $this->awsAccessKeyId,
-        'secret' => $this->awsSecretAccessKey,
-      ],
-    ]);
-
     try {
-      $result = $client->adminInitiateAuth([
-        'AuthFlow' => 'ADMIN_NO_SRP_AUTH',
-        'ClientId' => $clientId,
-        'UserPoolId' => $userPoolId,
-        'AuthParameters' => [
-          'USERNAME' => $data['username'],
-          'PASSWORD' => $data['password'],
-        ],
-      ]);
-      $accessToken = $result->get('AuthenticationResult')['AccessToken'];
-      if ($accessToken) {
-        $_SESSION['token'] = $accessToken;
         $isLoggedin  = Profile::Login($data);
         if ($isLoggedin == true) { 
         // get the role
-     
           $role = RolesModel::GetById($context->profile[0]['role_id']);
 
           if(isset($role)) $_SESSION['role'] = $role;
@@ -201,8 +175,8 @@ public function __construct()
           $_SESSION['error'] = ['message' => 'Your account is locked, please contact your Administrator to gain accecss!'];
           redirect('authentication/login');
         }
-      }
-    } catch (AwsException $aw) {
+      
+    } catch (\Throwable  $aw) {
       $errMsg = $aw->getMessage();  
         $_SESSION['error'] = ['message'=>$errMsg];
 

@@ -247,8 +247,10 @@ return result;
 
 const handleUpdate = async (url ='', data='') => {}
 
-const stripUrl = () =>{
+function stripUrl(){
   const currentURL = window.location.href;
   const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
   return stripped;
 }
+
+
