@@ -76,16 +76,23 @@ $data = $context->data;
         </div>
 
         <?php
+        $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
         foreach ($data as $key => $value) {
-
+            $link = ltrim($value['location'],'.');
             echo '
             <div class="col-md-4 col-lg-4 col-sm-12">
             <a href="' . buildurl('notices/details?id=' . $value['id']) . '">
             <div class="card mb-3 card-hover" style="max-width: 540px;">
             <div class="row g-0">
-                <div class="col-md-4">
-                <img src="'.$value["location"].'" class="img-fluid rounded-start" style="object-fit: cover;
-                height: 130px;">
+                <div class="col-md-4">';
+                if(in_array(strtolower(pathinfo($value["location"])['extension']),$allowed_extensions )){
+                 echo ' <img src="' . url($link) . '" class="img-fluid rounded-start" style="object-fit: cover;
+                height: 130px;">';
+            } else {
+               echo ' <img src="' . url('assets/img/LOGOS/logo.png') . '" class="img-fluid rounded-start" style="object-fit: cover;
+                height: 130px;">';
+            }
+                echo '
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
