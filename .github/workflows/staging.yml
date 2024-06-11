@@ -11,7 +11,7 @@ jobs:
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server: ${{sectets:FTP_SERVER}}
-          username: ${{sectets:FTP_USERNAME}}
-          password: ${{servers:FTP_PASSWORD}}
+          server: ${{ sectets.FTP_SERVER }}
+          username: ${{ sectets.FTP_USERNAME }}
+          password: ${{ servers.FTP_PASSWORD }}
           server-dir: /home/umdonigov/
