@@ -76,6 +76,10 @@ $data = $context->data;
         </div>
     </div>
 
+<div>
+    <a href="">Past documents</a>
+</div>
+
     <div class="row align-items-center">
 
         <div class="col-md-4 my-1">

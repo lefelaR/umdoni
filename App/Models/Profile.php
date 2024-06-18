@@ -105,6 +105,9 @@ class Profile extends \Core\Model
         $context = (object) array_merge( (array)$context, array( 'profile' => $exists ) );
         // $context->profile = $exists;
         // we can determine the role from here and use it in the future
+        // compare passwo
+        
+
         // get the role
         if(!empty($exists)) 
         {
@@ -122,10 +125,18 @@ class Profile extends \Core\Model
     }
 
 
-     static function Authenticate($profile, $data)
+     static function Authenticate($profile, $aData)
     {
         global $context;
         try{
+            
+            if($aData['password'] === $profile[0]['password']){
+                $context->isLoggedIn = true;
+            }
+            if(!empty($profile[0]['access_token'])){
+                $context->isLoggedIn = false;
+                return false;
+            }
             if ($profile[0]["locked"] == '1' ) 
             {   
                 $context->isLoggedIn = false;
@@ -136,7 +147,7 @@ class Profile extends \Core\Model
                $logId = LogsModel::Save($profile[0]);
                $profile[0]['log_id'] = $logId;
                 $_SESSION['profile'] = $profile[0];
-                setcookie("auth", $_SESSION['token'], time() + 3600 * 30, '/');
+                setcookie("auth", md5($profile[0]['password']), time() + 3600 * 30, '/');
                 return true;
             }
         }catch (PDOException $e) {

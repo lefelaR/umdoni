@@ -10,7 +10,7 @@ $sidebarItems = [
     'label' => 'Dashboard',
     'name' => 'dashboard',
     'icon' => 'bi bi-grid-fill',
-    'hasSub' => false,
+    'hasSub' => false, 
     'url' => buildurl("dashboard/index/index")
   ],
   (object)[
@@ -65,6 +65,7 @@ $sidebarItems = [
     'hasSub' => true,
     'subItems' => [
       (object)['label' => 'Documents', 'url' => buildurl("dashboard/documents/index")],
+      (object)['label' => 'Past', 'url' => buildurl("dashboard/documents/past")],
     ]
   ],
 
@@ -99,7 +100,7 @@ $sidebarItems = [
     'subItems' => [
       (object)['label' => 'Activity Logs', 'url' => buildurl("dashboard/logs/index")],
       (object)['label' => 'Roles', 'url' => buildurl("dashboard/roles/index")],
-      // (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
+      (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
       (object)['label' => 'User Management', 'url' => buildurl("dashboard/users/index")],
       
     ]

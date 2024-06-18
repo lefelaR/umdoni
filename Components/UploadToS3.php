@@ -76,10 +76,11 @@ class UploadToS3
     }
     
 
-}
+
 
 
 public function resizeImage($img)
 {
     $image = Image::make($filePath);
+}
 }

@@ -13,9 +13,10 @@ use App\Models\Requests;
 use \Core\View;
 use App\Models\User;
 use App\Models\Service;
-use App\Models\Roles;
+use App\Models\RolesModel;
 use DateTime;
 use Aws\S3\S3Client;
+
 
 class Settings extends \Core\Controller
 {
@@ -90,7 +91,7 @@ class Settings extends \Core\Controller
 
     public function rolesAction()
     {
-        $roles = Roles::getAll();
+        $roles = RolesModel::getAll();
 
         view::render('dashboard/settings/roles/index.php', $roles, 'dashboard');
     }
@@ -99,6 +100,16 @@ class Settings extends \Core\Controller
     {
         view::render('dashboard/settings/permissions.php', array(), 'dashboard');
     }
+
+
+
+    public function profile(){
+
+        $data = getPostData();
+        var_dump($data); die;
+
+    }
+
 
     protected function before()
     {
