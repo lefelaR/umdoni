@@ -13,6 +13,7 @@ use \Core\View;
 use App\Models\DocumentModel;
 use Aws\S3\S3Client;
 use Components\UploadToSite;
+use Components\DocumentManger;
 
 
 
@@ -47,7 +48,11 @@ class Documents extends \Core\Controller
 
     public function pastAction()
     {   
-    
+        
+        // get all the files in derectory
+        $aFiles = DocumentManger::getDocumentsFromLocation();
+        
+
       view::render('dashboard/documents/past.php', array(), 'dashboard');
     }
 

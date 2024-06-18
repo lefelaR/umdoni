@@ -40,9 +40,9 @@ echo '
                         <i class="bi bi-plus"></i> Add
                     </a>
                  
-                    <a class="btn btn-sm" href="<?php echo buildurl("dashboard/documents/add") ?>" role="button">
+                    <!-- <a class="btn btn-sm" href="<?php echo buildurl("dashboard/documents/add") ?>" role="button">
                         <i class="bi bi-file"></i> Historical Files
-                    </a>
+                    </a> -->
                  
 
                     <button class="btn  btn-sm">

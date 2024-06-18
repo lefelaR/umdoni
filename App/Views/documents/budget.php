@@ -50,34 +50,17 @@ $crumbs = getCrumbs();
                 <p class="h1 m-5 fs-1 text-uppercase text-white">
                 Budget & reporting
                 </p>
-                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                <ol class="breadcrumb">
-                    <?php
-                    if (isset($crumbs)) {
-                        foreach ($crumbs as $key => $crumb) {
-                            if ($key == (count($crumbs) - 1)) {
-                                $active = 'active';
-                                echo ' <li class="breadcrumb-item ' . $active . '" aria-current="page">' . $crumb . '</li>  ';
-                            } else {
-                                $active = '';
-                                echo '<li class="breadcrumb-item ' . $active . '" aria-current="page"><a href="#" class="btn btn-sm btn-primary btn-outline" onclick="history.back()">' . $crumb . '</a></li>';
-                            }
-                        }
-                    }
-                    ?>
-                </ol>
-            </nav>
+
             </div>
         </div>
     </div>
 </div>
 <div class="container content-section">
     <div class="row">
-        <div class="col-md-12 col-lg-12">
-            
-            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                <ol class="breadcrumb">
-                    <?php
+        <div class="col-md-12 col-lg-12"> 
+            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end"> 
+                <ol class="breadcrumb"> 
+                     <?php
                     if (isset($crumbs)) {
                         foreach ($crumbs as $key => $crumb) {
                             if ($key == (count($crumbs) - 1)) {
@@ -89,7 +72,7 @@ $crumbs = getCrumbs();
                             }
                         }
                     }
-                    ?>
+                    ?> 
                 </ol>
             </nav>
         </div>
