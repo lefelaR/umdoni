@@ -71,7 +71,7 @@ echo '
                                  
                                     <td>' . $service['title'] . '</td>
                                     <td>' . $service['subtitle'] . '</td>
-                                    <td> ' . $service['body'] . '</td>
+                                    <td> ' . $service['description'] . '</td>
                                     <td>' . $service['createdAt'] . '</td>
                                     <td>
                                         <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">
