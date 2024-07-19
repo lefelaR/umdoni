@@ -2,9 +2,6 @@
 
 namespace Components;
 
-
-use Exception;
-
 class UploadToSite
 {
 
@@ -23,24 +20,24 @@ class UploadToSite
                 $filePath = $aFile['name']['tmp_name'];
                 $objectKey = $aFile['name']['name'];
                 $sLocation = $location . $objectKey;
+
                 // if tthat folder exists yet
                 if (!is_dir($location)) {
-                    if (!mkdir($location)) {
+                    if (!mkdir($location, 0777, true)) {
                         echo ("Error creating the directory.");
                     }
                 }
-                try {
-                   move_uploaded_file($filePath, $sLocation);
-                             
-                } catch (Exception $th) {
-                    throw new Exception($th->getMessage());
+                if (move_uploaded_file($filePath, $sLocation)) {
+                    return $sLocation;
+                } else {
+                    return false;
                 }
-            }else{
-                echo "the file upload was unsuccessful";
+
             }
         }
-        return $sLocation;  
+       
     }
+
 }
 
 
@@ -60,5 +57,6 @@ function getFolder()
 function createDir(string $sPath): string
 {
     $sPath = str_replace("", "/", $sPath);
+
 }
 ?>

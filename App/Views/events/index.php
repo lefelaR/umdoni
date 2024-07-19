@@ -70,7 +70,7 @@ $data = $context->data;
                 Umdoni municipal events
             </p>
             <p class="fw-lighter fs-3 my-5">
-
+<!-- where is the text -->
             </p>
         </div>
     </div>

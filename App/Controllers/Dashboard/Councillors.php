@@ -105,6 +105,52 @@ class Councillors extends \Core\Controller
         redirect('dashboard/councillors/index');
     }
 
+    public function saveExcoAction()
+    {
+        global $context;
+        if (isset($_FILES)) {
+
+            $s3 = new S3Client([
+                'version' => 'latest',
+                'region' => $this->region,
+                'credentials' => [
+                    'key' => $this->awsAccessKeyId,
+                    'secret' => $this->awsSecretAccessKey,
+                ],
+            ]);
+            $file = $_FILES;
+
+            $filePath = $file['name']['tmp_name'];
+            $objectKey = $file['name']['name'];
+            $loc = "";
+            try {
+                $result = $s3->putObject([
+                    'Bucket' => $this->bucketName,
+                    'Key' => $objectKey,
+                    'SourceFile' => $filePath,
+                ]);
+            } catch (Exception $e) {
+                echo "Error uploading file: " . $e->getMessage();
+            }
+        }
+
+        if (isset($_POST)) $data = $_POST;
+        $data['isActive'] = 1;
+        $data['img_file'] = $objectKey;
+        $data['location'] = $result['ObjectURL'];
+        try {
+
+            $id =  CouncillorModel::SaveExco($data);
+            if ($id) {
+                $_SESSION['success'] =  ['message' => "Record created successfully"];
+            }
+        } catch (\Throwable $th) {
+            $_SESSION['error'] = ['message' => $th->getMessage()];
+        }
+        redirect('dashboard/councillors/exco');
+    }
+
+
 
     public function updateAction()
     {
@@ -298,6 +344,8 @@ class Councillors extends \Core\Controller
     }
 
 
+    public function updateExcoAction()
+    {}
 
     public function deleteManAction()
     {
@@ -310,6 +358,19 @@ class Councillors extends \Core\Controller
             $_SESSION['error'] = ['message' => $th->getMessage()];
         }
         redirect('dashboard/councillors/senior');
+    }
+
+    public function deleteExcoAction()
+    {
+        $id = $_GET['id'];
+        try {
+            CouncillorModel::DeleteExco($id);
+            $_SESSION['success'] =  ['message' => "Councillor successfully deleted"];
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+            $_SESSION['error'] = ['message' => $th->getMessage()];
+        }
+        redirect('dashboard/councillors/exco');
     }
 
 

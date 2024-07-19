@@ -13,6 +13,7 @@ use \Core\View;
 use App\Models\DocumentModel;
 use Aws\S3\S3Client;
 use Components\UploadToSite;
+use Components\DocumentManger;
 
 
 
@@ -44,6 +45,17 @@ class Documents extends \Core\Controller
         view::render('dashboard/documents/index.php', $documents, 'dashboard');
     }
 
+
+    public function pastAction()
+    {   
+        
+        // get all the files in derectory
+        $aFiles = DocumentManger::getDocumentsFromLocation();
+        
+
+      view::render('dashboard/documents/past.php', array(), 'dashboard');
+    }
+
     public function addAction()
     {
         $data = getPostData();
@@ -60,18 +72,18 @@ class Documents extends \Core\Controller
 
         $loggedinUser = $_SESSION['profile'];
 
-    
         if (isset($_FILES)) {
             $destination = UploadToSite::upload($_FILES);
         }
+
 
         if (isset($_POST))
             $data = $_POST;
         $data['isActive'] = 1;
         $data['createdAt'] = date("Y-m-d H:i:s");
-        $data['img_file'] =  isset($aFile['name']['name']) ? $_FILES['name']['name'] : "";
+        // $data['img_file'] = isset($result) ? $objectKey : "";
         $data['location'] =  $destination;
-        $data['updatedBy'] = isset($loggedinUser['username']) ? $loggedinUser['username'] : "rakheoana test";
+        $data['updatedBy'] = $loggedinUser['username'];
 
         try {
             $id = DocumentModel::Save($data);

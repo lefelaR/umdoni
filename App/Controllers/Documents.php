@@ -78,6 +78,7 @@ class Documents extends \Core\Controller
     public function budgetAction()
     {
         $budget = DocumentModel::GET();
+        
         view::render('documents/budget.php', $budget, 'default');
     }
 

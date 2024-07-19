@@ -10,7 +10,7 @@ $sidebarItems = [
     'label' => 'Dashboard',
     'name' => 'dashboard',
     'icon' => 'bi bi-grid-fill',
-    'hasSub' => false,
+    'hasSub' => false, 
     'url' => buildurl("dashboard/index/index")
   ],
   (object)[
@@ -53,6 +53,7 @@ $sidebarItems = [
     'icon' => 'bi bi-people-fill',
     'hasSub' => true,
     'subItems' => [
+      (object)['label' => 'Exco Members', 'url' => buildurl("dashboard/councillors/exco")],
       (object)['label' => 'Councillors', 'url' => buildurl("dashboard/councillors/index")],
       (object)['label' => 'Senior Management', 'url' => buildurl("dashboard/councillors/senior")],
     ]
@@ -64,6 +65,7 @@ $sidebarItems = [
     'hasSub' => true,
     'subItems' => [
       (object)['label' => 'Documents', 'url' => buildurl("dashboard/documents/index")],
+      (object)['label' => 'Past', 'url' => buildurl("dashboard/documents/past")],
     ]
   ],
 
@@ -77,13 +79,6 @@ $sidebarItems = [
     ]
   ],
 
-  // (object)[
-  //   'label' => 'Community Engagement',
-  //   'name' => 'communityEngagement',
-  //   'icon' => 'bi bi-chat-right-fill',
-  //   'hasSub' => false,
-  //   'url'  => '#'
-  // ],
 
   (object)[
     'label' => 'Economic Development',
@@ -93,7 +88,7 @@ $sidebarItems = [
     'subItems' => [
       (object)['label' => 'Tenders', 'url' => buildurl("dashboard/tenders/index")],
       (object)['label' => 'Quotations', 'url' => buildurl("dashboard/quotations/index")],
-      (object)['label' => '', 'url' => buildurl("dashboard/tenders/index")],
+      (object)['label' => 'Request For Proposal', 'url' => buildurl("dashboard/rfps/index")],
     ]
   ],
 
@@ -105,7 +100,7 @@ $sidebarItems = [
     'subItems' => [
       (object)['label' => 'Activity Logs', 'url' => buildurl("dashboard/logs/index")],
       (object)['label' => 'Roles', 'url' => buildurl("dashboard/roles/index")],
-      // (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
+      (object)['label' => 'Site Settings', 'url' => buildurl("dashboard/settings/index")],
       (object)['label' => 'User Management', 'url' => buildurl("dashboard/users/index")],
       
     ]

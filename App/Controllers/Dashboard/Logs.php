@@ -24,6 +24,7 @@ class Logs extends \Core\Controller
     protected function before()
     {
        enable_authorize();
+        //log in actibvity log()
     }
 
     protected function after()
