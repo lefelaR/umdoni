@@ -24,7 +24,8 @@ $data = $context->data;
 
                                 echo '
                                
-                                <div class="col-md-8">
+                                <div class="col-md-8"  data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Service requests to the municipality">
                                 <a href="'.buildurl("dashboard/services/requests").'">
                                     <h6 class="text-muted font-semibold">Service Requests</h6>
                                     <h6 class="font-extrabold mb-0">' . $requestCount . '</h6>
@@ -51,7 +52,8 @@ $data = $context->data;
                                 $projects = $data['projects'];
                                 $projectCount = count($projects);
                                 echo '
-                                <div class="col-md-8">
+                                <div class="col-md-8"  data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Municipal project">
                                 <a href="'.buildurl("dashboard/projects/index").'">
                                 <h6 class="text-muted font-semibold">Projects</h6>
                                 <h6 class="font-extrabold mb-0">' . $projectCount . '</h6>
@@ -79,7 +81,8 @@ $data = $context->data;
                                 $eventCount = count($events);
                                 echo '
                                 
-                                  <div class="col-md-8">
+                                  <div class="col-md-8"  data-bs-toggle="tooltip" data-bs-placement="top"
+                                  title="Municipal events">
                                   <a href="'.buildurl("dashboard/events/index").'">
                                     <h6 class="text-muted font-semibold">Events</h6>
                                     <h6 class="font-extrabold mb-0">' . $eventCount . '</h6>
@@ -109,7 +112,8 @@ $data = $context->data;
                                 $noticeCount = count($notices);
 
                                 echo '
-                                 <div class="col-md-8">
+                                 <div class="col-md-8"  data-bs-toggle="tooltip" data-bs-placement="top"
+                                 title="Municipal notices">
                                  <a href="'.buildurl("dashboard/notices/index").'">
                                     <h6 class="text-muted font-semibold">Notices</h6>
                                     <h6 class="font-extrabold mb-0">' . $noticeCount . '</h6>

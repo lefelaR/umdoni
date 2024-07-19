@@ -43,13 +43,15 @@ if (isset($context->errors['message'])) {
                                 <div class="form-control-icon">
                                 </div>
                             </div>
-                            <div class="form-group position-relative has-icon-left mb-4 input-group">
-                                <input type="password" class="form-control form-control-xl" name="password" placeholder="Password" required>
+                            <div class="form-group position-relative has-icon-left  input-group">
+                                <input type="password" id="password" class="form-control form-control-xl" name="password" placeholder="Password" required>
                                 <div class="form-control-icon">
                                 </div>
                             </div>
-
-                            <input class="btn main-btn btn-primary btn-sm btn-block mt-5 shadow" onclick="handleSave(event)" type="submit" name="submit" value="Log in">
+                           
+                            <div class="form-group position-relative has-icon-left  text-center">
+                            <input class="btn main-btn btn-primary  btn-block mt-5 shadow" onclick="handleSave(event)" type="submit" name="submit" value="Log in">
+                            </div>
                         </form>
                         <div class="text-center mt-5 font-weight-smaller">
                             <p class="text-gray-600">Don't have an account? <a href="signup" class="font-bold">Register</a>.</p>
@@ -64,5 +66,4 @@ if (isset($context->errors['message'])) {
         </div>
     </div>
 </div>
-
 

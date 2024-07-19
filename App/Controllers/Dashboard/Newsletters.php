@@ -57,7 +57,6 @@ class Newsletters extends \Core\Controller
         $data = $_POST;
         try {
             $id =  Newsletter::Update($data);
-            $_SESSION['success'] = ['message' => 'success'];
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
@@ -69,13 +68,11 @@ class Newsletters extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-            Newsletter::Delete($id);
-            $_SESSION['success'] = ['message' => 'success'];
+            UserModel::Delete($id);
         } catch (\Throwable $th) {
             echo $th->getMessage();
-            $_SESSION['error'] = ['message' => 'Failed to delete'];
         }
-        redirect('dashboard/newsletters/index');
+        redirect('dashboard/newsletters/list');
     }
 
     protected function before()

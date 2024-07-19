@@ -50,8 +50,8 @@ class VacancyModel extends \Core\Model
     {
         global $context;
         $db = static::getDB(); 
-        $sql = "INSERT into vacancies ( `title`,`level`, `description`, `duties`, `experience`,`createdAt`, `createdBy`, `dueDate`,`dueDate`)
-                VALUES ('$data[title]','$data[level]','$data[description]','$data[duties]','$data[experience]','$data[createdAt]','$data[dueDate]','$data[dueDate]')"; 
+        $sql = "INSERT into vacancies ( `title`,`subtitle`, `level`, `reference`, `description`,`createdAt`, `duedate`, `isActive`)
+                VALUES ('$data[title]','$data[subtitle]','$data[level]','$data[reference]','$data[body]','$data[createdAt]','$data[duedate]', $data[isActive])"; 
         $stmt = $db->exec($sql);   
        return $stmt;
     }

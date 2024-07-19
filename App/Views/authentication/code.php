@@ -42,11 +42,11 @@ if (isset($context->errors['message'])) {
 
                         <form id="login-form" action="verify" method="POST">
                             <div class="form-group position-relative has-icon-left mb-4">
-                                <input type="text" class="form-control form-control-xl" name="username" placeholder="Email">
+                                <input type="text" class="form-control form-control-xl" name="username" placeholder="Email" required>
                                
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4 input-group">
-                                <input type="password" class="form-control form-control-xl" name="code" placeholder="code">
+                                <input type="password" class="form-control form-control-xl" name="code" placeholder="code" required data-toggle="tooltip" data-placement="top" title="You should have recieved an email with your code.">
                                 <div class="form-control-icon">
 
                                 </div>

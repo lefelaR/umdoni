@@ -45,6 +45,7 @@ else
 }
 $title = (isset($data['title'])) ? $data['title'] : '';
 $subtitle = (isset($data['subtitle'])) ? $data['subtitle'] : '';
+$level = (isset($data['level'])) ? $data['level'] : '';
 $body = (isset($data['body'])) ? $data['body'] : '';
 $reference = (isset($data['reference'])) ? $data['reference'] : '';
 $createdAt = (isset($data['createdAt'])) ? $data['createdAt'] : '';
@@ -70,6 +71,11 @@ echo'
                     <label for="helperText">Subtitle</label>
                     <input type="text" id="subtitle" name="subtitle" class="form-control" value="' . $subtitle . '">
                 </div>
+
+                <div class="form-group">
+                <label for="helperText">Level</label>
+                <input type="text" id="level" name="level" class="form-control" value="' . $level . '">
+            </div>
 
                 <div class="form-group">
                 <label for="helperText">Reference</label>

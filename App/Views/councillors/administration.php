@@ -16,9 +16,10 @@ $managers = $data['managers'];
         background-size: cover;
     }
 
-    .card-body{
+    .card-body {
         padding: 0 !important;
     }
+
     #service-page p {
         bottom: 0px;
         position: absolute;
@@ -46,36 +47,43 @@ $managers = $data['managers'];
     nav ul li i {
         color: #000;
     }
-    .card{
-       
+
+    .card {
+
         border: 2px solid #A5A3A3;
     }
-   .card-body{
-    padding: 0 !important;
-    width: auto;
-    height: 13em; 
-    overflow: hidden;
-   }
-   .card-footer{
-    min-height:10em;
-   }
-   .card-footer p{
-    line-height: 20px;
-   }
-   @media (max-width: 575.98px) {
-    .card{
+
+    .card-body {
+        padding: 0 !important;
         width: auto;
-        border: 1px solid #A5A3A3;
+        height: 13em;
+        overflow: hidden;
     }
-   .card-body{
-    padding: 0 !important;
-    height: 16em; 
-    overflow: hidden;
-   }
-   .card-footer p{
-    line-height: 22px;
-   }
-}
+
+    .card-footer {
+        min-height: 10em;
+    }
+
+    .card-footer p {
+        line-height: 20px;
+    }
+
+    @media (max-width: 575.98px) {
+        .card {
+            width: auto;
+            border: 1px solid #A5A3A3;
+        }
+
+        .card-body {
+            padding: 0 !important;
+            height: 16em;
+            overflow: hidden;
+        }
+
+        .card-footer p {
+            line-height: 22px;
+        }
+    }
 </style>
 
 <div class="container-fluid" id="service-page">
@@ -116,7 +124,9 @@ $managers = $data['managers'];
             </nav>
 
             <p class="fw-lighter fs-3 my-5">
-                Welcome to the Municipal Administration page. Here you will find information on the key personnel responsible for the daily operations and management of our municipality.
+                Umdoni Local Municipality has five departments, each headed by a General Manager reporting directly to the Municipal Manager.
+                <br><br>
+                The five departments within the organization are as follows:
             </p>
         </div>
     </div>
@@ -125,6 +135,7 @@ $managers = $data['managers'];
         <div class="accordion-item">
             <div id="flush-collapseTwo" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
+
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-1 text-uppercase my-5">
@@ -148,10 +159,13 @@ $managers = $data['managers'];
                                         </div>
                                         <div class="card-footer">
                                         <p>
-                                        <span class="fw-normal">'. $sm['title'] .'</span><br>
-                                        <span class="fw-normal">'. $sm['initials'] . ' ' . $sm['name'] . ' ' . $sm['surname'] . '</span><br>
-                                        <span class="fw-lighter">'.$sm['telephone'].'</span><br>
-                                        <span class="fw-lighter small fs-sm text-wrap">'.$sm['email'].'</span><br>
+                                        <span class="fw-normal">' . $sm['title'] . '</span><br>
+                                        <span class="fw-normal">' . $sm['initials'] . ' ' . $sm['name'] . ' ' . $sm['surname'] . '</span><br>
+                                        <span class="fw-lighter">' . $sm['telephone'] . '</span><br>
+                                        <span class="fw-lighter small fs-sm text-yellow">
+                                        <a class="text-yellow" href= "mailto: ' . $sm['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $sm['email'] .'"></i></a>
+                                        
+                                        </span><br>
                                       
                                         </p>
                                     </div>
@@ -161,150 +175,7 @@ $managers = $data['managers'];
                         }
                         ?>
                     </div>
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-1 text-uppercase mt-5">
-                                Extended Management
-                            </p>   
-                        </div>
-
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-5 text-uppercase mb-5">
-                                Community service department
-                            </p> 
-                        </div>
-                        <?php
-                        foreach ($managers as $key => $csd) {
-                            if (isset($csd['name'])) {
-                                $csdName = substr($csd['name'], 0, 1);
-                            }
-                            if ($csd['category'] === 'CSD') {
-                                echo '
-                                    <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                                        <div class="card text-center m-1 shadow" >
-                                            <div class="card-body">
-                                                <img src="' . $csd['location'] . '" class="card-img-top" alt="municipal councelor">
-                                            </div>
-                                            <div class="card-footer">
-                                            <p>
-                                            <span class="fw-normal">'. $csd['title'] .'</span><br>
-                                            <span class="fw-normal">'. $csd['initials'] . ' ' . $csd['name'] . ' ' . $csd['surname'] . '</span><br>
-                                            <span class="fw-lighter">'.$csd['telephone'].'</span><br>
-                                            <span class="fw-lighter small fs-sm text-wrap">'.$csd['email'].'</span><br>
-                                           
-                                            </p>
-                                            </div>
-                                        </div>
-                                    </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                   <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-5 text-uppercase my-5">
-                                Planning & development departments
-                            </p>
-                        </div>
-                        <?php
-                        foreach ($managers as $key => $pdd) {
-                            if (isset($pdd['name'])) {
-                                $pddName =  substr($pdd['name'], 0, 1);
-                            }
-                            if ($pdd['category'] === "PDD") {
-
-                            echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                                    <div class="card text-center m-1 shadow" >
-                                        <div class="card-body ">
-                                            <img src="' . $pdd['location'] . '" class="card-img-top" alt="municipal councelor">
-                                        </div>
-                                        
-                                        <div class="card-footer">
-                                        <p>
-                                        <span class="fw-normal">'. $pdd['title'] .'</span><br>
-                                        <span class="fw-normal">'. $pdd['initials'] . ' ' . $pdd['name'] . ' ' . $pdd['surname'] . '</span><br>
-                                        <span class="fw-lighter">'.$pdd['telephone'].'</span><br>
-                                        <span class="fw-lighter small fs-sm text-wrap">'.$pdd['email'].'</span><br>
-                                    
-                                        </p>
-                                    </div>
-                                 </div>
-                                </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-5 text-uppercase my-5">
-                                Technical service department
-                            </p>
-                        </div>
-                        <?php
-                        foreach ($managers as $key => $tsd) {
-                            if (isset($tsd['name'])) {
-                                $tsdName =  substr($tsd['name'], 0, 1);
-                            }
-                            if ($tsd['category'] === 'TSD') {
-                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                                <div class="card text-center m-1 shadow">
-                                    <div class="card-body ">
-                                        <img src="' . $tsd['location'] . '" class="card-img-top" alt="municipal councelor">
-                                    </div>
-                                    <div class="card-footer">
-                                   <p>
-                                   <span class="fw-normal">'. $tsd['title'] .'</span><br>
-                                   <span class="fw-normal">'. $tsd['initials'] . ' ' . $tsd['name'] . ' ' . $tsd['surname'] . '</span><br>
-                                   <span class="fw-lighter">'.$tsd['telephone'].'</span><br>
-                                   <span class="fw-lighter small fs-sm text-wrap">'.$tsd['email'].'</span><br>
-                                  
-                                    </p>  
-                                </div>
-                                </div>
-                                </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-
-
-                    <div class="row align-items-center justify-content-center">
-                        <div class="col-md-12 col-lg-12 text-center">
-                            <p class="fs-5 text-uppercase my-5">
-                                Corporate service department
-                            </p>
-                        </div>
-                        <?php
-                        foreach ($managers as $key => $cosd) {
-                            if (isset($cosd['name'])) {
-                                $cosdName =  substr($cosd['name'], 0, 1);
-                            }
-                            if ($cosd['category'] === 'COSD') {
-                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
-                                <div class="card text-center m-1 shadow" >
-                                    <div class="card-body ">
-                                        <img src="' . $cosd['location'] . '" class="card-img-top" alt="municipal councelor">
-                                    </div>
-                                    <p>
-                                    <span class="fw-normal">'. $cosd['title'] .'</span><br>
-                                    <span class="fw-normal">'. $cosd['initials'] . ' ' . $cosd['name'] . ' ' . $cosd['surname'] . '</span><br>
-                                    <span class="fw-lighter">'.$cosd['telephone'].'</span><br>
-                                    <span class="fw-lighter small fs-sm text-wrap">'.$cosd['email'].'</span><br>
-                                
-                                    </p>  
-                                </div>
-                                </div>';
-                            }
-                        }
-                        ?>
-                    </div>
-
-
-
+                    <hr>
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-5 text-uppercase my-5">
@@ -326,10 +197,14 @@ $managers = $data['managers'];
                                 </div>
                                 <div class="card-footer">
                                <p>
-                               <span class="fw-normal">'. $otmm['title'] .'</span><br>
-                               <span class="fw-normal">'. $otmm['initials'] . ' ' . $otmm['name'] . ' ' . $otmm['surname'] . '</span><br>
-                               <span class="fw-lighter">'.$otmm['telephone'].'</span><br>
-                               <span class="fw-lighter small fs-sm text-wrap">'.$otmm['email'].'</span><br>
+                               <span class="fw-normal">' . $otmm['title'] . '</span><br>
+                               <span class="fw-normal">' . $otmm['initials'] . ' ' . $otmm['name'] . ' ' . $otmm['surname'] . '</span><br>
+                               <span class="fw-lighter">' . $otmm['telephone'] . '</span><br>
+                               <span class="fw-lighter small fs-sm text-yellow">
+                                        <a class="text-yellow" href= "mailto: ' . $otmm['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $otmm['email'] .'"></i></a>
+                                        
+                                        </span>
+                               <br>
                                
                                </p>
                             </div>
@@ -338,12 +213,230 @@ $managers = $data['managers'];
                             }
                         }
                         ?>
+
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class=""><span class="fw-bold"> Office of the Municipal Manager</span> - Consists of seven (7) key divisions:</p>
+                            <ul>
+                                <li class="list-group-item">Legal & Estates</li>
+                                <li class="list-group-item">Internal Audit </li>
+                                <li class="list-group-item">IDP & PMS</li>
+                                <li class="list-group-item">Public Participation </li>
+                                <li class="list-group-item">Special Programmes </li>
+                                <li class="list-group-item">Youth Development </li>
+                                <li class="list-group-item">Communications & Customer Care Relations </li>
+                                <ul>
+                        </div>
                     </div>
+
+                    <hr style="border:2px solid black">
+                    
+                    <br>
 
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-5 text-uppercase my-5">
-                                Finance department
+                                Technical service department
+                            </p>
+                        </div>
+                        <?php
+                        foreach ($managers as $key => $tsd) {
+                            if (isset($tsd['name'])) {
+                                $tsdName =  substr($tsd['name'], 0, 1);
+                            }
+                            if ($tsd['category'] === 'TSD') {
+                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                <div class="card text-center m-1 shadow">
+                                    <div class="card-body ">
+                                        <img src="' . $tsd['location'] . '" class="card-img-top" alt="municipal councelor">
+                                    </div>
+                                    <div class="card-footer">
+                                   <p>
+                                   <span class="fw-normal">' . $tsd['title'] . '</span><br>
+                                   <span class="fw-normal">' . $tsd['initials'] . ' ' . $tsd['name'] . ' ' . $tsd['surname'] . '</span><br>
+                                   <span class="fw-lighter">' . $tsd['telephone'] . '</span><br>
+                                   <span class="fw-lighter small fs-sm text-yellow">
+                                   <a class="text-yellow" href= "mailto: ' . $tsd['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $tsd['email'] .'"></i></a>
+                                   </span>
+                                   <br>
+                                    </p>  
+                                </div>
+                                </div>
+                                </div>';
+                            }
+                        }
+                        ?>
+
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class=""><span class="fw-bold"> Technical Services Department</span> - Consists of four (4) key divisions:
+                            </p>
+                            <ul>
+                                <li class="list-group-item">Project Management Unit</li>
+                                <li class="list-group-item">Housing </li>
+                                <li class="list-group-item">Solid Waste</li>
+                                <li class="list-group-item">Roads & Storm water </li>
+                                <ul>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class="fs-5 text-uppercase my-5">
+                                Corporate service department
+                            </p>
+                        </div>
+
+                        <?php
+                        foreach ($managers as $key => $cosd)
+                        {
+                            if (isset($cosd['name'])) {
+                                $cosdName =  substr($cosd['name'], 0, 1);
+                            }
+                            if ($cosd['category'] === 'COSD') {
+                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                <div class="card text-center m-1 shadow" >
+                                    <div class="card-body ">
+                                        <img src="' . $cosd['location'] . '" class="card-img-top" alt="municipal councelor">
+                                    </div>
+                                    <p>
+                                    <span class="fw-normal">' . $cosd['title'] . '</span><br>
+                                    <span class="fw-normal">' . $cosd['initials'] . ' ' . $cosd['name'] . ' ' . $cosd['surname'] . '</span><br>
+                                    <span class="fw-lighter">' . $cosd['telephone'] . '</span><br>
+                                    <span class="fw-lighter small fs-sm text-yellow">
+                                    <a class="text-yellow" href= "mailto: ' . $cosd['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $cosd['email'] .'"></i></a>
+                                    
+                                    </span>
+                                    <br>
+                                
+                                    </p>  
+                                </div>
+                                </div>';
+                            }
+                        }
+                        
+                        ?>
+
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class=""><span class="fw-bold"> Corporate Services Department</span> - Consists of four (4) key divisions:</p>
+                            <ul>
+                                <li class="list-group-item">Fleet Services
+                                </li>
+                                <li class="list-group-item">ICT </li>
+                                <li class="list-group-item">Secretariat & Auxiliary Services</li>
+                                <li class="list-group-item">Human Resources</li>
+                                <ul>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class="fs-5 text-uppercase mb-5">
+                                Community service department
+                            </p>
+                        </div>
+                        <?php
+                        foreach ($managers as $key => $csd) {
+                            if (isset($csd['name'])) {
+                                $csdName = substr($csd['name'], 0, 1);
+                            }
+                            if ($csd['category'] === 'CSD') {
+                                echo '
+                                    <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                        <div class="card text-center m-1 shadow" >
+                                            <div class="card-body">
+                                                <img src="' . $csd['location'] . '" class="card-img-top" alt="municipal councelor">
+                                            </div>
+                                            <div class="card-footer">
+                                            <p>
+                                            <span class="fw-normal">' . $csd['title'] . '</span><br>
+                                            <span class="fw-normal">' . $csd['initials'] . ' ' . $csd['name'] . ' ' . $csd['surname'] . '</span><br>
+                                            <span class="fw-lighter">' . $csd['telephone'] . '</span><br>
+                                            <span class="fw-lighter small fs-sm text-yellow">
+                                            <a class="text-yellow" href= "mailto: ' . $csd['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $csd['email'] .'"></i></a>
+                                            
+                                            </span>
+                                            <br>
+                                           
+                                            </p>
+                                            </div>
+                                        </div>
+                                    </div>';
+                            }
+                        }
+                        ?>
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class=""><span class="fw-bold"> Community Services Department</span> - Consists of four (4) key divisions:</p>
+                            <ul>
+                                <li class="list-group-item">Protection Services</li>
+                                <li class="list-group-item">Libraries </li>
+                                <li class="list-group-item">Beaches</li>
+                                <li class="list-group-item">Disaster Management Services </li>
+
+                                <ul>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class="fs-5 text-uppercase my-5">
+                                Planning & development departments
+                            </p>
+                        </div>
+                        <?php
+                        foreach ($managers as $key => $pdd) {
+                            if (isset($pdd['name'])) {
+                                $pddName =  substr($pdd['name'], 0, 1);
+                            }
+                            if ($pdd['category'] === "PDD") {
+
+                                echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
+                                    <div class="card text-center m-1 shadow" >
+                                        <div class="card-body ">
+                                            <img src="' . $pdd['location'] . '" class="card-img-top" alt="municipal councelor">
+                                        </div>
+                                        
+                                        <div class="card-footer">
+                                        <p>
+                                        <span class="fw-normal">' . $pdd['title'] . '</span><br>
+                                        <span class="fw-normal">' . $pdd['initials'] . ' ' . $pdd['name'] . ' ' . $pdd['surname'] . '</span><br>
+                                        <span class="fw-lighter">' . $pdd['telephone'] . '</span><br>
+                                        <span class="fw-lighter small fs-sm text-yellow">
+                                        <a class="text-yellow" href= "mailto: ' . $pdd['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $pdd['email'] .'"></i></a>
+                                        
+                                        </span>
+                                        <br>
+                                    
+                                        </p>
+                                    </div>
+                                 </div>
+                                </div>';
+                            }
+                        }
+                        ?>
+
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class=""><span class="fw-bold"> Planning & Development Department</span> - Consists of four (4) key divisions:</p>
+                            <ul>
+                                <li class="list-group-item">Building Control</li>
+                                <li class="list-group-item">Planning </li>
+                                <li class="list-group-item">Environmental Services</li>
+                                <li class="list-group-item">LED </li>
+                                <ul>
+                        </div>
+                    </div>
+                    <hr>
+
+
+                
+
+
+               
+
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class="fs-5 text-uppercase my-5">
+                                Treasury Department
                             </p>
                         </div>
                         <?php
@@ -359,10 +452,13 @@ $managers = $data['managers'];
                                 </div>
                                 <div class="card-footer">
                                 <p>
-                                    <span class="fw-normal text-truncate">'. $fd['title'] .'</span><br>
-                                    <span class="fw-normal">'. $fd['initials'] . ' ' . $fd['name'] . ' ' . $fd['surname'] . '</span><br>
-                                    <span class="fw-lighter">'.$fd['telephone'].'</span><br>
-                                    <span class="fw-lighter small fs-sm text-wrap">'.$fd['email'].'</span><br>
+                                    <span class="fw-normal text-truncate">' . $fd['title'] . '</span><br>
+                                    <span class="fw-normal">' . $fd['initials'] . ' ' . $fd['name'] . ' ' . $fd['surname'] . '</span><br>
+                                    <span class="fw-lighter">' . $fd['telephone'] . '</span><br>
+                                    <span class="fw-lighter small fs-sm text-yellow">
+                                    <a class="text-yellow" href= "mailto: ' . $fd['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $fd['email'] .'"></i></a>
+                                    
+                                    </span><br>
                                 
                                 </p>
                             </div>
@@ -371,7 +467,17 @@ $managers = $data['managers'];
                             }
                         }
                         ?>
-                    </div> 
+
+                        <div class="col-md-12 col-lg-12 text-center">
+                            <p class=""><span class="fw-bold"> Treasury Department</span> - Consists of four (4) key divisions:</p>
+                            <ul>
+                                <li class="list-group-item">Budget</li>
+                                <li class="list-group-item">SCM </li>
+                                <li class="list-group-item">Expenditure</li>
+                                <li class="list-group-item">Revenue </li>
+                                <ul>
+                        </div>
+                    </div>
 
                 </div>
             </div>

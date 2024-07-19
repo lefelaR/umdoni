@@ -45,17 +45,7 @@ $data = $context->data;
 </style>
 
 
-<!-- <div class="container-fluid" id="service-page">
-    <div class="row">
-        <div class="tag-header">
-            <div class="col">
-                <p class="h1 m-5 fs-1 text-white">
-                    Meeting
-                </p>
-            </div>
-        </div>
-    </div>
-</div> -->
+
 
 
 <div class="container content-section">
@@ -74,8 +64,26 @@ $data = $context->data;
             </p>
 
             <span class="py-3 mb-3">
-                <img src=" <?php echo $data['location'] ?>" class="img-fluid" style="width: 50%;" alt=" <?php echo $data['title'] ?>">
-            </span>
+                <?php
+                
+                $link = ltrim($data['location'],'.');
+                $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
+                if(in_array(strtolower(pathinfo($link)['extension']),$allowed_extensions )){
+                    echo ' <img src="' . url($link) . '" class="img-fluid" style="width: 50%;" alt="'. $data['title'] .'">
+                    ';
+                }else{
+                echo '    <iframe
+                    src="' . url($link) . '"
+                    width="100%"
+                    height="1000px"
+                    loading="lazy"
+                    title="PDF-file"
+                ></iframe>';
+                }
+                
+                
+                ?>
+                 </span>
             <p class="my-5 fs-4 lh-lg  ">
                 <?php echo $data['body'] ?>
             </p>

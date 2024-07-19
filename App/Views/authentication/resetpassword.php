@@ -37,19 +37,19 @@ if (isset($context->errors['message'])) {
                         <p class="auth-subtitle mb-5 mx-auto">If you already have an account, login.</p>
                         <form id="login-form" action="reset" method="POST">
                         <div class="form-group position-relative has-icon-left mb-4 input-group">
-                                <input type="text" class="form-control form-control-xl" name="password" placeholder="Password">
+                                <input type="text" class="form-control form-control-xl" name="password" placeholder="Password" required>
                                 <div class="form-control-icon">
 
                                 </div>
                             </div>
                         <div class="form-group position-relative has-icon-left mb-4 input-group">
-                                <input type="password" class="form-control form-control-xl" name="password" placeholder="Password">
+                                <input type="password" class="form-control form-control-xl" name="password" placeholder="Password" required>
                                 <div class="form-control-icon">
 
                                 </div>
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4 input-group">
-                                <input type="code" class="form-control form-control-xl" name="code" placeholder="code">
+                                <input type="code" class="form-control form-control-xl" name="code" placeholder="code" required>
                                 <div class="form-control-icon">
                                 </div>
                             </div>

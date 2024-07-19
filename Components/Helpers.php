@@ -8,6 +8,10 @@ function url($string = '')
 }
 
 
+function findInPublic($string)
+{
+    return 'public/'.$string;
+}
 
 function buildurl($string)
 {
@@ -60,6 +64,17 @@ function useClass($classname)
 }
 
 
+
+function getYear()
+{
+    return date('Y');
+}
+
+function getMonth()
+{
+    return date('m');
+}
+
 function getCrumbs()
 {
     $url = $_SERVER['QUERY_STRING'];
@@ -111,6 +126,14 @@ function timeAgo( $time): string {
     return 'Just now';
 }
 
+function dd($dump)
+{   
+    echo "<pre>";
+    var_dump($dump);
+    echo "</pre>";
+    die;
+
+}
 
 function logout()
 {

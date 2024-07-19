@@ -12,6 +12,7 @@ namespace App\Controllers\Dashboard;
 use \Core\View;
 use Aws\S3\S3Client;
 use App\Models\NoticeModel;
+use Components\UploadToSite;
 
 
 class Notices extends \Core\Controller
@@ -56,47 +57,52 @@ class Notices extends \Core\Controller
     {
         global $context;
         // check file and send to aws s3;
-        if (isset($_FILES)) {
+        // if (isset($_FILES)) {
 
-            $bucketName = $this->bucketName;
-            $awsAccessKeyId = $this->awsAccessKeyId;
-            $awsSecretAccessKey = $this->awsSecretAccessKey;
-            $region = $this->region; // Change to your desired region
 
-            $s3 = new S3Client([
-                'version' => 'latest',
-                'region' => $region,
-                'credentials' => [
-                    'key' => $awsAccessKeyId,
-                    'secret' => $awsSecretAccessKey,
-                ],
-            ]);
+            // $bucketName = $this->bucketName;
+            // $awsAccessKeyId = $this->awsAccessKeyId;
+            // $awsSecretAccessKey = $this->awsSecretAccessKey;
+            // $region = $this->region; // Change to your desired region
 
-            $file = $_FILES;
-            if (count($file) > 0) {
-                $filePath = $file['name']['tmp_name'];
-                $objectKey = $file['name']['name'];
-                if ($objectKey !== "") {
+            // $s3 = new S3Client([
+            //     'version' => 'latest',
+            //     'region' => $region,
+            //     'credentials' => [
+            //         'key' => $awsAccessKeyId,
+            //         'secret' => $awsSecretAccessKey,
+            //     ],
+            // ]);
 
-                    try {
-                        // Upload the file to S3
-                        $result = $s3->putObject([
-                            'Bucket' => $bucketName,
-                            'Key' => $objectKey,
-                            'SourceFile'  => $filePath,
+            // $file = $_FILES;
+            // if (count($file) > 0) {
+            //     $filePath = $file['name']['tmp_name'];
+            //     $objectKey = $file['name']['name'];
+            //     if ($objectKey !== "") {
+
+            //         try {
+            //             // Upload the file to S3
+            //             $result = $s3->putObject([
+            //                 'Bucket' => $bucketName,
+            //                 'Key' => $objectKey,
+            //                 'SourceFile'  => $filePath,
                            
-                        ]);
-                    } catch (\Throwable $e) {
-                        echo "Error uploading file: " . $e->getMessage();
-                    }
-                }
-            }
+            //             ]);
+            //         } catch (\Throwable $e) {
+            //             echo "Error uploading file: " . $e->getMessage();
+            //         }
+            //     }
+            // }
+        // }
+
+        if (isset($_FILES)) {
+            $destination = UploadToSite::upload($_FILES);
         }
 
         if (isset($_POST)) $data = $_POST;
         $data['isActive'] = 1;
-        $data['img_file'] =  isset($result) ? $objectKey : "";
-        $data['location'] = isset($result) ? $result['ObjectURL'] : "";
+        $data['img_file'] =  isset($aFile['name']['name']) ? $_FILES['name']['name'] : "";
+        $data['location'] = isset($destination) ?  $destination : "";
         $data['createdAt'] = date("Y-m-d H:i:s");
   
         try {

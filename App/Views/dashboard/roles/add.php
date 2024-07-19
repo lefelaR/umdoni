@@ -4,7 +4,6 @@ global $context;
 if(!is_null($context->data)) 
         $data = $context->data;
 
-
 $crumbs = getCrumbs();
 
 echo '
@@ -43,6 +42,7 @@ else
     $id = '';
     $action = 'save';
 }
+
 $name = (isset($data['name'])) ? $data['name'] : '';
 $permissions =  (isset($data['permissions'])) ? json_decode($data['permissions']) : '';
 
@@ -59,7 +59,8 @@ $systemSettings         =   (isset($permissions->systemSettings)        && $perm
 $support                =   (isset($permissions->support)               && $permissions->support            != "") == 'on' ? "checked" : "";;
 //////////////////\\\\\\\\\\\\\\\\\\\\\\
 
-echo '
+?>
+
 <div class="card">
 <div class="card-header">
     <h4 class="card-title">Add a role</h4>
@@ -68,62 +69,62 @@ echo '
 <div class="card-body">
 <div class="row">
 <div class="col-md-6">
-<input type="hidden"  id="id" name="id" value="'.$id.'" >
+<input type="hidden"  id="id" name="id" value="<?=$id?>" >
 <div class="form-group">
 <label for="basicInput">Title</label>
-<input type="text" class="form-control" id="name" name="name" value="'.$name.'">
+<input type="text" class="form-control" id="name" name="name" value="<?=$name?>">
 </div>
 
 
 <div class="my-5">
 <div class="form-switch form-check form-group">
-<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="eventManagement" name="eventManagement" id="eventManagement" '.$eventManagement .'  >
+<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="eventManagement" name="eventManagement" id="eventManagement" <?=$eventManagement?>  >
 <label class="form-check-label" for="helperText">Event Management</label>
 </div>
 
 
 <div class="form-switch form-check form-group">
-<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="contentManagement" name="contentManagement" id="contentManagement" '.$contentManagement.' >
+<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="contentManagement" name="contentManagement" id="contentManagement" <?=$contentManagement?> >
 <label class="form-check-label" for="helperText">Content Management</label>
 </div>
 
 <div class="form-switch form-check form-group">
-<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="serviceManagement" name="serviceManagement" id="serviceManagement" '.$serviceManagement.'>
+<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="serviceManagement" name="serviceManagement" id="serviceManagement" <?=$serviceManagement?> >
 <label class="form-check-label" for="helperText">Service Namagement</label>
 </div>
 
 <div class="form-switch form-check form-group">
-<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="officialProfiles" name="officialProfiles" id="officialProfiles" '.$officialProfiles.'>
+<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="officialProfiles" name="officialProfiles" id="officialProfiles" <?=$officialProfiles?>>
 <label class="form-check-label" for="helperText">Official Profiles</label>
 </div>
 
 <div class="form-switch form-check form-group">
-<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="documentLibrary" name="documentLibrary" id="documentLibrary"  '.$documentLibrary.'>
+<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="documentLibrary" name="documentLibrary" id="documentLibrary"  <?=$documentLibrary?>>
 <label class="form-check-label" for="helperText">Docuemnt Library</label>
 </div>
 
 <div class="form-switch form-check form-group">
-<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="HumanResources" name="humanResources" id="humanResources" '.$humanResources.' >
+<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="HumanResources" name="humanResources" id="humanResources" <?=$humanResources?> >
 <label class="form-check-label" for="helperText">Human Resources</label>
 </div>
 
 <div class="form-switch form-check form-group">
-<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="communityEngagement" name="communityEngagement" id="communityEngagement" '.$communityEngagement.'>
+<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="communityEngagement" name="communityEngagement" id="communityEngagement" <?=$communityEngagement?>>
 <label class="form-check-label" for="helperText">Community Engagement</label>
 </div>
 
 <div class="form-switch form-check form-group">
-<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="economicDevelopment" name="economicDevelopment" id="economicDevelopment" '.$economicDevelopment.'>
+<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="economicDevelopment" name="economicDevelopment" id="economicDevelopment" <?=$economicDevelopment?> >
 <label class="form-check-label" for="helperText">Economic Development</label>
 </div>
 
 <div class="form-switch form-check form-group">
-<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="systemSettings" name="systemSettings" id="systemSettings" '.$systemSettings.' >
+<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="systemSettings" name="systemSettings" id="systemSettings" <?=$systemSettings?> >
 <label class="form-check-label" for="helperText">System Settings</label>
 </div>
 
 <div class="form-switch form-check form-group">
-<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="support" name="support" id="support" '.$support.' >
+<input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="support" name="support" id="support" <?=$support?> >
 <label class="form-check-label" for="helperText">support</label>
 </div>
 </div>
