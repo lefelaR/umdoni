@@ -581,6 +581,7 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `status`, `veri
 CREATE TABLE `vacancies` (
   `id` int(11) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
+  `subtitle` varchar(552) DEFAULT NULL,
   `level` varchar(45) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `duties` varchar(500) DEFAULT NULL,
@@ -589,6 +590,7 @@ CREATE TABLE `vacancies` (
   `createdBy` varchar(45) DEFAULT NULL,
   `isActive` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 --
 -- Indexes for dumped tables

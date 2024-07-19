@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * @author : rakheoana lefela
  * @date : 16th dec 2021
@@ -12,6 +13,7 @@ namespace App\Controllers\Dashboard;
 use \Core\View;
 use App\Models\Service;
 use App\Models\VacancyModel;
+use Components\UploadToSite;
 
 
 
@@ -44,15 +46,20 @@ class Vacancies extends \Core\Controller
     {
         global $context;
 
+        if (isset($_FILES)) {
+            $destination = UploadToSite::upload($_FILES);
+        } 
+
         if(isset($_POST)) $data = $_POST;
         $date['createdAt'] = date("Y-m-d H:i:s");
         $data['isActive'] = 1;
+        $data['location'] =  $destination ?? "";
         try 
         {
           $id =  VacancyModel::Save($data);   
         } catch (\Throwable $th) 
         {
-            $_SESSION['errors'] = ['message' => $th->getMessage()];
+            $_SESSION['error'] = ['message' => $th->getMessage()];
         }
         redirect('dashboard/vacancies/index');
     }
