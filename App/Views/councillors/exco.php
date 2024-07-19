@@ -39,47 +39,48 @@ $crumbs = getCrumbs();
     nav ul li a {
         color: #000;
     }
+
     nav ul li i {
         color: #000;
     }
- 
-    .card{
-     
+
+    .card {
+
         border: 4px solid #A5A3A3;
     }
-   .card-body{
-    padding: 0 !important;
-    width: auto;
-    height: 12em; 
-    overflow: hidden;
-   }
 
-   .card-footer{
-    min-height:10em;
-   }
-   .card-footer p{
-    line-height: 20px;
-   }
-   @media (max-width: 575.98px) {
-    .card{
+    .card-body {
+        padding: 0 !important;
         width: auto;
-        border: 4px solid #A5A3A3;
+        height: 12em;
+        overflow: hidden;
     }
-   .card-body{
-    padding: 0 !important;
-    height: 16em; 
-    overflow: hidden;
-   }
+
+    .card-footer {
+        min-height: 10em;
+    }
+
+    .card-footer p {
+        line-height: 20px;
+    }
+
+    @media (max-width: 575.98px) {
+        .card {
+            width: auto;
+            border: 4px solid #A5A3A3;
+        }
+
+        .card-body {
+            padding: 0 !important;
+            height: 16em;
+            overflow: hidden;
+        }
 
 
-   .card-footer p{
-    line-height: 22px;
-   }
-}
-
-
-
-
+        .card-footer p {
+            line-height: 22px;
+        }
+    }
 </style>
 
 <div class="container-fluid" id="service-page">
@@ -122,10 +123,8 @@ $crumbs = getCrumbs();
 
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
-
             <div id="flush-collapseOne" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-
+              
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-1 text-uppercase my-5">
