@@ -19,4 +19,4 @@ jobs:
           server: 154.0.170.230
           username: umdonigov
           password: 29019WtP98zj23
-          server-dir: /home/
+          server-dir: /public_html/

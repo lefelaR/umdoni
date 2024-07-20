@@ -111,8 +111,6 @@ $data = $context->data;
                                      <a class="text-secondary fw-bold" href="' . url($vacancy['location']) . '" target="_blank">
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
                                     </a>
-                                     <a class="text-secondary fw-bold" href="' . url($vacancy['location']) . '" target="_blank">' . $vacancy["title"] . '</a>
-                                    
                                     </th>
                                     <td>
                                         <a class="text-secondary fw-bold" href="#" target="_blank">' . $vacancy['title'] . '</a>
