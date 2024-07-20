@@ -53,7 +53,7 @@ class Vacancies extends \Core\Controller
         if(isset($_POST)) $data = $_POST;
         $date['createdAt'] = date("Y-m-d H:i:s");
         $data['isActive'] = 1;
-        $data['location'] =  $destination ?? "";
+        $data['location'] =  substr($destination,1);
         try 
         {
           $id =  VacancyModel::Save($data);   
@@ -86,7 +86,7 @@ class Vacancies extends \Core\Controller
         $id = $_GET['id'];
         try 
         {
-          Service::Delete($id);
+            VacancyModel::Delete($id);
         } catch (\Throwable $th) 
         {
             echo $th->getMessage();

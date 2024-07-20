@@ -50,11 +50,19 @@ class VacancyModel extends \Core\Model
     {
         global $context;
         $db = static::getDB(); 
-        $sql = "INSERT into vacancies ( `title`,`subtitle`, `level`, `reference`, `description`,`createdAt`, `duedate`, `isActive`)
-                VALUES ('$data[title]','$data[subtitle]','$data[level]','$data[reference]','$data[body]','$data[createdAt]','$data[duedate]', $data[isActive])"; 
+        $sql = "INSERT into vacancies ( `title`,`subtitle`, `level`, `reference`, `location`,`description`,`createdAt`, `duedate`, `isActive`)
+                VALUES ('$data[title]','$data[subtitle]','$data[level]','$data[reference]','$data[location]','$data[body]','$data[createdAt]','$data[duedate]', $data[isActive])"; 
         $stmt = $db->exec($sql);   
        return $stmt;
     }
 
+
+    public static function Delete($id)
+    {
+        $db = static::getDB(); 
+        $sql = "UPDATE  vacancies SET `isActive` = 0 WHERE `id` = $id"; 
+        $stmt = $db->exec($sql);
+       return $stmt;
+    }
 }
 
