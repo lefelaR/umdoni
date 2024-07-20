@@ -13,6 +13,7 @@ vendor
 .env.production.local
 /App/Config.php
 /Components/Context.php
+/public/themes
 
 npm-debug.log*
 yarn-debug.log*
