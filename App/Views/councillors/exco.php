@@ -1,9 +1,8 @@
 <?php
 global $context;
-$data = $context->data;
-// array_column
-$aExcoMembers  = $data;
+$exco = $context->data;
 $crumbs = getCrumbs();
+
 ?>
 
 <style>
@@ -39,47 +38,46 @@ $crumbs = getCrumbs();
     nav ul li a {
         color: #000;
     }
+
     nav ul li i {
         color: #000;
     }
- 
-    .card{
-     
+
+    .card {
         border: 4px solid #A5A3A3;
     }
-   .card-body{
-    padding: 0 !important;
-    width: auto;
-    height: 12em; 
-    overflow: hidden;
-   }
 
-   .card-footer{
-    min-height:10em;
-   }
-   .card-footer p{
-    line-height: 20px;
-   }
-   @media (max-width: 575.98px) {
-    .card{
+    .card-body {
+        padding: 0 !important;
         width: auto;
-        border: 4px solid #A5A3A3;
+        height: 12em;
+        overflow: hidden;
     }
-   .card-body{
-    padding: 0 !important;
-    height: 16em; 
-    overflow: hidden;
-   }
 
+    .card-footer {
+        min-height: 10em;
+    }
 
-   .card-footer p{
-    line-height: 22px;
-   }
-}
+    .card-footer p {
+        line-height: 20px;
+    }
 
+    @media (max-width: 575.98px) {
+        .card {
+            width: auto;
+            border: 4px solid #A5A3A3;
+        }
 
+        .card-body {
+            padding: 0 !important;
+            height: 16em;
+            overflow: hidden;
+        }
 
-
+        .card-footer p {
+            line-height: 22px;
+        }
+    }
 </style>
 
 <div class="container-fluid" id="service-page">
@@ -87,7 +85,7 @@ $crumbs = getCrumbs();
         <div class="tag-header">
             <div class="col">
                 <p class="h1 m-5 fs-1 text-white">
-                    Exco
+                    Council
                 </p>
             </div>
         </div>
@@ -113,85 +111,97 @@ $crumbs = getCrumbs();
                     ?>
                 </ol>
             </nav>
-
             <p class="fw-lighter fs-3 my-5">
-                Umdoni Municipality comprises of 37 Councillors, seven which are full time councillors that serve on the Umdoni Council. The Executive Committee (EXCO) is made of the Mayor, Deputy Mayor & 1 Member reports directly to Council. EXCO is chaired by Her Worship, The Mayor Cllr. ST KHATHI. The Speaker is the ex-officio member of all committees of Council and the Chairperson of Council Meetings. All members of EXCO & the Speaker are full time Councillors.
+                Umdoni Municipality comprises of 37 Councillors, categorised into two which are Ward Councillors and
+                Proportional Representative (PR) Councillors. The Speaker is the ex-officio member of all committees of
+                Council and is the Chairperson of Council Meetings.<br><br>
+                The number of Councillors that serve in the Umdoni Council is broken down as follows:<br>
+                19 – Ward Councillors and 18 PR Councillors.<br>
+                <br>
+                ‌
+
+                <span class="fs-5 fw-bold">Umdoni municipality’s current composition of Council is as
+                    follows:</span><br>
+
+                18 – African National Congress (ANC)<br>
+
+                1 - Abantu Batho Congress (ABC)<br>
+
+                1- Al-Jama –Ah<br>
+
+                1 – Allied Movement for Change (AM4C)<br>
+
+                6 – Democratic Alliance (DA)<br>
+
+                5 – Economic Freedom Fighters (EFF)<br>
+
+                5 – Inkatha Freedom Party (IFP)<br>
+
             </p>
         </div>
     </div>
 
     <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
-
             <div id="flush-collapseOne" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
                             <p class="fs-1 text-uppercase my-5">
-                                Exco Members
+                                EXECUTIVE COMMITTEE (Exco)
+                            </p>
+                            <p class="fw-lighter fs-3 my-5">
+                                The Umdoni Local Municipality’s Executive Committee (EXCO) comprises of the made of the
+                                Mayor as the Chairperson of the committee, Deputy Mayor and four (4) other Councillors.
+                                All members of EXCO & the Speaker are full time Councillors. Administratively, Senior
+                                Management also forms part of EXCO.
                             </p>
                         </div>
                         <?php
-                        foreach ($aExcoMembers as $key => $aExco) {
-                            if (isset($exco['name'])) {
-                                $name =  substr($aExco['name'], 0, 1);
+                        foreach ($exco as $key => $value) {
+                            if (isset($value['name'])) {
+                                $name = substr($value['name'], 0, 1);
                             }
-                            if ($exco['category'] === 'EXCO') {
+                            $options = array(
+                    
+                                "CP"    => "CHAIRPERSON",
+                                "DM"    => "DEPUTY MAYOR",
+                                "S"     => "SPEAKER",
+                                "M"     => "EXCO MEMBER" ,
+                                "CLLR"  => "COUNCILLOR",
+                                "MM"    => "THE MUNICIPAL MANAGER",
+                                "GMTS"  => "GENETAL MANAGER TECHNICAL SERVICES",
+                                "GMCS"  => "GENERAL MANAGER COMMUNITY SERVICES ",
+                                "GMPD"  => "GENERAL MANAGER PLANNING AND DEVELOPMENT  ",
+                                "CFO"   => "GENERAL MANAGER TREASURY"
+                            );
+
                                 echo ' <div class="col-md-2 col-lg-2 col-sm-12 my-1">
                                 <div class="card text-center m-1">
                                     <div class="card-body">
-                                        <img src="' . $aExco['location'] . '" class="card-img-top" alt="municipal councelor">
+                                        <img src="' . $value['location'] . '" class="card-img-top" alt="municipal councelor">
                                     </div>
 
                                     <div>
                                     <div class="card-footer">
-                                    <p class="fw-bold text-secondary text-uppercase fs-6">' . $aExco['title'] . '</p>
+                                    <p class="fw-bold text-secondary text-uppercase fs-6">' . $value['title'] . '</p>
                                         <p>
-                                        <span class="fw-normal"> Cllr &nbsp;' . strtoupper($name) . " " . $aExco['surname'] . '</span><br>
-                                        <span class="fw-lighter">'.$aExco['telephone'].'</span><br>
+                                        <span class="fw-normal"> '.$options[$value['category']].'<br/>' . strtoupper($name) . " " . $value['surname'] . '</span><br>
+                                        <span class="fw-lighter">' . $value['telephone'] . '</span><br>
                                         
-                                        <span class="fw-lighter small">Ward:'.$aExco['ward'].'</span>
+                                        <span class="fw-lighter small">Ward:' . $value['ward'] . '</span>
                                         </p>
                                     </div>
                                     </div>
                                     </div>
                                 </div>';
                             }
-                        }
+                        // }
                         ?>
                     </div>
-
-               
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 </div>
-
-
-
-<script>
-    var accordions = document.querySelectorAll('.accordion-button');
-    accordions.forEach(function(accordion) {
-        accordion.addEventListener('click', function() {
-            var collapse = this.getAttribute('data-bs-target');
-            var parent = this.getAttribute('data-bs-parent');
-
-            if (collapse && parent) {
-                var parentElement = document.querySelector(parent);
-                var collapses = parentElement.querySelectorAll('.collapse');
-
-                collapses.forEach(function(item) {
-                    if (item.id !== collapse.substring(1)) {
-                        var bsCollapse = new bootstrap.Collapse(item);
-                        bsCollapse.hide();
-                    }
-                });
-            }
-        });
-    });
-</script>
