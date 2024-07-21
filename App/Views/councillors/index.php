@@ -76,44 +76,26 @@ $data = $context->data;
 </div>
 
     <div class="row justify-content-center">
-        
-    <div class="col-md-3 my-2 secondary " data-toggle="tooltip" data-placement="top" title="This link has been disabled while the page is being updated!">
-                <a href="<?php #echo buildurl('councillors/exco') ?>" disabled>
-                    <div class="card ">
-                        <div class="card-body">
-                            <div class="d-flex inline">
-                                <!-- <i class="bi bi-globe fs-1 text-yellow m-3"></i> -->
-                                <i class="bi bi-globe fs-1 text-secondary m-3"></i>
-                                <p class="h5 my-auto p-2">Exco</p>
-                            </div>
+        <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This page is still under consruction">
+            <a href="<?php echo buildurl('councillors/exco') ?>" disbaled>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex inline">
+                            <i class="bi bi-globe fs-1 text-yellow m-3"></i>
+                            <p class="h5 my-auto p-2">Exco</p>
                         </div>
                     </div>
-                </a>
-            </div>
-            <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This link has been disabled while the page is being updated!">
-                <a href="<?php #echo buildurl('councillors/council') ?>">
-                    <!-- <div class="card card-hover"> -->
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex inline">
-                                <!-- <i class="bi bi-globe fs-1 text-yellow m-3"></i> -->
-                                <i class="bi bi-globe fs-1 text-secondary m-3"></i>
-                                <p class="h5 my-auto p-2">Council</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This link has been disabled while the page is being updated!">
-                <a href="<?php #echo buildurl('councillors/administration') ?>">
-                    <!-- <div class="card card-hover"> -->
-                    <div class="card">
-                        <div class="card-body" >
-                            <div class="d-flex inline">
-                                <!-- <i class="bi bi-globe fs-1 text-yellow m-3"></i> -->
-                                <i class="bi bi-globe fs-1 text-secondary m-3"></i>
-                                <p class="h5 my-auto p-2"> Administration</p>
-                            </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-3 my-2" data-toggle="tooltip" data-placement="top" title="This page is still under consruction">
+            <a href="<?php echo buildurl('councillors/council') ?>" disbaled>
+                <div class="card ">
+                    <div class="card-body">
+                        <div class="d-flex inline">
+                            <i class="bi bi-globe fs-1 text-yellow m-3"></i>
+                            <p class="h5 my-auto p-2">Council</p>
                         </div>
                     </div>
                 </div>
