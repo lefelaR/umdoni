@@ -449,7 +449,7 @@ $managers = $data['managers'];
                                     <span class="fw-normal">' . $fd['initials'] . ' ' . $fd['name'] . ' ' . $fd['surname'] . '</span><br>
                                     <span class="fw-lighter">' . $fd['telephone'] . '</span><br>
                                     <span class="fw-lighter small fs-sm text-yellow">
-                                    <a class="text-yellow" href= "mailto: ' . $fd['email'] . '"><i class="bi bi-envelope"></i></a>
+                                    <a class="text-yellow" href= "mailto: ' . $fd['email'] . '"><i class="bi bi-envelope" data-bs-toggle="tooltip" data-bs-placement="top" title="'.$fd['email'].'"></i></a>
                                     
                                     </span><br>
                                 
