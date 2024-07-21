@@ -14,8 +14,8 @@ class Context{
       session_start(); 
         $this->root     = $_SERVER['HTTP_HOST'];
         $this->host     = 'http://'.$this->root;
-        $this->siteroot = $this->host.'/umdoni/';
-        $this->dir      = $this->root .'/umdoni/';
+        $this->siteroot = $this->host.'/';
+        $this->dir      = $this->root .'/';
         $this->checkAuth();
         return;
     }
