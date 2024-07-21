@@ -107,11 +107,11 @@ $data = $context->data;
                                     $key++;
                                     echo '
                                 <tr>
-                                    <th scope="row">
-                                     <a class="text-secondary fw-bold" href="' . url($vacancy['location']) . '" target="_blank">
-                                     <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
-                                    </a>
+                                   <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
+                                    <td>
+                                        <a class="text-secondary fw-bold" href="' . url($vacancy['location']) . '" target="_blank">' . $vacancy["title"] . '</a>
+                                    </td>
                                     <td>
                                         <a class="text-secondary fw-bold" href="#" target="_blank">' . $vacancy['title'] . '</a>
                                     </td>
