@@ -131,10 +131,6 @@ $managers = $data['managers'];
         </div>
     </div>
 
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-        <div class="accordion-item">
-            <div id="flush-collapseTwo" class="accordion-collapse " data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
 
                     <div class="row align-items-center justify-content-center">
                         <div class="col-md-12 col-lg-12 text-center">
@@ -163,7 +159,7 @@ $managers = $data['managers'];
                                         <span class="fw-normal">' . $sm['initials'] . ' ' . $sm['name'] . ' ' . $sm['surname'] . '</span><br>
                                         <span class="fw-lighter">' . $sm['telephone'] . '</span><br>
                                         <span class="fw-lighter small fs-sm text-yellow">
-                                        <a class="text-yellow" href= "mailto: ' . $sm['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $sm['email'] .'"></i></a>
+                                        <a class="text-yellow" href= "mailto: ' . $sm['email'] . '"><i class="bi bi-envelope"></i></a>
                                         
                                         </span><br>
                                       
@@ -201,7 +197,7 @@ $managers = $data['managers'];
                                <span class="fw-normal">' . $otmm['initials'] . ' ' . $otmm['name'] . ' ' . $otmm['surname'] . '</span><br>
                                <span class="fw-lighter">' . $otmm['telephone'] . '</span><br>
                                <span class="fw-lighter small fs-sm text-yellow">
-                                        <a class="text-yellow" href= "mailto: ' . $otmm['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $otmm['email'] .'"></i></a>
+                                        <a class="text-yellow" href= "mailto: ' . $otmm['email'] . '"><i class="bi bi-envelope"></i></a>
                                         
                                         </span>
                                <br>
@@ -255,7 +251,7 @@ $managers = $data['managers'];
                                    <span class="fw-normal">' . $tsd['initials'] . ' ' . $tsd['name'] . ' ' . $tsd['surname'] . '</span><br>
                                    <span class="fw-lighter">' . $tsd['telephone'] . '</span><br>
                                    <span class="fw-lighter small fs-sm text-yellow">
-                                   <a class="text-yellow" href= "mailto: ' . $tsd['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $tsd['email'] .'"></i></a>
+                                   <a class="text-yellow" href= "mailto: ' . $tsd['email'] . '"><i class="bi bi-envelope"></i></a>
                                    </span>
                                    <br>
                                     </p>  
@@ -285,10 +281,8 @@ $managers = $data['managers'];
                                 Corporate service department
                             </p>
                         </div>
-
                         <?php
-                        foreach ($managers as $key => $cosd)
-                        {
+                        foreach ($managers as $key => $cosd) {
                             if (isset($cosd['name'])) {
                                 $cosdName =  substr($cosd['name'], 0, 1);
                             }
@@ -303,7 +297,7 @@ $managers = $data['managers'];
                                     <span class="fw-normal">' . $cosd['initials'] . ' ' . $cosd['name'] . ' ' . $cosd['surname'] . '</span><br>
                                     <span class="fw-lighter">' . $cosd['telephone'] . '</span><br>
                                     <span class="fw-lighter small fs-sm text-yellow">
-                                    <a class="text-yellow" href= "mailto: ' . $cosd['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $cosd['email'] .'"></i></a>
+                                    <a class="text-yellow" href= "mailto: ' . $cosd['email'] . '"><i class="bi bi-envelope"></i></a>
                                     
                                     </span>
                                     <br>
@@ -313,7 +307,6 @@ $managers = $data['managers'];
                                 </div>';
                             }
                         }
-                        
                         ?>
 
                         <div class="col-md-12 col-lg-12 text-center">
@@ -353,7 +346,7 @@ $managers = $data['managers'];
                                             <span class="fw-normal">' . $csd['initials'] . ' ' . $csd['name'] . ' ' . $csd['surname'] . '</span><br>
                                             <span class="fw-lighter">' . $csd['telephone'] . '</span><br>
                                             <span class="fw-lighter small fs-sm text-yellow">
-                                            <a class="text-yellow" href= "mailto: ' . $csd['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $csd['email'] .'"></i></a>
+                                            <a class="text-yellow" href= "mailto: ' . $csd['email'] . '"><i class="bi bi-envelope"></i></a>
                                             
                                             </span>
                                             <br>
@@ -402,7 +395,7 @@ $managers = $data['managers'];
                                         <span class="fw-normal">' . $pdd['initials'] . ' ' . $pdd['name'] . ' ' . $pdd['surname'] . '</span><br>
                                         <span class="fw-lighter">' . $pdd['telephone'] . '</span><br>
                                         <span class="fw-lighter small fs-sm text-yellow">
-                                        <a class="text-yellow" href= "mailto: ' . $pdd['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $pdd['email'] .'"></i></a>
+                                        <a class="text-yellow" href= "mailto: ' . $pdd['email'] . '"><i class="bi bi-envelope"></i></a>
                                         
                                         </span>
                                         <br>
@@ -456,7 +449,7 @@ $managers = $data['managers'];
                                     <span class="fw-normal">' . $fd['initials'] . ' ' . $fd['name'] . ' ' . $fd['surname'] . '</span><br>
                                     <span class="fw-lighter">' . $fd['telephone'] . '</span><br>
                                     <span class="fw-lighter small fs-sm text-yellow">
-                                    <a class="text-yellow" href= "mailto: ' . $fd['email'] . '"><i class="bi bi-envelope" data-toggle="tooltip" data-placement="top" title="'. $fd['email'] .'"></i></a>
+                                    <a class="text-yellow" href= "mailto: ' . $fd['email'] . '"><i class="bi bi-envelope"></i></a>
                                     
                                     </span><br>
                                 
@@ -477,11 +470,7 @@ $managers = $data['managers'];
                                 <li class="list-group-item">Revenue </li>
                                 <ul>
                         </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+                
     </div>
 
 </div>
