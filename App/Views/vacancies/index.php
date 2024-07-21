@@ -113,7 +113,7 @@ $data = $context->data;
                                     </a>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="#" target="_blank">' . $vacancy['title'] . '</a>
+                                   <a class="text-secondary fw-bold" href="' . url($vacancy['location']) . '" target="_blank">' . $vacancy["title"] . '</a>
                                     </td>
                                     <td>' . $vacancy['reference'] . '</td>
                                     <td> ' . $vacancy['duedate'] . '</td>
