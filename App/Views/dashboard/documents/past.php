@@ -47,11 +47,17 @@ echo '
             echo '
             <div class="card-content">
                 <div class="card-body">
-                    <div class="table-responsive">
-          
+                    <div class="table-responsive">';
 
+                    sort($data);
+
+            foreach($data as $ikey => $aFile){
+                echo '<li>'.$aFile;
+               
+                echo '</li>';
+            }
           
-                    </div>
+                   echo' </div>
                 </div>
             </div>
         </div>

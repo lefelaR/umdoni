@@ -1,7 +1,8 @@
 <?php
 
 namespace Components;
-
+use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
 class DocumentManger
 {
 
@@ -11,42 +12,42 @@ class DocumentManger
     //  get documents from locat
     public static function getDocumentsFromLocation()
     {
-
-
-        $directoryPath = './files/documents/';
+        $directoryPath = './files/past/';
         $aFiles = [];
-        try {
-            // Open the directory
-            if (is_dir($directoryPath)) {
-                $dh = openDir($directoryPath);
-                if ($dh != null) {
-                    // Loop through the directory
-                    while (($file = readdir($dh)) !== false) {
-                        // Skip the current and parent directory links
-                        if ($file != "." && $file != "..") {
-                            // Display the file name
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($directoryPath, RecursiveDirectoryIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::SELF_FIRST
+        );
+        
 
-                            array_push($aFiles, $file);
-                  
+
+
+        // foreach ($iterator as $fileInfo) {
+        //     if ($fileInfo->isFile()) {
+        //         $filePath = $fileInfo->getPathname();
+        //         array_push($aFiles,  $filePath);
+        //     }
+        // }
+
+        $filesByFolder = [];
+
+                foreach ($iterator as $fileInfo) {
+                    if ($fileInfo->isFile()) {
+                        $folderPath = $fileInfo->getPath(); // Get the folder path
+                        $fileName = $fileInfo->getFilename(); // Get the file name
+                        $filePath = $fileInfo->getPathname(); // Full path to the file
+
+                        // Read the file content
+                        $content = file_get_contents($filePath);
+
+                        // Organize files by folder
+                        if (!isset($filesByFolder[$folderPath])) {
+                            $filesByFolder[$folderPath] = [];
+                        }
+                        $filesByFolder[$folderPath][$fileName] = $content;
                     }
-                    // Close the directory
-                    closedir($dh);
-                } else {
-                    echo "Unable to open directory.";
                 }
-            } else {
-                throw new Exception("Error Processing Request", 1);
-            }
-        } catch (\Throwable $e) {
-            dd($e->getMessage());
-        }
-        }
+        return $filesByFolder;
+    }
     
-    }
-
-
-    public function openDir($directoryPath)
-    {
-      return  $dh = opendir($directoryPath);
-    }
 }

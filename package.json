@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/lefelaR/portfoliio#readme",
   "dependencies": {
+    "axios": "^1.7.2",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
