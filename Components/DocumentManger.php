@@ -1,7 +1,8 @@
 <?php
 
 namespace Components;
-
+use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
 class DocumentManger
 {
 
@@ -13,40 +14,25 @@ class DocumentManger
     {
 
 
-        $directoryPath = './files/documents/';
+        $directoryPath = './files/';
         $aFiles = [];
-        try {
-            // Open the directory
-            if (is_dir($directoryPath)) {
-                $dh = openDir($directoryPath);
-                if ($dh != null) {
-                    // Loop through the directory
-                    while (($file = readdir($dh)) !== false) {
-                        // Skip the current and parent directory links
-                        if ($file != "." && $file != "..") {
-                            // Display the file name
+        $route = '';
+       
 
-                            array_push($aFiles, $file);
-                  
-                    }
-                    // Close the directory
-                    closedir($dh);
-                } else {
-                    echo "Unable to open directory.";
-                }
-            } else {
-                throw new Exception("Error Processing Request", 1);
+
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($directoryPath, RecursiveDirectoryIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::SELF_FIRST
+        );
+        
+        foreach ($iterator as $fileInfo) {
+            if ($fileInfo->isFile()) {
+                $filePath = $fileInfo->getPathname();
+                array_push($aFiles,  $filePath);
             }
-        } catch (\Throwable $e) {
-            dd($e->getMessage());
         }
-        }
+
+        return $aFiles;
+    }
     
-    }
-
-
-    public function openDir($directoryPath)
-    {
-      return  $dh = opendir($directoryPath);
-    }
 }

@@ -53,7 +53,7 @@ class Documents extends \Core\Controller
         $aFiles = DocumentManger::getDocumentsFromLocation();
         
 
-      view::render('dashboard/documents/past.php', array(), 'dashboard');
+      view::render('dashboard/documents/past.php', $aFiles, 'dashboard');
     }
 
     public function addAction()
