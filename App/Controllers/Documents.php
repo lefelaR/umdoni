@@ -11,7 +11,7 @@ namespace App\Controllers;
 
 use \Core\View;
 use App\Models\DocumentModel;
-
+use Components\DocumentManger;
 class Documents extends \Core\Controller
 {
 
@@ -113,6 +113,15 @@ class Documents extends \Core\Controller
         $led = DocumentModel::GET();
         view::render('documents/led.php', $led, 'default');
     }
+
+
+    public function pastAction()
+    {
+         // get all the files in derectory
+         $aFiles = DocumentManger::getDocumentsFromLocation();
+         view::render('documents/past.php', $aFiles, 'default');
+    }
+
     /**
      * After filter
      *
