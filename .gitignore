@@ -17,6 +17,5 @@ Config.php
 Context.php
 /public/themes
 
-
 npm-debug.log*
 yarn-debug.log*
