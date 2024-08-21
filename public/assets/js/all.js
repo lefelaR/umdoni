@@ -211,11 +211,9 @@ const hideStatusModal = () => {
   modal.classList.remove("show");
 };
 
-document
-  .getElementById("userStatusModalCancel")
-  .addEventListener("click", function () {
-    hideStatusModal();
-  });
+// document.getElementById("userStatusModalCancel").addEventListener("click", function () {
+//     hideStatusModal();
+//   });
 
 const handlePost = async (url = "", data = {}) => {
   var result;
