@@ -5,11 +5,11 @@
                 <form action="updatePassword" method="POST" class="form">
                 <div class="form-group">
                   <label for="helperText">Password</label>
-                  <input type="password" id="updatepassword" name="password" class="form-control" value="">
+                  <input type="password" id="updatepassword" name="password" class="form-control" value="" autocomplete="">
                 </div>
                 <div class="form-group">
                   <label for="helperText">Confirm Password</label>
-                  <input type="password" id="confirmupdatepassword" name="confirm" class="form-control" value="">
+                  <input type="password" id="confirmupdatepassword" name="confirm" class="form-control" value="" autocomplete="">
                 </div>
                 </form>
             </div>
