@@ -26,6 +26,7 @@ class Quotations extends \Core\Controller
     private $userPoolId;
     private $region;
     private $awsSecretAccessKey; 
+    private $Component;
 
 
     public function __construct()
@@ -36,6 +37,7 @@ class Quotations extends \Core\Controller
         $this->region = $_ENV['AWS_REGION'];
         $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
         $this->bucketName = $_ENV['BUCKET_NAME'];
+        $this->Component = "quotations";
     }
     public function indexAction()
     {
@@ -63,7 +65,7 @@ class Quotations extends \Core\Controller
         global $context;
         $objectKey = ""; 
              if (isset($_FILES)) {
-                $destination = UploadToSite::upload($_FILES, 'quotations');
+                $destination = UploadToSite::upload($_FILES,  $this->Component);
             }
         if (isset($_POST)) $data = $_POST;
         $data['status'] = 1;

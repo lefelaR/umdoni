@@ -69,7 +69,7 @@ if (isset($context->errors['message'])) {
                                 </div>
                             </div>
                             <div class="form-group position-relative has-icon-left mb-4">
-                                <input type="password" class="form-control form-control-xl" name="confirm_password" placeholder="Retype Password">
+                                <input type="password" class="form-control form-control-xl" name="confirm_password" placeholder="Retype Password" >
                                 <div class="form-control-icon">
                                   
                                 </div>

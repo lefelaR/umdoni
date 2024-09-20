@@ -77,7 +77,7 @@ $data = $context->data;
     </div>
 
 <div>
-    <a href="">Past documents</a>
+    <!-- <a href="">Past documents</a> -->
 </div>
 
     <div class="row align-items-center">

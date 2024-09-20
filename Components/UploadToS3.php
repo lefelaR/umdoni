@@ -1,13 +1,15 @@
 <?php
+strict_types;
 
 namespace Components;
 
+use Aws\S3\ObjectUploader;
 use Aws\S3\S3Client;
 use Intervention\Image\ImageManagerStatic as Image;
 
 
 
-class UploadToS3
+class UploadToS3 extends ObjectUploader
 {
     private $bucketName;
     private $awsAccessKeyId;
