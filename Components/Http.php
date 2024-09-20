@@ -23,19 +23,13 @@ class Http{
 
     }
 
-
     public function Get()
     {
 
     }
 
-
     public function Post()
     {
 
     }
-
-    
-
-
 }

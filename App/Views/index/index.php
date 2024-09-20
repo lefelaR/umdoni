@@ -167,7 +167,7 @@ $data = $context->data;
                     <div class="card-body">
                         <i class="bi bi-journals fs-1 text-yellow"></i>
                         <p class="h5 fw-bold text-blue">Documents Library</p>
-                        <p class="fw-normal p-1 text-secondary">Find your local trash pick-up days, utitlities and more.</p>
+                        <p class="fw-normal p-1 text-secondary">Access important documents related to Umdoni Municipality.</p>
                     </div>
                 </div>
             </a>

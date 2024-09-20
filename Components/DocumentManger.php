@@ -20,15 +20,6 @@ class DocumentManger
         );
         
 
-
-
-        // foreach ($iterator as $fileInfo) {
-        //     if ($fileInfo->isFile()) {
-        //         $filePath = $fileInfo->getPathname();
-        //         array_push($aFiles,  $filePath);
-        //     }
-        // }
-
         $filesByFolder = [];
 
                 foreach ($iterator as $fileInfo) {
