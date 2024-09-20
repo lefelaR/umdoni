@@ -91,6 +91,32 @@ function hidePreloader() {
   preloader.style.display = "none";
 }
 
+function downloadHtmlAsXlxs(data)
+{
+debugger
+  $.ajax({
+    method: "POST",
+    url: "/internal/v1/booker/guest/invoices-history",
+    data: {
+      userId: $('#invoice-history').attr('data-userId'),
+      pageLimit: $('#invoice-history').attr('data-amount-per-page-records'),
+      page: $('#invoice-history').attr('data-page'),
+      dateRange: $('#invoice-history').attr('data-dateRange')
+    },
+    success: function (response) {
+      if (response.ajaxHtml) {
+        $('#invoice-history').html(decodeURIComponent(escape(atob(response.ajaxHtml))));
+        
+      }
+    },
+    error: function (resolve) {
+      // showNotificationMessage('error', resolve.responseJSON.reason, 'topCenter', 10000)
+    }
+  });
+
+
+}
+
 function handleDrop(event) {
   event.preventDefault();
   handleFiles(event.dataTransfer.files);
