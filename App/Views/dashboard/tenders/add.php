@@ -96,7 +96,7 @@ echo '
                         
                             foreach ($options as $key => $value) {
                                 $selected = ($status == $key) ? "selected":"";
-                                echo ' <option value="'.$key.'" '.$value.'>'.$value.'</option>';
+                                echo ' <option value="'.$key.'" '.$selected.'>'.$value.'</option>';
                             }
                         echo'    </select>
                     
