@@ -48,7 +48,7 @@ $subtitle = (isset($data['subtitle'])) ? $data['subtitle'] : '';
 $body = (isset($data['body'])) ? $data['body'] : '';
 $reference = (isset($data['reference'])) ? $data['reference'] : '';
 $createdAt = (isset($data['createdAt'])) ? $data['createdAt'] : '';
-$duedate = (isset($data['duedate'])) ? $data['duedate'] : '';
+$duedate = (isset($data['dueDate'])) ? $data['dueDate'] : '';
 $status = (isset($data['status'])) ? $data['status'] : '';
 
 $options = array(
@@ -102,7 +102,7 @@ echo'
                 
                     foreach ($options as $key => $value) {
                         $selected = ($status == $key) ? "selected":"";
-                        echo ' <option value="'.$key.'" '.$value.'>'.$value.'</option>';
+                        echo ' <option value="'.$key.'" '.$selected.'>'.$value.'</option>';
                     }
                 echo'    </select>
             

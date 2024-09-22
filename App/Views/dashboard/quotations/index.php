@@ -84,9 +84,9 @@ $crumbs = getCrumbs();
                                             $status = '<span class="badge bg-light-secondary">Awarded</span>';
                                             break;
 
-                                        default:
-                                        $status =  '<span class="badge bg-light-secondary">Awarded</span>';
-                                            break;
+                                            default:
+                                            $status =  '<span class="badge bg-light-danger">Closed</span>';
+                                                break;
                                     }
                                     
                             echo '
