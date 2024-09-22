@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App;
@@ -14,24 +15,24 @@ class Config
      * Database host
      * @var string
      */
-    const DB_HOST = 'localhost';
+    const DB_HOST = '154.0.170.230';
     /**
      * Database name
      * @var string
      */
-    const DB_NAME = 'umdonigov_admin';
+    const DB_NAME = 'umdonigov_umdoni';
 
     /**
      * Database user
      * @var string
      */
-    const DB_USER = 'root';
+    const DB_USER = 'umdonigov_admin';
 
     /**
      * Database password
      * @var string
      */
-    const DB_PASSWORD = 'Ytmxlz2&';
+    const DB_PASSWORD = '29019WtP98zj23';
 
     /**
      * Show or hide error messages on screen
