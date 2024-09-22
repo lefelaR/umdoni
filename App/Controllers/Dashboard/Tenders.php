@@ -121,6 +121,25 @@ class Tenders extends \Core\Controller
         }
     }
 
+
+    public function switchStatus():void
+    {
+        $data = $_POST;
+        $locked = [
+            'false' => '0',
+            'true' => '1' 
+        ];
+        $data['locked'] = $locked[$data['locked']];
+        $data['updatedAt'] = date("Y-m-d H:i:s");
+        try {
+            $id =  TenderModel::Update($data);
+            $_SESSION['success'] = ['message' => 'successfully updated record!'];
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+        redirect('dashboard/tenders/index');
+    }
+
     protected function before()
     {
         enable_authorize();
