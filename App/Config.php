@@ -16,7 +16,7 @@ class Config
      */
     const DB_HOST = 'reseller142.aserv.co.za';
     /**
-     * Database name
+     * Database namegit 
      * @var string
      */
     const DB_NAME = 'umdonigov_umdoni';
