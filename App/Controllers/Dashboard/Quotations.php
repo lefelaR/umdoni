@@ -127,11 +127,11 @@ public static function getStatusName($status)
         $data = $_POST;
 
         $data['updatedAt'] = date("Y-m-d H:i:s");
-       
 
         try 
         {
-          $id =  Service::updateService($data);
+          $id =  QuotationsModel::Update($data);
+          $_SESSION['success'] = ['message' => 'successfully updated record!'];
         } catch (\Throwable $th) 
         {
             echo $th->getMessage();

@@ -56,7 +56,7 @@ class QuotationsModel extends \Core\Model
 
         $data['status'] = isset($data['status']) ? $data['status'] : 'current';
         $db = static::getDB(); 
-        $sql = "UPDATE quotations SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
+        $sql = "UPDATE quotations SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]',`status` = $data[status]
                WHERE `id`= $data[id]"; 
         $stmt = $db->exec($sql);
 
