@@ -40,8 +40,9 @@ $subtitle = (isset($data['subtitle'])) ? $data['subtitle'] : '';
 $body = (isset($data['body'])) ? $data['body'] : '';
 $reference = (isset($data['reference'])) ? $data['reference'] : '';
 $createdAt = (isset($data['createdAt'])) ? $data['createdAt'] : '';
-$duedate = (isset($data['duedate'])) ? $data['duedate'] : '';
+$duedate = (isset($data['dueDate'])) ? $data['dueDate'] : '';
 $status = (isset($data['status'])) ? $data['status'] : '';
+
 
 
 $options = array(
@@ -105,6 +106,7 @@ echo '
                     <div class="form-group">
                     <label for="helperText">File upload</label>
                         <input type="file" class="form-control" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value=""accept="application/pdf">
+                     
                     </div>
                 
                     <div class="form-group">
