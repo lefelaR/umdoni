@@ -14,24 +14,24 @@ class Config
      * Database host
      * @var string
      */
-    const DB_HOST = '154.0.170.230';
+    const DB_HOST = 'localhost';
     /**
      * Database name
      * @var string
      */
-    const DB_NAME = 'umdonigov_umdoni';
+    const DB_NAME = 'umdonigov_admin';
 
     /**
      * Database user
      * @var string
      */
-    const DB_USER = 'umdonigov_admin';
+    const DB_USER = 'root';
 
     /**
      * Database password
      * @var string
      */
-    const DB_PASSWORD = '29019WtP98zj23';
+    const DB_PASSWORD = 'Ytmxlz2&';
 
     /**
      * Show or hide error messages on screen
