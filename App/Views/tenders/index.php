@@ -97,7 +97,6 @@ foreach ($data as $tenderkey => $tenderValue) {
 
     <div class="row mt-5">
         <div class=" col-md-12 col-lg-12 col-sm-12">
-
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">
@@ -144,13 +143,9 @@ foreach ($data as $tenderkey => $tenderValue) {
                             </thead>
                             <tbody>
                                 <?php
-
-
-
-
                                 foreach ($currentTenders as $currentTenderkey => $currentTender) {
                                     $currentTenderkey++;
-                                    echo '
+                                    echo'
                                 <tr>
                                     <th scope="row">
                                     <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">

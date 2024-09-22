@@ -40,7 +40,18 @@ $subtitle = (isset($data['subtitle'])) ? $data['subtitle'] : '';
 $body = (isset($data['body'])) ? $data['body'] : '';
 $reference = (isset($data['reference'])) ? $data['reference'] : '';
 $createdAt = (isset($data['createdAt'])) ? $data['createdAt'] : '';
-$duedate = (isset($data['duedate'])) ? $data['duedate'] : '';
+$duedate = (isset($data['dueDate'])) ? $data['dueDate'] : '';
+$status = (isset($data['status'])) ? $data['status'] : '';
+
+
+
+$options = array(
+    "1" => "Current",
+    "2" =>"Open",
+    "3" => "Awarded",
+    "4" => "Closed",
+);
+
 
 echo '
 <div class="card">
@@ -77,9 +88,25 @@ echo '
                         <input type="date" id="duedate" name="duedate" class="form-control" value="' . $duedate . '">
                     </div>
 
+
+                      <div class="form-group">
+
+                        <label for="helperText">Status</label>
+                         <select class="form-select" id="status" name="status" value="'.$status.'">';
+                        
+                            foreach ($options as $key => $value) {
+                                $selected = ($status == $key) ? "selected":"";
+                                echo ' <option value="'.$key.'" '.$value.'>'.$value.'</option>';
+                            }
+                        echo'    </select>
+                    
+                    </div>
+
+
                     <div class="form-group">
                     <label for="helperText">File upload</label>
                         <input type="file" class="form-control" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value=""accept="application/pdf">
+                     
                     </div>
                 
                     <div class="form-group">

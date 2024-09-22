@@ -53,7 +53,7 @@ class TenderModel extends \Core\Model
     public static function Update($data)
     {
         $db = static::getDB(); 
-        $sql = "UPDATE tenders SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]'
+        $sql = "UPDATE tenders SET `title` =  '$data[title]', `subtitle` = '$data[subtitle]', `body`= '$data[body]', `updatedAt`= '$data[updatedAt]', `status` = $data[status]
                WHERE `id`= $data[id]"; 
         $stmt = $db->exec($sql);
 
