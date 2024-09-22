@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App;
@@ -15,7 +14,7 @@ class Config
      * Database host
      * @var string
      */
-    const DB_HOST = '154.0.170.230';
+    const DB_HOST = 'reseller142.aserv.co.za';
     /**
      * Database name
      * @var string
@@ -32,7 +31,7 @@ class Config
      * Database password
      * @var string
      */
-    const DB_PASSWORD = '29019WtP98zj23';
+    const DB_PASSWORD = '29019WtP98zj23&';
 
     /**
      * Show or hide error messages on screen
