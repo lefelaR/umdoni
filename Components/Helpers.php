@@ -3,14 +3,15 @@ function url($string = '')
 {
     global $context;
     $siteroot = $context->siteroot . 'public';
-    if (strpos($string, '.')) $string = '/' . $string;
-    return   $siteroot . $string;
+    if (strpos($string, '.'))
+        $string = '/' . $string;
+    return $siteroot . $string;
 }
 
 
 function findInPublic($string)
 {
-    return 'public/'.$string;
+    return 'public/' . $string;
 }
 
 function buildurl($string)
@@ -57,7 +58,7 @@ function useClass($classname)
             if (file_exists($context->siteroot . 'components/' . trim($item) . '.php')) {
                 require $context->siteroot . 'components/' . trim($item) . '.php';
             } else {
-                require  'api/v1/components/' . trim($item) . '.php';
+                require 'api/v1/components/' . trim($item) . '.php';
             }
         }
     }
@@ -85,7 +86,7 @@ function getCrumbs()
 
 function getPostData()
 {
-    return   $_GET;
+    return $_GET;
 }
 
 function getFile()
@@ -102,7 +103,8 @@ function formatDate($date)
 
 
 
-function timeAgo( $time): string {
+function timeAgo($time): string
+{
     $time = new DateTime($time);
     $now = new DateTime();
     $diff = $now->diff($time);
@@ -127,12 +129,18 @@ function timeAgo( $time): string {
 }
 
 function dd($dump)
-{   
+{
     echo "<pre>";
     var_dump($dump);
     echo "</pre>";
     die;
+}
 
+function dump($dump)
+{
+    echo "<pre>";
+    var_dump($dump);
+    echo "</pre>";
 }
 
 function logout()
