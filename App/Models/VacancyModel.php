@@ -36,8 +36,9 @@ class VacancyModel extends \Core\Model
     public static function getById($id)
     {
         try {
+          
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM umdoni.vacancies WHERE id = $id");
+            $stmt = $db->query("SELECT * FROM vacancies WHERE id = $id");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {

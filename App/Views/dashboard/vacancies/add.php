@@ -2,7 +2,7 @@
 
 global $context;
 if(!is_null($context->data)) 
-        $data = $context->data;
+        $data = $context->data[0];
 
 
 $crumbs = getCrumbs();
