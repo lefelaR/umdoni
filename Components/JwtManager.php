@@ -18,7 +18,7 @@ class JwtManager
         $base64UrlSignature = $this->base64UrlEncode($base64UrlSignature);
         return $base64UrlHeader . '.' . $base64UrlPayload . '.' . $base64UrlSignature;
     }
-    }
+    
     public function validateToken($token)
     {
         // Implementation for validating JWT
