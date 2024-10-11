@@ -21,7 +21,7 @@ class VacancyModel extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM vacancies WHERE `isActive` = 1');
+            $stmt = $db->query('SELECT * FROM vacancies WHERE `isActive` = 1 order by `createdAt` DESC');
 
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
