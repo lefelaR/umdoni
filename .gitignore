@@ -21,5 +21,6 @@ vendor
 .Context.php
 
 /public/themes
+/public/files/*
 npm-debug.log*
 yarn-debug.log*

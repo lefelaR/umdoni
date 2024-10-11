@@ -2,14 +2,12 @@
 global $context;
 $data = $context->data;
 // array_column
-
-
 ?>
 
 <style>
     #service-page {
         background-image: linear-gradient(rgba(15, 7, 50, 0.079), rgba(12, 3, 51, 0.084)),
-            url('<?php echo url("assets/img/strips/Umdoni-Building_strip.jpg") ?>');
+            url('<?php echo url("/assets/img/strips/Umdoni-Building_strip.jpg") ?>');
         min-height: 40vh;
         position: relative;
         background-repeat: no-repeat;
@@ -73,62 +71,48 @@ $data = $context->data;
     </div>
 
     <div class="row mt-5">
-        <div class=" col-md-12 col-lg-12 col-sm-12">
-
-           
+        <div class=" col-md-12 col-lg-12 col-sm-12">  
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                    <div class="mt-5">
-                        <table class="table" id="table1">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col"></th>
-                                    <th scope="col">
-                                        <p class="text-uppercase ">
-                                            Title
-                                        </p>
-                                    </th>
-                                    <th scope="col">
-                                        <p class="text-uppercase ">
-                                            Reference
-                                        </p>
-                                    </th>
-                                    <th scope="col">
-                                        <p class="text-uppercase ">
-                                            Closing Date
-                                        </p>
-                                    </th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div class="mt-5 row">
+                        
                                 <?php
                                 foreach ($data as $key => $vacancy) {
                                     $key++;
+                                    $link = ltrim($vacancy['location'],'.');
+                                    
                                     echo '
-                                <tr>
-                                    <th scope="row">
-                                     <a class="text-secondary fw-bold" href="' . url($vacancy['location']) . '" target="_blank">
-                                     <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
-                                    </a>
-                                    </th>
-                                    <td>
-                                   <a class="text-secondary fw-bold" href="' . url($vacancy['location']) . '" target="_blank">' . $vacancy["title"] . '</a>
-                                    </td>
-                                    <td>' . $vacancy['reference'] . '</td>
-                                    <td> ' . $vacancy['duedate'] . '</td>
-                                </tr>
+                                            <div class="col-md-4 col-lg-4 col-sm-12">
+                                                <a href="' . buildurl('vacancies/details?id=' . $vacancy['id']) . '">
+                                                    <div class="card mb-3 card-hover" style="max-width: 540px;">
+                                                        
+                                                            <div class="row g-0">
+                                                                <div class="col-md-4">';
+                                                                 
+                                                                        echo ' <img src="' . url('assets/img/LOGOS/logo.png') . '" class="img-fluid rounded-start" style="object-fit: cover; height: 130px;">';
+                                                                    
+                                                                  
+                                                                        echo '
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div class="card-body">
+                                                                        <h5 class="card-title">' . $vacancy['title'] . '</h5>
+                                                                        <p class=" text-truncate">' . $vacancy['description'] . '</p>
+                                                                    
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                          
                                   ';
                                 }
-
                                 ?>
-                            </tbody>
-                        </table>
+
                     </div>
                 </div>
-
-                 
-            </div>
+            </div>   
         </div>
     </div>
 </div>
