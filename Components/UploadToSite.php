@@ -15,7 +15,7 @@ class UploadToSite
         $sMonth = getMonth();
 
         if (isset($aFile)) {
-            $location = './files/' . $sFolder . '/' . $sYear . '/' . $sMonth . '/';
+            $location = '/files/' . $sFolder . '/' . $sYear . '/' . $sMonth . '/';
             if (count($aFile) > 0) {
                 $filePath = $aFile['name']['tmp_name'];
                 $objectKey = $aFile['name']['name'];
