@@ -21,7 +21,7 @@ class NoticeModel extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM notices WHERE `isActive` = 1');
+            $stmt = $db->query('SELECT * FROM notices WHERE `isActive` = 1 order by `createdAt` DESC');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
