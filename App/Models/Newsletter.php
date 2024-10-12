@@ -21,7 +21,7 @@ class Newsletter extends \Core\Model
   
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM newsletters ORDER BY createdAt');
+            $stmt = $db->query('SELECT * FROM newsletters ORDER BY createdAt DESC');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
             return $results;

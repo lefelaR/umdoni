@@ -97,7 +97,7 @@ function getFile()
 function formatDate($date)
 {
     $dateTime = new DateTime($date);
-    $formatedDate = date_format($dateTime, 'Y-m-d');
+    $formatedDate = date_format($dateTime, 'd-m-Y' );
     return $formatedDate;
 }
 

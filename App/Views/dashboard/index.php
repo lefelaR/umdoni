@@ -130,7 +130,7 @@ $data = $context->data;
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Profile Visit</h4>
+                            <h4>Activit log</h4>
                         </div>
                         <div class="card-body">
                             <div id="chart-profile-visit"></div>
