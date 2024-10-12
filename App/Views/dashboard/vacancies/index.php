@@ -72,7 +72,7 @@ echo '
                                     <td>' . $service['title'] . '</td>
                                     <td>' . $service['subtitle'] . '</td>
                                     <td> ' . $service['description'] . '</td>
-                                    <td>' . $service['createdAt'] . '</td>
+                                    <td>' .formatDate($service['createdAt']) . '</td>
                                     <td>
                                         <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">
                                         <i class="bi bi-pencil"></i>

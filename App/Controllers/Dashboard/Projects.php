@@ -10,37 +10,24 @@
 namespace App\Controllers\Dashboard;
 
 use \Core\View;
-use App\Models\Project;
+use App\Models\ProjectsModel;
 use App\Models\Request;
 use Aws\S3\S3Client;
+use \Components\AwsAuthentications;
 
 class Projects extends \Core\Controller
 {
 
 
 
-    private $bucketName;
-    private $awsAccessKeyId;
-    private $clientId;
-    private $userPoolId;
-    private $region;
-    private $awsSecretAccessKey;
-
-
     public function __construct()
     {
-        $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
-        $this->clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
-        $this->userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
-        $this->region = $_ENV['AWS_REGION'];
-        $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
-        $this->bucketName = $_ENV['BUCKET_NAME'];
     }
 
     public function indexAction()
     {
 
-        $projects = Project::Get();
+        $projects = ProjectsModel::Get();
 
         view::render('dashboard/projects/index.php', $projects, 'dashboard');
     }
@@ -58,7 +45,7 @@ class Projects extends \Core\Controller
 
         if (isset($data['id'])) {
             $id = $data['id'];
-            $project = Project::getById($id);
+            $project = ProjectsModel::getById($id);
         } else
             $project = array();
         view::render('dashboard/projects/add.php', $project, 'dashboard');
@@ -70,10 +57,10 @@ class Projects extends \Core\Controller
         global $context;
 
         if (isset($_FILES)) {
-            $bucketName = $this->bucketName;
-            $awsAccessKeyId =   $this->awsAccessKeyId;
-            $awsSecretAccessKey =  $this->awsSecretAccessKey;
-            $region =  $this->region;
+            $bucketName =  (new AwsAuthentications())->getBucketName();
+            $awsAccessKeyId =   (new AwsAuthentications())->getAwsAccessKeyId();
+            $awsSecretAccessKey =  (new AwsAuthentications())->getAwsSecretAccessKey();
+            $region =  (new AwsAuthentications())->getRegion(); 
             $loc = '';
 
             $s3 = new S3Client([
@@ -108,7 +95,7 @@ class Projects extends \Core\Controller
         $data['location'] = isset($result) ? $result['ObjectURL'] : "";
 
         try {
-            $id =  Project::Save($data);
+            $id =  ProjectsModel::Save($data);
            
         } catch (\Throwable $th) {
           echo  $th->getMessage();
@@ -160,7 +147,7 @@ class Projects extends \Core\Controller
        
         $data['updatedAt'] = date("Y-m-d H:i:s");
         try {
-            $id =  Project::update($data);
+            $id =  ProjectsModel::update($data);
             if ($id) $_SESSION['success'] = ['message' => "Updated"];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
@@ -172,7 +159,7 @@ class Projects extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-            Project::Delete($id);
+            ProjectsModel::Delete($id);
             $_SESSION['success'] = ['message' => "Deleted"];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];

@@ -57,12 +57,13 @@ $data = $context->data;
                                 foreach ($data as $key => $service) {
                                     $key++;
                                     echo '
-                                <tr>
+                                <tr data-id="'.$service['id'].'">
                                     <td class="text-bold-500">' . $key . '</td>
                                     <td>' . $service['title'] . '</td>
                                     <td>' . $service['subtitle'] . '</td>
                                     <td>' . $service['body'] . '</td>
-                                    <td class="text-bold-500">' . $service['updatedBy'] . '</td>
+                                       
+                                     <td class="text-bold-500">' .  formatDate( $service['updatedBy'])  . '</td>
                                     <td>
                                        
                                         <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">

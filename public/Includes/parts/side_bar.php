@@ -65,7 +65,7 @@ $sidebarItems = [
     'hasSub' => true,
     'subItems' => [
       (object)['label' => 'Documents', 'url' => buildurl("dashboard/documents/index")],
-      (object)['label' => 'Past', 'url' => buildurl("dashboard/documents/past")],
+      // (object)['label' => 'Past', 'url' => buildurl("dashboard/documents/past")],
     ]
   ],
 

@@ -156,7 +156,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                     <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">' . $currentTender["title"] . '</a>
                                     </td>
                                     <td>' . $currentTender['reference'] . '</td>
-                                    <td>'.$currentTender['createdAt'].'</td>
+                                    <td>'.formatDate($currentTender['createdAt']).'</td>
                                     <td> ' . $currentTender['dueDate'] . '</td>
                                 </tr>
                                   ';
@@ -209,7 +209,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                         <a class="text-secondary fw-bold" href="' . url($openTender['location']) . '" target="_blank">' . $openTender["title"] . '</a>
                                     </td>
                                     <td>' . $openTender['reference'] . '</td>
-                                    <td>'.$openTender['createdAt'].'</td>
+                                    <td>'.formatDate($openTender['createdAt']).'</td>
                                     <td> ' . $openTender['dueDate'] . '</td>
                                 </tr>
                                   ';
@@ -263,7 +263,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                         <a class="text-secondary fw-bold" href="' . url($awardedTender['location']) . '" target="_blank">' . $awardedTender["title"] . '</a>
                                     </td>
                                     <td>' . $awardedTender['reference'] . '</td>
-                                    <td>'.$awardedTender['createdAt'].'</td>
+                                    <td>'.formatDate($awardedTender['createdAt']).'</td>
                                     <td> ' . $awardedTender['dueDate'] . '</td>
                                 </tr>
                                   ';

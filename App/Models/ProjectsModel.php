@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class Project extends \Core\Model
+class ProjectsModel extends \Core\Model
 {
 
     /**
@@ -22,7 +22,7 @@ class Project extends \Core\Model
 
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM projects WHERE `isActive` = 1');
+            $stmt = $db->query('SELECT * FROM projects WHERE `isActive` = 1 order by `createdAt` DESC');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
             
