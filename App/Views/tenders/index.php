@@ -146,7 +146,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 foreach ($currentTenders as $currentTenderkey => $currentTender) {
                                     $currentTenderkey++;
                                     echo'
-                                <tr>
+                                <tr data-id="'.$currentTender['id'].'">
                                     <th scope="row">
                                     <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
@@ -157,7 +157,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                     </td>
                                     <td>' . $currentTender['reference'] . '</td>
                                     <td>'.formatDate($currentTender['createdAt']).'</td>
-                                    <td> ' . $currentTender['dueDate'] . '</td>
+                                    <td> ' .formatDate( $currentTender['dueDate']) . '</td>
                                 </tr>
                                   ';
                                 }
@@ -202,7 +202,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 foreach ($openTenders as $openTenderkey => $openTender) {
                                     $openTenderkey++;
                                     echo '
-                                <tr>
+                                <tr data-id="'.$openTender['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
@@ -256,7 +256,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 {
                                     $awardedTenderKey++;
                                     echo '
-                                <tr>
+                             <tr data-id="'.$awardedTender['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
