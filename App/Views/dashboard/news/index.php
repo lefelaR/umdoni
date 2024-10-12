@@ -68,7 +68,7 @@ echo '
                                     <td>' . $news['title'] . '</td>
                                     <td>' . $news['subtitle'] . '</td>
                                     <td> ' . $news['body'] . '</td>
-                                    <td>' . $news['createdAt'] . '</td>
+                                    <td>' . formatDate($news['createdAt']) . '</td>
                                     <td>
                                         <a class="btn  btn-sm" href="add?id=' .  $news['id'] . '">
                                         <i class="bi bi-pencil"></i>

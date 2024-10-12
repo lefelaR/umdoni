@@ -16,6 +16,7 @@ class UploadToSite
 
         if (isset($aFile)) {
             $location = '/files/' . $sFolder . '/' . $sYear . '/' . $sMonth . '/';
+
             if (count($aFile) > 0) {
                 $filePath = $aFile['name']['tmp_name'];
                 $objectKey = $aFile['name']['name'];
@@ -35,28 +36,29 @@ class UploadToSite
 
             }
         }
-       
+
     }
-
-}
-
-
-
-function getFolder()
-{
-    $url = explode('/', $_SERVER['REQUEST_URI']);
-    foreach ($url as $key => $value) {
-        if ($value == 'dashboard') {
-            $folder = $url[$key + 1];
+    function getFolder()
+    {
+        $url = explode('/', $_SERVER['REQUEST_URI']);
+        foreach ($url as $key => $value) {
+            if ($value == 'dashboard') {
+                $folder = $url[$key + 1];
+            }
         }
+        return $folder;
     }
-    return $folder;
+
+
+    function createDir($sPath =""): string
+    {
+        $sPath = str_replace("", "/", $sPath);
+        return $sPath;
+    }
+
 }
 
 
-function createDir(string $sPath): string
-{
-    $sPath = str_replace("", "/", $sPath);
 
-}
+
 ?>

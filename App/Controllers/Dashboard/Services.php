@@ -9,40 +9,25 @@
 
 namespace App\Controllers\Dashboard;
 
-use App\Models\Requests;
 use \Core\View;
-use App\Models\User;
 use App\Models\Service;
 use App\Models\Request;
-use DateTime;
 use Aws\S3\S3Client;
-
+use \Components\AwsAuthentications;
 class Services extends \Core\Controller
 {
 
-    private $bucketName;
-    private $awsAccessKeyId;
-    private $clientId;
-    private $userPoolId;
-    private $region;
-    private $awsSecretAccessKey;
-
 
     public function __construct()
-    {
-        $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
-        $this->clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
-        $this->userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
-        $this->region = $_ENV['AWS_REGION'];
-        $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
-        $this->bucketName = $_ENV['BUCKET_NAME'];
+    { 
     }
 
 
 
     public function indexAction()
     {
-        $services = Service::getAll();
+$services = Service::getAll();
+
         view::render('dashboard/services/index.php', $services, 'dashboard');
     }
 
@@ -73,10 +58,10 @@ class Services extends \Core\Controller
 
         if (isset($_FILES)) {
 
-            $bucketName = $this->bucketName;
-            $awsAccessKeyId = $this->awsAccessKeyId;
-            $awsSecretAccessKey = $this->awsSecretAccessKey;
-            $region =  $this->region;
+            $bucketName =  (new AwsAuthentications())->getBucketName();
+            $awsAccessKeyId =   (new AwsAuthentications())->getAwsAccessKeyId();
+            $awsSecretAccessKey =  (new AwsAuthentications())->getAwsSecretAccessKey();
+            $region =  (new AwsAuthentications())->getRegion(); 
 
             $s3 = new S3Client([
                 'version' => 'latest',

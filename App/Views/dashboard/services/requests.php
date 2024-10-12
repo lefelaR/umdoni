@@ -70,7 +70,7 @@ echo '
                                     <td class="text-bold-500">' . $request['telephone'] . '</td>
                                     <td>' . $request['servicetype'] . '</td>
                                     <td>' . $request['comments'] . '</td>
-                                    <td>' . $request['createdAt'] . '</td>
+                                    <td>' .formatDate( $request['createdAt']) . '</td>
                                     <td>
                                         <a class="btn  btn-sm" href="check?id=' .  $request['id'] . '">
                                         <i class="bi bi-check-square"></i>
