@@ -12,37 +12,20 @@ namespace App\Controllers\Dashboard;
 use \Core\View;
 use App\Models\EventModel;
 use Aws\S3\S3Client;
-
+use \Components\AwsAuthentications;
 class Events extends \Core\Controller
 {
-
-
-    private $bucketName;
-    private $awsAccessKeyId;
-    private $clientId;
-    private $userPoolId;
-    private $region;
-    private $awsSecretAccessKey; 
 
 
 
     public function __construct()
     {
-        $this->awsAccessKeyId  = $_ENV['AWS_ACCESS_KEY_ID'];
-        $this->clientId = $_ENV['AWS_COGNITO_CLIENT_ID'];
-        $this->userPoolId = $_ENV['AWS_COGNITO_USER_POOL_ID'];
-        $this->region = $_ENV['AWS_REGION'];
-        $this->awsSecretAccessKey  =  $_ENV['AWS_SECRET_ACCESS_KEY'];
-        $this->bucketName = $_ENV['BUCKET_NAME'];
     }
 
     public function indexAction()
     {
-        // get information from the model and inject it into the viewport
-        //    name an object that will carry all dashboard items
-        // $dashboard = array();
+  
         $events = EventModel::getAll();
-
         view::render('dashboard/events/index.php', $events, 'dashboard');
     }
     public function addAction()
@@ -60,10 +43,10 @@ class Events extends \Core\Controller
         global $context;
 
         if (isset($_FILES)) {
-            $bucketName = $this->bucketName;
-            $awsAccessKeyId =   $this->awsAccessKeyId;
-            $awsSecretAccessKey =  $this->awsSecretAccessKey;
-            $region =  $this->region; // Change to your desired region
+            $bucketName =  (new AwsAuthentications())->getBucketName();
+            $awsAccessKeyId =   (new AwsAuthentications())->getAwsAccessKeyId();
+            $awsSecretAccessKey =  (new AwsAuthentications())->getAwsSecretAccessKey();
+            $region =  (new AwsAuthentications())->getRegion(); // Change to your desired region
 
             $s3 = new S3Client([
                 'version' => 'latest',

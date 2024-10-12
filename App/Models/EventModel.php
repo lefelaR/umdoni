@@ -20,7 +20,7 @@ class EventModel extends \Core\Model
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM events WHERE `isActive` = 1');
+            $stmt = $db->query('SELECT * FROM events WHERE `isActive` = 1 order by `createdAt` DESC');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
@@ -58,7 +58,7 @@ class EventModel extends \Core\Model
     public static function Update($data)
     {
         $db = static::getDB();
-        $sql = "UPDATE umdoni.events SET
+        $sql = "UPDATE events SET
         `title` = :title,
         `subtitle`= :subtitle,
         `body` = :body,

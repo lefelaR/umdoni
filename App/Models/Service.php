@@ -23,7 +23,7 @@ class Service extends \Core\Model
 
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM services WHERE `isActive` = 1');
+            $stmt = $db->query('SELECT * FROM services WHERE `isActive` = 1 ORDER BY createdAt DESC');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
             

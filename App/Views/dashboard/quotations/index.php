@@ -96,7 +96,7 @@ $crumbs = getCrumbs();
                                     <td>' . $service['subtitle'] . '</td>
                                     <td>' . $service['body'] . '</td>
                                     <td class="text-bold-500">' . $service['updatedBy'] . '</td>
-                                    <td class="text-bold-500">' . $service['createdAt'] . '</td>
+                                    <td class="text-bold-500">' .formatDate( $service['createdAt']) . '</td>
                                     <td> 
                                         '.$status.'
                                     </td>

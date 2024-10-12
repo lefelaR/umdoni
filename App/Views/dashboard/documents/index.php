@@ -95,7 +95,7 @@ $options = array(
                                     <td>' . $document['subtitle'] . '</td>
                                     <td>' . $document['body'] . '</td>
                                     <td>' . $options[$document['category']] . '</td>
-                                    <td>' . $document['createdAt'] . '</td>
+                                    <td>' .formatDate($document['createdAt']) . '</td>
                                     <td>
                                         <a class="btn  btn-sm btn-danger disabled" href="#" disabled>
                                         <i class="bi bi-pencil"></i>
