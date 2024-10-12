@@ -155,7 +155,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                 foreach ($currentQuotations as $currentQuotationkey => $currentQuotation) {
                                     $currentQuotationkey++;
                                     echo '
-                                <tr>
+                               <tr data-id="'.$currentQuotation['id'].'">
                                     <th scope="row">
                                   
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
@@ -166,7 +166,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     </td>
                                     <td>' . $currentQuotation['reference'] . '</td>
                                     <td>'.formatDate($currentQuotation['createdAt']).'</td>
-                                    <td> ' . $currentQuotation['dueDate'] . '</td>
+                                    <td> ' .formatDate( $currentQuotation['dueDate']) . '</td>
                                 </tr>
                                   ';
                                 }
@@ -211,7 +211,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                 foreach ($openQuotations as $openQuotationkey => $openQuotation) {
                                     $openQuotationkey++;
                                     echo '
-                                <tr>
+                                 <tr data-id="'.$openQuotation['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
@@ -219,7 +219,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     </td>
                                     <td>' . $openQuotation['reference'] . '</td>
                                     <td>'.formatDate($openQuotation['createdAt']).'</td>
-                                    <td> ' . $openQuotation['dueDate'] . '</td>
+                                    <td> ' . formatDate($openQuotation['dueDate']) . '</td>
                                 </tr>
                                   ';
                                 }
@@ -263,7 +263,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                 foreach ($awardedQuotations as $awardedQuotationkey => $awardedQuotation) {
                                     $awardedQuotationkey++;
                                     echo '
-                                <tr>
+                                <tr data-id="'.$awardedQuotation['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
@@ -271,7 +271,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                     </td>
                                     <td>' . $awardedQuotation['reference'] . '</td>
                                     <td>'.formatDate($awardedQuotation['createdAt']).'</td>
-                                    <td> ' . $awardedQuotation['dueDate'] . '</td>
+                                    <td> ' . formatDate($awardedQuotation['dueDate']) . '</td>
                                 </tr>
                                   ';
                                 }
