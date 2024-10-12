@@ -165,7 +165,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                         <a class="text-secondary fw-bold" href="' . url($currentQuotation['location']) . '" target="_blank">' . $currentQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $currentQuotation['reference'] . '</td>
-                                    <td>'.$currentQuotation['createdAt'].'</td>
+                                    <td>'.formatDate($currentQuotation['createdAt']).'</td>
                                     <td> ' . $currentQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';
@@ -218,7 +218,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                         <a class="text-secondary fw-bold" href="' .url($openQuotation['location']) . '" target="_blank">' . $openQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $openQuotation['reference'] . '</td>
-                                    <td>'.$openQuotation['createdAt'].'</td>
+                                    <td>'.formatDate($openQuotation['createdAt']).'</td>
                                     <td> ' . $openQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';
@@ -270,7 +270,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                         <a class="text-secondary fw-bold" href="' . url($awardedQuotation['location']) . '" target="_blank">' . $awardedQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $awardedQuotation['reference'] . '</td>
-                                    <td>'.$awardedQuotation['createdAt'].'</td>
+                                    <td>'.formatDate($awardedQuotation['createdAt']).'</td>
                                     <td> ' . $awardedQuotation['dueDate'] . '</td>
                                 </tr>
                                   ';
