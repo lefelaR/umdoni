@@ -133,7 +133,9 @@ $data = $context->data;
                             <h4>Activity log</h4>
                         </div>
                         <div class="card-body">
-                            <div id="chart-profile-visit"></div>
+                            <div id="chart-profile-visit">
+                                <!-- you can find this data in themes pages dashboard -->
+                            </div>
                         </div>
                     </div>
                 </div>
