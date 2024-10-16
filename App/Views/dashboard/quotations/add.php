@@ -110,7 +110,7 @@ echo'
 
                 <div class="form-group">
                 <label for="helperText">File upload</label>
-                    <input type="file" class="form-control" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value="">
+                    <input type="file" class="form-control" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value=""accept="application/pdf>
                 </div>
             
                 <div class="form-group">

@@ -70,7 +70,7 @@ echo'
 
                         <div class="col-md-6">
                         <div class="form-group">
-                            <input type="file" class="form-control text-black" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value="">
+                            <input type="file" class="form-control text-black" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value=""accept="application/pdf">
                         </div>
                     </div>
 
