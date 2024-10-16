@@ -14,7 +14,7 @@ class Config
      * Database host
      * @var string
      */
-    const DB_HOST = 'reseller142.aserv.co.za';
+    const DB_HOST = 'localhost';
     /**
      * Database namegit 
      * @var string
@@ -25,19 +25,19 @@ class Config
      * Database user
      * @var string
      */
-    const DB_USER = 'umdonigov_admin';
+    const DB_USER = 'root';
 
     /**
      * Database password
      * @var string
      */
-    const DB_PASSWORD = '29019WtP98zj23';
+    const DB_PASSWORD = '';
 
     /**
      * Show or hide error messages on screen
      * @var boolean
      */
-    const SHOW_ERRORS = true;
+    const SHOW_ERRORS = false;
 
 
     /**
