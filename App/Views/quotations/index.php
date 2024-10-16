@@ -212,7 +212,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                 <?php
                                 foreach ($openQuotations as $openQuotationkey => $openQuotation) {
                                     $openQuotationkey++;
-                                    if($openQuotation['dueDate'] > date('Y-m-d'))
+                                    if($openQuotation['dueDate'] > date('Y-m-d')){
                                     echo '
                                  <tr data-id="'.$openQuotation['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
