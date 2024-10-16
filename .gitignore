@@ -20,7 +20,7 @@ vendor
 .components/Context.php
 .Context.php
 
-/public/themes
-/public/files/*
+./public/themes/*
+./public/files/*
 npm-debug.log*
 yarn-debug.log*

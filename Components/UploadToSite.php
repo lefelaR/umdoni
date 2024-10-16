@@ -15,7 +15,7 @@ class UploadToSite
         $sMonth = getMonth();
 
         if (isset($aFile)) {
-            $location = '/files/' . $sFolder . '/' . $sYear . '/' . $sMonth . '/';
+            $location = './files/' . $sFolder . '/' . $sYear . '/' . $sMonth . '/';
 
             if (count($aFile) > 0) {
                 $filePath = $aFile['name']['tmp_name'];
@@ -29,10 +29,13 @@ class UploadToSite
                     }
                 }
                 if (move_uploaded_file($filePath, $sLocation)) {
-                    return $sLocation;
+
+                    return  substr_replace($sLocation, '', strpos($sLocation, '.'), 1);
+                
                 } else {
                     return false;
                 }
+
 
             }
         }
