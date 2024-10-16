@@ -153,6 +153,8 @@ foreach ($data as $quotationkey => $quotaionValue) {
                             <tbody>
                                 <?php
                                 foreach ($currentQuotations as $currentQuotationkey => $currentQuotation) {
+                                    if($currentQuotation['dueDate'] > date('Y-m-d'))
+                                    {
                                     $currentQuotationkey++;
                                     echo '
                                <tr data-id="'.$currentQuotation['id'].'">
@@ -170,7 +172,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                 </tr>
                                   ';
                                 }
-
+                            }
                                 ?>
                             </tbody>
                         </table>
@@ -210,6 +212,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                 <?php
                                 foreach ($openQuotations as $openQuotationkey => $openQuotation) {
                                     $openQuotationkey++;
+                                    if($openQuotation['dueDate'] > date('Y-m-d'))
                                     echo '
                                  <tr data-id="'.$openQuotation['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
@@ -223,6 +226,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                 </tr>
                                   ';
                                 }
+                            }
                                 ?>
                             </tbody>
                         </table>
@@ -262,6 +266,10 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                 <?php
                                 foreach ($awardedQuotations as $awardedQuotationkey => $awardedQuotation) {
                                     $awardedQuotationkey++;
+                                    
+                                    if($awardedQuotation['dueDate'] > date('Y-m-d'))
+                                    {
+
                                     echo '
                                 <tr data-id="'.$awardedQuotation['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
@@ -275,6 +283,7 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                 </tr>
                                   ';
                                 }
+                            }
 
                                 ?>
                             </tbody>
