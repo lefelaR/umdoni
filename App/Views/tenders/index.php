@@ -146,7 +146,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 foreach ($currentTenders as $currentTenderkey => $currentTender) {
                                     $currentTenderkey++;
                                     echo'
-                                <tr>
+                                <tr data-id="'.$currentTender['id'].'">
                                     <th scope="row">
                                     <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
@@ -156,8 +156,8 @@ foreach ($data as $tenderkey => $tenderValue) {
                                     <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">' . $currentTender["title"] . '</a>
                                     </td>
                                     <td>' . $currentTender['reference'] . '</td>
-                                    <td>'.$currentTender['createdAt'].'</td>
-                                    <td> ' . $currentTender['dueDate'] . '</td>
+                                    <td>'.formatDate($currentTender['createdAt']).'</td>
+                                    <td> ' .formatDate( $currentTender['dueDate']) . '</td>
                                 </tr>
                                   ';
                                 }
@@ -202,14 +202,14 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 foreach ($openTenders as $openTenderkey => $openTender) {
                                     $openTenderkey++;
                                     echo '
-                                <tr>
+                                <tr data-id="'.$openTender['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
                                         <a class="text-secondary fw-bold" href="' . url($openTender['location']) . '" target="_blank">' . $openTender["title"] . '</a>
                                     </td>
                                     <td>' . $openTender['reference'] . '</td>
-                                    <td>'.$openTender['createdAt'].'</td>
+                                    <td>'.formatDate($openTender['createdAt']).'</td>
                                     <td> ' . $openTender['dueDate'] . '</td>
                                 </tr>
                                   ';
@@ -256,14 +256,14 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 {
                                     $awardedTenderKey++;
                                     echo '
-                                <tr>
+                             <tr data-id="'.$awardedTender['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
                                         <a class="text-secondary fw-bold" href="' . url($awardedTender['location']) . '" target="_blank">' . $awardedTender["title"] . '</a>
                                     </td>
                                     <td>' . $awardedTender['reference'] . '</td>
-                                    <td>'.$awardedTender['createdAt'].'</td>
+                                    <td>'.formatDate($awardedTender['createdAt']).'</td>
                                     <td> ' . $awardedTender['dueDate'] . '</td>
                                 </tr>
                                   ';
