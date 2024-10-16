@@ -96,9 +96,9 @@ class Projects extends \Core\Controller
 
         try {
             $id =  ProjectsModel::Save($data);
-           
+            $_SESSION['success'] = ['message' => 'successfully added record!'];
         } catch (\Throwable $th) {
-          echo  $th->getMessage();
+            $_SESSION['error'] = ['message' => $th->getMessage()];  
         }
         redirect('dashboard/projects/index');
     }
