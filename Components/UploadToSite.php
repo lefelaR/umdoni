@@ -38,26 +38,26 @@ class UploadToSite
         }
 
     }
-    function getFolder()
-    {
-        $url = explode('/', $_SERVER['REQUEST_URI']);
-        foreach ($url as $key => $value) {
-            if ($value == 'dashboard') {
-                $folder = $url[$key + 1];
-            }
-        }
-        return $folder;
-    }
-
-
-    function createDir($sPath =""): string
-    {
-        $sPath = str_replace("", "/", $sPath);
-        return $sPath;
-    }
 
 }
 
+function getFolder()
+{
+    $url = explode('/', $_SERVER['REQUEST_URI']);
+    foreach ($url as $key => $value) {
+        if ($value == 'dashboard') {
+            $folder = $url[$key + 1];
+        }
+    }
+    return $folder;
+}
+
+
+function createDir($sPath =""): string
+{
+    $sPath = str_replace("", "/", $sPath);
+    return $sPath;
+}
 
 
 
