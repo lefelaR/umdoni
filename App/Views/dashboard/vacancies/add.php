@@ -2,7 +2,7 @@
 
 global $context;
 if(!is_null($context->data)) 
-        $data = $context->data[0];
+        $data = $context->data;
 
 
 $crumbs = getCrumbs();
@@ -94,7 +94,7 @@ echo'
 
                 <div class="form-group">
                 <label for="helperText">File upload</label>
-                    <input type="file" class="form-control" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value="">
+                    <input type="file" class="form-control" id="image" name="name" aria-describedby="inputGroupFileAddon04" aria-label="Upload" value=""accept="application/pdf>
                 </div>
             
                 <div class="form-group">

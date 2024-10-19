@@ -12,7 +12,7 @@ namespace App\Controllers\Dashboard;
 use \Core\View;
 use App\Models\Profile;
 use App\Models\Request;
-use App\Models\Project;
+use App\Models\ProjectsModel;
 use App\Models\EventModel;
 use App\Models\NoticeModel;
 use App\Models\UserModel;
@@ -39,7 +39,7 @@ class Index extends \Core\Controller
         $dashboard['users'] = UserModel::getUser($profile_id);
 
         $dashboard['requests'] = Request::getAll();
-        $dashboard['projects'] = Project::Get();
+        $dashboard['projects'] = ProjectsModel::Get();
         $dashboard['events'] = EventModel::getAll();
         $dashboard['notices'] = NoticeModel::getAll();
         $dashboard['profile'] = $profile;

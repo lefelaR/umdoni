@@ -153,9 +153,11 @@ foreach ($data as $quotationkey => $quotaionValue) {
                             <tbody>
                                 <?php
                                 foreach ($currentQuotations as $currentQuotationkey => $currentQuotation) {
+                                    if($currentQuotation['dueDate'] > date('Y-m-d'))
+                                    {
                                     $currentQuotationkey++;
                                     echo '
-                                <tr>
+                               <tr data-id="'.$currentQuotation['id'].'">
                                     <th scope="row">
                                   
                                      <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
@@ -165,12 +167,12 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                         <a class="text-secondary fw-bold" href="' . url($currentQuotation['location']) . '" target="_blank">' . $currentQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $currentQuotation['reference'] . '</td>
-                                    <td>'.$currentQuotation['createdAt'].'</td>
-                                    <td> ' . $currentQuotation['dueDate'] . '</td>
+                                    <td>'.formatDate($currentQuotation['createdAt']).'</td>
+                                    <td> ' .formatDate( $currentQuotation['dueDate']) . '</td>
                                 </tr>
                                   ';
                                 }
-
+                            }
                                 ?>
                             </tbody>
                         </table>
@@ -210,19 +212,21 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                 <?php
                                 foreach ($openQuotations as $openQuotationkey => $openQuotation) {
                                     $openQuotationkey++;
+                                    if($openQuotation['dueDate'] > date('Y-m-d')){
                                     echo '
-                                <tr>
+                                 <tr data-id="'.$openQuotation['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
                                         <a class="text-secondary fw-bold" href="' .url($openQuotation['location']) . '" target="_blank">' . $openQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $openQuotation['reference'] . '</td>
-                                    <td>'.$openQuotation['createdAt'].'</td>
-                                    <td> ' . $openQuotation['dueDate'] . '</td>
+                                    <td>'.formatDate($openQuotation['createdAt']).'</td>
+                                    <td> ' . formatDate($openQuotation['dueDate']) . '</td>
                                 </tr>
                                   ';
                                 }
+                            }
                                 ?>
                             </tbody>
                         </table>
@@ -262,19 +266,24 @@ foreach ($data as $quotationkey => $quotaionValue) {
                                 <?php
                                 foreach ($awardedQuotations as $awardedQuotationkey => $awardedQuotation) {
                                     $awardedQuotationkey++;
+                                    
+                                    if($awardedQuotation['dueDate'] > date('Y-m-d'))
+                                    {
+
                                     echo '
-                                <tr>
+                                <tr data-id="'.$awardedQuotation['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
                                         <a class="text-secondary fw-bold" href="' . url($awardedQuotation['location']) . '" target="_blank">' . $awardedQuotation["title"] . '</a>
                                     </td>
                                     <td>' . $awardedQuotation['reference'] . '</td>
-                                    <td>'.$awardedQuotation['createdAt'].'</td>
-                                    <td> ' . $awardedQuotation['dueDate'] . '</td>
+                                    <td>'.formatDate($awardedQuotation['createdAt']).'</td>
+                                    <td> ' . formatDate($awardedQuotation['dueDate']) . '</td>
                                 </tr>
                                   ';
                                 }
+                            }
 
                                 ?>
                             </tbody>

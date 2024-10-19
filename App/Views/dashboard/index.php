@@ -130,10 +130,12 @@ $data = $context->data;
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Activit log</h4>
+                            <h4>Activity log</h4>
                         </div>
                         <div class="card-body">
-                            <div id="chart-profile-visit"></div>
+                            <div id="chart-profile-visit">
+                                <!-- you can find this data in themes pages dashboard -->
+                            </div>
                         </div>
                     </div>
                 </div>
