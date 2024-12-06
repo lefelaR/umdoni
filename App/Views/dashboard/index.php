@@ -292,3 +292,7 @@ $data = $context->data;
         </div>
     </section>
 </div>
+
+<script>
+  var service_requests = <?php echo json_encode($requests)?>
+</script>
