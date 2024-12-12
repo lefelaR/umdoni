@@ -1,3 +1,28 @@
+
+
+let months = [];
+let data = [];
+
+
+debugger
+let tabledata = [];
+// to match the dates i have to first get categories up Headers;
+const xAxisCategories = ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug","Sep","Oct","Nov","Dec"];
+
+	xAxisCategories.forEach(month => {
+		console.log(month)
+		let count = 0
+		service_requests.forEach( element => {
+					let moonLanding = new Date(element.createdAt);
+				if(month == moonLanding.toLocaleString('default', { month: 'short' }))
+				{
+					count += 1;
+				}
+			});
+			console.log(count);
+			tabledata.push(count);
+});
+
 var optionsProfileVisit = {
 	annotations: {
 		position: 'back'
@@ -15,14 +40,16 @@ var optionsProfileVisit = {
 	plotOptions: {
 	},
 	series: [{
-		name: 'sales',
-		data: [9,20,30,20,10,20,30,20,10,20,30,20]
+		name: 'Requests',
+		data: tabledata
 	}],
 	colors: '#435ebe',
 	xaxis: {
-		categories: ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug","Sep","Oct","Nov","Dec"],
+		categories: xAxisCategories,
 	},
 }
+
+
 let optionsVisitorsProfile  = {
 	series: [70, 30],
 	labels: ['Male', 'Female'],
@@ -110,7 +137,7 @@ var chartAmerica = new ApexCharts(document.querySelector("#chart-america"), opti
 var chartIndonesia = new ApexCharts(document.querySelector("#chart-indonesia"), optionsIndonesia);
 
 chartIndonesia.render();
-chartAmerica.render();
+// chartAmerica.render();
 chartEurope.render();
 chartProfileVisit.render();
 chartVisitorsProfile.render()

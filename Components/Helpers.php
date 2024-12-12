@@ -44,6 +44,7 @@ function enable_authorize($role = null)
 }
 
 
+
 function useClass($classname)
 {
     $classes = explode(',', $classname);
@@ -87,6 +88,12 @@ function getCrumbs()
 function getPostData()
 {
     return $_GET;
+}
+
+
+function getPostParams()
+{
+    return $_POST;
 }
 
 function getFile()

@@ -12,20 +12,18 @@ namespace App\Controllers;
 use \Core\View;
 use App\Models\CalendarModel;
 
+
 class Calendar extends \Core\Controller
 {
 
     protected function before()
     {
-        //echo "(before) ";
-        //return false;
+    
     }
 
     public function indexAction()
     {
-
-        $events = CalendarModel::getAll();
-
+        $events = CalendarModel::getAll(); 
         view::render('calendar/index.php', $events, 'default');
     }
 

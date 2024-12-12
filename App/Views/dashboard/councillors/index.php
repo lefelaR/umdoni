@@ -1,6 +1,9 @@
 <?php
 global $context;
 $data = $context->data;
+$crumbs = getCrumbs();
+$sPage = $sController = $sModule = '';
+
 ?>
 
 <div class="row">
@@ -10,8 +13,22 @@ $data = $context->data;
     <div class="col-12 col-md-12 order-md-2 order-first">
         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Councillors</li>
+            <?php
+        
+        foreach ($crumbs as $key => $crumb) 
+        {
+            if($key == (count($crumbs)-1))
+            {
+                $active = 'active';
+                $sPage = $sController.$crumb.'tablelist';
+       echo ' <li class="breadcrumb-item '.$active.'" aria-current="page">'.$crumb.'</li>  ';
+            }else{   
+                $active = '';
+                $sController = $crumb;
+          echo '<li class="breadcrumb-item '.$active.'" aria-current="page">'.$crumb.'</li>';
+            }
+        }
+        ?>
             </ol>
         </nav>
     </div>
@@ -21,13 +38,12 @@ $data = $context->data;
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                 
                     <p class="card-title fw-light">Councillor List</p>
                     <div class="float-start float-lg-end">
                         <a class="btn btn-sm" href="<?php echo buildurl("dashboard/councillors/add") ?>" role="button">
                             <i class="bi bi-plus"></i> Add
                         </a>
-                        <button class="btn  btn-sm">
+                        <button class="btn  btn-sm" id="<?=$sPage?>" >
                             <i class="bi bi-download"></i> Save
                         </button>
                     </div>
@@ -85,11 +101,14 @@ $data = $context->data;
             </div>
     </div>
     </section>
-</div>
-</div>
+</div> </div>
 
 <script>
-    document.querySelectorAll('#list').addEventListener('click', (ev)=>{
-debugger
-    })
+    if($('#councillorsindextablelist').length > 0){
+        $('#councillorsindextablelist').on('click', function(){
+            debugger
+            
+        })
+
+    }
 </script>

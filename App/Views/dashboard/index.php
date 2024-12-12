@@ -130,7 +130,7 @@ $data = $context->data;
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Activity log</h4>
+                            <h4>Service Requests</h4>
                         </div>
                         <div class="card-body">
                             <div id="chart-profile-visit">
@@ -292,3 +292,7 @@ $data = $context->data;
         </div>
     </section>
 </div>
+
+<script>
+  var service_requests = <?php echo json_encode($requests)?>
+</script>

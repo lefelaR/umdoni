@@ -30,6 +30,8 @@ include_once '../Components/Helpers.php';
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="canonical" href="https://www.umdoni.co.za/index/index">
   <link rel="stylesheet" href="<?php echo url('themes/mazor/assets/vendors/simple-datatables/style.css') ?>">
+  <link rel="stylesheet" href="<?php echo url('assets/css/calendar-styles.css') ?>">
+  
   <!-- Bootstrap core CSS -->
   <link href="<?php echo url('assets/css/bootstrap/css/bootstrap.css'); ?>" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/bootstrap-icons/bootstrap-icons.css") ?>">
