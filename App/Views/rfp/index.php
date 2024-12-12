@@ -161,7 +161,7 @@ foreach ($data as $rfpKey => $rfpValue) {
                                     <a class="text-secondary fw-bold" href="' . url($currentRfp['location']) . '" target="_blank">' . $currentRfp["title"] . '</a>
                                     </td>
                                     <td>' . $currentRfp['reference'] . '</td>
-                                    <td>'.$currentRfp['createdAt'].'</td>
+                                    <td>'.formatDate($currentRfp['createdAt']).'</td>
                                     <td> ' . $currentRfp['dueDate'] . '</td>
                                 </tr>
                                   ';

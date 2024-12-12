@@ -15,7 +15,7 @@ class UploadToSite
         $sMonth = getMonth();
 
         if (isset($aFile)) {
-            $location = '/files/' . $sFolder . '/' . $sYear . '/' . $sMonth . '/';
+            $location = './files/' . $sFolder . '/' . $sYear . '/' . $sMonth . '/';
 
             if (count($aFile) > 0) {
                 $filePath = $aFile['name']['tmp_name'];
@@ -24,15 +24,18 @@ class UploadToSite
 
                 // if tthat folder exists yet
                 if (!is_dir($location)) {
-                    if (!mkdir($location, 0777, true)) {
-                        echo ("Error creating the directory.");
+                    if (!mkdir($location, 0777, true) && !is_dir($location)) {
+                        throw new \RuntimeException(sprintf('Directory "%s" was not created', $location));
                     }
                 }
                 if (move_uploaded_file($filePath, $sLocation)) {
-                    return $sLocation;
+
+                    return  substr_replace($sLocation, '', strpos($sLocation, '.'), 1);
+                
                 } else {
                     return false;
                 }
+
 
             }
         }
