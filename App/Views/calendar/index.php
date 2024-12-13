@@ -1,5 +1,7 @@
 <?php
 global $context;
+use Components\Calendar;
+$calendar = new Calendar();
 
 $data = $context->data;
 
@@ -93,51 +95,36 @@ echo '
             </p>
         </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-2">
         <div class=" col-md-12 col-lg-12 col-sm-12">
-
             <!-- <div class="card">
                 <div class="card-body shadow-sm"> -->
                     <!-- Section: Timeline -->
-                    <section class="py-5">
-
-                        <ul class="timeline">';
-
-if (count($data) > 0) {
-    foreach ($data as $key => $calendar) {
-        $today =  date("Y-m-d");
-        if ($today < $calendar['dueDate']) {
-            echo '
-                             <li class="timeline-item mb-5">
-                            <h5 class="fw-bold fs-3 text-secondary">' . $calendar['dueDate'] . '</h5>
-                            <p class="text-muted mb-2 fs-4 text-primary">' . $calendar['title'] . '</p>
-                            <div class="card">     
-                            <div class="row">
-                            <div class="col m-2">
-                            <img src="' . $calendar["location"] . '" class="img-fluid rounded-start" style="    object-fit: cover;
-                            height: 130px;">
-                            </div>
-                            <div class="col-md-10">
-                            <p class="text-muted my-3">
-                                ' . $calendar['body'] . '
-
-                                </p>
-                                </div>
-                                </div>
-
-                                </div>
-                                </li>
-                        ';
-        }
-    }
-} else {
-    echo '
-                        <p class="fs-5">There are currently no calendar events</p>
-                        ';
-}
-echo '
-                        </ul>
-                    </section>
+                    <section class="py-5">'  
+                    . $calendar .
+                   ' </section>
         </div>
     </div>
 </div>';
+?>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

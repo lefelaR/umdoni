@@ -67,14 +67,15 @@ class Quotations extends \Core\Controller
              if (isset($_FILES)) {
                 $destination = UploadToSite::upload($_FILES,  $this->Component);
             }
+        
         if (isset($_POST)) $data = $_POST;
         $data['status'] = 1;
         $data['createdAt'] = $data['createdAt'];
         $data['isActive'] = 1;
         $data['location'] = $destination;
         $data['updatedBy'] =  $_SESSION['profile']['username'];
-
-        // generate a refernce
+     
+        // gene    dd($destination);rate a refernce
         try {
             $id =  QuotationsModel::Save($data);
 

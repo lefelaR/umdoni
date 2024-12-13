@@ -38,10 +38,13 @@ public function __construct()
       $this->bucketName = $_ENV['BUCKET_NAME'];
   }
 
+
+  
   public function indexAction()
   {
     echo "hello from the login controller";
-    }
+    redirect('dashboard/index/index');
+  }
 
   public function loginAction()
   {
@@ -95,7 +98,6 @@ public function __construct()
         'ClientId' =>  $clientId,
         'Username' => $data['username']
       ]);
-
       if ($result) {
         $_SESSION['username'] = $data['username'];
         redirect('authentication/resetpassword');
