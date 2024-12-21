@@ -4,14 +4,6 @@ include_once '../Components/Helpers.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKXJ5LHLZV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-WKXJ5LHLZV');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard </title>
@@ -36,8 +28,10 @@ include_once '../Components/Helpers.php';
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 
+
 <body>
-    <div id="app">
+<main>
+<div id="app">
         <!-- loader -->
    <?php include '../public/Includes/loader.php'; ?>
         <!-- Sidebar -->
@@ -66,7 +60,6 @@ include_once '../Components/Helpers.php';
     <script src="<?php echo url("themes/mazor/assets/vendors/simple-datatables/simple-datatables.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/js/extensions/sweetalert2.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/vendors/sweetalert2/sweetalert2.all.min.js") ?>"></script>
- 
     <script src="<?php echo url("themes/mazor/assets/vendors/tinymce/tinymce.min.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/vendors/tinymce/plugins/code/plugin.min.js") ?>"></script>
     <script>
@@ -81,6 +74,7 @@ include_once '../Components/Helpers.php';
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
     <script src="<?php echo url("themes/mazor/assets/js/pages/form-editor.js") ?>"></script>
-
+    </main>
 </body>
+
 </html>

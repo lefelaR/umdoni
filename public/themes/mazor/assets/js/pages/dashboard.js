@@ -6,9 +6,7 @@ let data = [];
 let tabledata = [];
 // to match the dates i have to first get categories up Headers;
 const xAxisCategories = ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug","Sep","Oct","Nov","Dec"];
-
 	xAxisCategories.forEach(month => {
-		console.log(month)
 		let count = 0
 		service_requests.forEach( element => {
 					let moonLanding = new Date(element.createdAt);
@@ -17,9 +15,10 @@ const xAxisCategories = ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug","Sep",
 					count += 1;
 				}
 			});
-			console.log(count);
 			tabledata.push(count);
 });
+
+console.table(tabledata);
 
 var optionsProfileVisit = {
 	annotations: {
