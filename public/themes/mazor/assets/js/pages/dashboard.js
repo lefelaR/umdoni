@@ -3,8 +3,6 @@
 let months = [];
 let data = [];
 
-
-debugger
 let tabledata = [];
 // to match the dates i have to first get categories up Headers;
 const xAxisCategories = ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug","Sep","Oct","Nov","Dec"];
@@ -78,7 +76,7 @@ var optionsEurope = {
 	}],
 	chart: {
 		height: 80,
-		type: 'area',
+		type: 'area', 
 		toolbar: {
 			show:false,
 		},

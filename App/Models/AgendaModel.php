@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class AgendaModel extends \Core\Model
+class AgendaModel extends \Core\Repository
 {
     /**
      * Get all the posts as an associative array

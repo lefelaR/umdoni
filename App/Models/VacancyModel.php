@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class VacancyModel extends \Core\Model
+class VacancyModel extends \Core\Repository
 {
 
     /**

@@ -8,7 +8,7 @@ use App\Config;
  *
  * PHP version 5.4
  */
-abstract class Model
+abstract class Repository
 {
 
 

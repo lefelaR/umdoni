@@ -9,7 +9,7 @@ use Exception;
  *
  * PHP version 5.4
  */
-class Profile extends \Core\Model
+class Profile extends \Core\Repository
 {
     /**
      * Get all the posts as an associative array

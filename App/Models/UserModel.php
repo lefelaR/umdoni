@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class UserModel extends \Core\Model
+class UserModel extends \Core\Repository
 {
 
     /**

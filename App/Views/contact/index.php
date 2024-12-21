@@ -61,7 +61,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <form method="post" class="form" action="save" enctype="multipart/form-data">
                 <p class="fs-2">Contact Form</p>
                 <div class="row">
@@ -71,7 +71,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="basicInput">Email</label>
-                        <input type="text" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email">
                     </div>
                     <div class="col-md-4">
                         <label for="basicInput">Subject</label>
@@ -102,7 +102,7 @@
                 <p class="fw-normal"> <i class="bi bi-headset"></i> +2787 286 5329</p>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
 
             <p class="fs-2">Address</p>
             <p class="fw-bold">Location:</p>

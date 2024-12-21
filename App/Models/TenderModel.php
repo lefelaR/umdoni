@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class TenderModel extends \Core\Model
+class TenderModel extends \Core\Repository
 {
 
     /**

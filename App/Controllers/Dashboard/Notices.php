@@ -11,14 +11,14 @@ namespace App\Controllers\Dashboard;
 
 use \Core\View;
 use Aws\S3\S3Client;
-use App\Models\NoticeModel;
+use App\Repositories\NoticeRepository;
 use Components\UploadToSite;
 
 
 class Notices extends \Core\Controller
 {
 
-
+    
 
     public function __construct()
     {
@@ -27,7 +27,7 @@ class Notices extends \Core\Controller
 
     public function indexAction()
     {
-        $notices = NoticeModel::getAll();
+        $notices = NoticeRepository::getAll();
         view::render('dashboard/notices/index.php', $notices, 'dashboard');
     }
 
@@ -36,7 +36,7 @@ class Notices extends \Core\Controller
         $data = getPostData();
         if (isset($data['id'])) {
             $id = $data['id'];
-            $notices = NoticeModel::getById($id);
+            $notices = NoticeRepository::getById($id);
         } else
             $notices = array();
         view::render('dashboard/notices/add.php',  $notices, 'dashboard');
@@ -59,7 +59,7 @@ class Notices extends \Core\Controller
         $data['createdAt'] = date("Y-m-d H:i:s");
   
         try {
-            $id =  NoticeModel::Save($data);
+            $id =  NoticeRepository::Save($data);
             $_SESSION['success'] = ['message' => 'Success'];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
@@ -73,7 +73,7 @@ class Notices extends \Core\Controller
         $data = $_POST;
         $data['updatedAt'] = date("Y-m-d H:i:s");
         try {
-            $id =  NoticeModel::update($data);
+            $id =  NoticeRepository::update($data);
             $_SESSION['success'] = ['message' => 'success'];
         } catch (\Throwable $th) {
             $_SESSION['error'] = ['message' => $th->getMessage()];
@@ -87,7 +87,7 @@ class Notices extends \Core\Controller
     {
         $id = $_GET['id'];
         try {
-            NoticeModel::Delete($id);
+            NoticeRepository::Delete($id);
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
@@ -109,6 +109,14 @@ class Notices extends \Core\Controller
     {
         view::render('dashboard/notices/notices.php',  $context = [], 'dashboard');
     }
+
+
+    public function download()
+    {
+        $aData = NoticeRepository::getAll();
+        
+    }
+
 
     protected function before()
     {

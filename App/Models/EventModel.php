@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class EventModel extends \Core\Model
+class EventModel extends \Core\Repository
 {
     /**
      * Get all the posts as an associative array

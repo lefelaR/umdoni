@@ -10,7 +10,7 @@ use PhpParser\Node\Stmt;
  *
  * PHP version 5.4
  */
-class Service extends \Core\Model
+class Service extends \Core\Repository
 {
 
     /**

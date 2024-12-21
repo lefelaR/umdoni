@@ -12,7 +12,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class RolesModel extends \Core\Model
+class RolesModel extends \Core\Repository
 {
 
     

@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class Post extends \Core\Model
+class Post extends \Core\Repository
 {
 
     /**
