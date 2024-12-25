@@ -166,6 +166,7 @@ document.getElementById("avatarModalCancel").addEventListener("click", () => {
 });
 
 document.getElementById("avatarModalAccept").addEventListener("click", () => {
+  const avatardiv = document.getElementById("avatar-div");
   const user_id = document.getElementById("user_id").value;
   const fileInput = document.getElementById("fileInput");
   const file = fileInput.files[0];
@@ -190,6 +191,8 @@ document.getElementById("avatarModalAccept").addEventListener("click", () => {
       Toast("success","Profile image has been updated")
       hidePreloader();
       hideAvatarModal();
+      reload();
+
     })
     .catch((error) => {
       console.log("");

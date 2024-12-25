@@ -16,10 +16,28 @@ $crumbs = getCrumbs();
   <h1>
     User Profile
   </h1>
- <!-- breadcrums -->
-  <?php
-    include_once("/includes/parts/Breadcrumbs.php");
-  ?>
+  <div class="col-12 col-md-12 order-md-2 order-first">
+        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+            <ol class="breadcrumb">
+            <?php
+        
+        foreach ($crumbs as $key => $crumb) 
+        {
+            if($key == (count($crumbs)-1))
+            {
+                $active = 'active';
+                $sPage = $sController.$crumb.'tablelist';
+       echo ' <li class="breadcrumb-item '.$active.'" aria-current="page">'.$crumb.'</li>  ';
+            }else{   
+                $active = '';
+                $sController = $crumb;
+          echo '<li class="breadcrumb-item '.$active.'" aria-current="page">'.$crumb.'</li>';
+            }
+        }
+        ?>
+            </ol>
+        </nav>
+    </div>
 </div>
 
 <?php
@@ -53,7 +71,7 @@ echo '
           <div class="col-lg-6 col-md-10 col-sm-12">
             <div class="form-group">
               <div class="text-center">
-                <div class=" avatar-xl">
+                <div class=" avatar-xl" id="avatar-div">
                   <img src="' . $avatar . '" alt="Face 1" class="rounded-circle" style="max-width:200px">
                  
                   <div class="mt-2 mx-auto">
