@@ -27,6 +27,14 @@ echo '
 ';
 ?>
 
+<?php
+
+
+
+?>
+
+
+
 <div class="row">
     <div class="col-md-6 col-sm-12">
         <div class="card">
@@ -38,16 +46,14 @@ echo '
                     <p class="fw-lighter">
                         Order Councillors by:
                     </p>
-
-
                     <div class="btn-group" role="group" id="municipal-settings" aria-label="BMunicipal Profile Settings">
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
                         <label class="btn btn-outline-primary" for="btnradio1">Category</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" >
                         <label class="btn btn-outline-primary" for="btnradio2">Ward</label>
 
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" >
                         <label class="btn btn-outline-primary" for="btnradio3">Political party</label>
                     </div>
                 </div>
@@ -65,15 +71,19 @@ echo '
     var profileSettings = document.getElementById("municipal-settings");
     profileSettings.addEventListener("change", (e) => {
 
-        debugger
-        let formData = new FormData();
-        formData.append('category', 'blah');
-        formData.append('ward', 'foo');
-        formData.append('political', 'bar');
+        let formData = ({
+             
+            profile : {         
+                category : cat,
+                ward: ward,
+                political: pol
+            },
+                 
+     });
+      
 
-
-        const currentURL = window.location.href;
-  const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
+    const currentURL = window.location.href;
+    const stripped = currentURL.substring(0, currentURL.lastIndexOf("/"));
 
    fetch(stripped+'/profile', {
     method: "post",

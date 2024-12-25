@@ -1,15 +1,15 @@
 <?php
-
 namespace App\Models;
 
 use PDO;
 
 /**
- * Post model
+
+* Post model
  *
  * PHP version 5.4
  */
-class NewsModel extends \Core\Model
+class NewsModel extends \Core\Repository
 {
 
     /**

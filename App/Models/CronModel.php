@@ -4,7 +4,7 @@ namespace App\Models;
 
 use PDO;
 
-class CronModel extends \Core\Model
+class CronModel extends \Core\Repository
 {
 
 

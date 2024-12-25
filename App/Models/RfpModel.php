@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class RfpModel extends \Core\Model
+class RfpModel extends \Core\Repository
 {
 
     /**

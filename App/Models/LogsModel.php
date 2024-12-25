@@ -8,7 +8,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class LogsModel extends \Core\Model
+class LogsModel extends \Core\Repository
 {
     /**
      * Get all the posts as an associative array

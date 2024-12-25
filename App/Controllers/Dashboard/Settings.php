@@ -16,14 +16,21 @@ use App\Models\Service;
 use App\Models\RolesModel;
 use DateTime;
 use Aws\S3\S3Client;
-
+use App\Models\SettingsModel;
 
 class Settings extends \Core\Controller
 {
 
+    public function __construct() {
+     
+    }
+
     public function indexAction()
     {
-        $services = array();
+        $services = SettingsModel::get();
+        if(!empty($services)){
+            $services = unserialize($services['settings']);
+        }
         view::render('dashboard/settings/index.php', $services, 'dashboard');
     }
 
@@ -106,8 +113,13 @@ class Settings extends \Core\Controller
     public function profile(){
 
         $data = getPostData();
-        var_dump($data); die;
+        
+        if(!empty($data))
+        {
+            $postData['settings'] = serialize($data);
+        }
 
+        SettingsModel::update($data);
     }
 
 

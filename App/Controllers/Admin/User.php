@@ -7,6 +7,7 @@
  */
 namespace App\Controllers\Admin;
 use \Core\View;
+use \Core\Session;
 use App\Models\Profile;
 use App\Models\UserModel;
 use Aws\S3\S3Client;
@@ -43,7 +44,7 @@ class User extends \Core\Controller
     public function indexAction()
     {
         global $context;
-        $session_profile =  $_SESSION['profile'];
+        $session_profile = (new Session)->getProfile();
         $profile_id = $session_profile['user_id'];
         // get data from databae
         if(count($session_profile) > 0){
