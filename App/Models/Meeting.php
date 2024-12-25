@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class Meeting extends \Core\Model
+class Meeting extends \Core\Repository
 {
     /**
      * Get all the posts as an associative array

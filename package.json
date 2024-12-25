@@ -18,10 +18,13 @@
   "homepage": "https://github.com/lefelaR/portfoliio#readme",
   "dependencies": {
     "axios": "^1.7.2",
-    "typescript": "^5.2.2"
+    "dayjs": "^1.11.13",
+    "global": "^4.4.0",
+    "typescript": "^5.2.2",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-rename": "^2.0.0",
     "gulp-uglify": "^3.0.2"

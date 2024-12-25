@@ -136,19 +136,11 @@ echo '<form class="form" action="save" method="post" id="requestForm">
 ?>
 
 <script>
-
 const form = document.getElementById("requestForm")
-
 form.addEventListener('submit',(event)=>{
-    
     debugger
     const {target: input} = event;
 
-
-
-
-
 })
-
 
 </script>

@@ -93,7 +93,7 @@ use App\Models\RolesModel;
 
                       <span class="form-switch">
                         <?php
-                        $checked = $user['locked'] == 1 ? "checked" : "";
+                        $checked = $user['locked'] == 0 ? "checked" : "";
                         echo ' <input class="form-check-input" type="checkbox" onclick="handleToggle(event)" data_id="' . $user['user_id'] . '" name="switch" id="' . $user['user_id'] . '" ' . $checked . '>';
                         ?>
                       </span>     
@@ -152,6 +152,7 @@ use App\Models\RolesModel;
       }
 
       const handleToggle = (event) => {
+        debugger
         var userSwitch = event.target
         var locked = userSwitch.checked;
         var user_id = userSwitch.id;

@@ -13,9 +13,9 @@ class Context{
     public function __construct(){
       session_start(); 
         $this->root     = $_SERVER['HTTP_HOST'];
-        $this->host     = 'https://'.$this->root;
-        $this->siteroot = $this->host.'/';
-        $this->dir      = $this->root .'/';
+        $this->host     = 'http://'.$this->root;
+        $this->siteroot = $this->host.'/umdoni/';
+        $this->dir      = $this->root .'/umdoni/';
         $this->checkAuth();
         return;
     }

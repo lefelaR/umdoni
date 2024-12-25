@@ -105,8 +105,8 @@ public function manageuserAction()
 {
     $data = $_POST;
     $locked = [
-        'false' => '0',
-        'true' => '1' 
+        'false' => '1',
+        'true' => '0' 
     ];
     $data['locked'] = $locked[$data['locked']];
     try{

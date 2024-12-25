@@ -1,103 +1,90 @@
-<?php
+<?php declare(strict_types=1);
+
 
 namespace App\Models;
-
-use PDO;
-
-/**
- * Post model
- *
- * PHP version 5.4
- */
-class NoticeModel extends \Core\Model
+use DateTimeImmutable;
+class NoticeModel
 {
 
-    /**
-     * Get all the posts as an associative array
-     *
-     * @return array
-     */
-    public static function getAll()
+    public function __construct(
+      
+        private ?int $id =null,
+        private string $title = '',
+        private string $subtitle = '',
+        private string $body = '',
+        public ?DateTimeImmutable $createdAt = null,
+        private string $location = '',
+        private bool $status = false,
+        private string $img_file = '',
+        private int $isActive = 0,
+        private ?DateTimeImmutable $updatedAt = null,
+        private  int $user_id = 0
+
+        ) {}
+
+    public function get():array
     {
-        try {
-            $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM notices WHERE `isActive` = 1 order by `createdAt` DESC');
-            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $results;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
+        $aData = [];
+
+        foreach($this as $key => $value)
+
+        {
+            if($value instanceof DateTimeImmutable)
+            {
+              $aData[$key] = (string) $value->format("Y-m-d");
+            }else{
+                $aData[$key] = $value;
+            }
+        
         }
+        return $aData;
     }
 
-
-
-    /**
-     * @return object
-     */
-    public static function getById($id)
+    public function getId(): int|null
     {
-        try {
-            $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM notices WHERE id = '$id'");
-            $results = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $results;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
+        return $this->id;
     }
 
-
-    public static function Update($data)
+    public function getTitle(): string
     {
-        $db = static::getDB();
-
-        $sql = "UPDATE notices SET 
-        `title` =  :title, 
-        `subtitle` = :subtitle, 
-        `body`= :body, 
-        `updatedAt`= :updatedAt
-        WHERE `id`= $data[id]";
-
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(':title', $data['title']);
-        $stmt->bindParam(':subtitle', $data['subtitle']);
-        $stmt->bindParam(':body', $data['body']);
-        $stmt->bindParam(':updatedAt', $data['updatedAt']);
-
-        if ($stmt->execute()) {
-            return true; 
-        } else {
-            return false;
-        }
-
+        return $this->title;
     }
 
-
-    public static function Save($data)
+    public function getSubtitle(): string
     {
-        global $context;
-        $db = static::getDB();
-        if (!isset($data['id'])) $data['id'] = 0;
-        $sql = "INSERT into notices (title, subtitle, body, isActive, img_file, location, createdAt)
-                VALUES ('$data[title]','$data[subtitle]','$data[body]','1', '$data[img_file]', '$data[location]', '$data[createdAt]' )";
-        $stmt = $db->exec($sql);
-        return $stmt;
+        return $this->subtitle;
+    }
+    public function getBody(): string
+    {
+        return $this->body;
     }
 
-
-    public static function Delete($id)
+    public function getCreatedAt(): DateTimeImmutable|null
     {
-        $db = static::getDB();
-        $sql = "UPDATE  notices SET `isActive` = 0 WHERE `id` = $id";
-        $stmt = $db->exec($sql);
-        return $stmt;
+        return $this->createdAt;
     }
 
-    public static function Restore($id)
+    public function getLocation(): string
     {
-        $db = static::getDB();
-        $sql = "UPDATE  notices SET `isActive` = 1 WHERE `id` = $id";
-        $stmt = $db->exec($sql);
-        return $stmt;
+        return $this->location;
+    }
+
+    public function getStatus(): bool
+    {
+        return $this->status;
+    }
+    public function getImg(): string
+    {
+        return $this->img_file;
+    }
+    public function getActive(): int
+    {
+        return $this->isActive;
+    }
+    public function getUpdatedAt(): DateTimeImmutable|null
+    {
+        return $this->updatedAt;
     }
 }
+
+

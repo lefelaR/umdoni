@@ -25,7 +25,7 @@ if (isset($context->errors['message'])) {
     <div class="row h-100" id="auth-right">
         <div class="col-lg-12 col-md-16 col-sm-12 col">
             <div class="row align-items-center justify-content-center ">
-                <div class="col-lg-4 col-md-6 col-sm-12 ">
+                <div class="col-lg-4 col-md-6 col-sm-8 ">
                     <div class="card shadow p-5 sm-5 my-5 bg-white rounded ">
                         <div class="auth-logo text-center">
                             <img src="<?php echo url("assets/img/icon/logo.png")
@@ -66,4 +66,3 @@ if (isset($context->errors['message'])) {
         </div>
     </div>
 </div>
-

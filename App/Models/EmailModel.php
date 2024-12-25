@@ -9,7 +9,7 @@ use PDO;
  *
  * PHP version 5.4
  */
-class EmailModel extends \Core\Model
+class EmailModel extends \Core\Repository
 {
 
     /**
