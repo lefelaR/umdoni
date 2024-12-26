@@ -1,7 +1,6 @@
 <?php
 global $context;
 $data = $context->data;
-
 $crumbs = getCrumbs();
 echo '
 <div class="row">
@@ -27,6 +26,13 @@ echo '
 </div>
 ';
 ?>
+
+<style>
+    table tbody td{
+        font-size: 12px !important;
+    }
+    </style>
+
 <div class="row">
     <div class="col-md">
         <div class="card">

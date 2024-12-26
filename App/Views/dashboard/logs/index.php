@@ -63,9 +63,9 @@ $crumbs = getCrumbs();
                           <td>' . $log['username'] . '</td>
                           <td>' . $log['email'] . '</td>
 
-                          <td>' . formatDate($log['last_login']) . '</td>
+                          <td>' . $log['last_login'] . '</td>
                           <td>' . $log['logout'] . '</td>
-                          <td>' . $log['time_log'] . ' seconds</td>
+                          <td>' . $log['time_log'] . ' </td>
                         </tr>';
                 }
                 ?>
