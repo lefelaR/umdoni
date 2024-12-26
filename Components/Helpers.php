@@ -101,15 +101,32 @@ function getFile()
     return $_FILES;
 }
 
-function formatDate($date)
+function formatDate($date = null)
 {
+    if (is_null($date)) 
+    {
+        $date = date('d-m-Y');
+    }
+
+    $dateTime = new DateTime($date);
+    $formatedDate = date_format($dateTime, 'd  M Y' );
+    return $formatedDate;
+}
+
+function formatToStandardDate($date): string
+{
+
     $dateTime = new DateTime($date);
     $formatedDate = date_format($dateTime, 'd-m-Y' );
     return $formatedDate;
 }
 
+function formatTimeDiff($start, $end): string
+{
+    $diff = $end->diff($start);
 
-
+    return $diff;
+}
 function timeAgo($time): string
 {
     $time = new DateTime($time);
