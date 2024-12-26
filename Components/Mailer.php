@@ -13,9 +13,10 @@ class Mailer extends PHPMailer
     public $Port;
 
     public function __construct() {
-        $this->Port = $_ENV['SMTPPORTOUTGOING'];
-        $this->Host = $_ENV['STMPSERVER'];
-        
+        // $this->Port = 2079;
+        // $this->Host = 'http://mail.umdoni.gov.za';
+        $this->Port = 1025;
+        $this->Host = 'localhost';
     }
 
 
@@ -28,10 +29,15 @@ class Mailer extends PHPMailer
         string $body= null, 
         $attachment = null)
     {
-
             $Mail = new PHPMailer();
-            $Mail->Port = $this->Port;
+            $Mail->isSMTP();
+            // $Mail->SMTPAuth = true;
+            // $Mail->Username = 'isu@umdoni.gov.za'; // Your SMTP username
+            // $Mail->Password = '29019WtP98zj23'; // Your SMTP password
+            // $Mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Encryption type (STARTTLS/SSL)
+            $Mail->Port = $this->Port; // SMTP port
             $Mail->Host = $this->Host;
+
 
             $Mail->From = $from;
             $Mail->FromName = $fromName; //To address and name 

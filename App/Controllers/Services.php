@@ -9,7 +9,6 @@
 namespace App\Controllers;
 
 use \Core\View;
-use PHPMailer\PHPMailer\PHPMailer;
 use App\Models\Service;
 use App\Models\Meeting;
 use App\Models\Request;
@@ -61,27 +60,7 @@ class Services extends \Core\Controller
 
               $result =  (new Mailer())->send('rakgew@gmail.com','isu@umdoni.gov.za', 'test subject','<i>blah</i>', "onf0iowernjfoenrfe" );
 
-              dd($result);
-
-
-                // $sToAddress = "rakgew@hotmail.com";
-                // // send email
-                // $mail = new PHPMailer();
-                // $mail->From = "isu@umdoni.gov.za";
-                // $mail->FromName = "Rakheoana"; //To address and name 
-                // $mail->addAddress($sToAddress, "Elisha");//Recipient name is optional
-                // $mail->addAddress($sToAddress);
-                // $mail->isHTML(true);
-                // $mail->Subject = "Email test";
-                // $mail->Body = "<i>srgdgrgsdrgsdr</i>";
-
-                // if (!$mail->send()) {
-                //    echo $mail->ErrorInfo;
-                // } else {
-
-                //     echo "SUCCESS";
-                // }
-
+            
             }
         }
         redirect("services/request");

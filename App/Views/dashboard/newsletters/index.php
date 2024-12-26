@@ -76,14 +76,13 @@ $crumbs = getCrumbs();
                                     <td>'.$newsletter['title'].'</td>
                                     <td>'.$newsletter['subtitle'].'</td>
                                     <td>'.$newsletter['publisher'].'</td>
-                                    <td>'.$newsletter['createdAt'].'</td>
+                                    <td>'. formatDate( $newsletter['createdAt']).'</td>
                                     <td>
                                         <a class="btn  btn-sm" href="add?id='.$newsletter['id'].'">
                                             <i class="bi bi-pencil"></i>
                                         </a>
 
-                                        <a class="btn  btn-sm" href="delete?id='.$newsletter['id'].'"onclick="handleDelete(event, '.$newsletters['id'].')">
-
+                                    
                                         <a class="btn  btn-sm" href="delete?id='.$newsletter['id'].'" onclick="handleDelete(event, '.$newsletter['id'].')">
 
                                             <i class="bi bi-trash"></i>

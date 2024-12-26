@@ -60,7 +60,7 @@ $data = $context->data;
                                     <td>' . $meeting['title'] . '</td>
                                     <td>' . $meeting['subtitle'] . '</td>
                                     <td>' . $meeting['body'] . '</td>
-                                    <td>' . $meeting['createdAt'] . '</td>
+                                    <td>' . formatDate($meeting['createdAt']) . '</td>
                                     <td>
                                     <a class="btn  btn-sm" href="add?id=' .  $meeting['id'] . '">
                                     <i class="bi bi-pencil"></i>
