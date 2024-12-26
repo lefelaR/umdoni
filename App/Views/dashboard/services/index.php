@@ -63,7 +63,7 @@ $data = $context->data;
                                     <td>' . $service['subtitle'] . '</td>
                                     <td>' . $service['body'] . '</td>
                                        
-                                     <td class="text-bold-500">' .  formatDate( $service['updatedBy'])  . '</td>
+                                     <td class="text-bold-500">' .  formatDate( $service['createdAt'])  . '</td>
                                     <td>
                                        
                                         <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">

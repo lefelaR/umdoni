@@ -74,7 +74,7 @@ $crumbs = getCrumbs();
                                     <td>' . $project['title'] . '</td>
                                     <td>' . $project['subtitle'] . '</td>
                                     <td>' . $project['body'] . '</td>
-                                    <td class="text-bold-500">' . $project['createdAt'] . '</td>
+                                    <td class="text-bold-500">' . formatDate($project['createdAt']) . '</td>
                                     <td>
                                        
                                         <a class="btn  btn-sm" href="add?id=' .  $project['id'] . '" >
