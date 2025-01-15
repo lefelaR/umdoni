@@ -8,7 +8,7 @@
 namespace App\Controllers;
 
 use \Core\View;
-use App\Models\Project;
+use App\Models\ProjectsModel;
  
 
 class Projects extends \Core\Controller
@@ -29,7 +29,7 @@ class Projects extends \Core\Controller
     public function indexAction()
     {
 
-         $projects = Project::Get();
+         $projects = ProjectsModel::Get();
         view::render('projects/index.php', $projects, 'default');
     }
 
@@ -38,7 +38,7 @@ class Projects extends \Core\Controller
         $data = getPostData();
         if(isset($data['id'])){
             $id = $data['id'];
-            $project = Project::getById($id);
+            $project = ProjectsModel::getById($id);
         }else{
             $project = array();
          }
