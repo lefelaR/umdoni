@@ -81,7 +81,7 @@ $crumbs = getCrumbs();
     
 
         <p class="h1 text-uppercase fw-bold text-secondary">
-        G M : Ms Dumisile Nene 
+        G M (Acting) : Mr K Molohlanye 
             </p>
 
             <p class="fw-lighter fs-3 my-5">
