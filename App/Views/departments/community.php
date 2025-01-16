@@ -62,9 +62,7 @@ $crumbs = getCrumbs();
     <div class="row">
         <div class="col-md-12 col-lg-12">
 
-        <?php
-              require_once url("/includes/parts/Breadcrumbs.php");
-        ?>
+   
     
             <p class="fw-lighter fs-3 my-5">
                 Most of the functions of this unit are routine repetitive operations which include maintenance of the Municipal Parks & Gardens, establishment and maintenance of recreational facilities including Beaches. Maintenance of Community Halls, overall management of Libraries as well as Public Safety through the Municipal Traffic and Policing Section and Fire & Disaster Management. </p>
