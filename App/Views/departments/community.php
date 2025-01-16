@@ -82,7 +82,7 @@ $crumbs = getCrumbs();
     
 
             <p class="h1 text-uppercase fw-bold text-secondary">
-        GM : Mr B Ntsebashe
+        GM : Mr B Ntsebeshe
             </p>
 
             <p class="fw-lighter fs-3 my-5">
