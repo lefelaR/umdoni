@@ -96,7 +96,7 @@ $data = $context->data;
                     <img src="<?php echo url("assets/img/COUNCILLORS/Mayor.png") ?>" class="card-img-top" alt="municipal councelor">
                 </div>
                 <p class="fw-bold text-secondary text-uppercase fs-3 lh-1">Mayor</p>
-                <p class="fw-normal  fs-5 lh-1">Cllr MJ Cele</p>
+                <p class="fw-normal  fs-5 lh-1">Cllr MJ Cele-Luthuli</p>
 
             </div>
         </div>
