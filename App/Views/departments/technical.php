@@ -80,11 +80,11 @@ $crumbs = getCrumbs();
     
             
         <p class="h1 text-uppercase fw-bold text-secondary">
-        CFO : Ms T Mhlongo
+        CFO (Acting) : Mr Muketsi
             </p>
 
             <p class="fw-lighter fs-3 my-5">
-            Mr. Siyabonga Mngadi is the General Manager for the Technical Services Department. He has over 08 Years’ experience at management level and over 5 years’ experience at Senior Management level. He has great experience within the local government environment having worked as a General Manager Technical Services in the disestablished Ezinqoleni Municipality for 5 years. 
+            <!-- Mr. Siyabonga Mngadi is the General Manager for the Technical Services Department. He has over 08 Years’ experience at management level and over 5 years’ experience at Senior Management level. He has great experience within the local government environment having worked as a General Manager Technical Services in the disestablished Ezinqoleni Municipality for 5 years.  -->
             </p>
         </div>
     </div>
