@@ -77,10 +77,13 @@ $data = $context->data;
                     <div class="mt-5 row">
                         
                                 <?php
+                             
+
                                 foreach ($data as $key => $vacancy) {
                                     $key++;
                                     $link = ltrim($vacancy['location'],'.');
-                                    if($vacancy['dueDate'] > date('Y-m-d')){
+                                   
+                                    if($vacancy['duedate'] > date('Y-m-d')){
                                     echo '
                                             <div class="col-md-4 col-lg-4 col-sm-12">
                                                 <a href="' . buildurl('vacancies/details?id=' . $vacancy['id']) . '">

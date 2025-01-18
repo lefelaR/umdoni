@@ -81,7 +81,7 @@ $crumbs = getCrumbs();
     
 
             <p class="h1 text-uppercase fw-bold text-secondary">
-                CFO : Ms T Mhlongo
+                CFO (Acting) : Mr T Muketsi
             </p>
 
             <p class="fw-lighter fs-3 my-5">

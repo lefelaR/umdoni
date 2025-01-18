@@ -48,11 +48,8 @@ class Documents extends \Core\Controller
 
     public function pastAction()
     {   
-        
         // get all the files in derectory
         $aFiles = DocumentManger::getDocumentsFromLocation();
-        
-
       view::render('dashboard/documents/past.php', $aFiles, 'dashboard');
     }
 
@@ -73,7 +70,7 @@ class Documents extends \Core\Controller
         $loggedinUser = $_SESSION['profile'];
 
         if (isset($_FILES)) {
-            $destination = UploadToSite::upload($_FILES);
+            $destination = UploadToSite::uploadDoc($_FILES);
         }
 
 

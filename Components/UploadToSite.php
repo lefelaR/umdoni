@@ -5,7 +5,7 @@ namespace Components;
 class UploadToSite
 {
 
-    static function upload($aFile): string
+    static function uploadDoc($aFile): string
     {
 
         global $context;

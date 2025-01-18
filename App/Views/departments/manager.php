@@ -80,7 +80,7 @@ $crumbs = getCrumbs();
     
             
         <p class="h1 text-uppercase fw-bold text-secondary">
-        Municipal Manager : Dr V Tsako
+        Municipal Manager (Acting) : Mr GN Khumalo
             </p>
 
 
