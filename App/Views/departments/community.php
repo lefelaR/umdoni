@@ -63,7 +63,6 @@ $crumbs = getCrumbs();
         <div class="col-md-12 col-lg-12">
 
 
-
         <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                 <ol class="breadcrumb">
                     <?php
@@ -82,7 +81,6 @@ $crumbs = getCrumbs();
                 </ol>
             </nav>
 
-
     
 
             <p class="h1 text-uppercase fw-bold text-secondary">
@@ -97,7 +95,6 @@ $crumbs = getCrumbs();
 
     <div class="row">
         <div class="col-md-12 col-lg-12 mx-auto">
-    
 
             <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true">
