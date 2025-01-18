@@ -81,10 +81,8 @@ $crumbs = getCrumbs();
                 </ol>
             </nav>
 
-    
-
             <p class="h1 text-uppercase fw-bold text-secondary">
-        GM : Mr B Ntsebeshe
+                 GM : Mr B Ntsebeshe
             </p>
 
             <p class="fw-lighter fs-3 my-5">

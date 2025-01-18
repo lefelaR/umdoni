@@ -15,15 +15,14 @@ class Context{
 
     public function __construct(){
         
-        dump($_SERVER['SERVER_NAME']) ;
-       
+      
         if($_SERVER['SERVER_NAME'] != "localhost"){
             $this->bIsLive = true;
         }
 
       session_start(); 
         $this->root     = $_SERVER['HTTP_HOST'];
-        $this->host     = 'http://'.$this->root;
+        $this->host     = 'https://'.$this->root;
         $this->siteroot =  $this->bIsLive ? $this->host.'/' :   $this->host.'/umdoni/';
         $this->dir      =  $this->bIsLive ? $this->root .'/' : $this->root .'/umdoni/';
         $this->checkAuth();
