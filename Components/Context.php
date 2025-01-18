@@ -15,8 +15,7 @@ class Context{
 
     public function __construct(){
         
-        dump($_SERVER['SERVER_NAME']) ;
-       
+      
         if($_SERVER['SERVER_NAME'] != "localhost"){
             $this->bIsLive = true;
         }
