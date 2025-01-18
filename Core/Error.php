@@ -41,7 +41,8 @@ class Error
         if ($code != 404) {
             $code = 500;
         }
-        http_response_code($code);
+
+        // http_response_code($code);
 
         if (\App\Config::SHOW_ERRORS) {
 
