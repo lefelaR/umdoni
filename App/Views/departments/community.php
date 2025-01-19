@@ -96,7 +96,6 @@ $crumbs = getCrumbs();
 
     <div class="row">
         <div class="col-md-12 col-lg-12 mx-auto">
-    
 
             <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action" aria-current="true">
