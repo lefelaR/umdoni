@@ -67,7 +67,7 @@ $support = (isset($permissions->support) && $permissions->support != "") == 'on'
     <div class="card-header">
         <h4 class="card-title">Add a role</h4>
     </div>
-    <form class="form" action="' . $action . '" method="post" enctype="multipart/form-data">
+    <form class="form" action="<?= $action ?>" method="post" enctype="multipart/form-data">
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
