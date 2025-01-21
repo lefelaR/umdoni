@@ -21,13 +21,12 @@ include_once '../Components/Helpers.php';
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/simple-datatables/style.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/toastify/toastify.css") ?>">
     <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/images/favicon.svg") ?>">
-    <link rel="stylesheet" href="<?php echo url('assets/vendors/simple-datatables/style.css') ?>">
+    <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/simple-datatables/style.css") ?>">
     <script src="<?php echo url("assets/js/jquery.min.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/vendors/toastify/toastify.js") ?>"></script>
     <script src="<?php echo url("themes/mazor/assets/js/extensions/toastify.js") ?>"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
-
 
 <body>
 <main>

@@ -65,7 +65,7 @@ class Quotations extends \Core\Controller
         global $context;
         $objectKey = ""; 
              if (isset($_FILES)) {
-                $destination = UploadToSite::upload($_FILES,  $this->Component);
+                $destination = UploadToSite::uploadDoc($_FILES,  $this->Component);
             }
         
         if (isset($_POST)) $data = $_POST;
