@@ -49,7 +49,7 @@ class Notices extends \Core\Controller
         // check file and send to aws s3;
 
         if (isset($_FILES)) {
-            $destination = UploadToSite::upload($_FILES);
+            $destination = UploadToSite::uploadDoc($_FILES);
         }
 
         if (isset($_POST)) $data = $_POST;

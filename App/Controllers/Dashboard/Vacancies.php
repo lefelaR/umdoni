@@ -47,7 +47,7 @@ class Vacancies extends \Core\Controller
         global $context;
 
         if (isset($_FILES)) {
-            $destination = UploadToSite::upload($_FILES);
+            $destination = UploadToSite::uploadDoc($_FILES);
         } 
 
         if(isset($_POST)) $data = $_POST;
