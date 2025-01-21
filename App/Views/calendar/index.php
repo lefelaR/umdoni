@@ -2,8 +2,89 @@
 global $context;
 use Components\Calendar;
 $calendar = new Calendar();
-
 $data = $context->data;
+
+
+
+foreach ($data as $iKey => $aValue) {
+
+    switch ($iKey) {
+        case 'events':
+            $aEvents = $data[$iKey];
+            foreach ($aEvents as $iKey => $event) {
+                $txt = $event['title'];
+                $color = '#FFBF00';
+                $days = 1;
+                $date = $event['dueDate'] ? date('Y-m-d', strtotime($event['dueDate'])) :'';
+                $calendar->add_event(txt: $txt, date: $date, days: $days, color: $color);
+            }
+           
+            break;
+        case 'meetings':
+            $aMeetings = $data[$iKey];
+            foreach ($aMeetings as $iKey => $meeting) 
+            {
+                $txt = $meeting['title'] ? $meeting['title'] : '';
+                $color = '#FF7F50';
+                $days = 1;
+                $date = $meeting['duedate'] ?  date('Y-m-d', strtotime($meeting['duedate'])) : '';
+                $calendar->add_event('blah', date: $date, days: $days, color: $color);
+            }
+
+        break;
+        case 'agendas':
+            $aAgendas = $data[$iKey];
+            foreach ($aAgendas as $iKey => $agenda) 
+            {
+                $txt = $agenda['title'] ? $agenda['title'] : '';
+                $color = '#DE3163';
+                $days = 1;
+                $date = $agenda['duedate'] ? date('Y-m-d', strtotime($agenda['duedate'])) : '';
+                $calendar->add_event( $txt, date: $date, days: $days, color: $color);
+            }
+         
+        break;
+        case 'projects':
+            $aProjects = $data[$iKey];
+            foreach ($aProjects as $iKey => $project) 
+            {
+                $txt = $project['title'];
+                $color = '#9FE2BF';
+                $days = 1;
+                $date =  $project['dueDate'] ? date('Y-m-d', strtotime($project['dueDate'])) : '' ;
+                $calendar->add_event( $txt, date: $date, days: $days, color: $color);
+            }
+        break;
+    
+        case 'notices':
+            $aNotice = $data[$iKey];
+            foreach ($aNotice as $iKey => $notice) 
+            {
+                $txt = $notice['title'];
+                $color = '#40E0D0';
+                $days = 1;
+                $date = $notice['duedate'] ? date('Y-m-d', strtotime($notice['duedate'])) : '';
+                $calendar->add_event( $txt, date: $date, days: $days, color: $color);
+            }
+        break;
+
+        case 'news':
+            $aNews = $data[$iKey];
+            foreach ($aNews as $iKey => $news) 
+            {
+                $txt = $news['title'];
+                $color = '#DFFF00';
+                $days = 1;
+                $date = $news['createdAt'] ? date('Y-m-d', strtotime($news['createdAt'])) : '';
+                $calendar->add_event( $txt, date: $date, days: $days, color: $color);
+            }
+        break;
+            default:
+            # code...
+            break;
+    }
+
+}
 
 
 ?>
