@@ -9,6 +9,13 @@
 
 namespace App\Controllers;
 
+use App\Models\AgendaModel;
+use App\Models\EventModel;
+use App\Models\Meeting;
+use App\Models\NewsModel;
+use App\Models\NoticeModel;
+use App\Models\ProjectsModel;
+use App\Repositories\NoticeRepository;
 use \Core\View;
 use App\Models\CalendarModel;
 
@@ -23,8 +30,18 @@ class Calendar extends \Core\Controller
 
     public function indexAction()
     {
-        $events = CalendarModel::getAll(); 
-        view::render('calendar/index.php', $events, 'default');
+        $aData = [] ;
+
+        $aData['events'] = CalendarModel::getAll();  #FFBF00
+        $aData['meetings'] = Meeting::getAll(); #FF7F50
+        $aData['agendas'] = AgendaModel::Get(); #DE3163
+        $aData['projects'] = ProjectsModel::Get(); #9FE2BF
+        $aData['events'] = EventModel::getAll(); #40E0D0
+        $aData['notices'] = NoticeRepository::getAll(); #DFFF00
+        $aData['news'] = NewsModel::Get(); #CCCCFF
+
+
+        view::render('calendar/index.php', $aData, 'default');
     }
 
     public function detailsAction()
