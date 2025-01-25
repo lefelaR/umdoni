@@ -5,78 +5,205 @@ $calendar = new Calendar();
 $data = $context->data;
 
 
-
 foreach ($data as $iKey => $aValue) {
 
     switch ($iKey) {
         case 'events':
             $aEvents = $data[$iKey];
-            foreach ($aEvents as $iKey => $event) {
+            foreach ($aEvents as $Key => $event)
+            {
+                $iModalId = 'eventsModal-'.$Key;
                 $txt = $event['title'];
                 $color = '#FFBF00';
                 $days = 1;
                 $date = $event['dueDate'] ? date('Y-m-d', strtotime($event['dueDate'])) :'';
-                $calendar->add_event(txt: $txt, date: $date, days: $days, color: $color);
+                $calendar->add_event(txt: $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
+                echo '
+                <div class="modal fade" id="'.$iModalId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                    
+                    </div>
+                    </div>
+                </div>
+                </div>';
+             
             }
            
             break;
         case 'meetings':
             $aMeetings = $data[$iKey];
-            foreach ($aMeetings as $iKey => $meeting) 
+            foreach ($aMeetings as $Key => $meeting) 
             {
+                $iModalId = 'meetingModal'.$key;
                 $txt = $meeting['title'] ? $meeting['title'] : '';
                 $color = '#FF7F50';
                 $days = 1;
                 $date = $meeting['duedate'] ?  date('Y-m-d', strtotime($meeting['duedate'])) : '';
-                $calendar->add_event('blah', date: $date, days: $days, color: $color);
+                $calendar->add_event($txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
+                echo '
+                <div class="modal fade" id="'.$iModalId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                    
+                    </div>
+                    </div>
+                </div>
+                </div>';
+            
             }
 
         break;
         case 'agendas':
             $aAgendas = $data[$iKey];
-            foreach ($aAgendas as $iKey => $agenda) 
+            foreach ($aAgendas as $Key => $agenda) 
             {
+                $iModalId = 'agendaModal'.$key;
                 $txt = $agenda['title'] ? $agenda['title'] : '';
                 $color = '#DE3163';
                 $days = 1;
                 $date = $agenda['duedate'] ? date('Y-m-d', strtotime($agenda['duedate'])) : '';
-                $calendar->add_event( $txt, date: $date, days: $days, color: $color);
+                $calendar->add_event( $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
+                echo '
+                <div class="modal fade" id="'.$iModalId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                    
+                    </div>
+                    </div>
+                </div>
+                </div>';
+              
             }
          
         break;
         case 'projects':
             $aProjects = $data[$iKey];
-            foreach ($aProjects as $iKey => $project) 
+            foreach ($aProjects as $Key => $project) 
             {
+                $iModalId = 'projectModal'.$key;
                 $txt = $project['title'];
                 $color = '#9FE2BF';
                 $days = 1;
                 $date =  $project['dueDate'] ? date('Y-m-d', strtotime($project['dueDate'])) : '' ;
-                $calendar->add_event( $txt, date: $date, days: $days, color: $color);
+                $calendar->add_event( $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
+                echo '
+                <div class="modal fade" id="'.$iModalId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                    
+                    </div>
+                    </div>
+                </div>
+                </div>';
+             
             }
         break;
     
         case 'notices':
             $aNotice = $data[$iKey];
-            foreach ($aNotice as $iKey => $notice) 
+            foreach ($aNotice as $Key => $notice) 
             {
+                $iModalId = 'noticeModal-'.$Key;
                 $txt = $notice['title'];
                 $color = '#40E0D0';
                 $days = 1;
-                $date = $notice['duedate'] ? date('Y-m-d', strtotime($notice['duedate'])) : '';
-                $calendar->add_event( $txt, date: $date, days: $days, color: $color);
+                $date = $notice['createdAt'] ? date('Y-m-d', strtotime($notice['createdAt'])) : '';
+                $calendar->add_event( $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
+                echo '
+                <div class="modal fade" id="'.$iModalId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                    
+                    </div>
+                    </div>
+                </div>
+                </div>';
+               
             }
         break;
 
         case 'news':
             $aNews = $data[$iKey];
-            foreach ($aNews as $iKey => $news) 
+            foreach ($aNews as $Key => $news) 
             {
+                $iModalId = 'newsModal'.$Key;
                 $txt = $news['title'];
                 $color = '#DFFF00';
                 $days = 1;
                 $date = $news['createdAt'] ? date('Y-m-d', strtotime($news['createdAt'])) : '';
-                $calendar->add_event( $txt, date: $date, days: $days, color: $color);
+                $calendar->add_event( txt: $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
+
+                echo '
+                <div class="modal fade" id="'.$iModalId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                    
+                    </div>
+                    </div>
+                </div>
+                </div>';
+               
             }
         break;
             default:
@@ -190,22 +317,5 @@ echo '
 ?>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+
