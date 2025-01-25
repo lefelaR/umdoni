@@ -13,9 +13,9 @@ class Calendar {
         $this->active_day = $date != null ? date('d', strtotime($date)) : date('d');
     }
 
-    public function add_event($txt, $date, $days = 1, $color = '') {
+    public function add_event($txt, $date, $days = 1, $color = '' , $iModalId = 0 ) {
         $color = $color ? ' ' . $color : $color;
-        $this->events[] = [$txt, $date, $days, $color];
+        $this->events[] = [$txt, $date, $days, $color, $iModalId];
     }
 
     public function __toString() {
@@ -54,7 +54,7 @@ class Calendar {
             foreach ($this->events as $event) {
                 for ($d = 0; $d <= ($event[2]-1); $d++) {
                     if (date('y-m-d', strtotime($this->active_year . '-' . $this->active_month . '-' . $i . ' -' . $d . ' day')) == date('y-m-d', strtotime($event[1]))) {
-                        $html .= '<div class="event' . $event[3] . '" data-toggle="modal" data-target="#exampleModal">';
+                        $html .= '<div class="event' . $event[3] . '" data-toggle="modal" data-target="#'.$event[4].'">';
                         $html .= $event[0];
                         $html .= '</div>';
                     }
