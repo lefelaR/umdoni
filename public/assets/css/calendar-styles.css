@@ -79,9 +79,16 @@
     background-color: #40E0D0;
 }
 
+
+
+
 /* $color = '#DFFF00'; */
-.calendar .days .day_num .event.green {
-    background-color: #DFFF00;
+.calendar .days .day_num .event.news {
+    background-color: #61bbdde6;
+}
+
+.calendar .days .day_num .event.past {
+    background-color: #999;
 }
 
 .calendar .days .day_num .event.green {
