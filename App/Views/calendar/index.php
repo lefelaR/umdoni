@@ -14,7 +14,12 @@ foreach ($data as $iKey => $aValue) {
             {
                 $iModalId = 'eventsModal-'.$Key;
                 $txt = $event['title'];
-                $color = 'events';
+                if( strtotime(date("Y-m-d")) > strtotime($event['dueDate'])  ){
+                    $color = 'past';
+                }else{
+                    $color = 'events';
+                }
+               
                 $days = 1;
                 $date = $event['dueDate'] ? date('Y-m-d', strtotime($event['dueDate'])) :'';
                 $calendar->add_event(txt: $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
@@ -23,7 +28,7 @@ foreach ($data as $iKey => $aValue) {
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">'.formatDate($date).'</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -171,7 +176,13 @@ foreach ($data as $iKey => $aValue) {
             {
                 $iModalId = 'noticeModal-'.$Key;
                 $txt = $notice['title'];
-                $color = 'notice';
+              
+                if( date("Y-m-d") > $notice['createdAt'] ){
+                    $color = 'past';
+                }else{
+                    $color = 'notice';
+                }
+            
                 $days = 1;
                 $date = $notice['createdAt'] ? date('Y-m-d', strtotime($notice['createdAt'])) : '';
                 $calendar->add_event( $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
@@ -245,23 +256,49 @@ foreach ($data as $iKey => $aValue) {
             {
                 $iModalId = 'newsModal'.$Key;
                 $txt = $news['title'];
-                $color = '#DFFF00';
+                if( date("Y-m-d") > $news['createdAt'] ){
+                    $color = 'past';
+                }else{
+                    $color = 'news';
+                }
+ 
                 $days = 1;
                 $date = $news['createdAt'] ? date('Y-m-d', strtotime($news['createdAt'])) : '';
                 $calendar->add_event( txt: $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
 
                 echo '
                 <div class="modal fade" id="'.$iModalId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">'.$date.'</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                       <div class="container content-section">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12">
+                                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                                        '. $news['title'] .'
+                                    </p>
+                                    <p class="fs-3 my-2 text-yellow">
+                                      '.$news['subtitle'].'
+                                    </p>
+                                    <p class="text-secondary">
+                                        created at: '. $news['createdAt'] .'
+                                    </p>
+
+                                    <span class="py-3 mb-3">
+                                        <img src=" '. $news['location'] .'" class="img-fluid" style="width: 100%;" alt="'.$news['title'].'">
+                                    </span>
+                                    <p class="my-5 fs-5 lh-lg  ">
+                                        '. $news['body'] .'
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                     
