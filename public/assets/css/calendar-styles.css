@@ -53,6 +53,37 @@
     color: #fff;
     word-wrap: break-word;
 }
+
+/* $color = '#FFBF01'; */
+.calendar .days .day_num .event.notice {
+    background-color: #FFBF01;
+}
+/* $color = '#FF7F50'; */
+.calendar .days .day_num .event.meeting {
+    background-color: #FF7F50;
+}
+
+/* $color = '#DE3163'; */
+.calendar .days .day_num .event.agenda {
+    background-color: #DE3163;
+}
+
+/* $color = '#9FE2BF'; */
+.calendar .days .day_num .event.project {
+    background-color: #9FE2BF;
+}
+
+
+/* $color = '#40E0D0'; */
+.calendar .days .day_num .event.events {
+    background-color: #40E0D0;
+}
+
+/* $color = '#DFFF00'; */
+.calendar .days .day_num .event.green {
+    background-color: #DFFF00;
+}
+
 .calendar .days .day_num .event.green {
     background-color: #51ce57;
 }

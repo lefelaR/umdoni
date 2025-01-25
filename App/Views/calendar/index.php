@@ -14,13 +14,13 @@ foreach ($data as $iKey => $aValue) {
             {
                 $iModalId = 'eventsModal-'.$Key;
                 $txt = $event['title'];
-                $color = '#FFBF00';
+                $color = 'events';
                 $days = 1;
                 $date = $event['dueDate'] ? date('Y-m-d', strtotime($event['dueDate'])) :'';
                 $calendar->add_event(txt: $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
                 echo '
-                <div class="modal fade" id="'.$iModalId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal fade  bd-example-modal-lg" id="'.$iModalId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -29,7 +29,32 @@ foreach ($data as $iKey => $aValue) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        
+                            <div class="container content-section">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12">
+                                        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                                          '.$txt.'
+                                        </p>
+                                        <p class="fs-3 my-2 text-yellow"> 
+                                            <?php
+                                            '. $event['subtitle'].'
+                                            ?>
+                                        </p>
+                                        <p class="text-secondary">
+                                            created at:  '.$event['createdAt'].' 
+                                        </p>
+
+                                        <span class="py-3 mb-3">
+                                            <img src="'. $event['location'].'" class="img-fluid" style="width: 100%;" alt="'.$event['title'].'">
+                                        </span>
+                                        <p class="my-5 fs-5 lh-lg ">
+                                            '.$event['body'] .'
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
                     </div>
                     <div class="modal-footer">
                     
@@ -47,7 +72,7 @@ foreach ($data as $iKey => $aValue) {
             {
                 $iModalId = 'meetingModal'.$key;
                 $txt = $meeting['title'] ? $meeting['title'] : '';
-                $color = '#FF7F50';
+                $color = 'meeting';
                 $days = 1;
                 $date = $meeting['duedate'] ?  date('Y-m-d', strtotime($meeting['duedate'])) : '';
                 $calendar->add_event($txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
@@ -80,7 +105,7 @@ foreach ($data as $iKey => $aValue) {
             {
                 $iModalId = 'agendaModal'.$key;
                 $txt = $agenda['title'] ? $agenda['title'] : '';
-                $color = '#DE3163';
+                $color = 'agenda';
                 $days = 1;
                 $date = $agenda['duedate'] ? date('Y-m-d', strtotime($agenda['duedate'])) : '';
                 $calendar->add_event( $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
@@ -113,7 +138,7 @@ foreach ($data as $iKey => $aValue) {
             {
                 $iModalId = 'projectModal'.$key;
                 $txt = $project['title'];
-                $color = '#9FE2BF';
+                $color = 'project';
                 $days = 1;
                 $date =  $project['dueDate'] ? date('Y-m-d', strtotime($project['dueDate'])) : '' ;
                 $calendar->add_event( $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
@@ -146,25 +171,66 @@ foreach ($data as $iKey => $aValue) {
             {
                 $iModalId = 'noticeModal-'.$Key;
                 $txt = $notice['title'];
-                $color = '#40E0D0';
+                $color = 'notice';
                 $days = 1;
                 $date = $notice['createdAt'] ? date('Y-m-d', strtotime($notice['createdAt'])) : '';
                 $calendar->add_event( $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
+                $link = ltrim($notice['location'],'.');
+                $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
+                $sIframe = '';
+                if(in_array(strtolower(pathinfo($link)['extension']),$allowed_extensions )){
+                    $sIframe = ' <img src="' . url($link) . '" class="img-fluid" style="width: 50%;" alt="'. $notice['title'] .'">
+                    ';
+                }else{
+                    $sIframe = '    <iframe
+                    src="' . url($link) . '"
+                    width="100%"
+                    height="1000px"
+                    loading="lazy"
+                    title="PDF-file"
+                ></iframe>';
+                }
+
                 echo '
-                <div class="modal fade" id="'.$iModalId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal fade bd-example-modal-lg" id="'.$iModalId.'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">'.formatDate($date).'</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                      
+                       
+                             <div class="container content-section">
+                                <div class="row">
+                                    <div class="col-md-12 col-lg-12">
+                                        <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                                            '.$notice['title'].'
+                                        </p>
+                                        <p class="fs-3 my-2 text-yellow">
+                                           '. $notice['subtitle'].'
+                                        </p>
+                                        <p class="text-secondary">
+                                            created at: '. $notice['createdAt'] .'
+                                        </p>
+
+                                        <span class="py-3 mb-3">
+                                            '.$link.'
+
+                                           '.$sIframe.'
+                                           
+                                            </span>
+                                        <p class="my-5 fs-4 lh-lg  ">
+                                            '.$notice['body'] .'
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                     <div class="modal-footer">
-                    
                     </div>
                     </div>
                 </div>
@@ -207,7 +273,6 @@ foreach ($data as $iKey => $aValue) {
             }
         break;
             default:
-            # code...
             break;
     }
 
@@ -282,8 +347,7 @@ foreach ($data as $iKey => $aValue) {
     }
 </style>
 
-<?php
-echo '
+
 <div class="container-fluid" id="service-page">
     <div class="row">
         <div class="tag-header">
@@ -305,15 +369,11 @@ echo '
     </div>
     <div class="row mt-2">
         <div class=" col-md-12 col-lg-12 col-sm-12">
-            <!-- <div class="card">
-                <div class="card-body shadow-sm"> -->
-                    <!-- Section: Timeline -->
-                    <section class="py-5">'  
-                    . $calendar .
-                   ' </section>
+          
+                    <section class="py-5"><?php echo $calendar ?> </section>
         </div>
     </div>
 </div>';
-?>
+
 
 
