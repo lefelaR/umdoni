@@ -63,14 +63,16 @@ class EventModel extends \Core\Repository
         `subtitle`= :subtitle,
         `body` = :body,
         `updatedAt` = :updatedAt
-         ";
+         where `id` = :id";
 
         $stmt = $db->prepare($sql);
+
         $stmt->bindParam(':title', $data['title']);
         $stmt->bindParam(':subtitle', $data['subtitle']);
         $stmt->bindParam(':body', $data['body']);
         $stmt->bindParam(':updatedAt', $data['updatedAt']);
-
+        $stmt->bindParam(':id', $data['id']);
+        
         if ($stmt->execute()) {
             return true; // or any meaningful success indicator
         } else {

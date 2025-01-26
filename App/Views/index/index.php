@@ -205,7 +205,9 @@ $data = $context->data;
                     <div class="card mb-3" style="max-width: 540px;">
                     <a href="' . buildurl("news/details?id=" . $news['id']) . '" ">
                         <div class="row g-0">
-                            <div class="col-lg-4 col-md-4 col-sm-12 col-sx-12">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-sx-12" style="    max-height: 11em;
+    display: flex
+;">
                                 <img src="' . $news["location"] . '" class="img-fluid rounded-start" style="object-fit: cover;">
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
