@@ -1,0 +1,17 @@
+
+services:
+    nginx:
+      image: nginx:latest
+      build: ./nginx/
+      ports:
+       - 80:80
+
+      volumes:
+         - ./ :/var/www/html/
+
+    php:
+      build: ./
+      expose:
+        - 9000
+      volumes:
+          - ./ :/var/www/html/
