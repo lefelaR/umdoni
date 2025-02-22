@@ -1,17 +1,28 @@
 
 services:
     nginx:
-      image: nginx:latest
-      build: ./nginx/
-      ports:
+     build: ./nginx/
+     ports:
        - 80:80
-
-      volumes:
-         - ./ :/var/www/html/
+  
+     volumes:
+         - ./php_code/:/var/www/html/
 
     php:
-      build: ./
+      build: ./php_code/
       expose:
         - 9000
       volumes:
-          - ./ :/var/www/html/
+          - ./php_code/:/var/www/html/
+    
+    db:    
+      image: mariadb  
+      volumes: 
+        -    mysql-data:/var/lib/mysql
+      environment:  
+       MYSQL_ROOT_PASSWORD: mariadb
+       MYSQL_DATABASE: ecomdb 
+
+
+volumes:
+    mysql-data:
