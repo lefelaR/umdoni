@@ -8,13 +8,18 @@
 /**
  * Composer
  */
+
 use Components\Context;
+
 use Dotenv\Dotenv;
+
 use Rollbar\Rollbar;
 use Rollbar\Payload\Level;
 require '../vendor/autoload.php';
 require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../vendor/phpmailer/phpmailer/src/Exception.php';
+
+
 /**
  * Twig
  */
@@ -41,6 +46,7 @@ set_exception_handler('Core\Error::exceptionHandler');
  * Error handling with Rollbar
  * 
  */
+
 Rollbar::init(
     array(
         'access_token' => 'c3778305cc8e4f098be08bed6f958273',
@@ -53,6 +59,9 @@ Rollbar::init(
  */
 try {
     $dotenv = Dotenv::createImmutable('../');
+
+  
+
     $dotenv->load();
 } catch (\Throwable $th) {
     throw $th;

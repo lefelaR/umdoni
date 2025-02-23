@@ -1,28 +1,19 @@
-
+version: '3.8'
 services:
-    nginx:
-     build: ./nginx/
-     ports:
-       - 80:80
-  
-     volumes:
-         - ./php_code/:/var/www/html/
-
-    php:
-      build: ./php_code/
-      expose:
-        - 9000
-      volumes:
-          - ./php_code/:/var/www/html/
-    
-    db:    
-      image: mariadb  
-      volumes: 
-        -    mysql-data:/var/lib/mysql
-      environment:  
-       MYSQL_ROOT_PASSWORD: mariadb
-       MYSQL_DATABASE: ecomdb 
-
-
-volumes:
-    mysql-data:
+  app:  # Add a service name (e.g., "app", "web", etc.)
+    build:
+      context: .
+      dockerfile: dockerfile  # Ensure the filename is correct (e.g., Dockerfile)
+    container_name: umdoni
+    hostname: umdoni
+    volumes:
+      - ${UMDONI}:/var/www/html  # Ensure ${UMDONI} is defined in .env or environment
+    ports:
+      - "8080:80"
+      - "443:443"
+    env_file:
+      - .env  # Ensure this file exists and contains required variables
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+    extra_hosts:
+      - "umdoni:120.0.0.1"  # Ensure "umdoni" is a literal hostname, not a variable
