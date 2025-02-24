@@ -59,9 +59,6 @@ Rollbar::init(
  */
 try {
     $dotenv = Dotenv::createImmutable('../');
-
-  
-
     $dotenv->load();
 } catch (\Throwable $th) {
     throw $th;

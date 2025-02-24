@@ -26,11 +26,31 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     php8.3-xdebug php8.3-cli php8.3-bz2 php8.3-curl php8.3-mbstring php8.3-intl php8.3-xml php8.3-mysqli \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+
+RUN echo "<Directory /var/www/html>\n\tAllowOverride All\n</Directory>" >> /etc/apache2/apache2.conf
+
+RUN service apache2 start
+
+
+# Install mysql
+RUN apt-get update && apt-get install -y mysql-server 
+
+# Create a directory for the MySQL user
+RUN mkdir -p /nonexistent && chown mysql:mysql /nonexistent
+
+#Configure MySQL
+RUN service mysql start && \
+    mysql -e "CREATE DATABASE umdonigov_umdoni;" && \
+    mysql -e "CREATE USER 'umdonigov_admin'@'%' IDENTIFIED BY '29019WtP98zj23';" && \
+    mysql -e "GRANT ALL PRIVILEGES ON umdonigov_umdoni.* TO 'umdonigov_admin'@'%';" && \
+    mysql -e "FLUSH PRIVILEGES;"
+
 # Enable Apache modules and default SSL site
 RUN a2enmod rewrite ssl headers php8.3 && a2ensite default-ssl.conf
 
 # Copy custom PHP and Xdebug configuration files
 COPY docker/php.ini.development /etc/php/8.3/apache2/php.ini
+
 COPY docker/xdebug.ini /etc/php/8.3/conf.d/20-xdebug.ini
 
 # Install Mailpit

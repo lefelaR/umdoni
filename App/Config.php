@@ -11,7 +11,7 @@ class Config
      * Database host
      * @var string
      */
-    const DB_HOST = 'reseller142.aserv.co.za';
+    const DB_HOST = 'localhost';
     /**
      * Database namegit 
      * @var string
