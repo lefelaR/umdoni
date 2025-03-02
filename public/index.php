@@ -47,9 +47,10 @@ set_exception_handler('Core\Error::exceptionHandler');
  * 
  */
 
+
 Rollbar::init(
     array(
-        'access_token' => $_ENV['ROLLBAR_ACCESS_TOKEN'],
+        'access_token' => 'c3778305cc8e4f098be08bed6f958273',
         'environment' => 'local'
     )
 );
