@@ -1,9 +1,10 @@
+# Disable directory indexing
 Options -Indexes
 
+# Enable URL rewriting
 RewriteEngine On
+
+# Redirect all requests to public/index.php, except for specific file types
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !\.(?:jpe?g|gif|bmp|png|ico|tiff|css|js|webp|mp3|mp4)$ [NC]
-
-
-RewriteRule ^(.*)$ public/index.php?$1 [L,QSA]  
-
+RewriteRule ^(.*)$ public/index.php?$1 [L,QSA]

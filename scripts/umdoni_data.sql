@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `agendas`
 --
+DROP TABLE IF EXISTS `agendas` ;
 
 CREATE TABLE `agendas` (
   `id` int(11) NOT NULL,
@@ -107,7 +108,7 @@ INSERT INTO `councillors` (`id`, `name`, `middlename`, `surname`, `telephone`, `
 --
 -- Table structure for table `documents`
 --
-
+DROP TABLE IF EXISTS `documents` ;
 CREATE TABLE `documents` (
   `id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -128,7 +129,7 @@ CREATE TABLE `documents` (
 --
 -- Table structure for table `events`
 --
-
+DROP TABLE IF EXISTS `events` ;
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
@@ -156,7 +157,7 @@ INSERT INTO `events` (`id`, `title`, `subtitle`, `body`, `createdAt`, `isActive`
 --
 -- Table structure for table `meetings`
 --
-
+DROP TABLE IF EXISTS `meetings` ;
 CREATE TABLE `meetings` (
   `id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -177,7 +178,7 @@ CREATE TABLE `meetings` (
 --
 -- Table structure for table `news`
 --
-
+DROP TABLE IF EXISTS `news` ;
 CREATE TABLE `news` (
   `id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -207,7 +208,7 @@ INSERT INTO `news` (`id`, `title`, `subtitle`, `body`, `createdAt`, `location`, 
 --
 -- Table structure for table `newsletters`
 --
-
+DROP TABLE IF EXISTS `newsletters` ;
 CREATE TABLE `newsletters` (
   `id` int(11) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
@@ -227,7 +228,7 @@ CREATE TABLE `newsletters` (
 --
 -- Table structure for table `notices`
 --
-
+DROP TABLE IF EXISTS `notices` ;
 CREATE TABLE `notices` (
   `id` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -255,7 +256,7 @@ INSERT INTO `notices` (`id`, `title`, `subtitle`, `body`, `createdAt`, `location
 --
 -- Table structure for table `profile`
 --
-
+DROP TABLE IF EXISTS `profile` ;
 CREATE TABLE `profile` (
   `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
@@ -289,7 +290,7 @@ INSERT INTO `profile` (`id`, `user_id`, `first_name`, `last_name`, `createdAt`, 
 --
 -- Table structure for table `projects`
 --
-
+DROP TABLE IF EXISTS `projects` ;
 CREATE TABLE `projects` (
   `id` int(11) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
@@ -311,7 +312,7 @@ CREATE TABLE `projects` (
 INSERT INTO `projects` (`id`, `title`, `subtitle`, `body`, `createdAt`, `isActive`, `location`, `img_file`, `updatedAt`, `updatedBy`, `dueDate`) VALUES
 (51, 'test', 'test sub', '                        \r\n               test description         ', '2024-03-18 15:25:19', '0', '', NULL, '0', 'rakheoana', NULL);
 
-
+DROP TABLE IF EXISTS `rfps` ;
 CREATE TABLE `rfps` (
    `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(552) DEFAULT NULL,
@@ -345,7 +346,7 @@ SELECT * FROM umdoni.logs;CREATE TABLE `logs` (
 --
 -- Table structure for table `quotations`
 --
-
+DROP TABLE IF EXISTS `quotations` ;
 CREATE TABLE `quotations` (
   `id` int(11) NOT NULL,
   `title` varchar(552) DEFAULT NULL,
@@ -384,7 +385,7 @@ INSERT INTO `quotations` (`id`, `title`, `subtitle`, `body`, `createdAt`, `isAct
 --
 -- Table structure for table `requests`
 --
-
+DROP TABLE IF EXISTS `requests` ;
 CREATE TABLE `requests` (
   `id` int(11) NOT NULL,
   `email` varchar(45) DEFAULT NULL,
@@ -409,7 +410,7 @@ INSERT INTO `requests` (`id`, `email`, `name`, `telephone`, `servicetype`, `comm
 --
 -- Table structure for table `roles`
 --
-
+DROP TABLE IF EXISTS `roles` ;
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -433,7 +434,7 @@ INSERT INTO `roles` (`id`, `name`, `permissions`, `status`) VALUES
 --
 -- Table structure for table `seniors`
 --
-
+DROP TABLE IF EXISTS `seniors` ;
 CREATE TABLE `seniors` (
   `id` int(11) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
@@ -489,7 +490,7 @@ INSERT INTO `seniors` (`id`, `name`, `middlename`, `surname`, `telephone`, `emai
 --
 -- Table structure for table `services`
 --
-
+DROP TABLE IF EXISTS `services` ;
 CREATE TABLE `services` (
   `id` int(11) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
@@ -509,7 +510,7 @@ CREATE TABLE `services` (
 --
 -- Table structure for table `tenders`
 --
-
+DROP TABLE IF EXISTS `tenders` ;
 CREATE TABLE `tenders` (
   `id` int(11) NOT NULL,
   `title` varchar(552) DEFAULT NULL,
@@ -544,7 +545,7 @@ INSERT INTO `tenders` (`id`, `title`, `subtitle`, `body`, `createdAt`, `isActive
 --
 -- Table structure for table `users`
 --
-
+DROP TABLE IF EXISTS `users` ;
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
@@ -577,7 +578,7 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `status`, `veri
 --
 -- Table structure for table `vacancies`
 --
-
+DROP TABLE IF EXISTS `vacancies` ;
 CREATE TABLE `vacancies` (
   `id` int(11) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
