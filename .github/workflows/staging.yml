@@ -20,4 +20,4 @@ jobs:
           username: umdonigov
           password: 29019WtP98zj23
           server-dir: /public_html/
-          timeout: 60000
+          log-level: debug
