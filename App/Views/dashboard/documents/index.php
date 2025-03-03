@@ -83,7 +83,9 @@ $options = array(
     "IA"  => "Internal Audit",
     "CM"  => "Council Minuts",
     "SDA" => "Service Delivery Agreements",
-    "LED" => "LED"
+    "LED" => "LED",
+    "SDBIP" => "SDBIP",
+    "PAF"  => "PAF",
 );
 
             foreach ($data as $key => $document) {

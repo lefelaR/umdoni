@@ -71,14 +71,15 @@ $data = $context->data;
             </p>
             <p class="fw-lighter fs-3 my-5">
                 Explore Our Repository of Key Municipal Documents
-                Our Document Center is a dedicated space where you can access a wide range of important documents related to the functioning and governance of Umdoni Municipality
+                Our Document Center is a dedicated space where you can access a wide range of important documents
+                related to the functioning and governance of Umdoni Municipality
             </p>
         </div>
     </div>
 
-<div>
-    <!-- <a href="">Past documents</a> -->
-</div>
+    <div>
+        <!-- <a href="">Past documents</a> -->
+    </div>
 
     <div class="row align-items-center">
 
@@ -166,37 +167,55 @@ $data = $context->data;
         </div>
 
         <div class="col-md-4 my-1">
-        <a href="<?php echo buildurl('documents/councilminutes') ?>">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5"> Council Minutes</p>
-                    <p class="fw-normal"> service description</p>
+            <a href="<?php echo buildurl('documents/councilminutes') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> Council Minutes</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
         </div>
 
         <div class="col-md-4 my-1">
-        <a href="<?php echo buildurl('documents/servicedelivery') ?>">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5"> Service Delivery Agreements</p>
-                    <p class="fw-normal"> service description</p>
+            <a href="<?php echo buildurl('documents/servicedelivery') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> Service Delivery Agreements</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
         </div>
         <div class="col-md-4 my-1">
-        <a href="<?php echo buildurl('documents/led') ?>">
-            <div class="card">
-                <div class="card-body">
-                    <p class="h5"> LED</p>
-                    <p class="fw-normal"> service description</p>
+            <a href="<?php echo buildurl('documents/led') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> LED</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
         </div>
-
+        <div class="col-md-4 my-1">
+            <a href="<?php echo buildurl('documents/sdbip') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> SDBIP</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 my-1">
+            <a href="<?php echo buildurl('documents/paf') ?>">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="h5"> PAF</p>
+                        <p class="fw-normal"> service description</p>
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
-
 </div>
