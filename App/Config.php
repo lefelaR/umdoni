@@ -23,7 +23,7 @@ class Config
      * @var string
      */
     // const DB_HOST = 'reseller142.aserv.co.za';
-    const DB_HOST = $this->bIsLive ? 'reseller142.aserv.co.za' : 'localhost';
+    const DB_HOST = 'reseller142.aserv.co.za';
     /**
      * Database namegit 
      * @var string
@@ -34,20 +34,20 @@ class Config
      * Database user
      * @var string
      */
-    const DB_USER =  $this->bIsLive ? 'umdonigov_admin' : 'root';
+    const DB_USER =  'umdonigov_admin';
    
     /**
      * Database password
      * @var string
      */
-    const DB_PASSWORD = $this->bIsLive ? '29019WtP98zj23' : '';
+    const DB_PASSWORD = '29019WtP98zj23';
    
 
     /**
      * Show or hide error messages on screen
      * @var boolean
      */
-    const SHOW_ERRORS = $this->bIsLive ? false : true;
+    const SHOW_ERRORS = false;
 
 
     /**
