@@ -42,5 +42,3 @@ class Config
      */
     const VERSION = '1';
 }
-
-?>

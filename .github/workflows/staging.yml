@@ -20,3 +20,4 @@ jobs:
           username: umdonigov
           password: 29019WtP98zj23
           server-dir: /public_html/
+          log-level: debug

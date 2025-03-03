@@ -114,6 +114,17 @@ class Documents extends \Core\Controller
         view::render('documents/led.php', $led, 'default');
     }
 
+    public function sdbipAction()
+    {
+        $sdbip = DocumentModel::GET();
+        view::render('documents/sdbip.php', $sdbip, 'default');
+    }
+    public function pafAction()
+    {
+        $paf = DocumentModel::GET();
+        view::render('documents/paf.php', $paf, 'default');
+    }
+
 
     public function pastAction()
     {
