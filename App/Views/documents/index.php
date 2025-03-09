@@ -208,10 +208,10 @@ $data = $context->data;
             </a>
         </div>
         <div class="col-md-4 my-1">
-            <a href="<?php echo buildurl('documents/paf') ?>">
+            <a href="<?php echo buildurl('documents/pa') ?>">
                 <div class="card">
                     <div class="card-body">
-                        <p class="h5"> PAF</p>
+                        <p class="h5"> Performance Agreements</p>
                         <p class="fw-normal"> service description</p>
                     </div>
                 </div>
