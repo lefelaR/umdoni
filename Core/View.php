@@ -28,7 +28,7 @@ namespace Core;
         
         extract($args, EXTR_SKIP);
      
-      
+  
         $context = (object) array_merge( (array)$context, array( 'data' => $args ) );
 
         $file = "../App/Views/$view";  

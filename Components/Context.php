@@ -23,13 +23,12 @@ class Context{
 
       session_start(); 
         $this->root     = $_SERVER['HTTP_HOST'];
-        $this->host     =  $this->bIsLive ? 'https://'.$this->root : 'http://'.$this->root; 
+        $this->host     =  'https://'.$this->root; 
         $this->siteroot =  $this->bIsLive ? $this->host.'/' :   $this->host.'/umdoni/';
         $this->dir      =  $this->bIsLive ? $this->root .'/' : $this->root .'/umdoni/';
         $this->checkAuth();
         return;
     }
-
 
     public function setLoggedIn($isLoggedIn)
     {
