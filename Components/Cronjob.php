@@ -1,24 +1,13 @@
 <?php
-namespace Components;
 
-use App\Models\CronModel;
-use PDO;
 
-class Cronjob extends \Core\Repository
+function updateTenders()
 {
    
-    private $currentDate = null;
-
-    public public function __construct() {
-        $this->currentDate = date("Y-m-d H:i:s");
-    }
-
-
-public function updateTenders()
-{
+    $currentDate = date("Y-m-d");
+   
    
     try {
-    
     $db = static::getDB();
 
     $sql = "UPDATE tenders 
@@ -27,14 +16,14 @@ public function updateTenders()
             AND status = 1";
 
         $stmt = $db->prepare($sql);
-        $stmt->bindParam(':currentDate', $this->currentDate);
+        $stmt->bindParam(':currentDate', $currentDate);
         $stmt->execute();
 
         $updatedRows = $stmt->rowCount();
 
         file_put_contents(
             'tender_update_log.txt',
-            "[$this->currentDate] Updated $updatedRows tenders to status 2\n",
+            "[$currentDate] Updated $updatedRows tenders to status 2\n",
             FILE_APPEND
         );
 
@@ -43,13 +32,15 @@ public function updateTenders()
     } catch (\Throwable $th) {
         file_put_contents(
             'tender_update_log.txt',
-            "[$this->currentDate] Error: " . $th->getMessage() . "\n",
+            "[$currentDate] Error: " . $th->getMessage() . "\n",
             FILE_APPEND
         );
     }
 
 }
- 
+
+
+
 // public function    updateQuotations()
 // {
 //     $data = CronModel::getQuotations();
@@ -68,7 +59,6 @@ public function updateTenders()
 // }
 
 
-}
 
 
-(new Cronjob())->updateTenders();
+updateTenders();
