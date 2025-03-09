@@ -146,7 +146,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 <?php
                                 foreach ($currentTenders as $currentTenderkey => $currentTender) {
                                     $currentTenderkey++;
-                                 
+                                    if($currentTender['dueDate'] > date('Y-m-d')){
                                     echo'
                                 <tr data-id="'.$currentTender['id'].'">
                                     <th scope="row">
@@ -163,7 +163,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 </tr>
                                   ';
                                 }
-                           
+                            }
                                 ?>
                             </tbody>
                         </table>
@@ -203,7 +203,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 <?php
                                 foreach ($openTenders as $openTenderkey => $openTender) {
                                     $openTenderkey++;
-                                 
+                                    if($openTender['dueDate'] > date('Y-m-d')){
                                     echo '
                                 <tr data-id="'.$openTender['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
@@ -217,7 +217,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 </tr>
                                   ';
                                 }
-                           
+                            }
                                 ?>
                             </tbody>
                         </table>
@@ -258,7 +258,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 foreach ($awardedTenders as $awardedTenderKey => $awardedTender) 
                                 {
                                     $awardedTenderKey++;
-                                  
+                                    if($awardedTender['dueDate'] > date('Y-m-d')){
                                     echo '
                              <tr data-id="'.$awardedTender['id'].'">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
@@ -272,7 +272,7 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 </tr>
                                   ';
                                 }
-                           
+                            }
                                 ?>
                             </tbody>
                         </table>
