@@ -79,7 +79,7 @@ echo '
                                     <option value="SDA" class="text-uppercase">Service Delivery Agreements</option>
                                     <option value="LED" class="text-uppercase">LED</option>
                                     <option value="SDBIP" class="text-uppercase">SDBIP</option>
-                                    <option value="PAF" class="text-uppercase">Perfomance Agreement</option>
+                                    <option value="PA" class="text-uppercase">Perfomance Agreement</option>
                                 </select>
                             </fieldset>    
                         </div>

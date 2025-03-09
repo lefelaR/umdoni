@@ -85,7 +85,7 @@ $options = array(
     "SDA" => "Service Delivery Agreements",
     "LED" => "LED",
     "SDBIP" => "SDBIP",
-    "PAF"  => "PAF",
+    "PA"  => "PA",
 );
 
             foreach ($data as $key => $document) {

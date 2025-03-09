@@ -52,7 +52,7 @@ $crumbs = getCrumbs();
         <div class="tag-header">
             <div class="col">
                 <p class="h1 m-5 fs-1 text-uppercase text-white">
-PAF
+                Performance Agreements 
                 </p>
             </div>
         </div>
@@ -89,7 +89,7 @@ PAF
 
         $annualreports = $data;
         foreach ($annualreports as $key => $report) {
-                if($report['category'] === "PAF"){
+                if($report['category'] === "PA"){
             echo '
                 <div class="col-md-4 my-1">
                     <a href="details?id='.$report['id'].'&category='.$report['category'].'">
