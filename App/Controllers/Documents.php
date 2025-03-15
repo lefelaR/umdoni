@@ -119,7 +119,7 @@ class Documents extends \Core\Controller
         $sdbip = DocumentModel::GET();
         view::render('documents/sdbip.php', $sdbip, 'default');
     }
-    public function pafAction()
+    public function paAction()
     {
         $paf = DocumentModel::GET();
         view::render('documents/paf.php', $paf, 'default');
