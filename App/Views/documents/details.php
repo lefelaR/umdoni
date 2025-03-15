@@ -359,6 +359,64 @@ $crumbs = getCrumbs();
 
                     break;
 
+                    case 'SDBIP':
+
+                        $link = ltrim($data['location'],'.');
+                        echo '
+                                <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                            ' . $data['title'] . '
+                            </p>
+    
+                            <p class="fs-3 my-2 text-yellow">
+                                ' . $data['subtitle'] . '
+                            </p> 
+                        
+                  
+    
+                            <div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . url($link) . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe>
+                        </div>
+                            <p class="my-5 fs-4 lh-lg  ">
+                                ' . $data['body'] . '
+                            </p>';
+    
+                        break;
+
+                        case 'PA':
+
+                            $link = ltrim($data['location'],'.');
+                            echo '
+                                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                                ' . $data['title'] . '
+                                </p>
+        
+                                <p class="fs-3 my-2 text-yellow">
+                                    ' . $data['subtitle'] . '
+                                </p> 
+                            
+                      
+        
+                                <div class=" my-5 mx-auto">
+                                <iframe
+                                src="' . url($link) . '"
+                                width="100%"
+                                height="1000px"
+                                loading="lazy"
+                                title="PDF-file"
+                            ></iframe>
+                            </div>
+                                <p class="my-5 fs-4 lh-lg  ">
+                                    ' . $data['body'] . '
+                                </p>';
+        
+                            break;
+    
                 case 'NL':
                     $link = ltrim($data['location'],'.');
                     echo '
