@@ -66,7 +66,7 @@ class Tenders extends \Core\Controller
         global $context;
         $result = null;
         if (isset($_FILES)) {
-            $destination = UploadToSite::upload($_FILES);
+            $destination = UploadToSite::uploadDoc($_FILES);
         }
         if (isset($_POST)) $data = $_POST;
         $data['status'] = 1;
