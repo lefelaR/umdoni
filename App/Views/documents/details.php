@@ -68,7 +68,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -110,7 +110,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -152,7 +152,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -194,7 +194,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -238,7 +238,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -281,7 +281,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -324,7 +324,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -366,7 +366,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -409,7 +409,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -450,7 +450,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -494,7 +494,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -536,7 +536,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -579,7 +579,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
@@ -621,7 +621,7 @@ $crumbs = getCrumbs();
                     if (isUrlReachable($data['location'])) {
                         echo '<div class=" my-5 mx-auto">
                             <iframe
-                            src="' . $link . '"
+                            src="' . $data['location'] . '"
                             width="100%"
                             height="1000px"
                             loading="lazy"
