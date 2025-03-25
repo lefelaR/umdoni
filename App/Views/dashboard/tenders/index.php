@@ -101,10 +101,12 @@ $crumbs = getCrumbs();
                                     </td>
                                     <td>
                                        
-                                        <a class="btn  btn-sm" href="add?id=' .  $service['id'] . '">
+                                        <a class="btn  btn-sm p-2" href="add?id=' .  $service['id'] . '" style="position: absolute;
+  display: contents;">
                                         <i class="bi bi-pencil"></i>
                                         </a>
-                                        <a class="btn btn-sm" href="delete?id='.  $service['id'] .'"onclick="handleDelete(event, '.$service['id'].')">
+                                        <a class="btn btn-sm p-2" href="delete?id='.  $service['id'] .'"onclick="handleDelete(event, '.$service['id'].')" style="position: absolute;
+  display: contents;">
                                          <i class="bi bi-trash"></i>
                                     </a>
                                     </td>
