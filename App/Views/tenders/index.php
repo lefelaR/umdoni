@@ -9,15 +9,15 @@ $awardedTenders = array();
 
 
 foreach ($data as $tenderkey => $tenderValue) {
-  
+
     switch ($tenderValue['status']) {
         case '1':
-        array_push($currentTenders, $tenderValue);
+            array_push($currentTenders, $tenderValue);
             break;
-        
-            case '2':
-                array_push($openTenders, $tenderValue);
-                break;
+
+        case '2':
+            array_push($openTenders, $tenderValue);
+            break;
         default:
             array_push($awardedTenders, $tenderValue);
             break;
@@ -147,23 +147,42 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 foreach ($currentTenders as $currentTenderkey => $currentTender) {
                                     $currentTenderkey++;
                                     // if($currentTender['dueDate'] > date('Y-m-d')){
-                                    echo'
-                                <tr data-id="'.$currentTender['id'].'">
-                                    <th scope="row">
-                                    <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">
-                                     <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
-                                    </a>
-                                    </th>
-                                    <td>
-                                    <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">' . $currentTender["title"] . '</a>
-                                    </td>
-                                    <td>' . $currentTender['reference'] . '</td>
-                                    <td>'.formatDate($currentTender['createdAt']).'</td>
-                                    <td> ' .formatDate( $currentTender['dueDate']) . '</td>
-                                </tr>
-                                  ';
-                                // }
-                            }
+
+                                    if (isUrlReachable($currentTender['location'])) {
+                                        echo '
+                                        <tr data-id="' . $currentTender['id'] . '">
+                                            <th scope="row">
+                                            <a class="text-secondary fw-bold" href="' . $currentTender['location'] . '" target="_blank">
+                                             <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
+                                            </a>
+                                            </th>
+                                            <td>
+                                            <a class="text-secondary fw-bold" href="' . $currentTender['location'] . '" target="_blank">' . $currentTender["title"] . '</a>
+                                            </td>
+                                            <td>' . $currentTender['reference'] . '</td>
+                                            <td>' . formatDate($currentTender['createdAt']) . '</td>
+                                            <td> ' . formatDate($currentTender['dueDate']) . '</td>
+                                        </tr>';
+                                    } else {
+                                        echo '
+                                        <tr data-id="' . $currentTender['id'] . '">
+                                            <th scope="row">
+                                            <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">
+                                             <i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i>
+                                            </a>
+                                            </th>
+                                            <td>
+                                            <a class="text-secondary fw-bold" href="' . url($currentTender['location']) . '" target="_blank">' . $currentTender["title"] . '</a>
+                                            </td>
+                                            <td>' . $currentTender['reference'] . '</td>
+                                            <td>' . formatDate($currentTender['createdAt']) . '</td>
+                                            <td> ' . formatDate($currentTender['dueDate']) . '</td>
+                                        </tr>
+                                          ';
+                                    }
+
+                                    // }
+                                }
                                 ?>
                             </tbody>
                         </table>
@@ -204,20 +223,35 @@ foreach ($data as $tenderkey => $tenderValue) {
                                 foreach ($openTenders as $openTenderkey => $openTender) {
                                     $openTenderkey++;
                                     // if($openTender['dueDate'] > date('Y-m-d')){
-                                    echo '
-                                <tr data-id="'.$openTender['id'].'">
+                                    if (isUrlReachable($openTender['location'])) {
+                                        echo '
+                                <tr data-id="' . $openTender['id'] . '">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . url($openTender['location']) . '" target="_blank">' . $openTender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $openTender['location'] . '" target="_blank">' . $openTender["title"] . '</a>
                                     </td>
                                     <td>' . $openTender['reference'] . '</td>
-                                    <td>'.formatDate($openTender['createdAt']).'</td>
+                                    <td>' . formatDate($openTender['createdAt']) . '</td>
                                     <td> ' . $openTender['dueDate'] . '</td>
                                 </tr>
                                   ';
-                                // }
-                            }
+                                    } else {
+                                        echo '
+                                            <tr data-id="' . $openTender['id'] . '">
+                                                <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
+                                                </th>
+                                                <td>
+                                                    <a class="text-secondary fw-bold" href="' . url($openTender['location']) . '" target="_blank">' . $openTender["title"] . '</a>
+                                                </td>
+                                                <td>' . $openTender['reference'] . '</td>
+                                                <td>' . formatDate($openTender['createdAt']) . '</td>
+                                                <td> ' . $openTender['dueDate'] . '</td>
+                                            </tr>
+                                              ';
+                                    }
+                                    // }
+                                }
                                 ?>
                             </tbody>
                         </table>
@@ -255,24 +289,40 @@ foreach ($data as $tenderkey => $tenderValue) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($awardedTenders as $awardedTenderKey => $awardedTender) 
-                                {
+                                foreach ($awardedTenders as $awardedTenderKey => $awardedTender) {
                                     $awardedTenderKey++;
+
                                     // if($awardedTender['dueDate'] > date('Y-m-d')){
-                                    echo '
-                             <tr data-id="'.$awardedTender['id'].'">
+                                    if (isUrlReachable($awardedTender['location'])) {
+
+                                        echo '
+                             <tr data-id="' . $awardedTender['id'] . '">
                                     <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
                                     </th>
                                     <td>
-                                        <a class="text-secondary fw-bold" href="' . url($awardedTender['location']) . '" target="_blank">' . $awardedTender["title"] . '</a>
+                                        <a class="text-secondary fw-bold" href="' . $awardedTender['location'] . '" target="_blank">' . $awardedTender["title"] . '</a>
                                     </td>
                                     <td>' . $awardedTender['reference'] . '</td>
-                                    <td>'.formatDate($awardedTender['createdAt']).'</td>
+                                    <td>' . formatDate($awardedTender['createdAt']) . '</td>
                                     <td> ' . $awardedTender['dueDate'] . '</td>
                                 </tr>
                                   ';
-                                // }
-                            }
+                                    } else {
+                                        echo '
+                                            <tr data-id="' . $awardedTender['id'] . '">
+                                                   <th scope="row"><i class="bi bi-cloud-arrow-down-fill fs-5 text-yellow"></i></i>
+                                                   </th>
+                                                   <td>
+                                                       <a class="text-secondary fw-bold" href="' . url($awardedTender['location']) . '" target="_blank">' . $awardedTender["title"] . '</a>
+                                                   </td>
+                                                   <td>' . $awardedTender['reference'] . '</td>
+                                                   <td>' . formatDate($awardedTender['createdAt']) . '</td>
+                                                   <td> ' . $awardedTender['dueDate'] . '</td>
+                                               </tr>
+                                                 ';
+                                    }
+                                    // }
+                                }
                                 ?>
                             </tbody>
                         </table>
