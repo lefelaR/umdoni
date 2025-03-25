@@ -6,7 +6,7 @@ $crumbs = getCrumbs();
 ?>
 
 <style>
-        #service-page {
+    #service-page {
         background-image: linear-gradient(rgba(15, 7, 50, 0.079), rgba(12, 3, 51, 0.084)),
             url('<?php echo url("assets/img/strips/Umdoni-docs-strip.jpg") ?>');
         min-height: 40vh;
@@ -20,6 +20,7 @@ $crumbs = getCrumbs();
         position: absolute;
         font-size: 8em !important;
     }
+
     nav {
         width: 100%;
         position: relative;
@@ -53,392 +54,594 @@ $crumbs = getCrumbs();
             <?php
             switch ($data['category']) {
                 case 'AR':
-                    $link = ltrim($data['location'],'.');
+
                     echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
                         ' . $data['title'] . '
                         </p>
 
                         <p class="fs-3 my-2 text-yellow">
                             ' . $data['subtitle'] . '
-                        </p> 
+                        </p> ';
 
-                        <div class=" my-5 mx-auto">
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
                         <iframe
                         src="' . url($link) . '"
                         width="100%"
                         height="1000px"
                         loading="lazy"
                         title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
-                            ' . $data['body'] . '
-                        </p>';
-
-                break;
-
-                case 'VR':
-
-                    $link = ltrim($data['location'],'.');
-                    echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-                        ' . $data['title'] . '
-                        </p>
-
-                        <p class="fs-3 my-2 text-yellow">
-                            ' . $data['subtitle'] . '
-                        </p> 
-                    
-                        <div class=" my-5 mx-auto">
-                        <iframe
-                        src="' . url($link) . '"
-                        width="100%"
-                        height="1000px"
-                        loading="lazy"
-                        title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
-                            ' . $data['body'] . '
-                        </p>';
-
-               
-                break;
-
-                case 'WP':
-                   
-                    $link = ltrim($data['location'],'.');
-                    echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-                        ' . $data['title'] . '
-                        </p>
-
-                        <p class="fs-3 my-2 text-yellow">
-                            ' . $data['subtitle'] . '
-                        </p> 
-                    
-
-                        <div class=" my-5 mx-auto">
-                        <iframe
-                        src="' . url($link) . '"
-                        width="100%"
-                        height="1000px"
-                        loading="lazy"
-                        title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
-                            ' . $data['body'] . '
-                        </p>';
+                    ></iframe> </div>';
+                    }
 
 
-                break;
-
-                case 'IDP':
-                   
-                    $link = ltrim($data['location'],'.');
-                    echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-                        ' . $data['title'] . '
-                        </p>
-
-                        <p class="fs-3 my-2 text-yellow">
-                            ' . $data['subtitle'] . '
-                        </p> 
-                    
-
-                        <div class=" my-5 mx-auto">
-                        <iframe
-                        src="' . url($link) . '"
-                        width="100%"
-                        height="1000px"
-                        loading="lazy"
-                        title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
-                            ' . $data['body'] . '
-                        </p>';
-
-
-                break;
-
-
-                case 'PB':
-                       
-                    $link = ltrim($data['location'],'.');
-                    echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-                        ' . $data['title'] . '
-                        </p>
-
-                        <p class="fs-3 my-2 text-yellow">
-                            ' . $data['subtitle'] . '
-                        </p> 
-                    
-
-                        <div class=" my-5 mx-auto">
-                        <iframe
-                        src="' . url($link) . '"
-                        width="100%"
-                        height="1000px"
-                        loading="lazy"
-                        title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
-                            ' . $data['body'] . '
-                        </p>';
-
-                break;
-
-                case 'BR':
-
-                    $link = ltrim($data['location'],'.');
-                    echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-                        ' . $data['title'] . '
-                        </p>
-
-                        <p class="fs-3 my-2 text-yellow">
-                            ' . $data['subtitle'] . '
-                        </p> 
-                    
-                
-                        <div class=" my-5 mx-auto">
-                        <iframe
-                        src="' . url($link) . '"
-                        width="100%"
-                        height="1000px"
-                        loading="lazy"
-                        title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
-                            ' . $data['body'] . '
-                        </p>';
-
-
-                break;
-
-                case 'IA':
-                        $link = ltrim($data['location'],'.');
-                    echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-                        ' . $data['title'] . '
-                        </p>
-
-                        <p class="fs-3 my-2 text-yellow">
-                            ' . $data['subtitle'] . '
-                        </p> 
-               
-                        <div class=" my-5 mx-auto">
-                        <iframe
-                        src="' . url($link) . '"
-                        width="100%"
-                        height="1000px"
-                        loading="lazy"
-                        title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
                             ' . $data['body'] . '
                         </p>';
 
                     break;
 
-                case 'CM':
-                    $link = ltrim($data['location'],'.');
+                case 'VR':
+
+
                     echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
                         ' . $data['title'] . '
                         </p>
 
                         <p class="fs-3 my-2 text-yellow">
                             ' . $data['subtitle'] . '
-                        </p> 
-          
-                        <div class=" my-5 mx-auto">
+                        </p> ';
+
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
                         <iframe
                         src="' . url($link) . '"
                         width="100%"
                         height="1000px"
                         loading="lazy"
                         title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
                             ' . $data['body'] . '
                         </p>';
+
+                    break;
+
+                case 'WP':
+
+
+                    echo '
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> ';
+
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+                    break;
+
+                case 'IDP':
+
+
+                    echo '
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> ';
+
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+
+                    break;
+
+
+                case 'PB':
+
+
+                    echo '
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> ';
+
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+
+                    break;
+
+                case 'BR':
+
+
+                    echo '
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> ';
+
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+
+
+                    break;
+
+                case 'IA':
+
+                    echo '
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> ';
+
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+
+                    break;
+
+                case 'CM':
+
+                    echo '
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> ';
+
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
 
                     break;
 
                 case 'SDA':
 
-                    $link = ltrim($data['location'],'.');
+
                     echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
                         ' . $data['title'] . '
                         </p>
 
                         <p class="fs-3 my-2 text-yellow">
                             ' . $data['subtitle'] . '
-                        </p> 
-                    
+                        </p> ';
 
-                        <div class=" my-5 mx-auto">
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
                         <iframe
                         src="' . url($link) . '"
                         width="100%"
                         height="1000px"
                         loading="lazy"
                         title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
                             ' . $data['body'] . '
                         </p>';
 
                     break;
 
                 case 'LED':
-                    $link = ltrim($data['location'],'.');
+
                     echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
                         ' . $data['title'] . '
                         </p>
 
                         <p class="fs-3 my-2 text-yellow">
                             ' . $data['subtitle'] . '
-                        </p> 
-          
+                        </p> ';
 
-                        <div class=" my-5 mx-auto">
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
                         <iframe
                         src="' . url($link) . '"
                         width="100%"
                         height="1000px"
                         loading="lazy"
                         title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
                             ' . $data['body'] . '
                         </p>';
+
 
 
                     break;
 
                 case 'CM':
 
-                    $link = ltrim($data['location'],'.');
+
                     echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
                         ' . $data['title'] . '
                         </p>
 
                         <p class="fs-3 my-2 text-yellow">
                             ' . $data['subtitle'] . '
-                        </p> 
-                    
-              
+                        </p> ';
 
-                        <div class=" my-5 mx-auto">
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
                         <iframe
                         src="' . url($link) . '"
                         width="100%"
                         height="1000px"
                         loading="lazy"
                         title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
                             ' . $data['body'] . '
                         </p>';
 
                     break;
 
-                    case 'SDBIP':
+                case 'SDBIP':
 
-                        $link = ltrim($data['location'],'.');
-                        echo '
-                                <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-                            ' . $data['title'] . '
-                            </p>
-    
-                            <p class="fs-3 my-2 text-yellow">
-                                ' . $data['subtitle'] . '
-                            </p> 
-                        
-                  
-    
-                            <div class=" my-5 mx-auto">
-                            <iframe
-                            src="' . url($link) . '"
-                            width="100%"
-                            height="1000px"
-                            loading="lazy"
-                            title="PDF-file"
-                        ></iframe>
-                        </div>
-                            <p class="my-5 fs-4 lh-lg  ">
-                                ' . $data['body'] . '
-                            </p>';
-    
-                        break;
 
-                        case 'PA':
-
-                            $link = ltrim($data['location'],'.');
-                            echo '
-                                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
-                                ' . $data['title'] . '
-                                </p>
-        
-                                <p class="fs-3 my-2 text-yellow">
-                                    ' . $data['subtitle'] . '
-                                </p> 
-                            
-                      
-        
-                                <div class=" my-5 mx-auto">
-                                <iframe
-                                src="' . url($link) . '"
-                                width="100%"
-                                height="1000px"
-                                loading="lazy"
-                                title="PDF-file"
-                            ></iframe>
-                            </div>
-                                <p class="my-5 fs-4 lh-lg  ">
-                                    ' . $data['body'] . '
-                                </p>';
-        
-                            break;
-    
-                case 'NL':
-                    $link = ltrim($data['location'],'.');
                     echo '
-                            <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
                         ' . $data['title'] . '
                         </p>
 
                         <p class="fs-3 my-2 text-yellow">
                             ' . $data['subtitle'] . '
-                        </p> 
-                    
-              
-                        <div class=" my-5 mx-auto">
+                        </p> ';
+
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
                         <iframe
                         src="' . url($link) . '"
                         width="100%"
                         height="1000px"
                         loading="lazy"
                         title="PDF-file"
-                    ></iframe>
-                    </div>
-                        <p class="my-5 fs-4 lh-lg  ">
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+
+                    break;
+
+                case 'PA':
+
+
+                    echo '
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> ';
+
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
+                            ' . $data['body'] . '
+                        </p>';
+
+
+                    break;
+
+                case 'NL':
+
+                    echo '
+                    <p class="h1 text-uppercase fw-bold mt-5 mb-1 text-secondary ">
+                        ' . $data['title'] . '
+                        </p>
+
+                        <p class="fs-3 my-2 text-yellow">
+                            ' . $data['subtitle'] . '
+                        </p> ';
+
+
+                    if (isUrlReachable($data['location'])) {
+                        echo '<div class=" my-5 mx-auto">
+                            <iframe
+                            src="' . $link . '"
+                            width="100%"
+                            height="1000px"
+                            loading="lazy"
+                            title="PDF-file"
+                        ></iframe> </div>';
+                    } else {
+                        $link = ltrim($data['location'], '.');
+                        echo '<div class=" my-5 mx-auto">
+                        <iframe
+                        src="' . url($link) . '"
+                        width="100%"
+                        height="1000px"
+                        loading="lazy"
+                        title="PDF-file"
+                    ></iframe> </div>';
+                    }
+
+
+                    echo
+                    '<p class="my-5 fs-4 lh-lg  ">
                             ' . $data['body'] . '
                         </p>';
 
