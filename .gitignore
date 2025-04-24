@@ -12,19 +12,11 @@ vendor
 .env.test.local
 .env.production.local
 
-.App/Config.php
-./App/Config.php
-.Config.php
-Config.php
 
-./Components/Context.php
-.components/Context.php
-.Context.php
-Context.php
+App/Config.php
+Components/Context.php
 
 ./public/themes/*
-./public/files/*
-.public/files/*
 public/files/*
 
 npm-debug.log*
