@@ -94,6 +94,10 @@ class Documents extends \Core\Controller
     public function updateAction()
     {
         $data = $_POST;
+        if (isset($_FILES)) {
+            $destination = UploadToSite::uploadDoc($_FILES);
+            $data['location'] = $destination;
+        }
         $data['updatedAt'] = date("Y-m-d H:i:s");
         try {
             $id = DocumentModel::Update($data);
