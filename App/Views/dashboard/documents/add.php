@@ -44,6 +44,25 @@ $subtitle = (isset($data[0]['subtitle'])) ? $data[0]['subtitle'] : '';
 $body = (isset($data[0]['body'])) ? $data[0]['body'] : '';
 $category = (isset($data[0]['category'])) ? $data[0]['category'] : '';
 
+
+$categoryOption = array(
+    "NL" =>"Newsletters",
+    "AR" =>"Annual Reports",
+    "WP" =>"Ward Profiles",
+    "IDP"=>"IDP",
+    "PB" =>"Policies & Bylaws",
+    "BR" =>"Budget & Reporting",
+    "VR" =>"Valuation Roll",
+    "IA" =>"Internal Audit",
+    "CM" =>"Council Minuts",
+    "SDA" =>"Service Delivery Agreements",
+    "LED" =>"LED",
+    "SDBIP" =>"SDBIP",
+    "PA" =>"Perfomance Agreement"
+);
+
+
+
 echo '
 <div class="card">
     <div class="card-header">
@@ -67,19 +86,13 @@ echo '
                         <div class="form-group">
                                 <fieldset class="form-group">
                                 <select class="form-select" id="category" name="category" value="' . $category . '">
-                                    <option value="NL" class="text-uppercase">Newsletters</option>
-                                    <option value="AR" class="text-uppercase">Annual Reports</option>
-                                    <option value="WP" class="text-uppercase">Ward Profiles</option>
-                                    <option value="IDP"class="text-uppercase">IDP</option>
-                                    <option value="PB" class="text-uppercase">Policies & Bylaws</option>
-                                    <option value="BR" class="text-uppercase">Budget & Reporting</option>
-                                    <option value="VR" class="text-uppercase">Valuation Roll</option>
-                                    <option value="IA" class="text-uppercase">Internal Audit</option>
-                                    <option value="CM" class="text-uppercase">Council Minuts</option>
-                                    <option value="SDA" class="text-uppercase">Service Delivery Agreements</option>
-                                    <option value="LED" class="text-uppercase">LED</option>
-                                    <option value="SDBIP" class="text-uppercase">SDBIP</option>
-                                    <option value="PA" class="text-uppercase">Perfomance Agreement</option>
+                                   ';
+
+                                   foreach ($categoryOption as $key => $value) {
+                                        $selected = ($key == $category) ? 'selected' : '';
+                                        echo '<option value="' . $key . '"  ' . $selected . '>' . $value . '</option>';    
+                                   }
+                                   echo '
                                 </select>
                             </fieldset>    
                         </div>

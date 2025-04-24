@@ -58,7 +58,7 @@ class Documents extends \Core\Controller
         $data = getPostData();
         if (isset($data['id'])) {
             $id = $data['id'];
-            $document = DocumentModel::GetById($id, $data);
+            $document = DocumentModel::GetById($id);
         } else
             $document = array();
         view::render('dashboard/documents/add.php', $document, 'dashboard');

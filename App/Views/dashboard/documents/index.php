@@ -99,7 +99,7 @@ $options = array(
                                     <td>' . $options[$document['category']] . '</td>
                                     <td>' .formatDate($document['createdAt']) . '</td>
                                     <td>
-                                        <a class="btn  btn-sm btn-danger disabled" href="#" disabled>
+                                        <a class="btn  btn-sm" href="add?id=' . $document['id'] . '" >
                                         <i class="bi bi-pencil"></i>
                                         </a>
                                         <a class="btn btn-sm" href="delete?id=' .  $document['id'] . '"onclick="handleDelete(event, '.$document['id'].')">
