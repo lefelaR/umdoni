@@ -31,11 +31,11 @@ class DocumentModel extends \Core\Repository
 
 
 
-    public static function GetById($id, $category)
+    public static function GetById($id)
     {
         try {
             $db = static::getDB();
-            $stmt = $db->query("SELECT * FROM documents WHERE id = '$id' AND category = '$category'");
+            $stmt = $db->query("SELECT * FROM documents WHERE id = '$id'");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
         } catch (PDOException $e) {
