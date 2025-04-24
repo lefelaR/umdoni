@@ -15,12 +15,17 @@ vendor
 .App/Config.php
 ./App/Config.php
 .Config.php
+Config.php
 
 ./Components/Context.php
 .components/Context.php
 .Context.php
+Context.php
 
 ./public/themes/*
 ./public/files/*
+.public/files/*
+public/files/*
+
 npm-debug.log*
 yarn-debug.log*
