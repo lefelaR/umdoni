@@ -18,27 +18,68 @@ use App\Models\ProjectsModel;
 use App\Repositories\NoticeRepository;
 use \Core\View;
 use App\Models\CalendarModel;
-
+use DateInterval;
+use DatePeriod;
+use DateTimeImmutable;
 
 class Calendar extends \Core\Controller
 {
 
-    protected function before()
-    {
-    
-    }
+    protected function before() {}
 
     public function indexAction()
     {
-        $aData = [] ;
 
-        $aData['events'] = CalendarModel::getAll();  #FFBF00
-        $aData['meetings'] = Meeting::getAll(); #FF7F50
-        $aData['agendas'] = AgendaModel::Get(); #DE3163
-        $aData['projects'] = ProjectsModel::Get(); #9FE2BF
-        $aData['events'] = EventModel::getAll(); #40E0D0
-        $aData['notices'] = NoticeRepository::getAll(); #DFFF00
-        $aData['news'] = NewsModel::Get(); #CCCCFF
+        $aData = [];
+
+        $dateStart = new DateTimeImmutable(date('Y-m-d', strtotime('now - 2 years')));
+        $dateEnd = new DateTimeImmutable(date('Y-m-d', strtotime('now')));
+
+        if(isset(getPostParams()['dateRange']))
+        {
+            list($rDateStart, $rDateEnd) = explode('-', getPostParams()['dateRange']);
+            if(null == $rDateEnd){
+                $rDateEnd = $rDateStart;
+            }
+
+            if(DateTimeImmutable::createFromFormat('Y-m-d', $rDateStart) && DateTimeImmutable::createFromFormat('Y-m-d', $rDateEnd)){
+                $dateStart = DateTimeImmutable::createFromFormat('Y-m-d', $rDateStart);
+                $dateEnd = DateTimeImmutable::createFromFormat('Y-m-d', $rDateEnd);
+            }
+        }
+
+        $aData['period'] = new DatePeriod(
+            $dateStart,
+            new DateInterval('P1D'),
+            $dateEnd
+        );
+
+    
+        $aData['news'] = NewsModel::GetByDate(
+                  $aData['period'] 
+        ); #CCCCFF
+
+        $aData['events']    = CalendarModel::GetByDate(
+            $aData['period'] 
+        );  #FFBF00
+         $aData['agendas']   = AgendaModel::GetByDate(
+            $aData['period'] 
+         ); #DE3163
+        $aData['meetings']  = Meeting::GetByDate( 
+            $aData['period']
+        ); #FF7F50
+        $aData['projects']  = ProjectsModel::GetByDate(
+            $aData['period']
+        ); #9FE2BF
+        $aData['events']    = EventModel::GetByDate(
+            $aData['period']
+        ); #40E0D0
+        $aData['notices']   = NoticeRepository::GetByDate(
+            $aData['period']
+        ); #DFFF00
+        
+
+        dump($aData);
 
 
         view::render('calendar/index.php', $aData, 'default');
@@ -46,15 +87,14 @@ class Calendar extends \Core\Controller
 
     public function detailsAction()
     {
-         $data = getPostData();
-                 if(isset($data['id'])){
+        $data = getPostData();
+        if (isset($data['id'])) {
             $id = $data['id'];
             $results = CalendarModel::getAll();
             foreach ($results as $key => $result) {
-                if($result["id"] == $id) $calendar = $result;
+                if ($result["id"] == $id) $calendar = $result;
             }
-           
-        }else{
+        } else {
             $calendar = array();
         }
 

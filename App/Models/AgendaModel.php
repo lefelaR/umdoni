@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DatePeriod;
 use PDO;
 
 /**
@@ -40,6 +41,34 @@ class AgendaModel extends \Core\Repository
         }
     }
 
+
+    public static function GetByDate(
+        ?DatePeriod $oDatePeriod = null
+    )
+    {
+
+
+        try {
+            $db = static::getDB();
+            $start = $oDatePeriod->getStartDate()->format('Y-m-d');
+            $end = $oDatePeriod->getEndDate()->format('Y-m-d');
+
+            $sql = 'SELECT * FROM agendas WHERE `isActive` = 1
+                    AND createdAt BETWEEN :dateStart AND :dateEnd 
+                    ORDER BY `createdAt` ASC';
+
+            $stmt = $db->prepare($sql); 
+            $stmt->bindParam(':dateStart', $start);
+            $stmt->bindParam(':dateEnd', $end);                
+            $stmt->execute();
+            
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
     public static function Save($data)
     {
         $db = static::getDB();
