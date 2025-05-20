@@ -184,18 +184,22 @@ foreach ($data as $iKey => $aValue) {
                 $link = ltrim($notice['location'], '.');
                 $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
                 $sIframe = '';
-        
-                if (in_array(strtolower(pathinfo($link)['extension']), $allowed_extensions)) {
+
+               $extension = strtolower(pathinfo($link, PATHINFO_EXTENSION));
+  
+                if (in_array($extension, $allowed_extensions)) {
                     $sIframe = ' <img src="' . url($link) . '" class="img-fluid" style="width: 50%;" alt="' . $notice['title'] . '">
                     ';
-                }else{
-                    $sIframe = '    <iframe
+                } elseif ($extension === 'pdf') {
+    $sIframe = '    <iframe
                     src="' . url($link) . '"
                     width="100%"
                     height="1000px"
                     loading="lazy"
                     title="PDF-file"
                 ></iframe>';
+                }else{
+                $sIframe = '<p>Unsupported file type: ' . htmlspecialchars($extension) . '</p>';
                 }
 
                 echo '
