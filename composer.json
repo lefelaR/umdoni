@@ -21,6 +21,7 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "symfony/var-dumper": "^7.2"
     }
 }

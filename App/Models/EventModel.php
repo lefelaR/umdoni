@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DatePeriod;
 use PDO;
 
 /**
@@ -43,6 +44,28 @@ class EventModel extends \Core\Repository
         }
     }
 
+    public static function GetByDate( 
+        ?DatePeriod $oDatePeriod = null
+        ): array|bool 
+     {
+         try {
+             $db = static::getDB();
+             $start = $oDatePeriod->getStartDate()->format('Y-m-d');
+             $end = $oDatePeriod->getEndDate()->format('Y-m-d');
+
+             $sql = 'SELECT * FROM events WHERE createdAt BETWEEN :dateStart AND :dateEnd ORDER BY createdAt DESC';
+             $stmt = $db->prepare($sql);
+             $stmt->bindParam(':dateStart' , $start);
+             $stmt->bindParam(':dateEnd', $end);
+             $stmt->execute();
+ 
+             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+             return $results;
+ 
+         } catch (PDOException $e) {
+             return $e->getMessage();
+         }
+     }
 
     public static function Save($data)
     {

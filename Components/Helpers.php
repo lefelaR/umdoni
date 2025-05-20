@@ -1,4 +1,8 @@
 <?php
+
+
+use Symfony\Component\VarDumper\VarDumper;
+
 function url($string = '')
 {
     global $context;
@@ -152,20 +156,6 @@ function timeAgo($time): string
     return 'Just now';
 }
 
-function dd($dump)
-{
-    echo "<pre>";
-    var_dump($dump);
-    echo "</pre>";
-    die;
-}
-
-function dump($dump)
-{
-    echo "<pre>";
-    var_dump($dump);
-    echo "</pre>";
-}
 
 function logout()
 {

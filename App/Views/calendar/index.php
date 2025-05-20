@@ -19,7 +19,7 @@ foreach ($data as $iKey => $aValue) {
                 }else{
                     $color = 'events';
                 }
-               
+
                 $days = 1;
                 $date = $event['dueDate'] ? date('Y-m-d', strtotime($event['dueDate'])) :'';
                 $calendar->add_event(txt: $txt, date: $date, days: $days, color: $color, iModalId: $iModalId);
