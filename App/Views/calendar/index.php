@@ -1,9 +1,11 @@
 <?php
 global $context;
-use Components\Calendar;
-$calendar = new Calendar();
-$data = $context->data;
 
+use Components\Calendar;
+
+$data = $context->data;
+$period = $data['period'];
+$calendar = new Calendar($period);
 
 
 foreach ($data as $iKey => $aValue) {
@@ -127,7 +129,6 @@ foreach ($data as $iKey => $aValue) {
                     </div>
                 </div>
                 </div>';
-              
             }
 
             break;
@@ -185,21 +186,21 @@ foreach ($data as $iKey => $aValue) {
                 $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
                 $sIframe = '';
 
-               $extension = strtolower(pathinfo($link, PATHINFO_EXTENSION));
-  
+                $extension = strtolower(pathinfo($link, PATHINFO_EXTENSION));
+
                 if (in_array($extension, $allowed_extensions)) {
                     $sIframe = ' <img src="' . url($link) . '" class="img-fluid" style="width: 50%;" alt="' . $notice['title'] . '">
                     ';
                 } elseif ($extension === 'pdf') {
-    $sIframe = '    <iframe
+                    $sIframe = '    <iframe
                     src="' . url($link) . '"
                     width="100%"
                     height="1000px"
                     loading="lazy"
                     title="PDF-file"
                 ></iframe>';
-                }else{
-                $sIframe = '<p>Unsupported file type: ' . htmlspecialchars($extension) . '</p>';
+                } else {
+                    $sIframe = '<p>Unsupported file type: ' . htmlspecialchars($extension) . '</p>';
                 }
 
                 echo '
@@ -400,7 +401,16 @@ foreach ($data as $iKey => $aValue) {
             </p>
         </div>
     </div>
-    <p>Date: <input type="text" id="datepicker" onclick="datePicker()" value="<?php echo date("Y-m-d") ?>" ></p>
+
+    <form id="datepicker-form" action="index" method="post">
+        <div class="row">
+            <div class="col-md-2">
+                <label class="" for="datepicker"> Date:</label>
+                <input type="date" class="form-control btn btn-md btn-secondary " id="datepicker" onclick="datePicker()" value="<?php echo  $period->getEndDate()->format('Y-m-d'); ?>">
+                <input type="text" id="selectedDate" name="selectedDate" hidden class="form-control btn btn-md btn-secondary hidden" value="">
+            </div>
+        </div>
+    </form>
     <div class="row mt-2">
         <div class=" col-md-12 col-lg-12 col-sm-12">
             <section class="py-5"><?php echo $calendar ?> </section>
@@ -409,5 +419,17 @@ foreach ($data as $iKey => $aValue) {
 </div>';
 
 <script>
-
+    // Get the datepicker input element
+    const datePicker = document.getElementById('datepicker');
+    const form = document.getElementById('datepicker-form');
+    let selectedDateInput = document.getElementById('selectedDate');
+    // Add an event listener for the 'change' event
+    datePicker.addEventListener('change', function(event) {
+        debugger
+        // Get the selected date
+        const selectedDate = event.target.value;
+        selectedDateInput.value = selectedDate;
+        console.log('Selected date:', selectedDate);
+        form.submit();
+    });
 </script>
