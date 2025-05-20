@@ -184,7 +184,7 @@ foreach ($data as $iKey => $aValue) {
                 $link = ltrim($notice['location'], '.');
                 $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp'];
                 $sIframe = '';
-                dump(pathinfo($link)['extension']);
+        
                 if (in_array(strtolower(pathinfo($link)['extension']), $allowed_extensions)) {
                     $sIframe = ' <img src="' . url($link) . '" class="img-fluid" style="width: 50%;" alt="' . $notice['title'] . '">
                     ';
