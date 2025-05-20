@@ -30,22 +30,26 @@ class Calendar extends \Core\Controller
     public function indexAction()
     {
 
-        $aData = [];
+        $aData = []; 
+        $postData = getPostParams();
 
         $dateStart = new DateTimeImmutable(date('Y-m-d', strtotime('now - 2 years')));
         $dateEnd = new DateTimeImmutable(date('Y-m-d', strtotime('now')));
 
-        if(isset(getPostParams()['dateRange']))
+        if(!empty($postData['selectedDate']))
         {
-            list($rDateStart, $rDateEnd) = explode('-', getPostParams()['dateRange']);
+        
+            $rDateStart= getPostParams()['selectedDate'];
+            $rDateEnd = '';
             if(null == $rDateEnd){
                 $rDateEnd = $rDateStart;
             }
-
+         
             if(DateTimeImmutable::createFromFormat('Y-m-d', $rDateStart) && DateTimeImmutable::createFromFormat('Y-m-d', $rDateEnd)){
                 $dateStart = DateTimeImmutable::createFromFormat('Y-m-d', $rDateStart);
                 $dateEnd = DateTimeImmutable::createFromFormat('Y-m-d', $rDateEnd);
             }
+          
         }
 
         $aData['period'] = new DatePeriod(
@@ -54,6 +58,7 @@ class Calendar extends \Core\Controller
             $dateEnd
         );
 
+     
     
         $aData['news'] = NewsModel::GetByDate(
                   $aData['period'] 
@@ -107,6 +112,6 @@ class Calendar extends \Core\Controller
      */
     protected function after()
     {
-        //echo " (after)";
+   
     }
 }
