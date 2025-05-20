@@ -71,17 +71,13 @@ class Calendar extends \Core\Controller
         $aData['projects']  = ProjectsModel::GetByDate(
             $aData['period']
         ); #9FE2BF
-        $aData['events']    = EventModel::GetByDate(
+        $aData['events']   = EventModel::GetByDate(
             $aData['period']
         ); #40E0D0
         $aData['notices']   = NoticeRepository::GetByDate(
             $aData['period']
         ); #DFFF00
         
-
-        dump($aData);
-
-
         view::render('calendar/index.php', $aData, 'default');
     }
 

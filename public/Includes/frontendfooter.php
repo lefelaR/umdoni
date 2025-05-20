@@ -56,13 +56,13 @@
           </p>
         </li>
         <li class="my-3">
-          <a href="<?php echo buildurl("tenders/index") ?>" class="fs-6 fw-lighter text-white">Tenders</a>
+          <a href="<?php echo buildurl("tenders/index") ?>" class="fs-6  text-white">Tenders</a>
         </li>
         <li class="my-3">
-          <a href="<?php echo buildurl("quotations/index") ?>" class="fs-6 fw-lighter text-white">Quotations</a>
+          <a href="<?php echo buildurl("quotations/index") ?>" class="fs-6  text-white">Quotations</a>
         </li>
         <li class="my-3">
-          <a href="<?php echo buildurl("vacancies/index") ?>" class="fs-6 fw-lighter text-white">Vacancies</a>
+          <a href="<?php echo buildurl("vacancies/index") ?>" class="fs-6  text-white">Vacancies</a>
         </li>
       </ul>
     </div>

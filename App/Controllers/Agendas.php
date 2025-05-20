@@ -49,7 +49,7 @@ class Agendas extends \Core\Controller
      */
     protected function after()
     {
-        //echo " (after)";
+        
     }
 
 }
