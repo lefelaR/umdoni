@@ -49,6 +49,7 @@ $crumbs = getCrumbs();
                   <th>Login Time</th>
                   <th>Logout Time</th>
                   <th>Session Duration</th>
+                  <th>trace</th>
                 </tr>
               </thead>
               <tbody>
@@ -66,6 +67,7 @@ $crumbs = getCrumbs();
                           <td>' . $log['last_login'] . '</td>
                           <td>' . $log['logout'] . '</td>
                           <td>' . $log['time_log'] . ' </td>
+                          <td> <a href="activity?id=' . $log['userId'] . '"><i class="bi bi-eye-fill"></i></a> </td>
                         </tr>';
                 }
                 ?>

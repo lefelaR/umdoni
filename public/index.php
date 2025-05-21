@@ -67,6 +67,20 @@ Rollbar::init(
 );
 
 /**
+ * Error handling with Sentry
+ */
+
+\Sentry\init([
+  'dsn' => 'https://eb3c74cd1c591c6ece9c2984821145e5@o4509340293791744.ingest.de.sentry.io/4509340295495760',
+]);
+
+
+try {
+  $this->functionFailsForSure();
+} catch (\Throwable $exception) {
+  \Sentry\captureException($exception);
+}
+/**
  * get helper function
  */
 try {
@@ -75,21 +89,6 @@ try {
 } catch (\Throwable $th) {
     throw $th;
 }
-
-/**
- * 
- * var dumper
- */
-// $cloner = new VarCloner();
-// $fallbackDumper = \in_array(\PHP_SAPI, ['cli', 'phpdbg']) ? new CliDumper() : new HtmlDumper();
-// $dumper = new ServerDumper('tcp://127.0.0.1:9912', $fallbackDumper, [
-//     'cli' => new CliContextProvider(),
-//     'source' => new SourceContextProvider(),
-// ]);
-
-// VarDumper::setHandler(function (mixed $var) use ($cloner, $dumper): ?string {
-//     return $dumper->dump($cloner->cloneVar($var));
-// });
 
 
 /**
