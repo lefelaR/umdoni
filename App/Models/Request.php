@@ -22,7 +22,7 @@ class Request extends \Core\Repository
 
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM requests WHERE `status` = 1');
+            $stmt = $db->query('SELECT * FROM requests WHERE `status` = 1  ORDER BY createdAt DESC');
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $results;
             
