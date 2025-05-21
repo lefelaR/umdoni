@@ -22,8 +22,8 @@ class Covid extends \Core\Controller
 
     public function indexAction()
     {
-        view::render('covid/index.php', 
-        $context =[], 'default');
+      
+        view::render('covid/index.php', [], 'default');
     }
 
     /**
