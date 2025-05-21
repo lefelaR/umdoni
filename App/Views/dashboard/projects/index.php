@@ -73,7 +73,7 @@ $crumbs = getCrumbs();
                                     <td class="text-bold-500">' . $key . '</td>
                                     <td>' . $project['title'] . '</td>
                                     <td>' . $project['subtitle'] . '</td>
-                                    <td>' . $project['body'] . '</td>
+                                    <td>' . strip_tags($project['body']) . '</td>
                                     <td class="text-bold-500">' . formatDate($project['createdAt']) . '</td>
                                     <td>
                                        

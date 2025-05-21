@@ -72,7 +72,7 @@ $crumbs = getCrumbs();
                                 <tr>
                                     <td>' . $event['title'] . '</td>
                                     <td>' . $event['subtitle'] . '</td>
-                                    <td>' . $event['body'] . '</td>
+                                    <td>' . strip_tags($event['body']) . '</td>
                                     <td>' . formatDate($event['createdAt']) . '</td>
                                     <td>
                                     <a class="btn  btn-sm" href="add?id=' .  $event['id'] . '">

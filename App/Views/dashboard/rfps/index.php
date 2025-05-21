@@ -93,7 +93,7 @@ $crumbs = getCrumbs();
                                     <td class="text-bold-500">' . $key . '</td>
                                     <td>' . $service['title'] . '</td>
                                     <td>' . $service['subtitle'] . '</td>
-                                    <td>' . $service['body'] . '</td>
+                                    <td>' . strip_tags($service['body']) . '</td>
                                     <td class="text-bold-500">' . $service['updatedBy'] . '</td>
                                     <td class="text-bold-500">' . formatDate( $service['createdAt']) . '</td>
                                     <td> 
