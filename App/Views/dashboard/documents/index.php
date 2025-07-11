@@ -95,7 +95,7 @@ $options = array(
                                 <tr>
                                     <td>' . $document['title'] . '</td>
                                     <td>' . $document['subtitle'] . '</td>
-                                    <td>' . $document['body'] . '</td>
+                                    <td>' . strip_tags($document['body']) . '</td>
                                     <td>' . $options[$document['category']] . '</td>
                                     <td>' .formatDate($document['createdAt']) . '</td>
                                     <td>

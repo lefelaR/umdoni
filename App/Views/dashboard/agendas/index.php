@@ -59,7 +59,7 @@ $data = $context->data;
                                 <tr>
                                     <td>' . $meeting['title'] . '</td>
                                     <td>' . $meeting['subtitle'] . '</td>
-                                    <td>' . $meeting['body'] . '</td>
+                                    <td>' . strip_tags($meeting['body']) . '</td>
                                     <td>' . formatDate($meeting['createdAt']) . '</td>
                                     <td>
                                     <a class="btn  btn-sm" href="add?id=' .  $meeting['id'] . '">

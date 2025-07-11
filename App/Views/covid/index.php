@@ -93,4 +93,3 @@ $data = $context->data;
     </div>
 </div>
 </div>
-<section
