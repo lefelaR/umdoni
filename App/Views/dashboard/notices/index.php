@@ -66,7 +66,7 @@ $crumbs = getCrumbs();
                                  
                                     <td>' . $notice['title'] . '</td>
                                     <td>' . $notice['subtitle'] . '</td>
-                                    <td> ' . $notice['body'] . '</td>
+                                    <td> ' . strip_tags($notice['body']) . '</td>
                                     <td>' . formatDate( $notice['createdAt']) . '</td>
                                     <td>
                                         <a class="btn  btn-sm" href="add?id=' .  $notice['id'] . '">
