@@ -18,10 +18,17 @@ use \Components\AwsAuthentications;
 class Projects extends \Core\Controller
 {
 
-
+private $bucketName = '';
+private $awsAccessKeyId = '';
+private $awsSecretAccessKey = '';
+private $region = '';
 
     public function __construct()
     {
+        $bucketName =  (new AwsAuthentications())->getBucketName();
+        $awsAccessKeyId =   (new AwsAuthentications())->getAwsAccessKeyId();
+        $awsSecretAccessKey =  (new AwsAuthentications())->getAwsSecretAccessKey();
+        $region =  (new AwsAuthentications())->getRegion(); 
     }
 
     public function indexAction()
@@ -57,10 +64,7 @@ class Projects extends \Core\Controller
         global $context;
 
         if (isset($_FILES)) {
-            $bucketName =  (new AwsAuthentications())->getBucketName();
-            $awsAccessKeyId =   (new AwsAuthentications())->getAwsAccessKeyId();
-            $awsSecretAccessKey =  (new AwsAuthentications())->getAwsSecretAccessKey();
-            $region =  (new AwsAuthentications())->getRegion(); 
+         
             $loc = '';
 
             $s3 = new S3Client([
@@ -174,5 +178,6 @@ class Projects extends \Core\Controller
 
     protected function after()
     {
+    //    handle_session();
     }
 }

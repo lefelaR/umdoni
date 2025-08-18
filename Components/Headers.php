@@ -3,8 +3,9 @@ namespace Components;
 
 
 class Headers{
-        public function __construct(){
-        }
+
+    public function __construct(){}
+
         public function  get()
         {
                 $headers = [

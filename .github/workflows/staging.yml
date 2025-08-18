@@ -1,23 +1,23 @@
 # on: push
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-name: ftp deployment
-jobs:
-  web-deploy:
-    name: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get latest code
-        uses: actions/checkout@v2
+# on:
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
+# name: ftp deployment
+# jobs:
+#   web-deploy:
+#     name: deploy
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Get latest code
+#         uses: actions/checkout@v2
 
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: 154.0.170.230
-          username: umdonigov
-          password: 29019WtP98zj23
-          server-dir: /public_html/
-          log-level: verbose
+#       - name: Sync files
+#         uses: SamKirkland/FTP-Deploy-Action@4.3.0
+#         with:
+#           server: 154.0.170.230
+#           username: umdonigov
+#           password: 29019WtP98zj23
+#           server-dir: /public_html/
+#           log-level: verbose

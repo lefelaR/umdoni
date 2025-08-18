@@ -2,8 +2,8 @@
 global $context;
 $data = $context->data;
 // array_column
-?>
 
+?>
 <style>
     #service-page {
         background-image: linear-gradient(rgba(15, 7, 50, 0.079), rgba(12, 3, 51, 0.084)),
@@ -81,9 +81,11 @@ $data = $context->data;
 
                                 foreach ($data as $key => $vacancy) {
                                     $key++;
+                                 
+                                  
                                     $link = ltrim($vacancy['location'],'.');
                                    
-                                    if($vacancy['duedate'] > date('Y-m-d')){
+                                  
                                     echo '
                                             <div class="col-md-4 col-lg-4 col-sm-12">
                                                 <a href="' . buildurl('vacancies/details?id=' . $vacancy['id']) . '">
@@ -110,7 +112,7 @@ $data = $context->data;
                                             </div>
                           
                                   ';
-                                }
+                                
                             }
                                 ?>
 

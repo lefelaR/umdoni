@@ -49,7 +49,7 @@
       <ul class="list-unstyled text-small pt-3">
 
         <li>
-          <p class="fs-6 fw-lighter">
+          <p class="fs-6">
             <a href="<?php echo buildurl('documents/index') ?>" alt="COVID-19" class="btn btn-secondary">
               Documents
             </a>

@@ -20,6 +20,13 @@ class Logs extends \Core\Controller
 
         view::render('dashboard/logs/index.php', $logs, 'dashboard');
     }
+
+    public function activityAction()
+    {   
+        $logs = LogsModel::Get();
+
+        view::render('dashboard/logs/activity.php', $logs, 'dashboard');
+    }
   
     protected function before()
     {

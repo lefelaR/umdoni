@@ -31,7 +31,8 @@ include_once '../Components/Helpers.php';
   <link rel="canonical" href="https://www.umdoni.co.za/index/index">
   <link rel="stylesheet" href="<?php echo url('themes/mazor/assets/vendors/simple-datatables/style.css') ?>">
   <link rel="stylesheet" href="<?php echo url('assets/css/calendar-styles.css') ?>">
-  
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="<?php echo url('assets/js/jquery-ui-1.14.1/jquery-ui.min.css') ?>">
   <!-- Bootstrap core CSS -->
   <link href="<?php echo url('assets/css/bootstrap/css/bootstrap.css'); ?>" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo url("themes/mazor/assets/vendors/bootstrap-icons/bootstrap-icons.css") ?>">
@@ -40,8 +41,12 @@ include_once '../Components/Helpers.php';
   <link href="<?php echo url('assets/css/site.css'); ?>" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
- 
 
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+  <script src="<?php echo url('assets/js/jquery-ui-1.14.1/jquery.js') ?>"></script>
 </head>
 
 <body>
