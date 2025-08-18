@@ -73,7 +73,7 @@ echo '
                                  
                                     <td>' . $news['title'] . '</td>
                                     <td>' . $news['subtitle'] . '</td>
-                                    <td> ' . $news['body'] . '</td>
+                                    <td> ' . strip_tags( $news['body']) . '</td>
                                     <td>' . formatDate($news['createdAt']) . '</td>
                                     <td>
                                         <a class="btn  btn-sm" href="add?id=' .  $news['id'] . '">

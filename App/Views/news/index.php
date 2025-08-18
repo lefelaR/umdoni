@@ -34,6 +34,10 @@ $data = $context->data;
         color: #000;
     }
 
+    .mh-132{
+        max-height: 132px;
+        overflow: hidden;
+    }
     nav ul li a {
         color: #000;
     }
@@ -94,9 +98,9 @@ width: 100%;
         foreach ($data as $key => $value) {
 
         echo '
-        <div class=" col-md-4 col-lg-4 col-sm-12">
+        <div class=" col-md-4 col-lg-4 col-sm-12 ">
         <a href="'.buildurl("news/details?id=".$value['id']).'">
-            <div class="card mb-3 card-hover" style="max-width: 540px;">
+            <div class="card mb-3 card-hover mh-132" style="max-width: 540px;" >
                 <div class="row g-0">
                     <div class="col-md-4">
                     <img src="'.$value["location"].'" class="img-fluid rounded-start" style="object-fit: cover ;
