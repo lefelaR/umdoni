@@ -10,6 +10,7 @@
  */
 
 use Components\Context;
+use Components\Routes;
 
 use Dotenv\Dotenv;
 
@@ -84,21 +85,9 @@ try {
  */
 $router = new Core\Router();
 
-// API Routes (must be added before regular routes)
-$router->add('api/v1/health', ['api' => 'api', 'version' => 'v1', 'controller' => 'Health', 'action' => 'index']);
-$router->add('api/v1/{controller}', ['api' => 'api', 'version' => 'v1', 'action' => 'index']);
-$router->add('api/v1/{controller}/{id:\d+}', ['api' => 'api', 'version' => 'v1', 'action' => 'show']);
-$router->add('api/v1/{controller}/create', ['api' => 'api', 'version' => 'v1', 'action' => 'create']);
-$router->add('api/v1/{controller}/{id:\d+}/update', ['api' => 'api', 'version' => 'v1', 'action' => 'update']);
-$router->add('api/v1/{controller}/{id:\d+}/delete', ['api' => 'api', 'version' => 'v1', 'action' => 'delete']);
-
-// Regular routes
-$router->add('', ['controller' => 'Index', 'action' => 'index']);
-$router->add('{controller}/{action}');
-$router->add('{controller}/{id:\d+}/{action}');
-$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
-$router->add('dashboard/{controller}/{action}', ['namespace' => 'Dashboard']);
-$router->add('dashboard/{controller}/{action}/{id:\d+}', ['namespace' => 'Dashboard']);
+// Load all routes
+$routes = new Routes($router);
+$routes->load();
 
 $url = $_SERVER['QUERY_STRING'];
 global $context;

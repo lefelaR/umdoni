@@ -26,6 +26,15 @@ http://localhost:8080/api/v1
 - **GET** `/api/v1/events` - Get all events
 - **GET** `/api/v1/events/{id}` - Get a single event
 
+### Councillors
+- **GET** `/api/v1/councillors` - Get all councillors
+- **GET** `/api/v1/councillors/{id}` - Get a single councillor
+- **GET** `/api/v1/councillors/exco` - Get all EXCO members
+- **GET** `/api/v1/councillors/seniors` - Get all senior managers
+- **POST** `/api/v1/councillors/create` - Create a new councillor
+- **PUT** `/api/v1/councillors/{id}/update` - Update a councillor
+- **DELETE** `/api/v1/councillors/{id}/delete` - Delete a councillor (soft delete)
+
 ## Request/Response Format
 
 All requests and responses use JSON format.
@@ -101,4 +110,59 @@ curl -X PUT http://localhost:8080/api/v1/news/1/update \
 ### Delete news item
 ```bash
 curl -X DELETE http://localhost:8080/api/v1/news/1/delete
+```
+
+### Get all councillors
+```bash
+curl http://localhost:8080/api/v1/councillors
+```
+
+### Get single councillor
+```bash
+curl http://localhost:8080/api/v1/councillors/1
+```
+
+### Get EXCO members
+```bash
+curl http://localhost:8080/api/v1/councillors/exco
+```
+
+### Get senior managers
+```bash
+curl http://localhost:8080/api/v1/councillors/seniors
+```
+
+### Create councillor
+```bash
+curl -X POST http://localhost:8080/api/v1/councillors/create \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John",
+    "surname": "Doe",
+    "title": "Councillor",
+    "category": "WARD",
+    "email": "john.doe@example.com",
+    "telephone": "0123456789",
+    "ward": "1"
+  }'
+```
+
+### Update councillor
+```bash
+curl -X PUT http://localhost:8080/api/v1/councillors/1/update \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Jane",
+    "surname": "Doe",
+    "title": "Councillor",
+    "category": "WARD",
+    "email": "jane.doe@example.com",
+    "telephone": "0123456789",
+    "ward": "1"
+  }'
+```
+
+### Delete councillor
+```bash
+curl -X DELETE http://localhost:8080/api/v1/councillors/1/delete
 ```
