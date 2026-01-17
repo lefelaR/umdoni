@@ -83,7 +83,16 @@ try {
  * Routing
  */
 $router = new Core\Router();
-// Add the routes
+
+// API Routes (must be added before regular routes)
+$router->add('api/v1/health', ['api' => 'api', 'version' => 'v1', 'controller' => 'Health', 'action' => 'index']);
+$router->add('api/v1/{controller}', ['api' => 'api', 'version' => 'v1', 'action' => 'index']);
+$router->add('api/v1/{controller}/{id:\d+}', ['api' => 'api', 'version' => 'v1', 'action' => 'show']);
+$router->add('api/v1/{controller}/create', ['api' => 'api', 'version' => 'v1', 'action' => 'create']);
+$router->add('api/v1/{controller}/{id:\d+}/update', ['api' => 'api', 'version' => 'v1', 'action' => 'update']);
+$router->add('api/v1/{controller}/{id:\d+}/delete', ['api' => 'api', 'version' => 'v1', 'action' => 'delete']);
+
+// Regular routes
 $router->add('', ['controller' => 'Index', 'action' => 'index']);
 $router->add('{controller}/{action}');
 $router->add('{controller}/{id:\d+}/{action}');
