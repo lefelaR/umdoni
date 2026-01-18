@@ -226,6 +226,12 @@ class Router
      */
     protected function getNamespace()
     {
+        // Check if this is an API route
+        if (array_key_exists('api', $this->params) && $this->params['api'] === 'api') {
+            $version = $this->params['version'] ?? 'v1';
+            return 'Api\\' . $version . '\\';
+        }
+        
         $namespace = 'App\Controllers\\';
         if (array_key_exists('namespace', $this->params)) 
         {

@@ -11,9 +11,26 @@ services:
     ports:
       - "8080:80"
       - "443:443"
+      - "3306:3306"  # Expose MySQL port for phpMyAdmin
     env_file:
       - .env  # Ensure this file exists and contains required variables
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html
     extra_hosts:
       - "umdoni:120.0.0.1"  # Ensure "umdoni" is a literal hostname, not a variable
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: umdoni_phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_HOST=app
+      - PMA_PORT=3306
+      - PMA_USER=umdonigov_admin
+      - PMA_PASSWORD=29019WtP98zj23
+      - MYSQL_ROOT_PASSWORD=29019WtP98zj23
+    depends_on:
+      - app
+    networks:
+      - default

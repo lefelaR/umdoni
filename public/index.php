@@ -10,6 +10,7 @@
  */
 
 use Components\Context;
+use Components\Routes;
 
 use Dotenv\Dotenv;
 
@@ -83,13 +84,10 @@ try {
  * Routing
  */
 $router = new Core\Router();
-// Add the routes
-$router->add('', ['controller' => 'Index', 'action' => 'index']);
-$router->add('{controller}/{action}');
-$router->add('{controller}/{id:\d+}/{action}');
-$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
-$router->add('dashboard/{controller}/{action}', ['namespace' => 'Dashboard']);
-$router->add('dashboard/{controller}/{action}/{id:\d+}', ['namespace' => 'Dashboard']);
+
+// Load all routes
+$routes = new Routes($router);
+$routes->load();
 
 $url = $_SERVER['QUERY_STRING'];
 global $context;
